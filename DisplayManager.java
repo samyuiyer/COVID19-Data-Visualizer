@@ -38,7 +38,9 @@ public class DisplayManager extends Application {
 
 		VBox leftPanel = new VBox();
 		leftPanel.setStyle("-fx-background-color: grey;");
-		Button dpMode = new Button("Display Mode");
+		String[] dispModes = {"Table Mode", "Map Mode", "Graph Mode"};
+		ComboBox<String> dpMode = new ComboBox<String>(FXCollections.observableArrayList(dispModes));
+		dpMode.setPromptText("Select Display Mode");
 		Button timeRange = new Button("Time Range");
 		Button loc = new Button("Locations");
 		leftPanel.getChildren().add(dpMode);
