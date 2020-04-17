@@ -11,7 +11,7 @@ package ateam_final_project;
  * @param <K> The key must not be null and must be Comparable.
  * @param <V> The data value associated with a given key.
  */
-public interface DataStructureADT<K extends Comparable<K>, V> {
+public interface DataStructureADT<K, V> {
 
   // Add the key,value pair to the data structure and increase the number of keys.
   // If key is null, throw IllegalNullKeyException;
