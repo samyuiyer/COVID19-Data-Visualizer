@@ -37,6 +37,7 @@ public class DisplayManager extends Application {
 		BorderPane root = new BorderPane();
 
 		VBox leftPanel = new VBox();
+		leftPanel.setStyle("-fx-background-color: grey;");
 		Button dpMode = new Button("Display Mode");
 		Button timeRange = new Button("Time Range");
 		Button loc = new Button("Locations");
@@ -48,7 +49,6 @@ public class DisplayManager extends Application {
 		leftPanel.getChildren().add(cp);
 
 		root.setLeft(leftPanel);
-		
 		Scene mainScene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
 
 		// Add the stuff and set the primary stage
