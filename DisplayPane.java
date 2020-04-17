@@ -1,5 +1,10 @@
 package ateam_final_project;
 
-public interface DisplayPane {
+public abstract class DisplayPane {
+  
+  public String title;
+  public SettingsPane settings;
+  
+  abstract void reset();
 
 }
