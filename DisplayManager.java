@@ -18,63 +18,55 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class DisplayManager extends Application {
-  
-  private DisplayMode[] displayModes;
-  private SettingsPane globalSettings;
-  
-  private List<String> args;
 
-  private static final int WINDOW_WIDTH = 300;
-  private static final int WINDOW_HEIGHT = 200;
-  private static final String APP_TITLE = "Hello World!";
-  
-  @Override
-  public void start(Stage primaryStage) throws Exception {
-      // save args example
-      args = this.getParameters().getRaw();
-          
-      // Create a vertical box with Hello labels for each args
-          VBox vbox = new VBox();
-          for (String arg : args) {
-              vbox.getChildren().add(new Label("hello "+arg));
-          }
+	private DisplayMode[] displayModes;
+	private SettingsPane globalSettings;
 
-      // Main layout is Border Pane example (top,left,center,right,bottom)
-          BorderPane root = new BorderPane();
-          
-          HBox hbBt = new HBox();
-          Button dpMode = new Button("Display Mode");
-          Button timeRange = new Button("Time Range");
-          Button loc = new Button("Locations");
-          hbBt.getChildren().add(dpMode);
-          hbBt.getChildren().add(timeRange);
-          hbBt.getChildren().add(loc);
-          ColorPicker cp = new ColorPicker();
+	private List<String> args;
 
-      // Add the vertical box to the center of the root pane
-          root.setCenter(vbox);
-          
-      root.setLeft(hbBt);
-      root.setRight(cp);
-      Scene mainScene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
+	private static final int WINDOW_WIDTH = 800;
+	private static final int WINDOW_HEIGHT = 600;
+	private static final String APP_TITLE = "hey its corona";
 
-      // Add the stuff and set the primary stage
-          primaryStage.setTitle(APP_TITLE);
-          primaryStage.setScene(mainScene);
-          primaryStage.show();
-  }
+	@Override
+	public void start(Stage primaryStage) throws Exception {
 
-  
-  public void displaySetting(SettingsPane setting) {
-    
-  }
-  
-  public void displayPane(DisplayMode display) {
-    
-  }
+		args = this.getParameters().getRaw();
 
-  public static void main(String[] args) {
-    launch(args);
-  }
+		// Main layout is Border Pane example (top,left,center,right,bottom)
+		BorderPane root = new BorderPane();
+
+		VBox leftPanel = new VBox();
+		Button dpMode = new Button("Display Mode");
+		Button timeRange = new Button("Time Range");
+		Button loc = new Button("Locations");
+		leftPanel.getChildren().add(dpMode);
+		leftPanel.getChildren().add(timeRange);
+		leftPanel.getChildren().add(loc);
+		
+		ColorPicker cp = new ColorPicker();
+		leftPanel.getChildren().add(cp);
+
+		root.setLeft(leftPanel);
+		
+		Scene mainScene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
+
+		// Add the stuff and set the primary stage
+		primaryStage.setTitle(APP_TITLE);
+		primaryStage.setScene(mainScene);
+		primaryStage.show();
+	}
+
+	public void displaySetting(SettingsPane setting) {
+
+	}
+
+	public void displayPane(DisplayMode display) {
+
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
 
 }
