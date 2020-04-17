@@ -37,11 +37,14 @@ public class DisplayManager extends Application {
 		BorderPane root = new BorderPane();
 
 		VBox leftPanel = new VBox();
+		
 		Button dpMode = new Button("Display Mode");
-		Button timeRange = new Button("Time Range");
-		Button loc = new Button("Locations");
 		leftPanel.getChildren().add(dpMode);
+		
+		Button timeRange = new Button("Time Range");
 		leftPanel.getChildren().add(timeRange);
+		
+		Button loc = new Button("Locations");
 		leftPanel.getChildren().add(loc);
 		
 		ColorPicker cp = new ColorPicker();
