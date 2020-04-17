@@ -38,19 +38,24 @@ public class DisplayManager extends Application {
 
 		VBox leftPanel = new VBox();
 		leftPanel.setStyle("-fx-background-color: grey;");
+		
 		String[] dispModes = {"Table Mode", "Map Mode", "Graph Mode"};
+		
 		ComboBox<String> dpMode = new ComboBox<String>(FXCollections.observableArrayList(dispModes));
 		dpMode.setPromptText("Select Display Mode");
-		Button timeRange = new Button("Time Range");
-		Button loc = new Button("Locations");
 		leftPanel.getChildren().add(dpMode);
-		leftPanel.getChildren().add(timeRange);
+		
+		Button time = new Button("Time Range");
+		leftPanel.getChildren().add(time);
+		
+		Button loc = new Button("Locations");
 		leftPanel.getChildren().add(loc);
 		
 		ColorPicker cp = new ColorPicker();
 		leftPanel.getChildren().add(cp);
 
 		root.setLeft(leftPanel);
+		
 		Scene mainScene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
 
 		// Add the stuff and set the primary stage
