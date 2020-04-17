@@ -6,7 +6,7 @@ public abstract class DisplayPane {
   
   public String title;
   
-  private Pane diplayPane;
+  private Pane centerDiplayPane;
   private Pane settingsPane;
   abstract void reset();
 
