@@ -3,6 +3,8 @@ package ateam_final_project;
 import java.util.List;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -38,14 +40,35 @@ public class DisplayManager extends Application {
 
 		VBox leftPanel = new VBox();
 		
+		//Display Mode Button
 		Button dpMode = new Button("Display Mode");
 		leftPanel.getChildren().add(dpMode);
+		EventHandler<ActionEvent> displayModeListener = new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {
+				System.out.println("DisplayMode Button was pressed!");
+			}
+		};
+		dpMode.setOnAction(displayModeListener);
 		
+		//Time Range Button
 		Button timeRange = new Button("Time Range");
 		leftPanel.getChildren().add(timeRange);
+		EventHandler<ActionEvent> timeListener = new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {
+				System.out.println("TimeRange Button was pressed!");
+			}
+		};
+		timeRange.setOnAction(timeListener);
 		
+		//Location Button
 		Button loc = new Button("Locations");
 		leftPanel.getChildren().add(loc);
+		EventHandler<ActionEvent> locListener = new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {
+				System.out.println("Locations Button was pressed!");
+			}
+		};
+		loc.setOnAction(locListener);
 		
 		ColorPicker cp = new ColorPicker();
 		leftPanel.getChildren().add(cp);
