@@ -38,6 +38,6 @@ Thumbs.db
 
 # Ignore Eclipse Files #
 ########################
-.settings
-.classpath
-.project
+#.settings
+#.classpath
+#.project
