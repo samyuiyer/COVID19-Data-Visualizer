@@ -1,4 +1,4 @@
-package ateam_final_project;
+package application;
 
 /**
  * A data structure that can store at as many key,value pairs as needed.

@@ -11,7 +11,7 @@
  * Files:		DataPoint.java
  *
  */
-package ateam_final_project;
+package application;
 
 /**
  * @author ankurgarg

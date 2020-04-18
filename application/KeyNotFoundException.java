@@ -1,4 +1,4 @@
-package ateam_final_project;
+package application;
 
 /**
  * Checked exception thrown when a non existent key is specified for get or remove.

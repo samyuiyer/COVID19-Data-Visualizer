@@ -1,4 +1,4 @@
-package ateam_final_project;
+package application;
 
 import javafx.scene.layout.Pane;
 
