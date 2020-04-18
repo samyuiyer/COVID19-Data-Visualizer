@@ -34,18 +34,6 @@ public abstract class Trie<K, S> implements DataStructureADT<K, DataPoint> {
     root = new Node(null);
   }
 
-  
-
-  /**
-   * @param i
-   * @param root2
-   * @param key
-   * @param string
-   * @param value
-   */
-  protected abstract void insert(int i, Trie<K, S>.Node root2, K key, String string,
-      DataPoint value);
-
   public void print() {
     print(root, 0);
   }

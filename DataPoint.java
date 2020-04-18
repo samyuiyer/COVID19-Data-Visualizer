@@ -23,30 +23,35 @@ public class DataPoint {
    */
   
   public String key;
-  public int testNum;
+  public String[] dataArray;
+  public static String[] labels;
   
-  public DataPoint(String key,int testNum) {
+  public DataPoint(String key,String[] testNum) {
     this.key = key;
-    this.testNum=testNum;
+    this.dataArray=testNum;
    }
   public DataPoint(DataPoint data) {
    this.key = data.key;
-   this.testNum=data.testNum;
+   this.dataArray=data.dataArray;
   }
-  public DataPoint(int testNum) {
+  public DataPoint(String[] testNum) {
     this.key = "";
-    this.testNum=testNum;
+    this.dataArray=testNum;
    }
   public DataPoint(String key, DataPoint data) {
     this.key = key;
-    this.testNum=data.testNum;
+    this.dataArray=data.dataArray;
    }
   public void increment(DataPoint data) {
-    testNum+=data.testNum;
+    //not yet
   }
   @Override
   public String toString() {
-    return key + ": " + testNum;
+    String rtn = key +": ";
+    for(int i =0; i<labels.length;i++) {
+      rtn+= labels[i] + ":" + dataArray[i]+" ";
+    }
+    return rtn;
   }
     
 }
