@@ -7,7 +7,7 @@
  * Files: Trie.java
  *
  */
-package ateam_final_project;
+package application;
 
 import java.util.HashMap;
 

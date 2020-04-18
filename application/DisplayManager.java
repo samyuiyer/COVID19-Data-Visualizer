@@ -1,4 +1,4 @@
-package ateam_final_project;
+package application;
 
 import java.util.List;
 import javafx.application.Application;

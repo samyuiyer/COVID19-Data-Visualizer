@@ -1,4 +1,4 @@
-package ateam_final_project;
+package application;
 
 public class Graph extends DisplayMode {
 
