@@ -16,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -31,7 +32,7 @@ public class DisplayManager extends Application {
   private static final int WINDOW_WIDTH = 800;
   private static final int WINDOW_HEIGHT = 600;
   private static final String APP_TITLE = "hey its corona";
-  
+
   Boolean visible = true;
 
   @Override
@@ -50,9 +51,9 @@ public class DisplayManager extends Application {
 
     // Slider
     Label sliderLabel = new Label("Choose Time Range:");
-    Slider sliderStart = new Slider(0, 100, 10);
-    Slider sliderEnd = new Slider(0, 100, 90);
-    
+    Slider sliderStart = new Slider(0, 99, 10);
+    Slider sliderEnd = new Slider(1, 100, 90);
+
     sliderStart.setShowTickLabels(true);
     sliderStart.setShowTickMarks(true);
     sliderStart.setBlockIncrement(10);
@@ -61,9 +62,37 @@ public class DisplayManager extends Application {
     sliderEnd.setShowTickMarks(true);
     sliderEnd.setBlockIncrement(10);
     sliderEnd.setSnapToTicks(true);
-    
-    sliderStart.maxProperty().bind(sliderEnd.valueProperty());
-    sliderEnd.minProperty().bind(sliderStart.valueProperty());
+
+
+    final EventHandler<Event> sliderMatchStart = new EventHandler<Event>() {
+      @Override
+      public void handle(final Event event) {
+        if (sliderStart.getValue() > sliderEnd.getValue()) {
+          sliderEnd.setValue(sliderStart.getValue() + 1);
+        } else if (sliderEnd.getValue() < sliderStart.getValue()) {
+          sliderEnd.setValue(sliderStart.getValue() + 1);
+        }
+      }
+    };
+
+    final EventHandler<Event> sliderMatchEnd = new EventHandler<Event>() {
+      @Override
+      public void handle(final Event event) {
+        if (sliderStart.getValue() > sliderEnd.getValue()) {
+          sliderStart.setValue(sliderEnd.getValue() - 1);
+        } else if (sliderEnd.getValue() < sliderStart.getValue()) {
+          sliderStart.setValue(sliderEnd.getValue() - 1);
+        }
+      }
+    };
+
+    sliderStart.addEventHandler(MouseEvent.MOUSE_CLICKED, sliderMatchStart);
+    sliderStart.addEventHandler(MouseEvent.MOUSE_DRAGGED, sliderMatchStart);
+    sliderEnd.addEventHandler(MouseEvent.MOUSE_DRAGGED, sliderMatchEnd);
+    sliderEnd.addEventHandler(MouseEvent.MOUSE_CLICKED, sliderMatchEnd);
+
+    // sliderStart.maxProperty().bind(sliderEnd.valueProperty().add(-1));
+    // sliderEnd.minProperty().bind(sliderStart.valueProperty().add(1));
 
     sliderLabel.managedProperty().bind(sliderEnd.visibleProperty());
     sliderStart.managedProperty().bind(sliderStart.visibleProperty());
