@@ -6,7 +6,6 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,8 +13,8 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -37,6 +36,18 @@ public class DisplayManager extends Application {
 
     args = this.getParameters().getRaw();
 
+    Pane globalSettings = createGlobalSettingsPane();
+
+    // Set Scene
+    Scene mainScene = new Scene(globalSettings, WINDOW_WIDTH, WINDOW_HEIGHT);
+
+    // Add the stuff and set the primary stage
+    primaryStage.setTitle(APP_TITLE);
+    primaryStage.setScene(mainScene);
+    primaryStage.show();
+  }
+
+  private Pane createGlobalSettingsPane() {
     VBox leftPanel = new VBox();
     leftPanel.setStyle("-fx-background-color: grey;");
 
@@ -131,13 +142,7 @@ public class DisplayManager extends Application {
     // add to pane
     root.setLeft(leftPanel);
 
-    // Set Scene
-    Scene mainScene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
-
-    // Add the stuff and set the primary stage
-    primaryStage.setTitle(APP_TITLE);
-    primaryStage.setScene(mainScene);
-    primaryStage.show();
+    return root;
   }
 
   public void displaySetting(SettingsPane setting) {
