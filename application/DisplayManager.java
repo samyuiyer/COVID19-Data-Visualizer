@@ -56,9 +56,14 @@ public class DisplayManager extends Application {
     sliderStart.setShowTickLabels(true);
     sliderStart.setShowTickMarks(true);
     sliderStart.setBlockIncrement(10);
+    sliderStart.setSnapToTicks(true);
     sliderEnd.setShowTickLabels(true);
     sliderEnd.setShowTickMarks(true);
     sliderEnd.setBlockIncrement(10);
+    sliderEnd.setSnapToTicks(true);
+    
+    sliderStart.maxProperty().bind(sliderEnd.valueProperty());
+    sliderEnd.minProperty().bind(sliderStart.valueProperty());
 
     sliderLabel.managedProperty().bind(sliderEnd.visibleProperty());
     sliderStart.managedProperty().bind(sliderStart.visibleProperty());
