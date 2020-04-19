@@ -33,9 +33,6 @@ public class DisplayManager extends Application {
 
 		args = this.getParameters().getRaw();
 
-		// Main layout is Border Pane example (top,left,center,right,bottom)
-		BorderPane root = new BorderPane();
-
 		VBox leftPanel = new VBox();
 		leftPanel.setStyle("-fx-background-color: grey;");
 		
@@ -53,9 +50,13 @@ public class DisplayManager extends Application {
 		
 		ColorPicker cp = new ColorPicker();
 		leftPanel.getChildren().add(cp);
-
+		
+		// Main layout is Border Pane (top,left,center,right,bottom)
+        BorderPane root = new BorderPane();
+        // add to pane
 		root.setLeft(leftPanel);
 		
+		// Set Scene
 		Scene mainScene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
 
 		// Add the stuff and set the primary stage
