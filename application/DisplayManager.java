@@ -102,9 +102,10 @@ public class DisplayManager extends Application {
     sliderStart.valueProperty().addListener(startListener);
     sliderEnd.valueProperty().addListener(endListener);
 
-    sliderLabel.managedProperty().bind(sliderEnd.visibleProperty());
+    sliderLabel.managedProperty().bind(sliderLabel.visibleProperty());
     sliderStart.managedProperty().bind(sliderStart.visibleProperty());
     sliderEnd.managedProperty().bind(sliderEnd.visibleProperty());
+    range.managedProperty().bind(range.visibleProperty());
 
     sliderStart.setVisible(visible);
     sliderEnd.setVisible(visible);
