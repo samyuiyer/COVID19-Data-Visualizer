@@ -2,6 +2,8 @@ package application;
 
 import java.util.List;
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -48,6 +50,8 @@ public class DisplayManager extends Application {
     Label sliderLabel = new Label("Choose Time Range:");
     Slider sliderStart = new Slider(0, 99, 10);
     Slider sliderEnd = new Slider(1, 100, 90);
+    Label range = new Label(
+        "Time Range: " + (int) sliderStart.getValue() + " to " + (int) sliderEnd.getValue());
 
     sliderStart.setShowTickLabels(true);
     sliderStart.setShowTickMarks(true);
@@ -58,38 +62,39 @@ public class DisplayManager extends Application {
     sliderEnd.setBlockIncrement(10);
     sliderEnd.setSnapToTicks(true);
 
-
-    final EventHandler<Event> sliderMatchStart = new EventHandler<Event>() {
+    final ChangeListener<Number> startListener = new ChangeListener<Number>() {
       @Override
-      public void handle(final Event event) {
-        if (sliderStart.getValue() > sliderEnd.getValue()) {
+      public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
+        if (sliderStart.getValue() >= sliderEnd.getValue()) {
           sliderEnd.setValue(sliderStart.getValue() + 1);
-        } else if (sliderEnd.getValue() < sliderStart.getValue()) {
+        } else if (sliderEnd.getValue() <= sliderStart.getValue()) {
           sliderEnd.setValue(sliderStart.getValue() + 1);
         }
+        range.setText(
+            "Time Range: " + (int) sliderStart.getValue() + " to " + (int) sliderEnd.getValue());
       }
     };
 
-    final EventHandler<Event> sliderMatchEnd = new EventHandler<Event>() {
+    final ChangeListener<Number> endListener = new ChangeListener<Number>() {
       @Override
-      public void handle(final Event event) {
-        if (sliderStart.getValue() > sliderEnd.getValue()) {
+      public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
+        if (sliderStart.getValue() >= sliderEnd.getValue()) {
           sliderStart.setValue(sliderEnd.getValue() - 1);
-        } else if (sliderEnd.getValue() < sliderStart.getValue()) {
+        } else if (sliderEnd.getValue() <= sliderStart.getValue()) {
           sliderStart.setValue(sliderEnd.getValue() - 1);
         }
+        range.setText(
+            "Time Range: " + (int) sliderStart.getValue() + " to " + (int) sliderEnd.getValue());
       }
     };
 
-    sliderStart.addEventHandler(MouseEvent.MOUSE_CLICKED, sliderMatchStart);
-    sliderStart.addEventHandler(MouseEvent.MOUSE_DRAGGED, sliderMatchStart);
-    sliderEnd.addEventHandler(MouseEvent.MOUSE_DRAGGED, sliderMatchEnd);
-    sliderEnd.addEventHandler(MouseEvent.MOUSE_CLICKED, sliderMatchEnd);
+    sliderStart.valueProperty().addListener(startListener);
+    sliderEnd.valueProperty().addListener(endListener);
 
     sliderLabel.managedProperty().bind(sliderEnd.visibleProperty());
     sliderStart.managedProperty().bind(sliderStart.visibleProperty());
     sliderEnd.managedProperty().bind(sliderEnd.visibleProperty());
-    
+
     sliderStart.setVisible(visible);
     sliderEnd.setVisible(visible);
 
@@ -101,17 +106,19 @@ public class DisplayManager extends Application {
           sliderLabel.setVisible(false);
           sliderStart.setVisible(false);
           sliderEnd.setVisible(false);
+          range.setVisible(false);
           visible = false;
         } else {
           sliderLabel.setVisible(true);
           sliderStart.setVisible(true);
           sliderEnd.setVisible(true);
+          range.setVisible(true);
           visible = true;
         }
       }
     });
 
-    leftPanel.getChildren().addAll(time, sliderLabel, sliderStart, sliderEnd);
+    leftPanel.getChildren().addAll(time, sliderLabel, sliderStart, sliderEnd, range);
 
     Button loc = new Button("Locations");
     leftPanel.getChildren().add(loc);
