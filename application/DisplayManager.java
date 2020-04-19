@@ -91,12 +91,12 @@ public class DisplayManager extends Application {
     sliderEnd.addEventHandler(MouseEvent.MOUSE_DRAGGED, sliderMatchEnd);
     sliderEnd.addEventHandler(MouseEvent.MOUSE_CLICKED, sliderMatchEnd);
 
-    // sliderStart.maxProperty().bind(sliderEnd.valueProperty().add(-1));
-    // sliderEnd.minProperty().bind(sliderStart.valueProperty().add(1));
-
     sliderLabel.managedProperty().bind(sliderEnd.visibleProperty());
     sliderStart.managedProperty().bind(sliderStart.visibleProperty());
     sliderEnd.managedProperty().bind(sliderEnd.visibleProperty());
+    
+    sliderStart.setVisible(visible);
+    sliderEnd.setVisible(visible);
 
     Button time = new Button("Time Range");
     time.setOnAction(new EventHandler<ActionEvent>() {
