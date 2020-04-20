@@ -1,7 +1,5 @@
 package application;
 
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,6 +12,7 @@ public class Table extends DisplayMode {
   TableView<DataPoint> tv;
   DataManager dm;
 
+  @SuppressWarnings("unchecked")
   public Table() {
     super();
     title = "table";
@@ -60,6 +59,11 @@ public class Table extends DisplayMode {
   @Override
   public Node getDiplayPane() {
     return tv;
+  }
+  @Override
+  public Node getSettingsPane() {
+    // TODO Auto-generated method stub
+    return null;
   }
 
 }

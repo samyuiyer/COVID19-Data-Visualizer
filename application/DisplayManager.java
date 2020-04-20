@@ -1,62 +1,52 @@
 package application;
 
-import java.util.List;
-import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
-public class DisplayManager extends Application {
+public class DisplayManager extends DisplayMode{
 
   private DisplayMode[] displayModes;
-  private SettingsPane globalSettings;
-
-  private List<String> args;
-
-  private static final int WINDOW_WIDTH = 800;
-  private static final int WINDOW_HEIGHT = 600;
-  private static final String APP_TITLE = "hey its corona";
-
-  Boolean visible = true;
-
-  @Override
-  public void start(Stage primaryStage) throws Exception {
-
-    args = this.getParameters().getRaw();
-
-    Node globalSettings = createGlobalSettingsPane();
-    Table table = new Table();
-    Node currentView = table.getDiplayPane();
-
-    // Main layout is Border Pane (top,left,center,right,bottom)
-    BorderPane root = new BorderPane();
+  private Node globalSettings;
+  private int currMode;
+  private boolean visible;
+  
+  public DisplayManager() {
+    visible =true;
+    globalSettings = createGlobalSettingsPane();
+    createDisplayModes();
+    currMode =0;
     
-    // add to pane
-    root.setLeft(globalSettings);
-    root.setCenter(currentView);
-
-    // Set Scene
-    Scene mainScene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
-
-    // Add the stuff and set the primary stage
-    primaryStage.setTitle(APP_TITLE);
-    primaryStage.setScene(mainScene);
-    primaryStage.show();
+  }
+  @Override
+  public Node getDiplayPane() {
+    // TODO Auto-generated method stub
+    return displayModes[currMode].getDiplayPane();
   }
 
+  @Override
+  public Node getSettingsPane() {
+    return globalSettings;
+  }
+  @Override
+  void reset() {
+
+  }
+  private void createDisplayModes() {
+    displayModes = new DisplayMode[1];
+    displayModes[0]= new Table();
+    
+  }
+  
   private Node createGlobalSettingsPane() {
     VBox leftPanel = new VBox();
 
@@ -152,16 +142,6 @@ public class DisplayManager extends Application {
     return leftPanel;
   }
 
-  public void displaySetting(SettingsPane setting) {
-
-  }
-
-  public void displayPane(DisplayMode display) {
-
-  }
-
-  public static void main(String[] args) {
-    launch(args);
-  }
-
+  
+ 
 }

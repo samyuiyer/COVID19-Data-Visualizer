@@ -14,4 +14,10 @@ public class Map extends DisplayMode {
     return null;
   }
 
+  @Override
+  public Node getSettingsPane() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
 }

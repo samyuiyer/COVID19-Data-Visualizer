@@ -18,9 +18,7 @@ public class DataManager {
     Scanner fileIn = new Scanner(new File(loadFile));
     labels = fileIn.nextLine().split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
     DataPoint.labels = labels;
-    int i = 0;
     while (fileIn.hasNext()) {
-      i++;
       String[] split = null;
       DataPoint dp;
       try {
