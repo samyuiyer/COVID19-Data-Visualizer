@@ -27,9 +27,9 @@ public class Table extends DisplayMode {
     TableColumn<DataPoint, String> location = new TableColumn<>("Location");
     TableColumn<DataPoint, String> city = new TableColumn<>("City");
     city.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("city"));
-    TableColumn<DataPoint, String> state = new TableColumn<>("Province_State");
+    TableColumn<DataPoint, String> state = new TableColumn<>("Province/State");
     state.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("state"));
-    TableColumn<DataPoint, String> country = new TableColumn<>("Country_Region");
+    TableColumn<DataPoint, String> country = new TableColumn<>("Country/Region");
     country.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("country"));
     TableColumn<DataPoint, String> lat = new TableColumn<>("Lat");
     lat.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lat"));

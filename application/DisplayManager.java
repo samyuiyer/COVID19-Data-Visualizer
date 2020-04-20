@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 public class DisplayManager extends DisplayMode {
 
@@ -144,7 +145,17 @@ public class DisplayManager extends DisplayMode {
     Button locationsBtn = new Button("Locations");
 
     // setup color picker
-    ColorPicker colorPicker = new ColorPicker();
+    ColorPicker colorPicker = new ColorPicker(Color.LIGHTGRAY);
+    colorPicker.setOnAction(new EventHandler<ActionEvent>() {
+
+      @Override
+      public void handle(ActionEvent arg0) {
+        settingsPanel.setStyle(
+            "-fx-background-color: #" + colorPicker.getValue().toString().substring(2));
+      }
+
+    });
+
 
     // add Nodes to VBox
     settingsPanel.getChildren().addAll(fileTextField, loadFileBtn, dpMode, time, sliderLabel,
