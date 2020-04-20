@@ -1,14 +1,10 @@
 /**
  *
- * Author: 		Ankur Garg
- * Email:  		Agarg34@wisc.edu
+ * Author: Ankur Garg Email: Agarg34@wisc.edu
  * 
- * Course:		CS400
- * Semester:	Spring2020
- * Lecture:		001
- * Date:		Apr 19, 2020
+ * Course: CS400 Semester: Spring2020 Lecture: 001 Date: Apr 19, 2020
  *
- * Files:		Main.java
+ * Files: Main.java
  *
  */
 package application;
@@ -24,7 +20,7 @@ import javafx.stage.Stage;
  *
  */
 public class Main extends Application {
-  
+
   private static final int WINDOW_WIDTH = 800;
   private static final int WINDOW_HEIGHT = 600;
   private static final String APP_TITLE = "hey its corona";
@@ -39,20 +35,20 @@ public class Main extends Application {
     // add to pane
     root.setLeft(dm.getSettingsPane());
     root.setCenter(dm.getDiplayPane());
-    
-    
+
+
     Button toggleSettingsBtn = new Button("Toggle Settings");
     root.getChildren().addAll(toggleSettingsBtn);
-    
-    
+
+
     // Set Scene
     Scene mainScene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
-//    mainScene.getStylesheets().add("stylesheet.css");
+    // mainScene.getStylesheets().add("stylesheet.css");
     primaryStage.setTitle(APP_TITLE);
     primaryStage.setScene(mainScene);
     primaryStage.show();
   }
-  
+
   public static void main(String[] args) {
     launch(args);
   }
