@@ -79,6 +79,7 @@ public class DisplayManager extends DisplayMode {
     sliderEnd.setBlockIncrement(10);
     sliderEnd.setSnapToTicks(true);
 
+    // create Event Handlers for sliders to change their values when necessary
     final ChangeListener<Number> startListener = new ChangeListener<Number>() {
       @Override
       public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
@@ -91,7 +92,6 @@ public class DisplayManager extends DisplayMode {
             "Time Range: " + (int) sliderStart.getValue() + " to " + (int) sliderEnd.getValue());
       }
     };
-
     final ChangeListener<Number> endListener = new ChangeListener<Number>() {
       @Override
       public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
@@ -104,10 +104,10 @@ public class DisplayManager extends DisplayMode {
             "Time Range: " + (int) sliderStart.getValue() + " to " + (int) sliderEnd.getValue());
       }
     };
-
     sliderStart.valueProperty().addListener(startListener);
     sliderEnd.valueProperty().addListener(endListener);
 
+    // bind properties so buttons shift when hidden
     sliderLabel.managedProperty().bind(sliderLabel.visibleProperty());
     sliderStart.managedProperty().bind(sliderStart.visibleProperty());
     sliderEnd.managedProperty().bind(sliderEnd.visibleProperty());
@@ -118,7 +118,7 @@ public class DisplayManager extends DisplayMode {
 
     // setup time range button
     Button time = new Button("Time Range");
-    time.setOnAction(new EventHandler<ActionEvent>() {
+    time.setOnAction(new EventHandler<ActionEvent>() { // button should hide time sliders and labels
       @Override
       public void handle(ActionEvent event) {
         if (visible) {
