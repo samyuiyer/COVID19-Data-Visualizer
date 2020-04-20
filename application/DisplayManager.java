@@ -11,25 +11,26 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
-public class DisplayManager extends DisplayMode{
+public class DisplayManager extends DisplayMode {
 
   private DisplayMode[] displayModes;
   private Node globalSettings;
   private int currMode;
   private boolean visible;
-  
+
   public DisplayManager() {
-    visible =true;
+    visible = true;
     globalSettings = createGlobalSettingsPane();
     createDisplayModes();
-    currMode =0;
-    
+    currMode = 0;
+
   }
+
   @Override
   public Node getDiplayPane() {
-    // TODO Auto-generated method stub
     return displayModes[currMode].getDiplayPane();
   }
 
@@ -37,28 +38,32 @@ public class DisplayManager extends DisplayMode{
   public Node getSettingsPane() {
     return globalSettings;
   }
+
   @Override
   void reset() {
 
   }
+
   private void createDisplayModes() {
     displayModes = new DisplayMode[1];
-    displayModes[0]= new Table();
-    
+    displayModes[0] = new Table();
   }
-  
-  private Node createGlobalSettingsPane() {
-    VBox leftPanel = new VBox();
 
+  private Node createGlobalSettingsPane() {
+    // setup VBOX
+    VBox leftPanel = new VBox();
     leftPanel.setStyle("-fx-background-color: grey;");
 
-    String[] dispModes = {"Table Mode", "Map Mode", "Graph Mode"};
+    // setup load file textfield and button
+    TextField fileTextField = new TextField("File name");
+    Button loadFileBtn = new Button("Load File");
 
+    // setup combobox
+    String[] dispModes = {"Table Mode", "Map Mode", "Graph Mode"};
     ComboBox<String> dpMode = new ComboBox<String>(FXCollections.observableArrayList(dispModes));
     dpMode.setPromptText("Select Display Mode");
-    leftPanel.getChildren().add(dpMode);
 
-    // Slider
+    // setup time range slider and label
     Label sliderLabel = new Label("Choose Time Range:");
     Slider sliderStart = new Slider(0, 99, 10);
     Slider sliderEnd = new Slider(1, 100, 90);
@@ -111,6 +116,7 @@ public class DisplayManager extends DisplayMode{
     sliderStart.setVisible(visible);
     sliderEnd.setVisible(visible);
 
+    // setup time range button
     Button time = new Button("Time Range");
     time.setOnAction(new EventHandler<ActionEvent>() {
       @Override
@@ -131,17 +137,20 @@ public class DisplayManager extends DisplayMode{
       }
     });
 
-    leftPanel.getChildren().addAll(time, sliderLabel, sliderStart, sliderEnd, range);
+    // setup button
+    Button locationsBtn = new Button("Locations");
 
-    Button loc = new Button("Locations");
-    leftPanel.getChildren().add(loc);
+    // setup color picker
+    ColorPicker colorPicker = new ColorPicker();
 
-    ColorPicker cp = new ColorPicker();
-    leftPanel.getChildren().add(cp);
+    // add Nodes to VBox
+
+    leftPanel.getChildren().addAll(fileTextField, loadFileBtn, dpMode, time, sliderLabel,
+        sliderStart, sliderEnd, range, locationsBtn, colorPicker);
 
     return leftPanel;
   }
 
-  
- 
+
+
 }

@@ -23,6 +23,7 @@ import javafx.stage.Stage;
  *
  */
 public class Main extends Application {
+  
   private static final int WINDOW_WIDTH = 800;
   private static final int WINDOW_HEIGHT = 600;
   private static final String APP_TITLE = "hey its corona";
@@ -43,6 +44,7 @@ public class Main extends Application {
     primaryStage.setScene(mainScene);
     primaryStage.show();
   }
+  
   public static void main(String[] args) {
     launch(args);
   }
