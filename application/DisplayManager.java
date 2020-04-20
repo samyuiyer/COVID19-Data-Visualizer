@@ -142,7 +142,10 @@ public class DisplayManager extends Application {
     BorderPane root = new BorderPane();
     // add to pane
     root.setLeft(leftPanel);
-
+    
+    Table table = new Table();
+    
+    root.setCenter(table.getDiplayPane());
     return root;
   }
 

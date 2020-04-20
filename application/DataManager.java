@@ -5,9 +5,9 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class DataManager {
-  private GeoTrie gt;
-  private AlphaTrie at;
-  private String[] labels;
+  public GeoTrie gt;
+  public AlphaTrie at;
+  public String[] labels;
 
   public DataManager() {
     at = new AlphaTrie();

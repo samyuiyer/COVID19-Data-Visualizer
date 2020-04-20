@@ -1,13 +1,15 @@
 package application;
 
+import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
 public abstract class DisplayMode {
   
   public String title;
   
-  private Pane diplayPane;
-  private Pane settingsPane;
+
+  protected Pane settingsPane;
+  public abstract Node getDiplayPane();
   abstract void reset();
 
 }

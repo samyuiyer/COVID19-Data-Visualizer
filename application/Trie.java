@@ -10,6 +10,8 @@
 package application;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @author ankurgarg
@@ -42,6 +44,19 @@ public abstract class Trie<K, S> implements DataStructureADT<K, DataPoint> {
     System.out.println(" ".repeat(space) + curr.data);
     for (S s : curr.children.keySet()) {
       print(curr.children.get(s), space + 2);
+    }
+  }
+  
+  public List<DataPoint> getAll() {
+    List<DataPoint> l = new LinkedList<>();
+    getAll(root,l);
+    return l;
+  }
+
+  public void getAll(Node curr,List<DataPoint> l) {
+    l.add(curr.data);
+    for (S s : curr.children.keySet()) {
+      getAll(curr.children.get(s), l);
     }
   }
 
