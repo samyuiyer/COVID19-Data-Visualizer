@@ -144,7 +144,6 @@ public class DisplayManager extends DisplayMode {
     ColorPicker colorPicker = new ColorPicker();
 
     // add Nodes to VBox
-
     leftPanel.getChildren().addAll(fileTextField, loadFileBtn, dpMode, time, sliderLabel,
         sliderStart, sliderEnd, range, locationsBtn, colorPicker);
 
