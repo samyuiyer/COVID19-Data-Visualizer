@@ -144,7 +144,6 @@ public class DisplayManager extends Application {
     root.setLeft(leftPanel);
     
     Table table = new Table();
-    
     root.setCenter(table.getDiplayPane());
     return root;
   }
