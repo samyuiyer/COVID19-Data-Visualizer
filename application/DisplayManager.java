@@ -5,6 +5,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
@@ -26,7 +27,6 @@ public class DisplayManager extends DisplayMode {
     globalSettings = createGlobalSettingsPane();
     createDisplayModes();
     currMode = 0;
-
   }
 
   @Override
@@ -51,8 +51,11 @@ public class DisplayManager extends DisplayMode {
 
   private Node createGlobalSettingsPane() {
     // setup VBOX
-    VBox leftPanel = new VBox();
-    leftPanel.setStyle("-fx-background-color: grey;");
+    VBox settingsPanel = new VBox();
+    settingsPanel.setStyle("-fx-background-color: grey;");
+    settingsPanel.setSpacing(5);
+    // Insets(double top, double right, double bottom, double left) // TODO remove this comment
+    settingsPanel.setPadding(new Insets(0, 10, 0, 10));
 
     // setup load file textfield and button
     TextField fileTextField = new TextField("File name");
@@ -144,12 +147,9 @@ public class DisplayManager extends DisplayMode {
     ColorPicker colorPicker = new ColorPicker();
 
     // add Nodes to VBox
-    leftPanel.getChildren().addAll(fileTextField, loadFileBtn, dpMode, time, sliderLabel,
+    settingsPanel.getChildren().addAll(fileTextField, loadFileBtn, dpMode, time, sliderLabel,
         sliderStart, sliderEnd, range, locationsBtn, colorPicker);
 
-    return leftPanel;
+    return settingsPanel;
   }
-
-
-
 }

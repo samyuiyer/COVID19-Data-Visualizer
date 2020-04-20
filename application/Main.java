@@ -15,6 +15,7 @@ package application;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -38,8 +39,15 @@ public class Main extends Application {
     // add to pane
     root.setLeft(dm.getSettingsPane());
     root.setCenter(dm.getDiplayPane());
+    
+    
+    Button toggleSettingsBtn = new Button("Toggle Settings");
+    root.getChildren().addAll(toggleSettingsBtn);
+    
+    
     // Set Scene
     Scene mainScene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
+//    mainScene.getStylesheets().add("stylesheet.css");
     primaryStage.setTitle(APP_TITLE);
     primaryStage.setScene(mainScene);
     primaryStage.show();
