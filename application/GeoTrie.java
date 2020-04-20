@@ -14,21 +14,22 @@ package application;
  * @author ankurgarg
  *
  */
-public class GeoTrie extends Trie<String[], String> {
+public class GeoTrie extends Trie<String, String> {
 
   /**
    * private helper method to insert
    */
   public GeoTrie() {
-    root = new Node(new DataPoint("Global", new String[12]));
+    root = new Node(new DataPoint("Global",
+        new String[] {"", "", "", "", "", "", "", "0", "0", "0", "0", "Global"}));
   }
 
-  public void insert(String[] key, DataPoint value) throws IllegalNullKeyException {
+  public void insert(String key, DataPoint value) throws IllegalNullKeyException {
     if (key == null)
       throw new IllegalNullKeyException();
-    if (root.data != null)
-      root.data.increment(value);
-    insert(key.length - 1, root, key, "", value);
+    root.data.increment(value);
+    String[] keySplit = key.replace(", ", ",").split(",");
+    insert(keySplit.length - 1, root, keySplit, "", value);
   }
 
   protected void insert(int level, Node curr, String[] key, String fullKey, DataPoint value) {
@@ -37,8 +38,10 @@ public class GeoTrie extends Trie<String[], String> {
       curr.children.get(key[level]).data.increment(value);
     else {
       curr.children.put(key[level], new Node(new DataPoint(fullKey, value)));
+      size++;
     }
     if (level > 0)
       insert(level - 1, curr.children.get(key[level]), key, ", " + fullKey, value);
   }
+
 }

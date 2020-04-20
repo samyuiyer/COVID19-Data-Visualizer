@@ -23,10 +23,11 @@ public class DataManager {
       DataPoint dp;
       try {
         split = fileIn.nextLine().split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+        split[11] = split[11].replace("\"", "");
+
         dp = new DataPoint(split[11], split);
-        String[] geoSplit = split[11].split(",");
         at.insert(split[11], dp);
-        gt.insert(geoSplit, dp);
+        gt.insert(split[11], dp);
       } catch (Exception e) {
 
       }
@@ -41,5 +42,7 @@ public class DataManager {
     dm.loadTries("data_test.txt");
     dm.gt.print();
     dm.at.print();
+    System.out.println(dm.at.numKeys());
+    System.out.println(dm.gt.numKeys());
   }
 }

@@ -20,6 +20,7 @@ import java.util.List;
  */
 public abstract class Trie<K, S> implements DataStructureADT<K, DataPoint> {
   protected Node root;
+  protected int size;
 
   protected class Node {
     protected DataPoint data;
@@ -36,6 +37,8 @@ public abstract class Trie<K, S> implements DataStructureADT<K, DataPoint> {
     root = new Node(null);
   }
 
+  public abstract void insert(K key, DataPoint value) throws IllegalNullKeyException;
+
   public void print() {
     print(root, 0);
   }
@@ -46,14 +49,14 @@ public abstract class Trie<K, S> implements DataStructureADT<K, DataPoint> {
       print(curr.children.get(s), space + 2);
     }
   }
-  
+
   public List<DataPoint> getAll() {
     List<DataPoint> l = new LinkedList<>();
-    getAll(root,l);
+    getAll(root, l);
     return l;
   }
 
-  public void getAll(Node curr,List<DataPoint> l) {
+  public void getAll(Node curr, List<DataPoint> l) {
     l.add(curr.data);
     for (S s : curr.children.keySet()) {
       getAll(curr.children.get(s), l);
@@ -61,21 +64,18 @@ public abstract class Trie<K, S> implements DataStructureADT<K, DataPoint> {
   }
 
   @Override
-  public boolean remove(K key) throws IllegalNullKeyException {
-    // TODO Auto-generated method stub
-    return false;
+  public boolean remove(K key) throws IllegalNullKeyException{
+    return true;
   }
 
   @Override
   public DataPoint get(K key) throws IllegalNullKeyException, KeyNotFoundException {
-    // TODO Auto-generated method stub
     return null;
   }
 
   @Override
   public int numKeys() {
-    // TODO Auto-generated method stub
-    return 0;
+    return size;
   }
 
 }

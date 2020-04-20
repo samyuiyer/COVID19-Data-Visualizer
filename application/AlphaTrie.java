@@ -44,6 +44,7 @@ public class AlphaTrie extends Trie<String, Character> {
 
     } else {
       curr.children.put(key.charAt(level), new Node(new DataPoint(key, value)));
+      size++;
     }
 
   }
