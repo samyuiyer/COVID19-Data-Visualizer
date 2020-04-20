@@ -7,6 +7,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
@@ -36,10 +37,19 @@ public class DisplayManager extends Application {
 
     args = this.getParameters().getRaw();
 
-    Pane globalSettings = createGlobalSettingsPane();
+    Node globalSettings = createGlobalSettingsPane();
+    Table table = new Table();
+    Node currentView = table.getDiplayPane();
+
+    // Main layout is Border Pane (top,left,center,right,bottom)
+    BorderPane root = new BorderPane();
+    
+    // add to pane
+    root.setLeft(globalSettings);
+    root.setCenter(currentView);
 
     // Set Scene
-    Scene mainScene = new Scene(globalSettings, WINDOW_WIDTH, WINDOW_HEIGHT);
+    Scene mainScene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
 
     // Add the stuff and set the primary stage
     primaryStage.setTitle(APP_TITLE);
@@ -47,8 +57,9 @@ public class DisplayManager extends Application {
     primaryStage.show();
   }
 
-  private Pane createGlobalSettingsPane() {
+  private Node createGlobalSettingsPane() {
     VBox leftPanel = new VBox();
+
     leftPanel.setStyle("-fx-background-color: grey;");
 
     String[] dispModes = {"Table Mode", "Map Mode", "Graph Mode"};
@@ -138,14 +149,7 @@ public class DisplayManager extends Application {
     ColorPicker cp = new ColorPicker();
     leftPanel.getChildren().add(cp);
 
-    // Main layout is Border Pane (top,left,center,right,bottom)
-    BorderPane root = new BorderPane();
-    // add to pane
-    root.setLeft(leftPanel);
-    
-    Table table = new Table();
-    root.setCenter(table.getDiplayPane());
-    return root;
+    return leftPanel;
   }
 
   public void displaySetting(SettingsPane setting) {
