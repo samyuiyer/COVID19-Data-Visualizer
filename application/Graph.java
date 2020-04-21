@@ -16,8 +16,9 @@ public class Graph extends DisplayMode {
   public Node getDisplayPane() {
     final NumberAxis xAxis = new NumberAxis();
     final NumberAxis yAxis = new NumberAxis();
-    final LineChart<Number, Number> lineChart = new LineChart<Number, Number>(xAxis, yAxis);
-    return lineChart;
+    final LineChart<Number, Number> chart = new LineChart<Number, Number>(xAxis, yAxis);
+    chart.setTitle("Corona Time");
+    return chart;
   }
 
   @Override
