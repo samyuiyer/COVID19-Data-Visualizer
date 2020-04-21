@@ -44,46 +44,52 @@ public class Table extends DisplayMode {
   @SuppressWarnings("unchecked")
   private void initTv() {
     tv.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
     TableColumn<DataPoint, String> location = new TableColumn<>("Location");
-    location.setStyle("-fx-background-color:#C69DB8");
     TableColumn<DataPoint, String> city = new TableColumn<>("City");
-    city.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("city"));
-    city.setStyle("-fx-background-color:#E8D1E3");
-
     TableColumn<DataPoint, String> state = new TableColumn<>("Province/State");
-    state.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("state"));
-    state.setStyle("-fx-background-color:#F6E8F4");
-
     TableColumn<DataPoint, String> country = new TableColumn<>("Country/Region");
-    country.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("country"));
-    country.setStyle("-fx-background-color:#E8D1E3");
-
     TableColumn<DataPoint, String> lat = new TableColumn<>("Lat");
-    lat.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lat"));
-    lat.setStyle("-fx-background-color:#F6E8F4");
-
     TableColumn<DataPoint, String> lon = new TableColumn<>("Long");
-    lon.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lon"));
-    lon.setStyle("-fx-background-color:#E8D1E3");
-
     TableColumn<DataPoint, String> stats = new TableColumn<>("Stats");
-    stats.setStyle("-fx-background-color:#DD7373");
-
     TableColumn<DataPoint, String> confirmed = new TableColumn<>("Confirmed");
-    confirmed.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("confirmed"));
-    confirmed.setStyle("-fx-background-color:#F5BFBD");
-
     TableColumn<DataPoint, String> deaths = new TableColumn<>("Deaths");
-    deaths.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("deaths"));
-    deaths.setStyle("-fx-background-color:#EEAAA8");
-
     TableColumn<DataPoint, String> recovered = new TableColumn<>("Recovered");
-    recovered.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("recovered"));
-    recovered.setStyle("-fx-background-color:#F5BFBD");
-
     TableColumn<DataPoint, String> active = new TableColumn<>("Active");
-    active.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("active"));
+    location.setId("column_header_location");
+    city.setId("column_city");
+    state.setId("column_state");
+    country.setId("column_country");
+    lat.setId("column_lat");
+    lon.setId("column_lon");
+
+    stats.setId("column_header_stats");
+    confirmed.setId("column_confirmed");
+    deaths.setId("column_deaths");
+    recovered.setId("column_recovered");
+    active.setId("column_active");
+
+    location.setStyle("-fx-background-color:#C69DB8");
+    city.setStyle("-fx-background-color:#E8D1E3");
+    state.setStyle("-fx-background-color:#F6E8F4");
+    country.setStyle("-fx-background-color:#E8D1E3");
+    lat.setStyle("-fx-background-color:#F6E8F4");
+    lon.setStyle("-fx-background-color:#E8D1E3");
+    stats.setStyle("-fx-background-color:#DD7373");
+    confirmed.setStyle("-fx-background-color:#F5BFBD");
+    deaths.setStyle("-fx-background-color:#EEAAA8");
+    recovered.setStyle("-fx-background-color:#F5BFBD");
     active.setStyle("-fx-background-color:#EEAAA8");
+
+    city.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("city"));
+    state.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("state"));
+    country.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("country"));
+    lat.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lat"));
+    lon.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lon"));
+    confirmed.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("confirmed"));
+    deaths.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("deaths"));
+    recovered.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("recovered"));
+    active.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("active"));
 
     location.getColumns().addAll(city, state, country, lat, lon);
     stats.getColumns().addAll(confirmed, deaths, recovered, active);
