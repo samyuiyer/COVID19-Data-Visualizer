@@ -69,9 +69,9 @@ public class DisplayManager extends DisplayMode {
     MenuBar bar = new MenuBar();
     final Menu menu = new Menu("Menu");
     final MenuItem toggle = new MenuItem("Toggle Settings");
-    final MenuItem view1 = new MenuItem("view1");
-    final MenuItem view2 = new MenuItem("view2");
-    final MenuItem view3 = new MenuItem("view3");
+    final MenuItem view1 = new MenuItem("Table");
+    final MenuItem view2 = new MenuItem("Map");
+    final MenuItem view3 = new MenuItem("Graph");
     final Menu help = new Menu("Help");
     
     menu.getItems().addAll(toggle, view1, view2, view3);
