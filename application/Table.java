@@ -73,7 +73,7 @@ public class Table extends DisplayMode {
     
     TableColumn<DataPoint, String> deaths = new TableColumn<>("Deaths");
     deaths.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("deaths"));
-    deaths.setStyle("-fx-background-color:#EEAAA8");
+    deaths.setStyle("-fx-background-color:#FCD5D2");
     
     TableColumn<DataPoint, String> recovered = new TableColumn<>("Recovered");
     recovered.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("recovered"));
@@ -81,7 +81,7 @@ public class Table extends DisplayMode {
     
     TableColumn<DataPoint, String> active = new TableColumn<>("Active");
     active.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("active"));
-    active.setStyle("-fx-background-color:#EEAAA8");
+    active.setStyle("-fx-background-color:#FCD5D2");
 
     location.getColumns().addAll(city, state, country, lat, lon);
     stats.getColumns().addAll(confirmed, deaths, recovered, active);
@@ -121,6 +121,7 @@ public class Table extends DisplayMode {
     TextField stateFilter = new TextField("Filter State");
     TextField countryFilter = new TextField("Filter Country");
     Button setFilter = new Button("Set Filter");
+    setFilter.setId("set-filter-btn");
     setFilter.setOnAction(new EventHandler<ActionEvent>() { // button should hide time sliders and
                                                             // labels
       @Override
@@ -139,6 +140,8 @@ public class Table extends DisplayMode {
       }
     });
     Button resetFilter = new Button("Reset Filter");
+    resetFilter.setId("reset-filter-btn");
+    
     resetFilter.setOnAction(new EventHandler<ActionEvent>() { // button should hide time sliders and
                                                               // // labels
       @Override

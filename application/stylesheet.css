@@ -42,5 +42,13 @@
 	-fx-background-color: #d3d3d3;
 }
 
+#reset-filter-btn{
+	-fx-background-color: #F7F6D7;
+}
+
+#set-filter-btn{
+	-fx-background-color: #F7F6D7;
+}
+
 
 
