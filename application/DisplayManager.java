@@ -40,7 +40,7 @@ public class DisplayManager extends DisplayMode {
     displayNode = new BorderPane();
     settingsNode = new BorderPane();
     createDisplayModes();
-    globalSettings = createGlobalSettingsPane();
+    createGlobalSettingsPane();
     createMenuBar();
   }
 
@@ -104,7 +104,7 @@ public class DisplayManager extends DisplayMode {
       public void handle(ActionEvent arg0) {
         displayNode.setCenter(displayModes[0].getDisplayPane());
         settingsNode.setCenter(displayModes[0].getSettingsPane());
-        dspModeComboBox.setPromptText("Table Mode");
+         dspModeComboBox.setPromptText("Table Mode"); // TODO need to fix this
       }
     });
 
@@ -113,7 +113,7 @@ public class DisplayManager extends DisplayMode {
       public void handle(ActionEvent arg0) {
         displayNode.setCenter(displayModes[1].getDisplayPane());
         settingsNode.setCenter(displayModes[1].getSettingsPane());
-        dspModeComboBox.setPromptText("Map Mode");
+         dspModeComboBox.setPromptText("Map Mode");
       }
     });
 
@@ -122,12 +122,12 @@ public class DisplayManager extends DisplayMode {
       public void handle(ActionEvent arg0) {
         displayNode.setCenter(displayModes[2].getDisplayPane());
         settingsNode.setCenter(displayModes[2].getSettingsPane());
-        dspModeComboBox.setPromptText("Graph Mode");
+         dspModeComboBox.setPromptText("Graph Mode");
       }
     });
   }
 
-  private Node createGlobalSettingsPane() {
+  private void createGlobalSettingsPane() {
 
     // setup objects
 
@@ -138,7 +138,7 @@ public class DisplayManager extends DisplayMode {
     Button time = new Button("Time Range");
     ColorPicker colorPicker = new ColorPicker(Color.web("#70C1B3"));
     String[] dispModes = {"Table Mode", "Map Mode", "Graph Mode"};
-    ComboBox<String> dspModeComboBox =
+    dspModeComboBox =
         new ComboBox<String>(FXCollections.observableArrayList(dispModes));
 
     // setup time range slider and label
@@ -270,28 +270,30 @@ public class DisplayManager extends DisplayMode {
         }
       }
     });
-    dspModeComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-      public void changed(ObservableValue<? extends String> observable, String oldValue,
-          String newValue) {
-        if (newValue.equals("Table Mode")) {
-          displayNode.setCenter(displayModes[0].getDisplayPane());
-          settingsNode.setCenter(displayModes[0].getSettingsPane());
-        } else if (newValue.equals("Map Mode")) {
-          displayNode.setCenter(displayModes[1].getDisplayPane());
-          settingsNode.setCenter(displayModes[1].getSettingsPane());
-        } else if (newValue.equals("Graph Mode")) {
-          displayNode.setCenter(displayModes[2].getDisplayPane());
-          settingsNode.setCenter(displayModes[2].getSettingsPane());
-        }
-      }
-    });
+    dspModeComboBox.getSelectionModel().selectedItemProperty()
+        .addListener(new ChangeListener<String>() {
+          public void changed(ObservableValue<? extends String> observable, String oldValue,
+              String newValue) {
+            if (newValue.equals("Table Mode")) {
+              displayNode.setCenter(displayModes[0].getDisplayPane());
+              settingsNode.setCenter(displayModes[0].getSettingsPane());
+            } else if (newValue.equals("Map Mode")) {
+              displayNode.setCenter(displayModes[1].getDisplayPane());
+              settingsNode.setCenter(displayModes[1].getSettingsPane());
+            } else if (newValue.equals("Graph Mode")) {
+              displayNode.setCenter(displayModes[2].getDisplayPane());
+              settingsNode.setCenter(displayModes[2].getSettingsPane());
+            }
+          }
+        });
 
 
     // Add all Nodes to VBox
 
     settingsPanel.getChildren().addAll(fileTextField, loadSave, dspModeComboBox, colorPicker, time,
         sliderLabel, sliderStart, sliderEnd, range, settingsNode);
-    return settingsPanel;
+
+    globalSettings = settingsPanel;
   }
 
   @Override
