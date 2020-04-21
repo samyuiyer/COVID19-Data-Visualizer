@@ -29,6 +29,7 @@ public class DisplayManager extends DisplayMode {
   private Node globalSettings;
   private boolean slidersVisible;
   private boolean settingsVisible;
+  private ComboBox<String> dpMode;
   VBox settingsPanel;
 
   public DisplayManager() {
@@ -80,6 +81,7 @@ public class DisplayManager extends DisplayMode {
       public void handle(ActionEvent arg0) {
         displayNode.setCenter(displayModes[0].getDisplayPane());
         settingsNode.setCenter(displayModes[0].getSettingsPane());
+        dpMode.setPromptText("Table Mode");
       }
     });
 
@@ -88,6 +90,7 @@ public class DisplayManager extends DisplayMode {
       public void handle(ActionEvent arg0) {
         displayNode.setCenter(displayModes[1].getDisplayPane());
         settingsNode.setCenter(displayModes[1].getSettingsPane());
+        dpMode.setPromptText("Map Mode");
       }
     });
 
@@ -96,6 +99,7 @@ public class DisplayManager extends DisplayMode {
       public void handle(ActionEvent arg0) {
         displayNode.setCenter(displayModes[2].getDisplayPane());
         settingsNode.setCenter(displayModes[2].getSettingsPane());
+        dpMode.setPromptText("Graph Mode");
       }
     });
 
@@ -144,7 +148,7 @@ public class DisplayManager extends DisplayMode {
 
     // setup combobox
     String[] dispModes = {"Table Mode", "Map Mode", "Graph Mode"};
-    ComboBox<String> dpMode = new ComboBox<String>(FXCollections.observableArrayList(dispModes));
+    dpMode = new ComboBox<String>(FXCollections.observableArrayList(dispModes));
     dpMode.setPromptText("Select Display Mode");
     dpMode.getSelectionModel().selectedItemProperty()
     .addListener(new ChangeListener<String>() {
