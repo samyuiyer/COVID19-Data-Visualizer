@@ -9,6 +9,9 @@
  */
 package application;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -65,23 +68,23 @@ public class DataPoint {
     this.update.set(update);
   }
 
-  private final SimpleStringProperty lat;
+  private final SimpleDoubleProperty lat;
 
-  public String getLat() {
+  public Double getLat() {
     return lat.get();
   }
 
-  public void setLat(String lat) {
+  public void setLat(Double lat) {
     this.lat.set(lat);
   }
 
-  private final SimpleStringProperty lon;
+  private final SimpleDoubleProperty lon;
 
-  public String getLon() {
+  public Double getLon() {
     return lon.get();
   }
 
-  public void setLon(String lon) {
+  public void setLon(Double lon) {
     this.lon.set(lon);
   }
 
@@ -129,8 +132,8 @@ public class DataPoint {
     state = new SimpleStringProperty();
     country = new SimpleStringProperty();
     update = new SimpleStringProperty();
-    lat = new SimpleStringProperty();
-    lon = new SimpleStringProperty();
+    lat = new SimpleDoubleProperty();
+    lon = new SimpleDoubleProperty();
     confirmed = new SimpleIntegerProperty();
     deaths = new SimpleIntegerProperty();
     recovered = new SimpleIntegerProperty();
@@ -174,8 +177,17 @@ public class DataPoint {
       country.set(keySplit[2]);
     }
     update.set(dataArray[4]);
-    lat.set(dataArray[5]);
-    lon.set(dataArray[6]);
+    double latTrim = 0;
+    double lonTrim = 0;
+    if(!dataArray[5].isEmpty()) {
+    	latTrim = new BigDecimal(Double.valueOf(dataArray[5])).setScale(8, RoundingMode.HALF_UP).doubleValue();
+    }
+    if(!dataArray[6].isEmpty()) {
+    	lonTrim = new BigDecimal(Double.valueOf(dataArray[6])).setScale(8, RoundingMode.HALF_UP).doubleValue();
+    }
+    		
+    lat.set(latTrim);
+    lon.set(lonTrim);
     if (dataArray[7] != null) {
       confirmed.set(Integer.parseInt(dataArray[7]));
       deaths.set(Integer.parseInt(dataArray[8]));
@@ -190,8 +202,8 @@ public class DataPoint {
     dataArray[2] = state.get();
     dataArray[3] = country.get();
     dataArray[4] = update.get();
-    dataArray[5] = lat.get();
-    dataArray[6] = lon.get();
+    dataArray[5] = Double.toString(lat.get());
+    dataArray[6] = Double.toString(lon.get());
     if (dataArray[7] != null) {
       dataArray[7] = Integer.toString(confirmed.get());
       dataArray[8] = Integer.toString(deaths.get());

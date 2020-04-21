@@ -1,47 +1,86 @@
 .root {
-    -fx-font: 13px "Courier";
-    -fx-padding: 10;
+  -fx-font: 13px "Courier";
+  -fx-focus-color: transparent;
 }
 
-
 .combo-box .list-cell {
-    -fx-background-color: #F6CA83;
-    -fx-padding: 10px;
-    
+  -fx-background-color: #f6ca83;
+  -fx-padding: 10px;
 }
 
 .button {
-    -fx-background-color: #F6CA83;
-    -fx-padding: 10px;
-    -fx-border-insets: 5px;
-    -fx-background-insets: 5px;
+  -fx-background-color: #f6ca83;
+  -fx-padding: 10px;
+  -fx-border-insets: 5px;
+  -fx-background-insets: 5px;
 }
 
-.slider{
-	-fx-background-color: #F6CA83;
-    -fx-padding: 10px;
-    -fx-border-insets: 5px;
-    -fx-background-insets: 5px;
+.slider {
+  -fx-background-color: #f6ca83;
+  -fx-padding: 10px;
+  -fx-border-insets: 5px;
+  -fx-background-insets: 5px;
 }
 
-.color-picker{
-	-fx-background-color: #F6CA83;	
-    -fx-padding: 10px;
-    -fx-border-insets: 5px;
-    -fx-background-insets: 5px;
+.color-picker {
+  -fx-background-color: #f6ca83;
+  -fx-padding: 10px;
+  -fx-border-insets: 5px;
+  -fx-background-insets: 5px;
 }
 
-.text-field{
-	-fx-background-color: #F6CA83;
-	-fx-padding: 10px;
-    -fx-border-insets: 5px;
-    -fx-background-insets: 5px;
+.text-field {
+  -fx-background-color: #f6ca83;
+  -fx-padding: 10px;
+  -fx-border-insets: 5px;
+  -fx-background-insets: 5px;
 }
 
-.menu-bar{
-	-fx-background-color: #d3d3d3;
+.menu-bar {
+  -fx-background-color: #d3d3d3;
 }
 
+/* Global settings */
+
+#settings_panel {
+    -fx-background-color: #70C1B3;
+}
+
+/* Table */
+
+#column_header_location {
+  -fx-background-color: #c69db8;
+}
+
+#column_city {
+  -fx-background-color: #e8d1e3;
+}
+
+#column_state {
+  -fx-background-color: #f6e8f4;
+}
+
+#column_country {
+  -fx-background-color: #e8d1e3;
+}
+
+#column_lat {
+  -fx-background-color: #f6e8f4;
+}
+
+#column_lon {
+  -fx-background-color: #e8d1e3;
+}
+
+#column_header_stats {
+  -fx-background-color: #dd7373;
+}
+
+#column_confirmed {
+  -fx-background-color: #f5bfbd;
+}
+
+<<<<<<< HEAD
 #reset-filter-btn{
 	-fx-background-color: #F7F6D7;
 }
@@ -50,5 +89,16 @@
 	-fx-background-color: #F7F6D7;
 }
 
+=======
+#column_deaths {
+  -fx-background-color: #eeaaa8;
+}
+>>>>>>> f1287b0a1ae28a5c1dc9bd08d99b8fc01a794bd0
 
+#column_recovered {
+  -fx-background-color: #f5bfbd;
+}
 
+#column_active {
+  -fx-background-color: #eeaaa8;
+}

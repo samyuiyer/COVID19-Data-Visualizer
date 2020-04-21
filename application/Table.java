@@ -1,23 +1,30 @@
 package application;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.SortType;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 
 public class Table extends DisplayMode {
+
+
+
   TableView<DataPoint> tv;
   VBox sp;
   DataManager dm;
@@ -39,63 +46,66 @@ public class Table extends DisplayMode {
 
   @SuppressWarnings("unchecked")
   private void initTv() {
-
+    tv.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     TableColumn<DataPoint, String> location = new TableColumn<>("Location");
-    location.setStyle("-fx-background-color:#C69DB8");
     TableColumn<DataPoint, String> city = new TableColumn<>("City");
-    city.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("city"));
-    city.setStyle("-fx-background-color:#E8D1E3");
-    
     TableColumn<DataPoint, String> state = new TableColumn<>("Province/State");
-    state.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("state"));
-    state.setStyle("-fx-background-color:#F6E8F4");
-    
     TableColumn<DataPoint, String> country = new TableColumn<>("Country/Region");
-    country.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("country"));
-    country.setStyle("-fx-background-color:#E8D1E3");
-
-    
     TableColumn<DataPoint, String> lat = new TableColumn<>("Lat");
-    lat.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lat"));
-    lat.setStyle("-fx-background-color:#F6E8F4");
-  
     TableColumn<DataPoint, String> lon = new TableColumn<>("Long");
-    lon.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lon"));
-    lon.setStyle("-fx-background-color:#E8D1E3");
-
     TableColumn<DataPoint, String> stats = new TableColumn<>("Stats");
-    stats.setStyle("-fx-background-color:#DD7373");
-
-    
     TableColumn<DataPoint, String> confirmed = new TableColumn<>("Confirmed");
-    confirmed.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("confirmed"));
-    confirmed.setStyle("-fx-background-color:#F5BFBD");
-    
     TableColumn<DataPoint, String> deaths = new TableColumn<>("Deaths");
+    TableColumn<DataPoint, String> recovered = new TableColumn<>("Recovered");
+    TableColumn<DataPoint, String> active = new TableColumn<>("Active");
+
+    location.setId("column_header_location");
+    city.setId("column_city");
+    state.setId("column_state");
+    country.setId("column_country");
+    lat.setId("column_lat");
+    lon.setId("column_lon");
+    stats.setId("column_header_stats");
+    confirmed.setId("column_confirmed");
+    deaths.setId("column_deaths");
+    recovered.setId("column_recovered");
+    active.setId("column_active");
+    
+    city.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("city"));
+    city.setComparator(getComp(city));
+    state.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("state"));
+    state.setComparator(getComp(state));
+    country.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("country"));
+    country.setComparator(getComp(country));
+    lat.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lat"));
+    lon.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lon"));
+    confirmed.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("confirmed"));
     deaths.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("deaths"));
+<<<<<<< HEAD
     deaths.setStyle("-fx-background-color:#FCD5D2");
     
     TableColumn<DataPoint, String> recovered = new TableColumn<>("Recovered");
+=======
+>>>>>>> f1287b0a1ae28a5c1dc9bd08d99b8fc01a794bd0
     recovered.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("recovered"));
-    recovered.setStyle("-fx-background-color:#F5BFBD");
-    
-    TableColumn<DataPoint, String> active = new TableColumn<>("Active");
     active.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("active"));
+<<<<<<< HEAD
     active.setStyle("-fx-background-color:#FCD5D2");
+=======
+>>>>>>> f1287b0a1ae28a5c1dc9bd08d99b8fc01a794bd0
 
     location.getColumns().addAll(city, state, country, lat, lon);
     stats.getColumns().addAll(confirmed, deaths, recovered, active);
     tv.getColumns().setAll(location, stats);
     tv.setItems(getInitialTableData());
+
     tv.setPlaceholder(new Label("No rows to display"));
   }
 
-  private FilteredList<DataPoint> getInitialTableData() {
-
-    List<DataPoint> list = dm.at.getAll();
+  private SortedList<DataPoint> getInitialTableData() {
+    List<DataPoint> list = dm.gt.getAll();
     ObservableList<DataPoint> data = FXCollections.observableList(list);
     filteredList = new FilteredList<>(data);
-
 
     // to filter
     filteredList.setPredicate(new Predicate<DataPoint>() {
@@ -103,7 +113,9 @@ public class Table extends DisplayMode {
         return true; // or true
       }
     });
-    return this.filteredList;
+    SortedList<DataPoint> sortableData = new SortedList<>(this.filteredList);
+    sortableData.comparatorProperty().bind(tv.comparatorProperty());
+    return sortableData;
   }
 
   @Override
@@ -112,7 +124,7 @@ public class Table extends DisplayMode {
   }
 
   @Override
-  public Node getDiplayPane() {
+  public Node getDisplayPane() {
     return tv;
   }
 
@@ -120,6 +132,55 @@ public class Table extends DisplayMode {
     TextField cityFilter = new TextField("Filter City");
     TextField stateFilter = new TextField("Filter State");
     TextField countryFilter = new TextField("Filter Country");
+
+    cityFilter.focusedProperty().addListener(new ChangeListener<Boolean>() {
+      @Override
+      public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue,
+          Boolean newValue) {
+        if (newValue) {
+          cityFilter.clear();
+        }
+        if (oldValue) {
+          if (cityFilter.getText().isBlank()) {
+            cityFilter.setText("Filter City");
+          }
+        }
+      }
+
+    });
+
+    stateFilter.focusedProperty().addListener(new ChangeListener<Boolean>() {
+      @Override
+      public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue,
+          Boolean newValue) {
+        if (newValue) {
+          stateFilter.clear();
+        }
+        if (oldValue) {
+          if (stateFilter.getText().isBlank()) {
+            stateFilter.setText("Filter State");
+          }
+        }
+      }
+
+    });
+
+    countryFilter.focusedProperty().addListener(new ChangeListener<Boolean>() {
+      @Override
+      public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue,
+          Boolean newValue) {
+        if (newValue) {
+          countryFilter.clear();
+        }
+        if (oldValue) {
+          if (countryFilter.getText().isBlank()) {
+            countryFilter.setText("Filter Country");
+          }
+        }
+      }
+
+    });
+
     Button setFilter = new Button("Set Filter");
     setFilter.setId("set-filter-btn");
     setFilter.setOnAction(new EventHandler<ActionEvent>() { // button should hide time sliders and
@@ -139,6 +200,7 @@ public class Table extends DisplayMode {
         });
       }
     });
+
     Button resetFilter = new Button("Reset Filter");
     resetFilter.setId("reset-filter-btn");
     
@@ -162,12 +224,27 @@ public class Table extends DisplayMode {
         });
       }
     });
-    sp.getChildren().addAll(cityFilter, stateFilter, countryFilter, setFilter,resetFilter);
+    sp.getChildren().addAll(cityFilter, stateFilter, countryFilter, setFilter, resetFilter);
   }
 
   @Override
   public Node getSettingsPane() {
     return sp;
+  }
+  
+  private Comparator<String> getComp(TableColumn<DataPoint, String> tc){
+    Comparator<String> comparator = (o1, o2) -> {
+      final boolean isDesc = tc.getSortType() == SortType.DESCENDING;
+      if (o1.equals("") && o2.equals(""))
+        return 0;
+      else if (o1.equals("") && !o2.equals(""))
+        return isDesc ? -1 : 1;
+      else if (!o1.equals("") && o2.equals(""))
+        return isDesc ? 1 : -1;
+      else
+        return o1.compareTo(o2);
+    };
+    return comparator;
   }
 
 }

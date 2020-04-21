@@ -1,6 +1,7 @@
 package application;
 
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 
 public class Graph extends DisplayMode {
 
@@ -10,14 +11,13 @@ public class Graph extends DisplayMode {
   }
 
   @Override
-  public Node getDiplayPane() {
-    return null;
+  public Node getDisplayPane() {
+    return new Label("Graph");
   }
 
   @Override
   public Node getSettingsPane() {
-    // TODO Auto-generated method stub
-    return null;
+    return new Label("Graph Settings");
   }
 
 }
