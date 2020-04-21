@@ -120,6 +120,7 @@ public class Table extends DisplayMode {
 		TextField cityFilter = new TextField("Filter City");
 		TextField stateFilter = new TextField("Filter State");
 		TextField countryFilter = new TextField("Filter Country");
+		
 		cityFilter.focusedProperty().addListener(new ChangeListener<Boolean>() {
 			@Override
 			public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
@@ -129,6 +130,36 @@ public class Table extends DisplayMode {
 				if (oldValue) {
 					if(cityFilter.getText().isBlank()) {
 						cityFilter.setText("Filter City");
+					}
+				}
+			}
+
+		});
+		
+		stateFilter.focusedProperty().addListener(new ChangeListener<Boolean>() {
+			@Override
+			public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+				if (newValue) {
+					stateFilter.clear();
+				}
+				if (oldValue) {
+					if(stateFilter.getText().isBlank()) {
+						stateFilter.setText("Filter State");
+					}
+				}
+			}
+
+		});
+		
+		countryFilter.focusedProperty().addListener(new ChangeListener<Boolean>() {
+			@Override
+			public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+				if (newValue) {
+					countryFilter.clear();
+				}
+				if (oldValue) {
+					if(countryFilter.getText().isBlank()) {
+						countryFilter.setText("Filter Country");
 					}
 				}
 			}
