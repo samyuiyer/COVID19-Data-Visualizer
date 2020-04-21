@@ -13,6 +13,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
@@ -59,8 +60,14 @@ public class DisplayManager extends DisplayMode {
     settingsPanel.setPadding(new Insets(0, 10, 0, 10));
 
     // setup load file textfield and button
+    HBox loadSave = new HBox();
     TextField fileTextField = new TextField("File name");
     Button loadFileBtn = new Button("Load File");
+    Button saveFileBtn = new Button("Save File");
+    loadSave.setSpacing(3);
+    loadSave.getChildren().addAll(loadFileBtn,saveFileBtn);
+
+
 
     // setup combobox
     String[] dispModes = {"Table Mode", "Map Mode", "Graph Mode"};
@@ -158,7 +165,7 @@ public class DisplayManager extends DisplayMode {
 
 
     // add Nodes to VBox
-    settingsPanel.getChildren().addAll(fileTextField, loadFileBtn, dpMode, time, sliderLabel,
+    settingsPanel.getChildren().addAll(fileTextField, loadSave, dpMode, time, sliderLabel,
         sliderStart, sliderEnd, range, locationsBtn, colorPicker);
 
     return settingsPanel;
