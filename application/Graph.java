@@ -7,6 +7,15 @@ import javafx.scene.control.Label;
 
 public class Graph extends DisplayMode {
 
+  DataManager dm;
+
+  Graph() {
+    try {
+      dm.loadTries("data_test.txt");
+    } catch (Exception e) {
+    }
+  }
+
   @Override
   void reset() {
 
