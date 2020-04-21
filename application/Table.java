@@ -7,6 +7,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
@@ -82,10 +83,11 @@ public class Table extends DisplayMode {
     stats.getColumns().addAll(confirmed, deaths, recovered, active);
     tv.getColumns().setAll(location, stats);
     tv.setItems(getInitialTableData());
+    
     tv.setPlaceholder(new Label("No rows to display"));
   }
 
-  private FilteredList<DataPoint> getInitialTableData() {
+  private SortedList<DataPoint> getInitialTableData() {
 
     List<DataPoint> list = dm.at.getAll();
     ObservableList<DataPoint> data = FXCollections.observableList(list);
@@ -97,7 +99,9 @@ public class Table extends DisplayMode {
         return true; // or true
       }
     });
-    return this.filteredList;
+    SortedList<DataPoint> sortableData = new SortedList<>(this.filteredList);
+    sortableData.comparatorProperty().bind(tv.comparatorProperty());
+    return sortableData;
   }
 
   @Override
