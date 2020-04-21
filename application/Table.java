@@ -58,7 +58,7 @@ public class Table extends DisplayMode {
 
   private ObservableList<DataPoint> getInitialTableData() {
 
-    List<DataPoint> list = dm.gt.getAll();
+    List<DataPoint> list = dm.at.getAll();
     ObservableList<DataPoint> data = FXCollections.observableList(list);
 
     return data;
