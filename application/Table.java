@@ -1,5 +1,6 @@
 package application;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 import javafx.beans.value.ChangeListener;
@@ -14,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.SortType;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -68,10 +70,13 @@ public class Table extends DisplayMode {
     deaths.setId("column_deaths");
     recovered.setId("column_recovered");
     active.setId("column_active");
-
+    
     city.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("city"));
+    city.setComparator(getComp(city));
     state.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("state"));
+    state.setComparator(getComp(state));
     country.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("country"));
+    country.setComparator(getComp(country));
     lat.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lat"));
     lon.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lon"));
     confirmed.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("confirmed"));
@@ -83,7 +88,7 @@ public class Table extends DisplayMode {
     stats.getColumns().addAll(confirmed, deaths, recovered, active);
     tv.getColumns().setAll(location, stats);
     tv.setItems(getInitialTableData());
-    
+
     tv.setPlaceholder(new Label("No rows to display"));
   }
 
@@ -117,51 +122,54 @@ public class Table extends DisplayMode {
     TextField cityFilter = new TextField("Filter City");
     TextField stateFilter = new TextField("Filter State");
     TextField countryFilter = new TextField("Filter Country");
-    
+
     cityFilter.focusedProperty().addListener(new ChangeListener<Boolean>() {
-		@Override
-		public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-			if (newValue) {
-				cityFilter.clear();
-			}
-			if (oldValue) {
-				if(cityFilter.getText().isBlank()) {
-					cityFilter.setText("Filter City");
-				}
-			}
-		}
+      @Override
+      public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue,
+          Boolean newValue) {
+        if (newValue) {
+          cityFilter.clear();
+        }
+        if (oldValue) {
+          if (cityFilter.getText().isBlank()) {
+            cityFilter.setText("Filter City");
+          }
+        }
+      }
 
-	});
-	
-	stateFilter.focusedProperty().addListener(new ChangeListener<Boolean>() {
-		@Override
-		public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-			if (newValue) {
-				stateFilter.clear();
-			}
-			if (oldValue) {
-				if(stateFilter.getText().isBlank()) {
-					stateFilter.setText("Filter State");
-				}
-			}
-		}
+    });
 
-	});
-	
-	countryFilter.focusedProperty().addListener(new ChangeListener<Boolean>() {
-		@Override
-		public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-			if (newValue) {
-				countryFilter.clear();
-			}
-			if (oldValue) {
-				if(countryFilter.getText().isBlank()) {
-					countryFilter.setText("Filter Country");
-				}
-			}
-		}
+    stateFilter.focusedProperty().addListener(new ChangeListener<Boolean>() {
+      @Override
+      public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue,
+          Boolean newValue) {
+        if (newValue) {
+          stateFilter.clear();
+        }
+        if (oldValue) {
+          if (stateFilter.getText().isBlank()) {
+            stateFilter.setText("Filter State");
+          }
+        }
+      }
 
-	});
+    });
+
+    countryFilter.focusedProperty().addListener(new ChangeListener<Boolean>() {
+      @Override
+      public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue,
+          Boolean newValue) {
+        if (newValue) {
+          countryFilter.clear();
+        }
+        if (oldValue) {
+          if (countryFilter.getText().isBlank()) {
+            countryFilter.setText("Filter Country");
+          }
+        }
+      }
+
+    });
 
     Button setFilter = new Button("Set Filter");
     setFilter.setOnAction(new EventHandler<ActionEvent>() { // button should hide time sliders and
@@ -209,6 +217,21 @@ public class Table extends DisplayMode {
   @Override
   public Node getSettingsPane() {
     return sp;
+  }
+  
+  private Comparator<String> getComp(TableColumn<DataPoint, String> tc){
+    Comparator<String> comparator = (o1, o2) -> {
+      final boolean isDesc = tc.getSortType() == SortType.DESCENDING;
+      if (o1.equals("") && o2.equals(""))
+        return 0;
+      else if (o1.equals("") && !o2.equals(""))
+        return isDesc ? -1 : 1;
+      else if (!o1.equals("") && o2.equals(""))
+        return isDesc ? 1 : -1;
+      else
+        return o1.compareTo(o2);
+    };
+    return comparator;
   }
 
 }
