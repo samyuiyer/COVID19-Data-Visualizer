@@ -24,10 +24,12 @@ public class DataManager {
       try {
         split = fileIn.nextLine().split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
         split[11] = split[11].replace("\"", "");
-
-        dp = new DataPoint(split[11], split);
-        at.insert(split[11], dp);
-        gt.insert(split[11], dp);
+        
+        if(!(split[1].contains("Unassigned") || (split[2].contains("Recovered")))) {
+        	 dp = new DataPoint(split[11], split);
+             at.insert(split[11], dp);
+             gt.insert(split[11], dp);
+        }
       } catch (Exception e) {
 
       }

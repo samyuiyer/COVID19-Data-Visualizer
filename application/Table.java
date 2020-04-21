@@ -88,8 +88,7 @@ public class Table extends DisplayMode {
   }
 
   private SortedList<DataPoint> getInitialTableData() {
-
-    List<DataPoint> list = dm.at.getAll();
+    List<DataPoint> list = dm.gt.getAll();
     ObservableList<DataPoint> data = FXCollections.observableList(list);
     filteredList = new FilteredList<>(data);
 
