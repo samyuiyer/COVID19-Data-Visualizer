@@ -43,7 +43,24 @@
 /* Global settings */
 
 #settings_panel {
-    -fx-background-color: #70C1B3;
+  -fx-background-color: #70c1b3;
+  -fx-spacing: 5;
+}
+
+/*
+#load_btn
+#save_btn
+#file_text_field
+#time_btn
+#color_picker
+#dsp_combo_box
+#slider_start
+#slider_end
+#time_range
+*/
+
+#load_save_box {
+  /*-fx-spacing: 0;*/
 }
 
 /* Table */
