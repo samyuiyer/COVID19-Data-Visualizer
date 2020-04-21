@@ -30,7 +30,7 @@ public class Main extends Application {
   public void start(Stage primaryStage) throws Exception {
     // Main layout is Border Pane (top, left, center, right, bottom)
     BorderPane root = new BorderPane();
-    dm = new DisplayManager();
+    dm = new DisplayManager(root);
     // add to pane
     root.setLeft(dm.getSettingsPane());
     root.setCenter(dm.getDiplayPane());

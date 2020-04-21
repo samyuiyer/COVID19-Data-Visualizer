@@ -16,6 +16,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -28,13 +29,15 @@ public class DisplayManager extends DisplayMode {
   private boolean slidersVisible;
   private boolean settingsVisible;
   VBox settingsPanel;
+  private BorderPane pane;
 
-  public DisplayManager() {
+  public DisplayManager(BorderPane pane) {
 
     settingsPanel = new VBox();
     settingsPanel.managedProperty().bind(settingsPanel.visibleProperty());
     settingsVisible = true;
     slidersVisible = true;
+    this.pane = pane;
   
     createDisplayModes();
     globalSettings = createGlobalSettingsPane();
@@ -57,17 +60,22 @@ public class DisplayManager extends DisplayMode {
   }
 
   private void createDisplayModes() {
-    displayModes = new DisplayMode[1];
+    displayModes = new DisplayMode[3];
     displayModes[0] = new Table();
+    displayModes[1] = new Table();
+    displayModes[2] = new Table();
   }
 
   public Node getMenuBar() {
     MenuBar bar = new MenuBar();
     final Menu menu = new Menu("Menu");
     final MenuItem toggle = new MenuItem("Toggle Settings");
+    final MenuItem view1 = new MenuItem("view1");
+    final MenuItem view2 = new MenuItem("view2");
+    final MenuItem view3 = new MenuItem("view3");
     final Menu help = new Menu("Help");
     
-    menu.getItems().addAll(toggle);
+    menu.getItems().addAll(toggle, view1, view2, view3);
 
     toggle.setOnAction(new EventHandler<ActionEvent>() {
       @Override
@@ -79,6 +87,27 @@ public class DisplayManager extends DisplayMode {
           settingsPanel.setVisible(true);
           settingsVisible = true;
         }
+      }
+    });
+    
+    view1.setOnAction(new EventHandler<ActionEvent>() {
+      @Override
+      public void handle(ActionEvent arg0) {
+        pane.setCenter(displayModes[0].getDiplayPane());
+      }
+    });
+    
+    view2.setOnAction(new EventHandler<ActionEvent>() {
+      @Override
+      public void handle(ActionEvent arg0) {
+        pane.setCenter(displayModes[1].getDiplayPane());
+      }
+    });
+    
+    view3.setOnAction(new EventHandler<ActionEvent>() {
+      @Override
+      public void handle(ActionEvent arg0) {
+        pane.setCenter(displayModes[2].getDiplayPane());
       }
     });
 
