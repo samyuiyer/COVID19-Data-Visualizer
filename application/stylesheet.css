@@ -1,23 +1,22 @@
 .root {
     -fx-font: 13px "Courier";
     -fx-padding: 10;
-    -fx-background-color: #A167A5;
     
 }
 
 .combo-box .list-cell {
-    -fx-background-color: #E8D7F1;
+    -fx-background-color: #F6CA83;
 }
 
 .button {
-    -fx-background-color: #E8D7F1;
+    -fx-background-color: #F6CA83;
 }
 
 .slider{
-	-fx-background-color: #D3BCCC
+	-fx-background-color: #F6CA83
 }
 
 .color-picker{
-	-fx-background-color: #D3BCCC
+	-fx-background-color: #F6CA83
 }
 

@@ -151,9 +151,10 @@ public class DisplayManager extends DisplayMode {
 
     // setup button
     Button locationsBtn = new Button("Locations");
+    settingsPanel.setStyle("-fx-background-color: #70C1B3");
 
     // setup color picker
-    ColorPicker colorPicker = new ColorPicker(Color.LIGHTGRAY);
+    ColorPicker colorPicker = new ColorPicker(Color.web("#70C1B3"));
     colorPicker.setOnAction(new EventHandler<ActionEvent>() {
 
       @Override
