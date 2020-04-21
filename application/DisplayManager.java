@@ -25,8 +25,8 @@ public class DisplayManager extends DisplayMode {
 
   private DisplayMode[] displayModes;
   private BorderPane displayNode;
+  private BorderPane settingsNode;
   private Node globalSettings;
-  private int currMode;
   private boolean slidersVisible;
   private boolean settingsVisible;
   VBox settingsPanel;
@@ -36,9 +36,9 @@ public class DisplayManager extends DisplayMode {
     settingsPanel.managedProperty().bind(settingsPanel.visibleProperty());
     settingsVisible = true;
     displayNode = new BorderPane();
+    settingsNode = new BorderPane();
     createDisplayModes();
     globalSettings = createGlobalSettingsPane();
-    currMode = 0;
   }
 
   @Override
@@ -79,6 +79,7 @@ public class DisplayManager extends DisplayMode {
       @Override
       public void handle(ActionEvent arg0) {
         displayNode.setCenter(displayModes[0].getDisplayPane());
+        settingsNode.setCenter(displayModes[0].getSettingsPane());
       }
     });
 
@@ -86,6 +87,7 @@ public class DisplayManager extends DisplayMode {
       @Override
       public void handle(ActionEvent arg0) {
         displayNode.setCenter(displayModes[1].getDisplayPane());
+        settingsNode.setCenter(displayModes[1].getSettingsPane());
       }
     });
 
@@ -93,6 +95,7 @@ public class DisplayManager extends DisplayMode {
       @Override
       public void handle(ActionEvent arg0) {
         displayNode.setCenter(displayModes[2].getDisplayPane());
+        settingsNode.setCenter(displayModes[2].getSettingsPane());
       }
     });
 
@@ -106,6 +109,7 @@ public class DisplayManager extends DisplayMode {
     displayModes[1] = new Map();
     displayModes[2] = new Graph();
     displayNode.setCenter(displayModes[0].getDisplayPane());
+    settingsNode.setCenter(displayModes[0].getSettingsPane());
   }
 
   private Node createGlobalSettingsPane() {
@@ -134,10 +138,13 @@ public class DisplayManager extends DisplayMode {
                             String oldValue, String newValue) {
             if(newValue.equals("Table Mode")) {
               displayNode.setCenter(displayModes[0].getDisplayPane());
+              settingsNode.setCenter(displayModes[0].getSettingsPane());
             }else if(newValue.equals("Map Mode")) {
               displayNode.setCenter(displayModes[1].getDisplayPane());
+              settingsNode.setCenter(displayModes[1].getSettingsPane());
             }else if(newValue.equals("Graph Mode")) {
               displayNode.setCenter(displayModes[2].getDisplayPane());
+              settingsNode.setCenter(displayModes[2].getSettingsPane());
             }
         }
 });
@@ -233,7 +240,7 @@ public class DisplayManager extends DisplayMode {
 
     // add Nodes to VBox
     settingsPanel.getChildren().addAll(fileTextField, loadSave, dpMode, colorPicker, time,
-        sliderLabel, sliderStart, sliderEnd, range, displayModes[currMode].getSettingsPane());
+        sliderLabel, sliderStart, sliderEnd, range, settingsNode);
 
 
     return settingsPanel;
