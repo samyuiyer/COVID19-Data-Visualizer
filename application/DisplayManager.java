@@ -35,7 +35,7 @@ public class DisplayManager extends DisplayMode {
     settingsPanel.managedProperty().bind(settingsPanel.visibleProperty());
     settingsVisible = true;
     slidersVisible = true;
-    globalSettings = createGlobalSettingsPane();
+  
     createDisplayModes();
     globalSettings = createGlobalSettingsPane();
     currMode = 0;
