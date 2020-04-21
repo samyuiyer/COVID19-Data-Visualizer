@@ -34,7 +34,7 @@ public class Main extends Application {
     // add to pane
     root.setLeft(dm.getSettingsPane());
     root.setCenter(dm.getDisplayPane());
-    root.setTop(dm.getMenuBar());
+    root.setTop(dm.getMenuBar()); 
 
 
     // Set Scene
