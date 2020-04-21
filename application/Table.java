@@ -2,6 +2,8 @@ package application;
 
 import java.util.List;
 import java.util.function.Predicate;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -17,6 +19,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 
 public class Table extends DisplayMode {
+
+
+
   TableView<DataPoint> tv;
   VBox sp;
   DataManager dm;
@@ -44,20 +49,19 @@ public class Table extends DisplayMode {
     TableColumn<DataPoint, String> city = new TableColumn<>("City");
     city.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("city"));
     city.setStyle("-fx-background-color:#E8D1E3");
-    
+
     TableColumn<DataPoint, String> state = new TableColumn<>("Province/State");
     state.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("state"));
     state.setStyle("-fx-background-color:#F6E8F4");
-    
+
     TableColumn<DataPoint, String> country = new TableColumn<>("Country/Region");
     country.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("country"));
     country.setStyle("-fx-background-color:#E8D1E3");
 
-    
     TableColumn<DataPoint, String> lat = new TableColumn<>("Lat");
     lat.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lat"));
     lat.setStyle("-fx-background-color:#F6E8F4");
-  
+
     TableColumn<DataPoint, String> lon = new TableColumn<>("Long");
     lon.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lon"));
     lon.setStyle("-fx-background-color:#E8D1E3");
@@ -65,19 +69,18 @@ public class Table extends DisplayMode {
     TableColumn<DataPoint, String> stats = new TableColumn<>("Stats");
     stats.setStyle("-fx-background-color:#DD7373");
 
-    
     TableColumn<DataPoint, String> confirmed = new TableColumn<>("Confirmed");
     confirmed.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("confirmed"));
     confirmed.setStyle("-fx-background-color:#F5BFBD");
-    
+
     TableColumn<DataPoint, String> deaths = new TableColumn<>("Deaths");
     deaths.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("deaths"));
     deaths.setStyle("-fx-background-color:#EEAAA8");
-    
+
     TableColumn<DataPoint, String> recovered = new TableColumn<>("Recovered");
     recovered.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("recovered"));
     recovered.setStyle("-fx-background-color:#F5BFBD");
-    
+
     TableColumn<DataPoint, String> active = new TableColumn<>("Active");
     active.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("active"));
     active.setStyle("-fx-background-color:#EEAAA8");
@@ -94,7 +97,6 @@ public class Table extends DisplayMode {
     List<DataPoint> list = dm.at.getAll();
     ObservableList<DataPoint> data = FXCollections.observableList(list);
     filteredList = new FilteredList<>(data);
-
 
     // to filter
     filteredList.setPredicate(new Predicate<DataPoint>() {
@@ -119,6 +121,17 @@ public class Table extends DisplayMode {
     TextField cityFilter = new TextField("Filter City");
     TextField stateFilter = new TextField("Filter State");
     TextField countryFilter = new TextField("Filter Country");
+    cityFilter.focusedProperty().addListener(new ChangeListener<Boolean>() {
+      @Override
+      public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue,
+          Boolean newValue) {
+        if (newValue) {
+          cityFilter.clear();
+        }
+      }
+
+    });
+
     Button setFilter = new Button("Set Filter");
     setFilter.setOnAction(new EventHandler<ActionEvent>() { // button should hide time sliders and
                                                             // labels
@@ -137,6 +150,7 @@ public class Table extends DisplayMode {
         });
       }
     });
+
     Button resetFilter = new Button("Reset Filter");
     resetFilter.setOnAction(new EventHandler<ActionEvent>() { // button should hide time sliders and
                                                               // // labels
@@ -158,12 +172,12 @@ public class Table extends DisplayMode {
         });
       }
     });
-    sp.getChildren().addAll(cityFilter, stateFilter, countryFilter, setFilter,resetFilter);
+    sp.getChildren().addAll(cityFilter, stateFilter, countryFilter, setFilter, resetFilter);
   }
 
   @Override
-  public Node getSettingsPane() {
-    return sp;
-  }
+	public Node getSettingsPane() {
+		return sp;
+	}
 
 }
