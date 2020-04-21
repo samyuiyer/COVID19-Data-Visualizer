@@ -1,8 +1,8 @@
 .root {
     -fx-font: 13px "Courier";
     -fx-padding: 10;
-    
 }
+
 
 .combo-box .list-cell {
     -fx-background-color: #F6CA83;
