@@ -26,8 +26,8 @@ public class DisplayManager extends DisplayMode {
 
   public DisplayManager() {
     visible = true;
-    globalSettings = createGlobalSettingsPane();
     createDisplayModes();
+    globalSettings = createGlobalSettingsPane();
     currMode = 0;
   }
 
@@ -167,7 +167,7 @@ public class DisplayManager extends DisplayMode {
 
     // add Nodes to VBox
     settingsPanel.getChildren().addAll(fileTextField, loadSave, dpMode, colorPicker, time, sliderLabel,
-        sliderStart, sliderEnd, range, locationsBtn);
+        sliderStart, sliderEnd, range, displayModes[currMode].getSettingsPane());
 
     return settingsPanel;
   }

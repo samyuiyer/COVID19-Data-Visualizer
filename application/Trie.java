@@ -57,14 +57,15 @@ public abstract class Trie<K, S> implements DataStructureADT<K, DataPoint> {
   }
 
   public void getAll(Node curr, List<DataPoint> l) {
-    l.add(curr.data);
+    if (curr.data != null)
+      l.add(curr.data);
     for (S s : curr.children.keySet()) {
       getAll(curr.children.get(s), l);
     }
   }
 
   @Override
-  public boolean remove(K key) throws IllegalNullKeyException{
+  public boolean remove(K key) throws IllegalNullKeyException {
     return true;
   }
 
