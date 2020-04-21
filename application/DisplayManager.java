@@ -165,8 +165,8 @@ public class DisplayManager extends DisplayMode {
 
 
     // add Nodes to VBox
-    settingsPanel.getChildren().addAll(fileTextField, loadSave, dpMode, time, sliderLabel,
-        sliderStart, sliderEnd, range, locationsBtn, colorPicker);
+    settingsPanel.getChildren().addAll(fileTextField, loadSave, dpMode, colorPicker, time, sliderLabel,
+        sliderStart, sliderEnd, range, locationsBtn);
 
     return settingsPanel;
   }
