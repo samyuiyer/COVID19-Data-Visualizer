@@ -105,7 +105,7 @@ public class DisplayManager extends DisplayMode {
       public void handle(ActionEvent arg0) {
         displayNode.setCenter(displayModes[0].getDisplayPane());
         settingsNode.setCenter(displayModes[0].getSettingsPane());
-         dspModeComboBox.setPromptText("Table Mode"); // TODO need to fix this
+        dspModeComboBox.setPromptText("Table Mode"); // TODO need to fix this
       }
     });
 
@@ -114,7 +114,7 @@ public class DisplayManager extends DisplayMode {
       public void handle(ActionEvent arg0) {
         displayNode.setCenter(displayModes[1].getDisplayPane());
         settingsNode.setCenter(displayModes[1].getSettingsPane());
-         dspModeComboBox.setPromptText("Map Mode");
+        dspModeComboBox.setPromptText("Map Mode");
       }
     });
 
@@ -123,7 +123,7 @@ public class DisplayManager extends DisplayMode {
       public void handle(ActionEvent arg0) {
         displayNode.setCenter(displayModes[2].getDisplayPane());
         settingsNode.setCenter(displayModes[2].getSettingsPane());
-         dspModeComboBox.setPromptText("Graph Mode");
+        dspModeComboBox.setPromptText("Graph Mode");
       }
     });
   }
@@ -139,8 +139,7 @@ public class DisplayManager extends DisplayMode {
     Button time = new Button("Time Range");
     ColorPicker colorPicker = new ColorPicker(Color.web("#70C1B3"));
     String[] dispModes = {"Table Mode", "Map Mode", "Graph Mode"};
-    dspModeComboBox =
-        new ComboBox<String>(FXCollections.observableArrayList(dispModes));
+    dspModeComboBox = new ComboBox<String>(FXCollections.observableArrayList(dispModes));
 
     // setup time range slider and label
     Label sliderLabel = new Label("Choose Time Range:");
@@ -165,9 +164,7 @@ public class DisplayManager extends DisplayMode {
 
     // non-css styling
 
-    settingsPanel.setSpacing(5);
     settingsPanel.setPadding(new Insets(0, 10, 0, 10));
-    loadSave.setSpacing(3);
 
     // Setup values and properties
 
