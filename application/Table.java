@@ -172,6 +172,7 @@ public class Table extends DisplayMode {
     });
 
     Button setFilter = new Button("Set Filter");
+    setFilter.setId("set-filter-btn");
     setFilter.setOnAction(new EventHandler<ActionEvent>() { // button should hide time sliders and
                                                             // labels
       @Override
@@ -191,6 +192,8 @@ public class Table extends DisplayMode {
     });
 
     Button resetFilter = new Button("Reset Filter");
+    resetFilter.setId("reset-filter-btn");
+    
     resetFilter.setOnAction(new EventHandler<ActionEvent>() { // button should hide time sliders and
                                                               // // labels
       @Override
