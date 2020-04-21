@@ -62,7 +62,7 @@ public class DisplayManager extends DisplayMode {
     displayModes[0] = new Table();
     displayModes[1] = new Map();
     displayModes[2] = new Graph();
-    displayNode.setCenter(displayModes[0].getDiplayPane());
+    displayNode.setCenter(displayModes[0].getDisplayPane());
   }
 
   public Node getMenuBar() {
@@ -92,21 +92,21 @@ public class DisplayManager extends DisplayMode {
     view1.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent arg0) {
-        displayNode.setCenter(displayModes[0].getDiplayPane());
+        displayNode.setCenter(displayModes[0].getDisplayPane());
       }
     });
     
     view2.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent arg0) {
-        displayNode.setCenter(displayModes[1].getDiplayPane());
+        displayNode.setCenter(displayModes[1].getDisplayPane());
       }
     });
     
     view3.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent arg0) {
-        displayNode.setCenter(displayModes[2].getDiplayPane());
+        displayNode.setCenter(displayModes[2].getDisplayPane());
       }
     });
 
