@@ -128,6 +128,19 @@ public class DisplayManager extends DisplayMode {
     String[] dispModes = {"Table Mode", "Map Mode", "Graph Mode"};
     ComboBox<String> dpMode = new ComboBox<String>(FXCollections.observableArrayList(dispModes));
     dpMode.setPromptText("Select Display Mode");
+    dpMode.getSelectionModel().selectedItemProperty()
+    .addListener(new ChangeListener<String>() {
+        public void changed(ObservableValue<? extends String> observable,
+                            String oldValue, String newValue) {
+            if(newValue.equals("Table Mode")) {
+              displayNode.setCenter(displayModes[0].getDisplayPane());
+            }else if(newValue.equals("Map Mode")) {
+              displayNode.setCenter(displayModes[1].getDisplayPane());
+            }else if(newValue.equals("Graph Mode")) {
+              displayNode.setCenter(displayModes[2].getDisplayPane());
+            }
+        }
+});
 
     // setup time range slider and label
     Label sliderLabel = new Label("Choose Time Range:");
