@@ -19,7 +19,7 @@ public class Map extends DisplayMode {
   }
 
   @Override
-  public Node getDiplayPane() {
+  public Node getDisplayPane() {
     return iv1;
   }
 
