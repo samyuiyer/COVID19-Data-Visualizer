@@ -2,7 +2,7 @@
     -fx-font: 13px "Courier";
     -fx-padding: 10;
     -fx-background-color: #A167A5;
-    
+    -fx-focus-color: transparent;
 }
 
 .combo-box .list-cell {
