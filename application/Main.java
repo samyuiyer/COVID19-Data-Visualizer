@@ -20,9 +20,9 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
 
-  private static final int WINDOW_WIDTH = 800;
-  private static final int WINDOW_HEIGHT = 600;
-  private static final String APP_TITLE = "hey its corona";
+  private static final int WINDOW_WIDTH = 1170;
+  private static final int WINDOW_HEIGHT = 800;
+  private static final String APP_TITLE = "COVID-19 Data Visualizer";
   DisplayManager dm;
   Boolean visible = true;
 

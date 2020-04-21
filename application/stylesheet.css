@@ -6,17 +6,41 @@
 
 .combo-box .list-cell {
     -fx-background-color: #F6CA83;
+    -fx-padding: 10px;
+    
 }
 
 .button {
     -fx-background-color: #F6CA83;
+    -fx-padding: 10px;
+    -fx-border-insets: 5px;
+    -fx-background-insets: 5px;
 }
 
 .slider{
-	-fx-background-color: #F6CA83
+	-fx-background-color: #F6CA83;
+    -fx-padding: 10px;
+    -fx-border-insets: 5px;
+    -fx-background-insets: 5px;
 }
 
 .color-picker{
-	-fx-background-color: #F6CA83
+	-fx-background-color: #F6CA83;	
+    -fx-padding: 10px;
+    -fx-border-insets: 5px;
+    -fx-background-insets: 5px;
 }
+
+.text-field{
+	-fx-background-color: #F6CA83;
+	-fx-padding: 10px;
+    -fx-border-insets: 5px;
+    -fx-background-insets: 5px;
+}
+
+.menu-bar{
+	-fx-background-color: #d3d3d3;
+}
+
+
 

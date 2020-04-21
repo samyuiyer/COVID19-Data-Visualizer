@@ -181,13 +181,10 @@ public class DisplayManager extends DisplayMode {
       }
     });
 
-<<<<<<< HEAD
     // setup button
     Button locationsBtn = new Button("Locations");
     settingsPanel.setStyle("-fx-background-color: #70C1B3");
 
-=======
->>>>>>> 1eceb51a9cde946db071e006690ad034456f3217
     // setup color picker
     ColorPicker colorPicker = new ColorPicker(Color.web("#70C1B3"));
     colorPicker.setOnAction(new EventHandler<ActionEvent>() {

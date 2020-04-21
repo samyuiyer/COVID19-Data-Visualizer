@@ -15,6 +15,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 public class Table extends DisplayMode {
   TableView<DataPoint> tv;
@@ -40,28 +41,47 @@ public class Table extends DisplayMode {
   private void initTv() {
 
     TableColumn<DataPoint, String> location = new TableColumn<>("Location");
+    location.setStyle("-fx-background-color:#C69DB8");
     TableColumn<DataPoint, String> city = new TableColumn<>("City");
     city.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("city"));
+    city.setStyle("-fx-background-color:#E8D1E3");
+    
     TableColumn<DataPoint, String> state = new TableColumn<>("Province/State");
     state.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("state"));
+    state.setStyle("-fx-background-color:#F6E8F4");
+    
     TableColumn<DataPoint, String> country = new TableColumn<>("Country/Region");
     country.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("country"));
+    country.setStyle("-fx-background-color:#E8D1E3");
+
+    
     TableColumn<DataPoint, String> lat = new TableColumn<>("Lat");
     lat.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lat"));
+    lat.setStyle("-fx-background-color:#F6E8F4");
+  
     TableColumn<DataPoint, String> lon = new TableColumn<>("Long");
     lon.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lon"));
+    lon.setStyle("-fx-background-color:#E8D1E3");
 
     TableColumn<DataPoint, String> stats = new TableColumn<>("Stats");
+    stats.setStyle("-fx-background-color:#DD7373");
+
+    
     TableColumn<DataPoint, String> confirmed = new TableColumn<>("Confirmed");
     confirmed.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("confirmed"));
+    confirmed.setStyle("-fx-background-color:#F5BFBD");
+    
     TableColumn<DataPoint, String> deaths = new TableColumn<>("Deaths");
     deaths.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("deaths"));
+    deaths.setStyle("-fx-background-color:#EEAAA8");
+    
     TableColumn<DataPoint, String> recovered = new TableColumn<>("Recovered");
     recovered.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("recovered"));
+    recovered.setStyle("-fx-background-color:#F5BFBD");
+    
     TableColumn<DataPoint, String> active = new TableColumn<>("Active");
     active.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("active"));
-
-
+    active.setStyle("-fx-background-color:#EEAAA8");
 
     location.getColumns().addAll(city, state, country, lat, lon);
     stats.getColumns().addAll(confirmed, deaths, recovered, active);
