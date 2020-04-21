@@ -60,8 +60,8 @@ public class DisplayManager extends DisplayMode {
   private void createDisplayModes() {
     displayModes = new DisplayMode[3];
     displayModes[0] = new Table();
-    displayModes[1] = new Table();
-    displayModes[2] = new Table();
+    displayModes[1] = new Map();
+    displayModes[2] = new Graph();
     displayNode.setCenter(displayModes[0].getDiplayPane());
   }
 

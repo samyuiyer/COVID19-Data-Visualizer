@@ -1,6 +1,7 @@
 package application;
 
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 
 public class Map extends DisplayMode {
 
@@ -11,13 +12,12 @@ public class Map extends DisplayMode {
 
   @Override
   public Node getDiplayPane() {
-    return null;
+    return new Label("Map");
   }
 
   @Override
   public Node getSettingsPane() {
-    // TODO Auto-generated method stub
-    return null;
+    return new Label("Map Settings");
   }
 
 }
