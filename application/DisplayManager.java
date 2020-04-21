@@ -24,21 +24,19 @@ import javafx.scene.paint.Color;
 public class DisplayManager extends DisplayMode {
 
   private DisplayMode[] displayModes;
+  private BorderPane displayNode;
   private Node globalSettings;
   private int currMode;
   private boolean slidersVisible;
   private boolean settingsVisible;
   VBox settingsPanel;
-  private BorderPane pane;
 
-  public DisplayManager(BorderPane pane) {
+  public DisplayManager() {
 
     settingsPanel = new VBox();
     settingsPanel.managedProperty().bind(settingsPanel.visibleProperty());
     settingsVisible = true;
-    slidersVisible = true;
-    this.pane = pane;
-  
+    displayNode = new BorderPane();
     createDisplayModes();
     globalSettings = createGlobalSettingsPane();
     currMode = 0;
@@ -46,7 +44,7 @@ public class DisplayManager extends DisplayMode {
 
   @Override
   public Node getDiplayPane() {
-    return displayModes[currMode].getDiplayPane();
+    return displayNode;
   }
 
   @Override
@@ -64,6 +62,7 @@ public class DisplayManager extends DisplayMode {
     displayModes[0] = new Table();
     displayModes[1] = new Table();
     displayModes[2] = new Table();
+    displayNode.setCenter(displayModes[0].getDiplayPane());
   }
 
   public Node getMenuBar() {
@@ -93,21 +92,21 @@ public class DisplayManager extends DisplayMode {
     view1.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent arg0) {
-        pane.setCenter(displayModes[0].getDiplayPane());
+        displayNode.setCenter(displayModes[0].getDiplayPane());
       }
     });
     
     view2.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent arg0) {
-        pane.setCenter(displayModes[1].getDiplayPane());
+        displayNode.setCenter(displayModes[1].getDiplayPane());
       }
     });
     
     view3.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent arg0) {
-        pane.setCenter(displayModes[2].getDiplayPane());
+        displayNode.setCenter(displayModes[2].getDiplayPane());
       }
     });
 
