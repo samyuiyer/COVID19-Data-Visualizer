@@ -81,18 +81,8 @@ public class Table extends DisplayMode {
     lon.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lon"));
     confirmed.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("confirmed"));
     deaths.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("deaths"));
-<<<<<<< HEAD
-    deaths.setStyle("-fx-background-color:#FCD5D2");
-    
-    TableColumn<DataPoint, String> recovered = new TableColumn<>("Recovered");
-=======
->>>>>>> f1287b0a1ae28a5c1dc9bd08d99b8fc01a794bd0
     recovered.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("recovered"));
     active.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("active"));
-<<<<<<< HEAD
-    active.setStyle("-fx-background-color:#FCD5D2");
-=======
->>>>>>> f1287b0a1ae28a5c1dc9bd08d99b8fc01a794bd0
 
     location.getColumns().addAll(city, state, country, lat, lon);
     stats.getColumns().addAll(confirmed, deaths, recovered, active);
