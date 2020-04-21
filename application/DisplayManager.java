@@ -62,6 +62,7 @@ public class DisplayManager extends DisplayMode {
     // setup load file textfield and button
     HBox loadSave = new HBox();
     TextField fileTextField = new TextField("File name");
+
     Button loadFileBtn = new Button("Load File");
     Button saveFileBtn = new Button("Save File");
     loadSave.setSpacing(3);

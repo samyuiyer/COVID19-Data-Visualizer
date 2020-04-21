@@ -42,8 +42,10 @@ public class Main extends Application {
 
     // Set Scene
     Scene mainScene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
-    // try to add css
-    // mainScene.getStylesheets().add("stylesheet.css");
+    
+    //adds styles
+    mainScene.getStylesheets().add(getClass().getResource("stylesheet.css").toString());
+    
     primaryStage.setTitle(APP_TITLE);
     primaryStage.setScene(mainScene);
     primaryStage.show();
