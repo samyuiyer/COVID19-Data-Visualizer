@@ -45,31 +45,34 @@ public class Table extends DisplayMode {
   private void initTv() {
     tv.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     TableColumn<DataPoint, String> location = new TableColumn<>("Location");
-    location.setStyle("-fx-background-color:#C69DB8");
     TableColumn<DataPoint, String> city = new TableColumn<>("City");
-    city.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("city"));
-    city.setStyle("-fx-background-color:#E8D1E3");
-
     TableColumn<DataPoint, String> state = new TableColumn<>("Province/State");
-    state.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("state"));
-    state.setStyle("-fx-background-color:#F6E8F4");
-
     TableColumn<DataPoint, String> country = new TableColumn<>("Country/Region");
-    country.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("country"));
-    country.setStyle("-fx-background-color:#E8D1E3");
-
     TableColumn<DataPoint, String> lat = new TableColumn<>("Lat");
-    lat.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lat"));
-    lat.setStyle("-fx-background-color:#F6E8F4");
-
     TableColumn<DataPoint, String> lon = new TableColumn<>("Long");
-    lon.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lon"));
-    lon.setStyle("-fx-background-color:#E8D1E3");
-
     TableColumn<DataPoint, String> stats = new TableColumn<>("Stats");
-    stats.setStyle("-fx-background-color:#DD7373");
-
     TableColumn<DataPoint, String> confirmed = new TableColumn<>("Confirmed");
+    TableColumn<DataPoint, String> deaths = new TableColumn<>("Deaths");
+    TableColumn<DataPoint, String> recovered = new TableColumn<>("Recovered");
+    TableColumn<DataPoint, String> active = new TableColumn<>("Active");
+    
+    location.setId("column_header_location");
+    city.setId("column_city");
+    state.setId("column_state");
+    country.setId("column_country");
+    lat.setId("column_lat");
+    lon.setId("column_lon");
+    stats.setId("column_header_stats");
+    confirmed.setId("column_confirmed");
+    deaths.setId("column_deaths");
+    recovered.setId("column_recovered");
+    active.setId("column_active");
+
+    city.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("city"));
+    state.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("state"));
+    country.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("country"));
+    lat.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lat"));
+    lon.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lon"));
     confirmed.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("confirmed"));
     confirmed.setStyle("-fx-background-color:#F5BFBD");
 
@@ -176,8 +179,8 @@ public class Table extends DisplayMode {
   }
 
   @Override
-	public Node getSettingsPane() {
-		return sp;
-	}
+  public Node getSettingsPane() {
+    return sp;
+  }
 
 }
