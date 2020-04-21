@@ -11,6 +11,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
@@ -22,10 +25,17 @@ public class DisplayManager extends DisplayMode {
   private DisplayMode[] displayModes;
   private Node globalSettings;
   private int currMode;
-  private boolean visible;
+  private boolean slidersVisible;
+  private boolean settingsVisible;
+  VBox settingsPanel;
 
   public DisplayManager() {
-    visible = true;
+
+    settingsPanel = new VBox();
+    settingsPanel.managedProperty().bind(settingsPanel.visibleProperty());
+    settingsVisible = true;
+    slidersVisible = true;
+    globalSettings = createGlobalSettingsPane();
     createDisplayModes();
     globalSettings = createGlobalSettingsPane();
     currMode = 0;
@@ -51,9 +61,33 @@ public class DisplayManager extends DisplayMode {
     displayModes[0] = new Table();
   }
 
+  public Node getMenuBar() {
+    MenuBar bar = new MenuBar();
+    final Menu menu = new Menu("Menu");
+    final MenuItem toggle = new MenuItem("Toggle Settings");
+    final Menu help = new Menu("Help");
+    
+    menu.getItems().addAll(toggle);
+
+    toggle.setOnAction(new EventHandler<ActionEvent>() {
+      @Override
+      public void handle(ActionEvent arg0) {
+        if (settingsVisible) {
+          settingsPanel.setVisible(false);
+          settingsVisible = false;
+        } else {
+          settingsPanel.setVisible(true);
+          settingsVisible = true;
+        }
+      }
+    });
+
+    bar.getMenus().addAll(menu, help);
+    return bar;
+  }
+
   private Node createGlobalSettingsPane() {
     // setup VBOX
-    VBox settingsPanel = new VBox();
     settingsPanel.setStyle("-fx-background-color: grey;");
     settingsPanel.setSpacing(5);
     // Insets(double top, double right, double bottom, double left) // TODO remove this comment
@@ -66,9 +100,7 @@ public class DisplayManager extends DisplayMode {
     Button loadFileBtn = new Button("Load File");
     Button saveFileBtn = new Button("Save File");
     loadSave.setSpacing(3);
-    loadSave.getChildren().addAll(loadFileBtn,saveFileBtn);
-
-
+    loadSave.getChildren().addAll(loadFileBtn, saveFileBtn);
 
     // setup combobox
     String[] dispModes = {"Table Mode", "Map Mode", "Graph Mode"};
@@ -125,26 +157,26 @@ public class DisplayManager extends DisplayMode {
     sliderEnd.managedProperty().bind(sliderEnd.visibleProperty());
     range.managedProperty().bind(range.visibleProperty());
 
-    sliderStart.setVisible(visible);
-    sliderEnd.setVisible(visible);
+    sliderStart.setVisible(slidersVisible);
+    sliderEnd.setVisible(slidersVisible);
 
     // setup time range button
     Button time = new Button("Time Range");
     time.setOnAction(new EventHandler<ActionEvent>() { // button should hide time sliders and labels
       @Override
       public void handle(ActionEvent event) {
-        if (visible) {
+        if (slidersVisible) {
           sliderLabel.setVisible(false);
           sliderStart.setVisible(false);
           sliderEnd.setVisible(false);
           range.setVisible(false);
-          visible = false;
+          slidersVisible = false;
         } else {
           sliderLabel.setVisible(true);
           sliderStart.setVisible(true);
           sliderEnd.setVisible(true);
           range.setVisible(true);
-          visible = true;
+          slidersVisible = true;
         }
       }
     });
@@ -155,16 +187,16 @@ public class DisplayManager extends DisplayMode {
 
       @Override
       public void handle(ActionEvent arg0) {
-        settingsPanel.setStyle(
-            "-fx-background-color: #" + colorPicker.getValue().toString().substring(2));
+        settingsPanel
+            .setStyle("-fx-background-color: #" + colorPicker.getValue().toString().substring(2));
       }
 
     });
 
-
     // add Nodes to VBox
     settingsPanel.getChildren().addAll(fileTextField, loadSave, dpMode, colorPicker, time, sliderLabel,
         sliderStart, sliderEnd, range, displayModes[currMode].getSettingsPane());
+
 
     return settingsPanel;
   }

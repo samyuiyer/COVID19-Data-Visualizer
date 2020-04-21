@@ -12,6 +12,7 @@ package application;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuBar;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -35,6 +36,7 @@ public class Main extends Application {
     // add to pane
     root.setLeft(dm.getSettingsPane());
     root.setCenter(dm.getDiplayPane());
+    root.setTop(dm.getMenuBar());
 
     Button toggleSettingsBtn = new Button("Toggle Settings");
     root.getChildren().addAll(toggleSettingsBtn);
