@@ -38,7 +38,7 @@ public class Table extends DisplayMode {
 
   @SuppressWarnings("unchecked")
   private void initTv() {
-
+    tv.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     TableColumn<DataPoint, String> location = new TableColumn<>("Location");
     location.setStyle("-fx-background-color:#C69DB8");
     TableColumn<DataPoint, String> city = new TableColumn<>("City");
