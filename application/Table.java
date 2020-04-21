@@ -123,13 +123,18 @@ public class Table extends DisplayMode {
 		cityFilter.focusedProperty().addListener(new ChangeListener<Boolean>() {
 			@Override
 			public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-				if(newValue) {
+				if (newValue) {
 					cityFilter.clear();
-				} 
+				}
+				if (oldValue) {
+					if(cityFilter.getText().isBlank()) {
+						cityFilter.setText("Filter City");
+					}
+				}
 			}
 
 		});
-		
+
 		Button setFilter = new Button("Set Filter");
 		setFilter.setOnAction(new EventHandler<ActionEvent>() { // button should hide time sliders and
 																// labels
