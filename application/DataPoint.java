@@ -9,6 +9,9 @@
  */
 package application;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -174,8 +177,17 @@ public class DataPoint {
       country.set(keySplit[2]);
     }
     update.set(dataArray[4]);
-    lat.set(dataArray[5]);
-    lon.set(dataArray[6]);
+    double latTrim = 0;
+    double lonTrim = 0;
+    if(!dataArray[5].isEmpty()) {
+    	latTrim = new BigDecimal(Double.valueOf(dataArray[5])).setScale(8, RoundingMode.HALF_UP).doubleValue();
+    }
+    if(!dataArray[6].isEmpty()) {
+    	lonTrim = new BigDecimal(Double.valueOf(dataArray[6])).setScale(8, RoundingMode.HALF_UP).doubleValue();
+    }
+    		
+    lat.set(String.valueOf(latTrim));
+    lon.set(String.valueOf(lonTrim));
     if (dataArray[7] != null) {
       confirmed.set(Integer.parseInt(dataArray[7]));
       deaths.set(Integer.parseInt(dataArray[8]));
