@@ -149,9 +149,6 @@ public class DisplayManager extends DisplayMode {
       }
     });
 
-    // setup button
-    Button locationsBtn = new Button("Locations");
-
     // setup color picker
     ColorPicker colorPicker = new ColorPicker(Color.LIGHTGRAY);
     colorPicker.setOnAction(new EventHandler<ActionEvent>() {
