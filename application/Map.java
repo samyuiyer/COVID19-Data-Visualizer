@@ -93,7 +93,6 @@ public class Map extends DisplayMode {
     sp.getChildren().addAll(d, c, a, r);
   }
 
-
   @Override
   void reset() {
 
@@ -110,11 +109,9 @@ public class Map extends DisplayMode {
 
   @Override
   public Node getSettingsPane() {
-
     return sp;
+
   }
-
-
 
   private void drawShapes(GraphicsContext gc) {
 
