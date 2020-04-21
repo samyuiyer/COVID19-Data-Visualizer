@@ -55,7 +55,7 @@ public class Table extends DisplayMode {
     TableColumn<DataPoint, String> deaths = new TableColumn<>("Deaths");
     TableColumn<DataPoint, String> recovered = new TableColumn<>("Recovered");
     TableColumn<DataPoint, String> active = new TableColumn<>("Active");
-    
+
     location.setId("column_header_location");
     city.setId("column_city");
     state.setId("column_state");
@@ -74,19 +74,9 @@ public class Table extends DisplayMode {
     lat.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lat"));
     lon.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lon"));
     confirmed.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("confirmed"));
-    confirmed.setStyle("-fx-background-color:#F5BFBD");
-
-    TableColumn<DataPoint, String> deaths = new TableColumn<>("Deaths");
     deaths.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("deaths"));
-    deaths.setStyle("-fx-background-color:#EEAAA8");
-
-    TableColumn<DataPoint, String> recovered = new TableColumn<>("Recovered");
     recovered.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("recovered"));
-    recovered.setStyle("-fx-background-color:#F5BFBD");
-
-    TableColumn<DataPoint, String> active = new TableColumn<>("Active");
     active.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("active"));
-    active.setStyle("-fx-background-color:#EEAAA8");
 
     location.getColumns().addAll(city, state, country, lat, lon);
     stats.getColumns().addAll(confirmed, deaths, recovered, active);
