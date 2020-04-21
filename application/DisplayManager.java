@@ -37,6 +37,7 @@ public class DisplayManager extends DisplayMode {
     settingsPanel = new VBox();
     settingsPanel.managedProperty().bind(settingsPanel.visibleProperty());
     settingsVisible = true;
+    slidersVisible = true;
     displayNode = new BorderPane();
     settingsNode = new BorderPane();
     createDisplayModes();
