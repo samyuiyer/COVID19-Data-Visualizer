@@ -10,7 +10,7 @@ public class Graph extends DisplayMode {
   }
 
   @Override
-  public Node getDiplayPane() {
+  public Node getDisplayPane() {
     return null;
   }
 

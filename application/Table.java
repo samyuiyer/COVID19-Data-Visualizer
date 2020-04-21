@@ -112,7 +112,7 @@ public class Table extends DisplayMode {
   }
 
   @Override
-  public Node getDiplayPane() {
+  public Node getDisplayPane() {
     return tv;
   }
 

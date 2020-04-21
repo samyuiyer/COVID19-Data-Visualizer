@@ -42,8 +42,8 @@ public class DisplayManager extends DisplayMode {
   }
 
   @Override
-  public Node getDiplayPane() {
-    return displayModes[currMode].getDiplayPane();
+  public Node getDisplayPane() {
+    return displayModes[currMode].getDisplayPane();
   }
 
   @Override

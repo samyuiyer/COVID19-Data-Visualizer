@@ -33,7 +33,7 @@ public class Main extends Application {
     dm = new DisplayManager();
     // add to pane
     root.setLeft(dm.getSettingsPane());
-    root.setCenter(dm.getDiplayPane());
+    root.setCenter(dm.getDisplayPane());
     root.setTop(dm.getMenuBar());
 
 
