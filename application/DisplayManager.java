@@ -73,7 +73,7 @@ public class DisplayManager extends DisplayMode {
     final MenuItem view2 = new MenuItem("Map");
     final MenuItem view3 = new MenuItem("Graph");
     final Menu help = new Menu("Help");
-    
+
     menu.getItems().addAll(toggle, view1, view2, view3);
 
     toggle.setOnAction(new EventHandler<ActionEvent>() {
@@ -88,21 +88,21 @@ public class DisplayManager extends DisplayMode {
         }
       }
     });
-    
+
     view1.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent arg0) {
         displayNode.setCenter(displayModes[0].getDisplayPane());
       }
     });
-    
+
     view2.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent arg0) {
         displayNode.setCenter(displayModes[1].getDisplayPane());
       }
     });
-    
+
     view3.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent arg0) {
@@ -210,7 +210,6 @@ public class DisplayManager extends DisplayMode {
     });
 
     // setup button
-    Button locationsBtn = new Button("Locations");
     settingsPanel.setStyle("-fx-background-color: #70C1B3");
 
     // setup color picker
@@ -226,8 +225,8 @@ public class DisplayManager extends DisplayMode {
     });
 
     // add Nodes to VBox
-    settingsPanel.getChildren().addAll(fileTextField, loadSave, dpMode, colorPicker, time, sliderLabel,
-        sliderStart, sliderEnd, range, displayModes[currMode].getSettingsPane());
+    settingsPanel.getChildren().addAll(fileTextField, loadSave, dpMode, colorPicker, time,
+        sliderLabel, sliderStart, sliderEnd, range, displayModes[currMode].getSettingsPane());
 
 
     return settingsPanel;

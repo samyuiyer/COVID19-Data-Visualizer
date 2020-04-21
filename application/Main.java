@@ -36,7 +36,6 @@ public class Main extends Application {
     root.setCenter(dm.getDisplayPane());
     root.setTop(dm.getMenuBar());
 
-
     // Set Scene
     Scene mainScene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
     
