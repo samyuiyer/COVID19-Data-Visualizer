@@ -30,7 +30,7 @@ public class Map extends DisplayMode {
   private final int width = 900;
   private final int height = 450;
   CheckBox[] filters;
-  dataTypes rType = dataTypes.Confirmed;
+  dataTypes rType = dataTypes.Dead;
   final ToggleGroup data = new ToggleGroup();
 
   public Map() {
@@ -61,6 +61,7 @@ public class Map extends DisplayMode {
     filters[2].setIndeterminate(false);
     filters[2].setOnAction(eh);
     filters[1].fire();
+    filters[2].fire();
 
 
     RadioButton c = new RadioButton("Confirmed");
@@ -127,7 +128,7 @@ public class Map extends DisplayMode {
         double y = (d.getLat() + 90.0) * height / 180;
         double factor = getFactor(d);
 
-        gc.fillOval(x - factor / 2.0, height - (y - factor / 2.0), factor, factor);
+        gc.fillOval(x - factor / 2.0, height - (y + factor / 2.0), factor, factor);
 
       }
     }
@@ -143,13 +144,13 @@ public class Map extends DisplayMode {
       gc.setFill(Color.ORANGE);
       return Math.log(d.getConfirmed());
     } else if (rType == dataTypes.Active) {
-      gc.setFill(Color.BLUE);
+      gc.setFill(Color.YELLOW);
       return Math.log(d.getActive());
     } else if (rType == dataTypes.Recovered) {
-      gc.setFill(Color.GREEN);
+      gc.setFill(Color.AQUA);
       return Math.log(d.getRecovered());
     }
-    gc.setFill(Color.BLACK);
+    gc.setFill(Color.RED);
     return Math.log(d.getDeaths());
 
   }
@@ -161,14 +162,12 @@ public class Map extends DisplayMode {
    */
   private boolean filter(DataPoint d) {
 
-    if (!d.getCity().equals("") && !filters[0].isSelected())
-      return false;
-
-    if (!d.getState().equals("") && !filters[1].isSelected() && !filters[0].isSelected())
-      return false;
-    if (!d.getCountry().equals("") && !filters[2].isSelected() && !filters[1].isSelected()
-        && !filters[0].isSelected())
-      return false;
+    if (!d.getCity().equals(""))
+      return filters[0].isSelected();
+    if (!d.getState().equals(""))
+      return filters[1].isSelected();
+    if (!d.getCountry().equals(""))
+      return filters[2].isSelected();
     return true;
   }
 
