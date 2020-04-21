@@ -29,7 +29,7 @@ public class Main extends Application {
 
   @Override
   public void start(Stage primaryStage) throws Exception {
-    // Main layout is Border Pane (top,left,center,right,bottom)
+    // Main layout is Border Pane (top, left, center, right, bottom)
     BorderPane root = new BorderPane();
     dm = new DisplayManager();
     // add to pane
