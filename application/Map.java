@@ -1,9 +1,17 @@
 package application;
 
 import javafx.scene.Node;
-import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class Map extends DisplayMode {
+  
+  ImageView iv1 = new ImageView();
+  
+  Map(){
+    Image image = new Image("map.jpg");
+    iv1.setImage(image);
+  }
 
   @Override
   void reset() {
@@ -11,13 +19,14 @@ public class Map extends DisplayMode {
   }
 
   @Override
-  public Node getDisplayPane() {
-    return new Label("Map");
+  public Node getDiplayPane() {
+    return iv1;
   }
 
   @Override
   public Node getSettingsPane() {
-    return new Label("Map Settings");
+    // TODO Auto-generated method stub
+    return null;
   }
 
 }
