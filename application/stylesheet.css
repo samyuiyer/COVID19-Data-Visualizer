@@ -97,20 +97,9 @@
   -fx-background-color: #f5bfbd;
 }
 
-<<<<<<< HEAD
-#reset-filter-btn{
-	-fx-background-color: #F7F6D7;
-}
-
-#set-filter-btn{
-	-fx-background-color: #F7F6D7;
-}
-
-=======
 #column_deaths {
   -fx-background-color: #eeaaa8;
 }
->>>>>>> f1287b0a1ae28a5c1dc9bd08d99b8fc01a794bd0
 
 #column_recovered {
   -fx-background-color: #f5bfbd;

@@ -70,7 +70,7 @@ public class Table extends DisplayMode {
     deaths.setId("column_deaths");
     recovered.setId("column_recovered");
     active.setId("column_active");
-    
+
     city.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("city"));
     city.setComparator(getComp(city));
     state.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("state"));
@@ -81,18 +81,8 @@ public class Table extends DisplayMode {
     lon.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lon"));
     confirmed.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("confirmed"));
     deaths.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("deaths"));
-<<<<<<< HEAD
-    deaths.setStyle("-fx-background-color:#FCD5D2");
-    
-    TableColumn<DataPoint, String> recovered = new TableColumn<>("Recovered");
-=======
->>>>>>> f1287b0a1ae28a5c1dc9bd08d99b8fc01a794bd0
     recovered.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("recovered"));
     active.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("active"));
-<<<<<<< HEAD
-    active.setStyle("-fx-background-color:#FCD5D2");
-=======
->>>>>>> f1287b0a1ae28a5c1dc9bd08d99b8fc01a794bd0
 
     location.getColumns().addAll(city, state, country, lat, lon);
     stats.getColumns().addAll(confirmed, deaths, recovered, active);
@@ -203,7 +193,7 @@ public class Table extends DisplayMode {
 
     Button resetFilter = new Button("Reset Filter");
     resetFilter.setId("reset-filter-btn");
-    
+
     resetFilter.setOnAction(new EventHandler<ActionEvent>() { // button should hide time sliders and
                                                               // // labels
       @Override
@@ -231,8 +221,8 @@ public class Table extends DisplayMode {
   public Node getSettingsPane() {
     return sp;
   }
-  
-  private Comparator<String> getComp(TableColumn<DataPoint, String> tc){
+
+  private Comparator<String> getComp(TableColumn<DataPoint, String> tc) {
     Comparator<String> comparator = (o1, o2) -> {
       final boolean isDesc = tc.getSortType() == SortType.DESCENDING;
       if (o1.equals("") && o2.equals(""))

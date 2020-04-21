@@ -33,10 +33,8 @@ public class DataManager {
       } catch (Exception e) {
 
       }
-
     }
     fileIn.close();
-
   }
 
   public static void main(String[] args) throws FileNotFoundException, IllegalNullKeyException {
