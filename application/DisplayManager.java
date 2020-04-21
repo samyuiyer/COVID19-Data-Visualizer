@@ -16,6 +16,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -23,6 +24,7 @@ import javafx.scene.paint.Color;
 public class DisplayManager extends DisplayMode {
 
   private DisplayMode[] displayModes;
+  private BorderPane displayNode;
   private Node globalSettings;
   private int currMode;
   private boolean slidersVisible;
@@ -34,8 +36,7 @@ public class DisplayManager extends DisplayMode {
     settingsPanel = new VBox();
     settingsPanel.managedProperty().bind(settingsPanel.visibleProperty());
     settingsVisible = true;
-    slidersVisible = true;
-  
+    displayNode = new BorderPane();
     createDisplayModes();
     globalSettings = createGlobalSettingsPane();
     currMode = 0;
@@ -43,7 +44,7 @@ public class DisplayManager extends DisplayMode {
 
   @Override
   public Node getDisplayPane() {
-    return displayModes[currMode].getDisplayPane();
+    return displayNode;
   }
 
   @Override
@@ -57,17 +58,23 @@ public class DisplayManager extends DisplayMode {
   }
 
   private void createDisplayModes() {
-    displayModes = new DisplayMode[1];
+    displayModes = new DisplayMode[3];
     displayModes[0] = new Table();
+    displayModes[1] = new Map();
+    displayModes[2] = new Graph();
+    displayNode.setCenter(displayModes[0].getDiplayPane());
   }
 
   public Node getMenuBar() {
     MenuBar bar = new MenuBar();
     final Menu menu = new Menu("Menu");
     final MenuItem toggle = new MenuItem("Toggle Settings");
+    final MenuItem view1 = new MenuItem("view1");
+    final MenuItem view2 = new MenuItem("view2");
+    final MenuItem view3 = new MenuItem("view3");
     final Menu help = new Menu("Help");
     
-    menu.getItems().addAll(toggle);
+    menu.getItems().addAll(toggle, view1, view2, view3);
 
     toggle.setOnAction(new EventHandler<ActionEvent>() {
       @Override
@@ -79,6 +86,27 @@ public class DisplayManager extends DisplayMode {
           settingsPanel.setVisible(true);
           settingsVisible = true;
         }
+      }
+    });
+    
+    view1.setOnAction(new EventHandler<ActionEvent>() {
+      @Override
+      public void handle(ActionEvent arg0) {
+        displayNode.setCenter(displayModes[0].getDiplayPane());
+      }
+    });
+    
+    view2.setOnAction(new EventHandler<ActionEvent>() {
+      @Override
+      public void handle(ActionEvent arg0) {
+        displayNode.setCenter(displayModes[1].getDiplayPane());
+      }
+    });
+    
+    view3.setOnAction(new EventHandler<ActionEvent>() {
+      @Override
+      public void handle(ActionEvent arg0) {
+        displayNode.setCenter(displayModes[2].getDiplayPane());
       }
     });
 
@@ -204,4 +232,5 @@ public class DisplayManager extends DisplayMode {
 
     return settingsPanel;
   }
+
 }
