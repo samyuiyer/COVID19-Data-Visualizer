@@ -32,7 +32,6 @@ public class DisplayManager extends DisplayMode {
   VBox settingsPanel;
 
   public DisplayManager() {
-
     settingsPanel = new VBox();
     settingsPanel.managedProperty().bind(settingsPanel.visibleProperty());
     settingsVisible = true;
@@ -50,19 +49,6 @@ public class DisplayManager extends DisplayMode {
   @Override
   public Node getSettingsPane() {
     return globalSettings;
-  }
-
-  @Override
-  void reset() {
-
-  }
-
-  private void createDisplayModes() {
-    displayModes = new DisplayMode[3];
-    displayModes[0] = new Table();
-    displayModes[1] = new Map();
-    displayModes[2] = new Graph();
-    displayNode.setCenter(displayModes[0].getDisplayPane());
   }
 
   public Node getMenuBar() {
@@ -112,6 +98,14 @@ public class DisplayManager extends DisplayMode {
 
     bar.getMenus().addAll(menu, help);
     return bar;
+  }
+
+  private void createDisplayModes() {
+    displayModes = new DisplayMode[3];
+    displayModes[0] = new Table();
+    displayModes[1] = new Map();
+    displayModes[2] = new Graph();
+    displayNode.setCenter(displayModes[0].getDisplayPane());
   }
 
   private Node createGlobalSettingsPane() {
@@ -230,6 +224,11 @@ public class DisplayManager extends DisplayMode {
 
 
     return settingsPanel;
+  }
+
+  @Override
+  void reset() {
+  
   }
 
 }
