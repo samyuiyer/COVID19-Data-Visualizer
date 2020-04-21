@@ -1,12 +1,9 @@
 package application;
 
 import java.util.List;
-import javafx.collections.transformation.FilteredList;
 import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.TableView;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 
@@ -27,7 +24,6 @@ public class Map extends DisplayMode {
     }
   }
 
-
   @Override
   void reset() {
 
@@ -44,11 +40,8 @@ public class Map extends DisplayMode {
 
   @Override
   public Node getSettingsPane() {
-    // TODO Auto-generated method stub
     return null;
   }
-
-
 
   private void drawShapes(GraphicsContext gc) {
     List<DataPoint> list = dm.gt.getAll();
