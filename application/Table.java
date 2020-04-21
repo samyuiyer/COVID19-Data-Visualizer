@@ -1,8 +1,10 @@
 package application;
 
 import java.util.List;
+import java.util.function.Predicate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -56,12 +58,22 @@ public class Table extends DisplayMode {
     tv.setPlaceholder(new Label("No rows to display"));
   }
 
-  private ObservableList<DataPoint> getInitialTableData() {
+  private FilteredList<DataPoint> getInitialTableData() {
 
     List<DataPoint> list = dm.at.getAll();
     ObservableList<DataPoint> data = FXCollections.observableList(list);
+    FilteredList<DataPoint> filteredList = new FilteredList<>(data);
 
-    return data;
+    
+    // to filter
+    filteredList.setPredicate(
+        new Predicate<DataPoint>(){
+            public boolean test(DataPoint t){
+                return t.getCountry().equals("US"); // or true
+            }
+        }
+    );
+    return filteredList;
   }
 
   @Override
