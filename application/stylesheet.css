@@ -40,7 +40,13 @@
   -fx-background-color: #d3d3d3;
 }
 
-/* Table styling */
+/* Global settings */
+
+#settings_panel {
+    -fx-background-color: #70C1B3;
+}
+
+/* Table */
 
 #column_header_location {
   -fx-background-color: #c69db8;
