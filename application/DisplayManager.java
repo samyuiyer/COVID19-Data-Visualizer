@@ -124,6 +124,20 @@ public class DisplayManager extends DisplayMode {
     // setup load file textfield and button
     HBox loadSave = new HBox();
     TextField fileTextField = new TextField("File name");
+    fileTextField.focusedProperty().addListener(new ChangeListener<Boolean>() {
+		@Override
+		public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+			if (newValue) {
+				fileTextField.clear();
+			}
+			if (oldValue) {
+				if(fileTextField.getText().isBlank()) {
+					fileTextField.setText("File Name");
+				}
+			}
+		}
+
+	});
 
     Button loadFileBtn = new Button("Load File");
     Button saveFileBtn = new Button("Save File");
