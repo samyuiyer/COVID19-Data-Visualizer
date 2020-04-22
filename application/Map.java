@@ -63,7 +63,6 @@ public class Map extends DisplayMode {
     filters[1].fire();
     filters[2].fire();
 
-
     RadioButton c = new RadioButton("Confirmed");
     RadioButton d = new RadioButton("Dead");
     RadioButton r = new RadioButton("Recovered");
@@ -90,6 +89,7 @@ public class Map extends DisplayMode {
         }
       }
     });
+
     sp.getChildren().addAll(filters);
     sp.getChildren().addAll(d, c, a, r);
   }

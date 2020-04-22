@@ -105,7 +105,7 @@ public class DisplayManager extends DisplayMode {
       public void handle(ActionEvent arg0) {
         displayNode.setCenter(displayModes[0].getDisplayPane());
         settingsNode.setCenter(displayModes[0].getSettingsPane());
-        dspModeComboBox.setPromptText("Table Mode"); // TODO need to fix this
+        dspModeComboBox.setPromptText("Table Mode");
       }
     });
 
