@@ -40,7 +40,7 @@ public class Main extends Application {
     Scene mainScene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
     
     //adds styles
-    mainScene.getStylesheets().add(getClass().getResource("stylesheet.css").toString());
+    mainScene.getStylesheets().add(getClass().getResource("application.css").toString());
     
     primaryStage.setTitle(APP_TITLE);
     primaryStage.setScene(mainScene);
