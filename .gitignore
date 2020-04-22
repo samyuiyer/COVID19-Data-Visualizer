@@ -41,3 +41,7 @@ Thumbs.db
 #.settings
 #.classpath
 #.project
+
+
+# files for class #
+manifest.txt
