@@ -43,7 +43,6 @@ public class Graph extends DisplayMode {
 
     chart.getData().add(series);
 
-
     return chart;
   }
 
