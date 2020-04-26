@@ -20,8 +20,8 @@ public class GeoTrie extends Trie<String, String> {
    * private helper method to insert
    */
   public GeoTrie() {
-    root = new Node(new DataPoint("Global",
-        new String[] {"", "", "", "", "", "", "", "0", "0", "0", "0", "Global"}));
+    root = new Node(new DataPoint("Global", new String[] {"Global", "", "", "", "0", "0"},
+        new Integer[95], new Integer[95], new Integer[95]));
   }
 
   public void insert(String key, DataPoint value) throws IllegalNullKeyException {

@@ -41,7 +41,7 @@ public class Map extends DisplayMode {
     title = "map";
     dm = new DataManager();
     try {
-      dm.loadTries("data_test.txt");
+      dm.loadTries("data_files");
     } catch (Exception e) {
     }
     EventHandler<ActionEvent> eh = new EventHandler<ActionEvent>() {

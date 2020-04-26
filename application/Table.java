@@ -37,7 +37,7 @@ public class Table extends DisplayMode {
     dm = new DataManager();
     sp = new VBox();
     try {
-      dm.loadTries("data_test.txt");
+      dm.loadTries();
     } catch (Exception e) {
     }
     initTv();

@@ -15,7 +15,7 @@ public class Graph extends DisplayMode {
     super();
     dm = new DataManager();
     try {
-      dm.loadTries("data_test.txt");
+      dm.loadTries();
     } catch (Exception e) {
       e.printStackTrace();
     }
