@@ -99,8 +99,8 @@ public class Graph extends DisplayMode {
     Label sliderLabel = new Label("Choose Time Range:");
     sliderStart = new Slider(0, 94, 0);
     sliderEnd = new Slider(0, 94, 94);
-    Label range = new Label(
-        "Time Range: " + (int) sliderStart.getValue() + " to " + (int) sliderEnd.getValue());
+    Label range = new Label("Time Range: " + timeLabels[(int) sliderStart.getValue()] + " to "
+        + timeLabels[(int) sliderEnd.getValue()]);
 
     sliderStart.setShowTickLabels(true);
     sliderStart.setShowTickMarks(true);
@@ -143,8 +143,8 @@ public class Graph extends DisplayMode {
         } else if (sliderEnd.getValue() <= sliderStart.getValue()) {
           sliderEnd.setValue(sliderStart.getValue() + 1);
         }
-        range.setText(
-            "Time Range: " + (int) sliderStart.getValue() + " to " + (int) sliderEnd.getValue());
+        range.setText("Time Range: " + timeLabels[(int) sliderStart.getValue()] + " to "
+            + timeLabels[(int) sliderEnd.getValue()]);
         updateChart();
       }
     };
@@ -156,8 +156,8 @@ public class Graph extends DisplayMode {
         } else if (sliderEnd.getValue() <= sliderStart.getValue()) {
           sliderStart.setValue(sliderEnd.getValue() - 1);
         }
-        range.setText(
-            "Time Range: " + (int) sliderStart.getValue() + " to " + (int) sliderEnd.getValue());
+        range.setText("Time Range: " + timeLabels[(int) sliderStart.getValue()] + " to "
+            + timeLabels[(int) sliderEnd.getValue()]);
         updateChart();
       }
     };

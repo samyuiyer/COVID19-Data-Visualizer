@@ -33,8 +33,6 @@ public class DataPoint {
   public static String[] labels;
   public static int time = 94;
 
-
-
   public String getCity() {
     return dataArray[1];
   }
