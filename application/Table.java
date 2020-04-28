@@ -30,6 +30,7 @@ public class Table extends DisplayMode {
   VBox sp;
   DataManager dm;
   FilteredList<DataPoint> filteredList;
+  String[] timeLabels;
 
   public Table() {
     super();
@@ -120,11 +121,13 @@ public class Table extends DisplayMode {
   private void initSp() {
     Label sliderLabel = new Label("Choose Time:");
     time = new Slider(0, 94, 94);
+    timeLabels = dm.getTimeLabels();
+    Label timeLabel = new Label("" + timeLabels[(int) time.getValue()]);
     time.valueProperty().addListener(new ChangeListener<Number>() {
 
       public void changed(ObservableValue<? extends Number> observable, Number oldValue,
           Number newValue) {
-
+        timeLabel.setText("" + timeLabels[(int) time.getValue()]);
         DataPoint.time = (int) time.getValue();
         tv.refresh();
       }
@@ -159,7 +162,7 @@ public class Table extends DisplayMode {
         if (oldValue) {
           if (stateFilter.getText().isBlank()) {
             stateFilter.setText("Filter State");
-            
+
           }
         }
       }
@@ -225,8 +228,8 @@ public class Table extends DisplayMode {
         });
       }
     });
-    sp.getChildren().addAll(sliderLabel, time, cityFilter, stateFilter, countryFilter, setFilter,
-        resetFilter);
+    sp.getChildren().addAll(sliderLabel, time, timeLabel, cityFilter, stateFilter, countryFilter,
+        setFilter, resetFilter);
   }
 
   @Override

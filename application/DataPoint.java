@@ -84,7 +84,7 @@ public class DataPoint {
   }
 
   public DataPoint(DataPoint data) {
-  
+
     this.key = data.key;
     this.dataArray = data.dataArray.clone();
     this.confirmedList = new ArrayList<>(data.confirmedList);
@@ -94,7 +94,7 @@ public class DataPoint {
   }
 
   public DataPoint(String key, DataPoint data) {
-  
+
     this.key = key;
     this.dataArray = data.dataArray.clone();
     this.confirmedList = new ArrayList<>(data.confirmedList);

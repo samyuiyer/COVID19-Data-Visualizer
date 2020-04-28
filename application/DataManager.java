@@ -39,7 +39,7 @@ public class DataManager {
           Integer[] confrimed = zeros.clone();
           Integer[] deaths = zeros.clone();
           Integer[] recovered = zeros.clone();
-          System.out.println(labels[0]);
+          // System.out.println(labels[0]);
           for (int i = 0; i < confrimed.length; i++) {
             if (labels[0].equals("confirmed"))
               confrimed[i] = Integer.parseInt(split[i + 6]);
@@ -57,15 +57,17 @@ public class DataManager {
       }
       s.close();
     }
-
   }
 
+  public String[] getTimeLabels() {
+    return Arrays.copyOfRange(labels, 6, labels.length);
+  }
 
-
+  // TODO rememebr to remove
   public static void main(String[] args) throws FileNotFoundException, IllegalNullKeyException {
     DataManager dm = new DataManager();
     dm.loadTries();
-    dm.gt.print();
+    // dm.gt.print();
     // dm.at.print();
     // System.out.println(dm.at.numKeys());
     System.out.println(dm.gt.numKeys());

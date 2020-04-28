@@ -32,6 +32,7 @@ public class Map extends DisplayMode {
   private final int width = 900;
   private final int height = 450;
   Slider time;
+  String[] timeLabels;
   CheckBox[] filters;
   dataTypes rType = dataTypes.Dead;
   final ToggleGroup data = new ToggleGroup();
@@ -55,14 +56,16 @@ public class Map extends DisplayMode {
     };
     Label sliderLabel = new Label("Choose Time:");
     time = new Slider(0, 94, 94);
+    timeLabels = dm.getTimeLabels();
+    Label timeLabel = new Label("" + timeLabels[(int) time.getValue()]);
     time.valueProperty().addListener(new ChangeListener<Number>() {
-
       public void changed(ObservableValue<? extends Number> observable, Number oldValue,
           Number newValue) {
-
+        timeLabel.setText("" + timeLabels[(int) time.getValue()]);
         drawShapes(gc);
       }
     });
+
     filters = new CheckBox[3];
     filters[0] = new CheckBox("Cities");
     filters[0].setIndeterminate(false);
@@ -96,13 +99,12 @@ public class Map extends DisplayMode {
           if (((Labeled) data.getSelectedToggle()).getText().equals("Recovered"))
             rType = dataTypes.Recovered;
           drawShapes(gc);
-
         }
       }
     });
 
-  
-    sp.getChildren().addAll(sliderLabel, time);
+
+    sp.getChildren().addAll(sliderLabel, time, timeLabel);
     sp.getChildren().addAll(filters);
     sp.getChildren().addAll(d, c, r);
   }
@@ -124,7 +126,6 @@ public class Map extends DisplayMode {
   @Override
   public Node getSettingsPane() {
     return sp;
-
   }
 
   private void drawShapes(GraphicsContext gc) {
@@ -163,7 +164,6 @@ public class Map extends DisplayMode {
     gc.setFill(Color.RED);
 
     return Math.log(d.deathsList.get((int) time.getValue()));
-
   }
 
 
