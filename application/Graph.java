@@ -1,8 +1,13 @@
 package application;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
+import javafx.collections.ObservableListBase;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
@@ -26,6 +31,7 @@ public class Graph extends DisplayMode {
   LineChart<String, Number> chart;
   CategoryAxis xAxis;
   NumberAxis yAxis;
+  XYChart.Series<String, Number> series;
 
   Graph() {
     super();
@@ -40,8 +46,13 @@ public class Graph extends DisplayMode {
     setupSettings();
     xAxis = new CategoryAxis();
     yAxis = new NumberAxis();
+    xAxis.setAnimated(false);
+    yAxis.setAnimated(false);
     chart = new LineChart<String, Number>(xAxis, yAxis);
+    chart.setAnimated(false);
+    series = new XYChart.Series<String, Number>();
     updateChart();
+    chart.getData().add(series);
   }
 
   @Override
@@ -57,20 +68,27 @@ public class Graph extends DisplayMode {
   private void updateChart() {
     xAxis.setLabel("Date");
     yAxis.setLabel("Number of X(confrimed)");
-
-    XYChart.Series<String, Number> series = new XYChart.Series<String, Number>();
-
     chart.setTitle("X Data(confrimed)");
+
     List<DataPoint> list = dm.gt.getAll();
     DataPoint d = list.get(0);
+
+    // // clear
+    // List<XYChart.Data<String, Number>> toRemove = new ArrayList<>();
+    // for (XYChart.Data<String, Number> s : series.getData()) {
+    // toRemove.add(s);
+    // }
+    // series.getData().removeAll(toRemove);
+
+    Collection<XYChart.Data<String, Number>> col = new ArrayList<>();
+
     for (int time = (int) sliderStart.getValue(); time < (int) sliderEnd.getValue(); time++) {
-      series.getData()
-          .add(new XYChart.Data<String, Number>(timeLabels[time], d.confirmedList.get(time)));
+      col.add(new XYChart.Data<String, Number>(timeLabels[time], d.confirmedList.get(time)));
+      // series.getData()
+      // .add(new XYChart.Data<String, Number>(timeLabels[time], d.confirmedList.get(time)));
       time++;
     }
-
-    chart.getData().add(series);
-    System.out.println("update chart");
+    series.getData().setAll(col);
   }
 
   @Override
