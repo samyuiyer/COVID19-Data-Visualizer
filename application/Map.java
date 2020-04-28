@@ -9,8 +9,10 @@ import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.Labeled;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.Slider;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
@@ -20,7 +22,7 @@ import javafx.scene.paint.Color;
 
 public class Map extends DisplayMode {
   private enum dataTypes {
-    Dead, Confirmed, Active, Recovered
+    Dead, Confirmed, Recovered
   }
 
   Canvas canvas;
@@ -29,6 +31,7 @@ public class Map extends DisplayMode {
   DataManager dm;
   private final int width = 900;
   private final int height = 450;
+  Slider time;
   CheckBox[] filters;
   dataTypes rType = dataTypes.Dead;
   final ToggleGroup data = new ToggleGroup();
@@ -41,7 +44,7 @@ public class Map extends DisplayMode {
     title = "map";
     dm = new DataManager();
     try {
-      dm.loadTries("data_test.txt");
+      dm.loadTries();
     } catch (Exception e) {
     }
     EventHandler<ActionEvent> eh = new EventHandler<ActionEvent>() {
@@ -50,6 +53,16 @@ public class Map extends DisplayMode {
         drawShapes(gc);
       }
     };
+    Label sliderLabel = new Label("Choose Time:");
+    time = new Slider(0, 94, 94);
+    time.valueProperty().addListener(new ChangeListener<Number>() {
+
+      public void changed(ObservableValue<? extends Number> observable, Number oldValue,
+          Number newValue) {
+
+        drawShapes(gc);
+      }
+    });
     filters = new CheckBox[3];
     filters[0] = new CheckBox("Cities");
     filters[0].setIndeterminate(false);
@@ -66,10 +79,10 @@ public class Map extends DisplayMode {
     RadioButton c = new RadioButton("Confirmed");
     RadioButton d = new RadioButton("Dead");
     RadioButton r = new RadioButton("Recovered");
-    RadioButton a = new RadioButton("Active");
+
     c.setToggleGroup(data);
     r.setToggleGroup(data);
-    a.setToggleGroup(data);
+
     d.setSelected(true);
     d.setToggleGroup(data);
     data.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
@@ -82,16 +95,16 @@ public class Map extends DisplayMode {
             rType = dataTypes.Dead;
           if (((Labeled) data.getSelectedToggle()).getText().equals("Recovered"))
             rType = dataTypes.Recovered;
-          if (((Labeled) data.getSelectedToggle()).getText().equals("Active"))
-            rType = dataTypes.Active;
           drawShapes(gc);
 
         }
       }
     });
 
+  
+    sp.getChildren().addAll(sliderLabel, time);
     sp.getChildren().addAll(filters);
-    sp.getChildren().addAll(d, c, a, r);
+    sp.getChildren().addAll(d, c, r);
   }
 
   @Override
@@ -142,16 +155,14 @@ public class Map extends DisplayMode {
   private double getFactor(DataPoint d) {
     if (rType == dataTypes.Confirmed) {
       gc.setFill(Color.ORANGE);
-      return Math.log(d.getConfirmed());
-    } else if (rType == dataTypes.Active) {
-      gc.setFill(Color.YELLOW);
-      return Math.log(d.getActive());
+      return Math.log(d.confirmedList.get((int) time.getValue()));
     } else if (rType == dataTypes.Recovered) {
       gc.setFill(Color.AQUA);
-      return Math.log(d.getRecovered());
+      return Math.log(d.recoveredList.get((int) time.getValue()));
     }
     gc.setFill(Color.RED);
-    return Math.log(d.getDeaths());
+
+    return Math.log(d.deathsList.get((int) time.getValue()));
 
   }
 

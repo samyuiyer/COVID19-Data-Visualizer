@@ -9,6 +9,7 @@
  */
 package application;
 
+import java.util.Arrays;
 
 /**
  * @author ankurgarg
@@ -20,8 +21,10 @@ public class GeoTrie extends Trie<String, String> {
    * private helper method to insert
    */
   public GeoTrie() {
-    root = new Node(new DataPoint("Global",
-        new String[] {"", "", "", "", "", "", "", "0", "0", "0", "0", "Global"}));
+    Integer[] zeros = new Integer[95];
+    Arrays.fill(zeros, 0);
+    root = new Node(new DataPoint("Global", new String[] {"Global", "", "", "", "0", "0"}, zeros,
+        zeros, zeros));
   }
 
   public void insert(String key, DataPoint value) throws IllegalNullKeyException {

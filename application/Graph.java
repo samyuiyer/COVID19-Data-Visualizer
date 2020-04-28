@@ -15,7 +15,7 @@ public class Graph extends DisplayMode {
     super();
     dm = new DataManager();
     try {
-      dm.loadTries("data_test.txt");
+      dm.loadTries();
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -37,7 +37,7 @@ public class Graph extends DisplayMode {
     List<DataPoint> list = dm.gt.getAll();
     int i = 0;
     for (DataPoint d : list) {
-      series.getData().add(new XYChart.Data<Number, Number>(i, d.getDeaths()));
+     // series.getData().add(new XYChart.Data<Number, Number>(i, d.getDeaths()));
       i++;
     }
 
