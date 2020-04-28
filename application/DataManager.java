@@ -9,12 +9,12 @@ import java.util.Scanner;
 
 public class DataManager {
   public GeoTrie gt;
-  public AlphaTrie at;
+  // public AlphaTrie at;
   public String[] labels;
   private final List<String> DATA_TYPES;
 
   public DataManager() {
-    at = new AlphaTrie();
+    // at = new AlphaTrie();
     gt = new GeoTrie();
     DATA_TYPES = Arrays.asList(new String[] {"confirmed", "deaths", "recovered"});
   }
@@ -23,38 +23,39 @@ public class DataManager {
     ArrayList<Scanner> fileIn = new ArrayList<>();
     for (String s : DATA_TYPES)
       fileIn.add(new Scanner(new File("time_data/" + s + ".csv")));
-    labels = fileIn.get(0).nextLine().split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
-    DataPoint.labels = labels;
-    System.out.println(labels.length);
-    while (fileIn.get(0).hasNext()) {
-      String[][] split = new String[fileIn.size()][];
-      DataPoint dp;
-      try {
 
-        for (int i = 0; i < fileIn.size(); i++) {
-          split[i] = fileIn.get(i).nextLine().split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
-          split[i][0] = split[i][0].replace("\"", "");
+    Integer[] zeros = new Integer[95];
+    Arrays.fill(zeros, 0);
+
+    for (Scanner s : fileIn) {
+      labels = s.nextLine().split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+      DataPoint.labels = labels;
+      while (s.hasNext()) {
+        try {
+          String[] split = s.nextLine().split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+          DataPoint dp;
+          split[0] = split[0].replace("\"", "");
+          String[] data = Arrays.copyOfRange(split, 0, 6);
+          Integer[] confrimed = zeros.clone();
+          Integer[] deaths = zeros.clone();
+          Integer[] recovered = zeros.clone();
+          System.out.println(labels[0]);
+          for (int i = 0; i < confrimed.length; i++) {
+            if (labels[0].equals("confirmed"))
+              confrimed[i] = Integer.parseInt(split[i + 6]);
+            else if (labels[0].equals("deaths"))
+              deaths[i] = Integer.parseInt(split[i + 6]);
+            else if (labels[0].equals("recovered"))
+              recovered[i] = Integer.parseInt(split[i + 6]);
+          }
+          dp = new DataPoint(split[0], data, confrimed, deaths, recovered);
+          // at.insert(split[0], dp);
+          gt.insert(split[0], dp);
+        } catch (Exception e) {
+          System.out.println("bad");
         }
-        String[] data = Arrays.copyOfRange(split[0], 0, 6);
-        Integer[] confrimed = new Integer[split[0].length - 6];
-        Integer[] deaths = new Integer[split[0].length - 6];
-        Integer[] recovered = new Integer[split[0].length - 6];
-        for (int i = 0; i < confrimed.length; i++) {
-          confrimed[i] = Integer.parseInt(split[0][i + 6]);
-          deaths[i] = Integer.parseInt(split[1][i + 6]);
-          recovered[i] = Integer.parseInt(split[2][i + 6]);
-        }
-        dp = new DataPoint(split[0][0], data, confrimed, deaths, recovered);
-        at.insert(split[0][0], dp);
-        gt.insert(split[0][0], dp);
-
-      } catch (
-
-      Exception e) {
-
       }
-
-
+      s.close();
     }
 
   }
@@ -65,8 +66,8 @@ public class DataManager {
     DataManager dm = new DataManager();
     dm.loadTries();
     dm.gt.print();
-    dm.at.print();
-    System.out.println(dm.at.numKeys());
+    // dm.at.print();
+    // System.out.println(dm.at.numKeys());
     System.out.println(dm.gt.numKeys());
   }
 }

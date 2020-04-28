@@ -37,7 +37,7 @@ public class Graph extends DisplayMode {
     List<DataPoint> list = dm.gt.getAll();
     int i = 0;
     for (DataPoint d : list) {
-      series.getData().add(new XYChart.Data<Number, Number>(i, d.getDeaths()));
+     // series.getData().add(new XYChart.Data<Number, Number>(i, d.getDeaths()));
       i++;
     }
 

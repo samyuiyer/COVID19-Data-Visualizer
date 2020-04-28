@@ -98,7 +98,7 @@ public class DataPoint {
       Integer[] recoveredList) {
     this();
     this.key = key;
-    this.dataArray = testNum;
+    this.dataArray = testNum.clone();
     this.confirmedList = new ArrayList<>(Arrays.asList(confirmedList));
     this.deathsList = new ArrayList<>(Arrays.asList(deathsList));
     this.recoveredList = new ArrayList<>(Arrays.asList(recoveredList));
@@ -167,6 +167,15 @@ public class DataPoint {
 
   public void increment(DataPoint data) {
 
+    for (int i = 0; i < confirmedList.size(); i++) {
+      confirmedList.set(i, confirmedList.get(i) + data.confirmedList.get(i));
+    }
+    for (int i = 0; i < deathsList.size(); i++) {
+      deathsList.set(i, deathsList.get(i) + data.deathsList.get(i));
+    }
+    for (int i = 0; i < recoveredList.size(); i++) {
+      recoveredList.set(i, recoveredList.get(i) + data.recoveredList.get(i));
+    }
     updateData();
 
   }
@@ -175,7 +184,9 @@ public class DataPoint {
   public String toString() {
     String rtn = key + ": ";
     for (int i = 0; i < 6; i++) {
+    
       rtn += labels[i] + ":" + dataArray[i] + " ";
+      
     }
     return rtn;
   }
