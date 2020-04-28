@@ -2,6 +2,8 @@ package application;
 
 import java.util.List;
 import javafx.scene.Node;
+import javafx.scene.chart.Axis;
+import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
@@ -10,6 +12,7 @@ import javafx.scene.control.Label;
 public class Graph extends DisplayMode {
 
   DataManager dm;
+  String[] timeLabels;
 
   Graph() {
     super();
@@ -19,6 +22,7 @@ public class Graph extends DisplayMode {
     } catch (Exception e) {
       e.printStackTrace();
     }
+    timeLabels = dm.getTimeLabels();
   }
 
   @Override
@@ -28,17 +32,20 @@ public class Graph extends DisplayMode {
 
   @Override
   public Node getDisplayPane() {
-    final NumberAxis xAxis = new NumberAxis();
+    final CategoryAxis xAxis = new CategoryAxis();
+    xAxis.setLabel("Date");
     final NumberAxis yAxis = new NumberAxis();
-    final LineChart<Number, Number> chart = new LineChart<Number, Number>(xAxis, yAxis);
-    XYChart.Series<Number, Number> series = new XYChart.Series<Number, Number>();
+    yAxis.setLabel("Number of X(confrimed)");
+    final LineChart<String, Number> chart = new LineChart<String, Number>(xAxis, yAxis);
+    XYChart.Series<String, Number> series = new XYChart.Series<String, Number>();
 
-    chart.setTitle("Meaningless Data");
+    chart.setTitle("X Data(confrimed)");
     List<DataPoint> list = dm.gt.getAll();
-    int i = 0;
-    for (DataPoint d : list) {
-     // series.getData().add(new XYChart.Data<Number, Number>(i, d.getDeaths()));
-      i++;
+    DataPoint d = list.get(0);
+    for (int time = 0; time < 95; time++) {
+      series.getData()
+          .add(new XYChart.Data<String, Number>(timeLabels[time], d.confirmedList.get(time)));
+      time++;
     }
 
     chart.getData().add(series);
