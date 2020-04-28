@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleStringProperty;
 
 /**
  * @author ankurgarg
@@ -32,71 +31,50 @@ public class DataPoint {
   public List<Integer> deathsList;
   public List<Integer> recoveredList;
   public static String[] labels;
+  public static int time = 94;
 
-  private SimpleStringProperty city;
+
 
   public String getCity() {
-    return city.get();
+    return dataArray[1];
   }
-
-  public void setCity(String city) {
-    this.city.set(city);
-  }
-
-  private final SimpleStringProperty state;
 
   public String getState() {
-    return state.get();
+    return dataArray[2];
   }
-
-  public void setState(String state) {
-    this.state.set(state);
-  }
-
-  private final SimpleStringProperty country;
 
   public String getCountry() {
-    return country.get();
+    return dataArray[3];
   }
 
-  public void setCountry(String country) {
-    this.country.set(country);
-  }
-
-
-  private final SimpleDoubleProperty lat;
 
   public Double getLat() {
-    return lat.get();
+    return new BigDecimal(Double.valueOf(dataArray[4])).setScale(8, RoundingMode.HALF_UP)
+        .doubleValue();
   }
-
-  public void setLat(Double lat) {
-    this.lat.set(lat);
-  }
-
-  private final SimpleDoubleProperty lon;
 
   public Double getLon() {
-    return lon.get();
+    return new BigDecimal(Double.valueOf(dataArray[5])).setScale(8, RoundingMode.HALF_UP)
+        .doubleValue();
   }
 
-  public void setLon(Double lon) {
-    this.lon.set(lon);
+  public int getConfirmed() {
+    return confirmedList.get(time);
+  }
+
+  public int getDeaths() {
+    return deathsList.get(time);
+  }
+
+  public int getRecovered() {
+    return recoveredList.get(time);
   }
 
 
-  public DataPoint() {
-    city = new SimpleStringProperty();
-    state = new SimpleStringProperty();
-    country = new SimpleStringProperty();
-    lat = new SimpleDoubleProperty();
-    lon = new SimpleDoubleProperty();
-
-  }
 
   public DataPoint(String key, String[] testNum, Integer[] confirmedList, Integer[] deathsList,
       Integer[] recoveredList) {
-    this();
+
     this.key = key;
     this.dataArray = testNum.clone();
     this.confirmedList = new ArrayList<>(Arrays.asList(confirmedList));
@@ -106,7 +84,7 @@ public class DataPoint {
   }
 
   public DataPoint(DataPoint data) {
-    this();
+  
     this.key = data.key;
     this.dataArray = data.dataArray.clone();
     this.confirmedList = new ArrayList<>(data.confirmedList);
@@ -116,7 +94,7 @@ public class DataPoint {
   }
 
   public DataPoint(String key, DataPoint data) {
-    this();
+  
     this.key = key;
     this.dataArray = data.dataArray.clone();
     this.confirmedList = new ArrayList<>(data.confirmedList);
@@ -126,43 +104,21 @@ public class DataPoint {
   }
 
   private void parseData() {
+    dataArray[0] = key;
     String[] keySplit = key.replace(", ", ",").split(",");
     if (keySplit.length == 1) {
-      country.set(keySplit[0]);
-      state.set("");
-      city.set("");
+      dataArray[3] = keySplit[0];
+      dataArray[2] = "";
+      dataArray[1] = "";
     } else if (keySplit.length == 2) {
-      city.set("");
-      state.set(keySplit[0]);
-      country.set(keySplit[1]);
+      dataArray[1] = "";
+      dataArray[2] = keySplit[0];
+      dataArray[3] = keySplit[1];
     } else {
-      city.set(keySplit[0]);
-      state.set(keySplit[1]);
-      country.set(keySplit[2]);
+      dataArray[1] = keySplit[0];
+      dataArray[2] = keySplit[1];
+      dataArray[3] = keySplit[2];
     }
-    double latTrim = 0;
-    double lonTrim = 0;
-    if (!dataArray[4].isEmpty()) {
-      latTrim = new BigDecimal(Double.valueOf(dataArray[4])).setScale(8, RoundingMode.HALF_UP)
-          .doubleValue();
-    }
-    if (!dataArray[5].isEmpty()) {
-      lonTrim = new BigDecimal(Double.valueOf(dataArray[5])).setScale(8, RoundingMode.HALF_UP)
-          .doubleValue();
-    }
-
-    lat.set(latTrim);
-    lon.set(lonTrim);
-    updateData();
-  }
-
-  private void updateData() {
-    dataArray[1] = city.get();
-    dataArray[2] = state.get();
-    dataArray[3] = country.get();
-    dataArray[4] = Double.toString(lat.get());
-    dataArray[5] = Double.toString(lon.get());
-    dataArray[0] = key;
   }
 
   public void increment(DataPoint data) {
@@ -176,17 +132,15 @@ public class DataPoint {
     for (int i = 0; i < recoveredList.size(); i++) {
       recoveredList.set(i, recoveredList.get(i) + data.recoveredList.get(i));
     }
-    updateData();
-
   }
 
   @Override
   public String toString() {
     String rtn = key + ": ";
     for (int i = 0; i < 6; i++) {
-    
+
       rtn += labels[i] + ":" + dataArray[i] + " ";
-      
+
     }
     return rtn;
   }
