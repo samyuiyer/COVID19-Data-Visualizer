@@ -17,7 +17,9 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.Slider;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
 
 public class Graph extends DisplayMode {
@@ -72,13 +74,6 @@ public class Graph extends DisplayMode {
 
     List<DataPoint> list = dm.gt.getAll();
     DataPoint d = list.get(0);
-
-    // // clear
-    // List<XYChart.Data<String, Number>> toRemove = new ArrayList<>();
-    // for (XYChart.Data<String, Number> s : series.getData()) {
-    // toRemove.add(s);
-    // }
-    // series.getData().removeAll(toRemove);
 
     Collection<XYChart.Data<String, Number>> col = new ArrayList<>();
 
@@ -169,7 +164,30 @@ public class Graph extends DisplayMode {
     sliderStart.valueProperty().addListener(startListener);
     sliderEnd.valueProperty().addListener(endListener);
 
-    settings.getChildren().addAll(time, sliderLabel, sliderStart, sliderEnd, range);
+    Label scopeLabel = new Label("Scope:");
+    final ToggleGroup scope = new ToggleGroup();
+    RadioButton gl = new RadioButton("Global");
+    RadioButton cn = new RadioButton("Country");
+    RadioButton st = new RadioButton("State");
+    RadioButton ct = new RadioButton("City");
+    gl.setToggleGroup(scope);
+    cn.setToggleGroup(scope);
+    st.setToggleGroup(scope);
+    ct.setToggleGroup(scope);
+    gl.setSelected(true);
+
+    final ToggleGroup data = new ToggleGroup();
+    Label dataLabel = new Label("Data:");
+    RadioButton c = new RadioButton("Confirmed");
+    RadioButton d = new RadioButton("Dead");
+    RadioButton r = new RadioButton("Recovered");
+    c.setToggleGroup(data);
+    d.setToggleGroup(data);
+    r.setToggleGroup(data);
+    c.setSelected(true);
+
+    settings.getChildren().addAll(time, sliderLabel, sliderStart, sliderEnd, range, scopeLabel, gl,
+        cn, st, ct, dataLabel, c, d, r);
   }
 
 }
