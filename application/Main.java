@@ -14,32 +14,33 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-/**
- * @author ankurgarg
- *
- */
 public class Main extends Application {
 
   private static final int WINDOW_WIDTH = 1170;
   private static final int WINDOW_HEIGHT = 879;
   private static final String APP_TITLE = "COVID-19 Data Visualizer";
-  DisplayManager dm;
-  Boolean visible = true;
+  private DisplayManager dm;
 
   @Override
   public void start(Stage primaryStage) throws Exception {
+    
     // Main layout is Border Pane (top, left, center, right, bottom)
+    
     BorderPane root = new BorderPane();
     dm = new DisplayManager();
+    
     // add to pane
+    
     root.setLeft(dm.getSettingsPane());
     root.setCenter(dm.getDisplayPane());
     root.setTop(dm.getMenuBar());
 
     // Set Scene
+    
     Scene mainScene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
 
-    // adds styles
+    // add stylesheet
+    
     mainScene.getStylesheets().add(getClass().getResource("application.css").toString());
 
     primaryStage.setTitle(APP_TITLE);
