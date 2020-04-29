@@ -17,8 +17,10 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Labeled;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Slider;
+import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
 
@@ -34,6 +36,9 @@ public class Graph extends DisplayMode {
   CategoryAxis xAxis;
   NumberAxis yAxis;
   XYChart.Series<String, Number> series;
+  String scopeName, dataName;
+  private final String[] SCOPE_NAMES = {"Global", "Country", "State", "City"};
+  private final String[] DATA_NAMES = {"Confirmed", "Dead", "Recovered"};
 
   Graph() {
     super();
@@ -46,6 +51,9 @@ public class Graph extends DisplayMode {
     timeLabels = dm.getTimeLabels();
     slidersVisible = true;
     setupSettings();
+
+    scopeName = SCOPE_NAMES[0];
+    dataName = DATA_NAMES[0];
     xAxis = new CategoryAxis();
     yAxis = new NumberAxis();
     xAxis.setAnimated(false);
@@ -69,8 +77,8 @@ public class Graph extends DisplayMode {
 
   private void updateChart() {
     xAxis.setLabel("Date");
-    yAxis.setLabel("Number of X(confrimed)");
-    chart.setTitle("X Data(confrimed)");
+    yAxis.setLabel("Number of " + dataName);
+    chart.setTitle(dataName + " cases, " + scopeName);
 
     List<DataPoint> list = dm.gt.getAll();
     DataPoint d = list.get(0);
@@ -79,8 +87,6 @@ public class Graph extends DisplayMode {
 
     for (int time = (int) sliderStart.getValue(); time < (int) sliderEnd.getValue(); time++) {
       col.add(new XYChart.Data<String, Number>(timeLabels[time], d.confirmedList.get(time)));
-      // series.getData()
-      // .add(new XYChart.Data<String, Number>(timeLabels[time], d.confirmedList.get(time)));
       time++;
     }
     series.getData().setAll(col);
@@ -176,6 +182,22 @@ public class Graph extends DisplayMode {
     ct.setToggleGroup(scope);
     gl.setSelected(true);
 
+    scope.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+      public void changed(ObservableValue<? extends Toggle> ov, Toggle old_toggle,
+          Toggle new_toggle) {
+        if (scope.getSelectedToggle() != null) {
+          if (((Labeled) scope.getSelectedToggle()).getText().equals("Confirmed"))
+            scopeName = "Confirmed";
+          if (((Labeled) scope.getSelectedToggle()).getText().equals("Dead"))
+            scopeName = "Dead";
+          if (((Labeled) scope.getSelectedToggle()).getText().equals("Recovered"))
+            scopeName = "Recovered";
+          System.out.println("updated scope to " + scopeName);
+        }
+        updateChart();
+      }
+    });
+
     final ToggleGroup data = new ToggleGroup();
     Label dataLabel = new Label("Data:");
     RadioButton c = new RadioButton("Confirmed");
@@ -185,6 +207,23 @@ public class Graph extends DisplayMode {
     d.setToggleGroup(data);
     r.setToggleGroup(data);
     c.setSelected(true);
+
+    data.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+
+      public void changed(ObservableValue<? extends Toggle> ov, Toggle old_toggle,
+          Toggle new_toggle) {
+        if (data.getSelectedToggle() != null) {
+          if (((Labeled) data.getSelectedToggle()).getText().equals("Confirmed"))
+            dataName = "Confirmed";
+          if (((Labeled) data.getSelectedToggle()).getText().equals("Dead"))
+            dataName = "Dead";
+          if (((Labeled) data.getSelectedToggle()).getText().equals("Recovered"))
+            dataName = "Recovered";
+          System.out.println("updated scope to " + scopeName);
+        }
+        updateChart();
+      }
+    });
 
     settings.getChildren().addAll(time, sliderLabel, sliderStart, sliderEnd, range, scopeLabel, gl,
         cn, st, ct, dataLabel, c, d, r);
