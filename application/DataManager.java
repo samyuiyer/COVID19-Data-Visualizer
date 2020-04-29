@@ -54,6 +54,7 @@ public class DataManager {
           } catch (Exception e) {
             System.out.println("bad");
           }
+
         }
         s.close();
       }
