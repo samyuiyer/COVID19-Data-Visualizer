@@ -222,6 +222,7 @@ public class Table extends DisplayMode {
             return checkCountry && checkCity && checkState;
           }
         });
+        
       }
     });
     sp.getChildren().addAll(sliderLabel, time, timeLabel, cityFilter, stateFilter, countryFilter,
@@ -231,6 +232,10 @@ public class Table extends DisplayMode {
   @Override
   public Node getSettingsPane() {
     return sp;
+  }
+  
+  public List<DataPoint> getFilteredList() {
+    return filteredList;
   }
 
   private Comparator<String> getComp(TableColumn<DataPoint, String> tc) {

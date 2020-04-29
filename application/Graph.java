@@ -244,4 +244,9 @@ public class Graph extends DisplayMode {
         cn, st, ct, dataLabel, c, d, r);
   }
 
+  @Override
+  public List getFilteredList() {
+    return null;
+  }
+
 }

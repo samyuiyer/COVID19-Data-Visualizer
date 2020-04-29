@@ -178,4 +178,9 @@ public class Map extends DisplayMode {
     return true;
   }
 
+  @Override
+  public List getFilteredList() {
+    return null;
+  }
+
 }

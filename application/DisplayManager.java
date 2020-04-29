@@ -1,5 +1,11 @@
 package application;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+import java.util.stream.Stream;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -229,11 +235,41 @@ public class DisplayManager extends DisplayMode {
         settingsNode);
 
     globalSettings = settingsPanel;
+    
+    saveFileBtn.setOnAction(new EventHandler<ActionEvent>() {
+      @Override public void handle(ActionEvent e) {
+          String name = "";
+          name = fileTextField.getText();
+          if(name.equals("File Name"))
+            name = "default.csv";
+          if(!(name.endsWith(".csv")))
+            name += ".csv";
+          List<DataPoint> filtered = displayModes[0].getFilteredList();
+          try {
+            FileWriter txtFile = new FileWriter(name);
+            txtFile.write("City,State,Country,Confirmed,Dead,Recovered\n");
+            for(DataPoint dp : filtered) {
+              txtFile.write(dp.getCity()+","+dp.getState()+","+dp.getCountry()+","+dp.getConfirmed()
+                +","+dp.getDeaths()+","+dp.getRecovered()+"\n");
+            }
+            txtFile.close();
+          }
+          catch(Exception ex) {
+            
+          }
+          
+      }
+     });
   }
 
   @Override
   void reset() {
 
+  }
+
+  @Override
+  public List getFilteredList() {
+    return null;
   }
 
 }
