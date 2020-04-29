@@ -80,24 +80,24 @@ public class Graph extends DisplayMode {
     Collection<XYChart.Data<String, Number>> col = new ArrayList<>();
 
     DataPoint d = list.get(0);
-    
+
     if (scopeName != null) {
       if (scopeName.equals(SCOPE_NAMES[0])) {
         d = list.get(0);
       } else if (scopeName.equals(SCOPE_NAMES[1])) {
         System.out.println(countryBox.getValue());
-        d = countryBox.getValue();
+        d = countryBox.getValue() == null ? d : countryBox.getValue();
       } else if (scopeName.equals(SCOPE_NAMES[2])) {
         System.out.println(stateBox.getValue());
-        d = stateBox.getValue();
+        d = stateBox.getValue() == null ? d : stateBox.getValue();
       } else if (scopeName.equals(SCOPE_NAMES[3])) {
         System.out.println(cityBox.getValue());
-        d = cityBox.getValue();
+        d = cityBox.getValue() == null ? d : cityBox.getValue();
       } else {
         // use default value if Global
       }
     } else {
-   // use default value if Global
+      // use default value if Global
     }
 
     if (dataName.equals(DATA_NAMES[0])) {
@@ -264,6 +264,17 @@ public class Graph extends DisplayMode {
     countryBox = new ComboBox<>();
     stateBox = new ComboBox<>();
     cityBox = new ComboBox<>();
+  
+
+    ChangeListener<DataPoint> boxListener = new ChangeListener<DataPoint>() {
+      @Override
+      public void changed(ObservableValue ov, DataPoint t, DataPoint t1) {
+        updateChart();
+      }
+    };
+    countryBox.valueProperty().addListener(boxListener);
+    stateBox.valueProperty().addListener(boxListener);
+    cityBox.valueProperty().addListener(boxListener);
     try {
       cityBox.setItems(FXCollections.observableList(
           filter(dm.at.suggest(cityBox.getEditor().getText()), true, false, false)));
@@ -318,7 +329,7 @@ public class Graph extends DisplayMode {
     Iterator<DataPoint> itr = dataList.iterator();
     while (itr.hasNext()) {
       DataPoint d = itr.next();
-      if (!d.filter(city, state, country)) {
+      if (d==null||!d.filter(city, state, country)) {
         itr.remove();
       }
     }
