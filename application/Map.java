@@ -42,8 +42,8 @@ public class Map extends DisplayMode {
   public Map() {
     super();
     canvas = new Canvas(width, height);
-    image = new Image("map.jpg");
     gc = canvas.getGraphicsContext2D();
+    image = new Image("map.jpg");
     sp = new VBox();
     title = "map";
     dm = new DataManager();
