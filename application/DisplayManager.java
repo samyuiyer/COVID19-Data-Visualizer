@@ -161,7 +161,7 @@ public class DisplayManager extends DisplayMode {
     settingsPanel.setId("settings_panel");
     loadFileBtn.setId("load_btn");
     saveFileBtn.setId("save_btn");
-    loadSave.setId("load_save_box"); // TODO likely this will be unused
+    loadSave.setId("load_save_box");
     fileTextField.setId("file_text_field");
     colorPicker.setId("color_picker");
     dspModeComboBox.setId("dsp_combo_box");
@@ -216,6 +216,7 @@ public class DisplayManager extends DisplayMode {
         }
       }
     });
+    
     dspModeComboBox.getSelectionModel().selectedItemProperty()
         .addListener(new ChangeListener<String>() {
           public void changed(ObservableValue<? extends String> observable, String oldValue,
