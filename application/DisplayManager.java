@@ -29,28 +29,47 @@ public class DisplayManager extends DisplayMode {
   private Node globalSettings;
   private MenuBar bar;
   private boolean settingsVisible;
+  private DataManager dm;
   private ComboBox<String> dspModeComboBox;
   VBox settingsPanel;
+  boolean load;
 
   public DisplayManager() {
+    load = false;
+    dm = new DataManager();
+    try {
+      if (dm.loadTries()) {
+        load = true;
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
     settingsPanel = new VBox();
     settingsPanel.managedProperty().bind(settingsPanel.visibleProperty());
     settingsVisible = true;
     displayNode = new BorderPane();
     settingsNode = new BorderPane();
     createDisplayModes();
-    createGlobalSettingsPane();
     createMenuBar();
+    createGlobalSettingsPane();
   }
 
   @Override
   public Node getDisplayPane() {
-    return displayNode;
+    if (load) {
+      return displayNode;
+    } else {
+      return new Label("Bad Input File(s)");
+    }
   }
 
   @Override
   public Node getSettingsPane() {
-    return globalSettings;
+    if (load) {
+      return globalSettings;
+    } else {
+      return new Label("");
+    }
   }
 
   public Node getMenuBar() {
@@ -59,9 +78,9 @@ public class DisplayManager extends DisplayMode {
 
   private void createDisplayModes() {
     displayModes = new DisplayMode[3];
-    displayModes[0] = new Table();
-    displayModes[1] = new Map();
-    displayModes[2] = new Graph();
+    displayModes[0] = new Table(dm);
+    displayModes[1] = new Map(dm);
+    displayModes[2] = new Graph(dm);
     displayNode.setCenter(displayModes[0].getDisplayPane());
     settingsNode.setCenter(displayModes[0].getSettingsPane());
   }

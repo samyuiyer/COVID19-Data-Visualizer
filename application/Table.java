@@ -32,16 +32,12 @@ public class Table extends DisplayMode {
   FilteredList<DataPoint> filteredList;
   String[] timeLabels;
 
-  public Table() {
+  public Table(DataManager dm) {
     super();
     title = "table";
     tv = new TableView<>();
-    dm = new DataManager();
+    this.dm = dm;
     sp = new VBox();
-    try {
-      dm.loadTries();
-    } catch (Exception e) {
-    }
     initSp();
     initTv();
 
