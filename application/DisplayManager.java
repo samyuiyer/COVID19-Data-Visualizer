@@ -1,5 +1,7 @@
 package application;
 
+import java.io.FileWriter;
+import java.util.List;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -216,7 +218,7 @@ public class DisplayManager extends DisplayMode {
         }
       }
     });
-    
+
     dspModeComboBox.getSelectionModel().selectedItemProperty()
         .addListener(new ChangeListener<String>() {
           public void changed(ObservableValue<? extends String> observable, String oldValue,
@@ -240,6 +242,31 @@ public class DisplayManager extends DisplayMode {
         settingsNode);
 
     globalSettings = settingsPanel;
+
+    saveFileBtn.setOnAction(new EventHandler<ActionEvent>() {
+      @Override
+      public void handle(ActionEvent e) {
+        String name = "";
+        name = fileTextField.getText();
+        if (name.equals("File Name"))
+          name = "default.csv";
+        if (!(name.endsWith(".csv")))
+          name += ".csv";
+        List<DataPoint> filtered = ((Table) displayModes[0]).getFilteredList();
+        try {
+          FileWriter txtFile = new FileWriter(name);
+          txtFile.write("City,State,Country,Confirmed,Dead,Recovered\n");
+          for (DataPoint dp : filtered) {
+            txtFile.write(dp.getCity() + "," + dp.getState() + "," + dp.getCountry() + ","
+                + dp.getConfirmed() + "," + dp.getDeaths() + "," + dp.getRecovered() + "\n");
+          }
+          txtFile.close();
+        } catch (Exception ex) {
+
+        }
+
+      }
+    });
   }
 
 }

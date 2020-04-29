@@ -212,6 +212,7 @@ public class Table extends DisplayMode {
             return checkCountry && checkCity && checkState;
           }
         });
+        
       }
     });
 
@@ -236,6 +237,10 @@ public class Table extends DisplayMode {
     sortableData.comparatorProperty().bind(tableView.comparatorProperty());
 
     return sortableData;
+  }
+  
+  public List<DataPoint> getFilteredList() {
+    return filteredList;
   }
 
   private Comparator<String> getComparator(TableColumn<DataPoint, String> tc) {
