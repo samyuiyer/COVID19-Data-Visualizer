@@ -66,11 +66,6 @@ public class Graph extends DisplayMode {
   }
 
   @Override
-  void reset() {
-
-  }
-
-  @Override
   public Node getDisplayPane() {
     return chart;
   }

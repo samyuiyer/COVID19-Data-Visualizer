@@ -54,11 +54,11 @@ public class DataManager {
           } catch (Exception e) {
             System.out.println("bad");
           }
-
         }
         s.close();
       }
     } catch (Exception e) {
+      labels = new String[101];
       return false;
     }
     return true;
@@ -67,4 +67,5 @@ public class DataManager {
   public String[] getTimeLabels() {
     return Arrays.copyOfRange(labels, 6, labels.length);
   }
+
 }

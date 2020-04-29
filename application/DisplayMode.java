@@ -8,6 +8,5 @@ public abstract class DisplayMode {
   
   public abstract Node getDisplayPane();
   public abstract Node getSettingsPane();
-  abstract void reset();
 
 }
