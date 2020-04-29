@@ -77,6 +77,8 @@ public class AlphaTrie extends Trie<String, Character> {
 
 
   private List<DataPoint> suggest(Node curr, String key) {
+    if(curr==null)
+      return new LinkedList<>();
     if(key.length() ==0) {
       List<DataPoint> l = new LinkedList<>();
       getAll(curr, l);

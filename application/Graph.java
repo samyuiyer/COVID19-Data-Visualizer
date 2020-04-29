@@ -1,6 +1,7 @@
 package application;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -23,6 +24,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
+import javafx.util.StringConverter;
 
 public class Graph extends DisplayMode {
 
@@ -50,7 +52,7 @@ public class Graph extends DisplayMode {
 
     timeLabels = dm.getTimeLabels();
     slidersVisible = true;
-    setupSettings();
+
 
     scopeName = SCOPE_NAMES[0];
     dataName = DATA_NAMES[0];
@@ -61,6 +63,7 @@ public class Graph extends DisplayMode {
     chart = new LineChart<String, Number>(xAxis, yAxis);
     chart.setAnimated(false);
     series = new XYChart.Series<String, Number>();
+    setupSettings();
     updateChart();
     chart.getData().add(series);
   }
@@ -85,20 +88,22 @@ public class Graph extends DisplayMode {
       if (scopeName.equals(SCOPE_NAMES[0])) {
         d = list.get(0);
       } else if (scopeName.equals(SCOPE_NAMES[1])) {
-        System.out.println(countryBox.getValue());
-        d = countryBox.getValue() == null ? d : countryBox.getValue();
+        d = countryBox.getValue() == null || countryBox.getValue().dataArray[5].equals("INVALID")
+            ? d
+            : countryBox.getValue();
       } else if (scopeName.equals(SCOPE_NAMES[2])) {
-        System.out.println(stateBox.getValue());
-        d = stateBox.getValue() == null ? d : stateBox.getValue();
+        d = stateBox.getValue() == null || stateBox.getValue().dataArray[5].equals("INVALID") ? d
+            : stateBox.getValue();
       } else if (scopeName.equals(SCOPE_NAMES[3])) {
-        System.out.println(cityBox.getValue());
-        d = cityBox.getValue() == null ? d : cityBox.getValue();
+        d = cityBox.getValue() == null || cityBox.getValue().dataArray[5].equals("INVALID") ? d
+            : cityBox.getValue();
       } else {
         // use default value if Global
       }
     } else {
       // use default value if Global
     }
+    System.out.println(d);
 
     if (dataName.equals(DATA_NAMES[0])) {
       for (int time = (int) sliderStart.getValue(); time < (int) sliderEnd.getValue(); time++) {
@@ -264,17 +269,57 @@ public class Graph extends DisplayMode {
     countryBox = new ComboBox<>();
     stateBox = new ComboBox<>();
     cityBox = new ComboBox<>();
-  
+
 
     ChangeListener<DataPoint> boxListener = new ChangeListener<DataPoint>() {
       @Override
-      public void changed(ObservableValue ov, DataPoint t, DataPoint t1) {
+      public void changed(@SuppressWarnings("rawtypes") ObservableValue ov, DataPoint t,
+          DataPoint t1) {
         updateChart();
       }
     };
+
+
+    StringConverter<DataPoint> dataToString = new StringConverter<DataPoint>() {
+      @Override
+      public String toString(DataPoint object) {
+        if (object == null)
+          return null;
+        return object.toString();
+      }
+
+      @Override
+      public DataPoint fromString(String string) {
+        // replace this with approquiate implementation of parsing function
+        // or lookup function
+
+
+        DataPoint invalid =
+            new DataPoint(string, new String[] {"INVALID", "", "", "", "0", "INVALID"},
+                new Integer[95], new Integer[95], new Integer[95]);
+
+        try {
+          int index = dm.at.suggest(string).indexOf(invalid);
+          return index != -1 ? dm.at.suggest(string).get(index) : invalid;
+        } catch (IllegalNullKeyException e) {
+          return invalid;
+        }
+
+      }
+    };
+
+
+    countryBox.setConverter(dataToString);
+    stateBox.setConverter(dataToString);
+    cityBox.setConverter(dataToString);
+
+    countryBox.getSelectionModel().selectFirst();
+    stateBox.getSelectionModel().selectFirst();
+    cityBox.getSelectionModel().selectFirst();
     countryBox.valueProperty().addListener(boxListener);
     stateBox.valueProperty().addListener(boxListener);
     cityBox.valueProperty().addListener(boxListener);
+
     try {
       cityBox.setItems(FXCollections.observableList(
           filter(dm.at.suggest(cityBox.getEditor().getText()), true, false, false)));
@@ -329,7 +374,7 @@ public class Graph extends DisplayMode {
     Iterator<DataPoint> itr = dataList.iterator();
     while (itr.hasNext()) {
       DataPoint d = itr.next();
-      if (d==null||!d.filter(city, state, country)) {
+      if (d == null || !d.filter(city, state, country)) {
         itr.remove();
       }
     }
