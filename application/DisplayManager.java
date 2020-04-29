@@ -32,11 +32,15 @@ public class DisplayManager extends DisplayMode {
   private DataManager dm;
   private ComboBox<String> dspModeComboBox;
   VBox settingsPanel;
+  boolean load;
 
   public DisplayManager() {
+    load = false;
     dm = new DataManager();
     try {
-      dm.loadTries();
+      if (dm.loadTries()) {
+        load = true;
+      }
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -46,18 +50,26 @@ public class DisplayManager extends DisplayMode {
     displayNode = new BorderPane();
     settingsNode = new BorderPane();
     createDisplayModes();
-    createGlobalSettingsPane();
     createMenuBar();
+    createGlobalSettingsPane();
   }
 
   @Override
   public Node getDisplayPane() {
-    return displayNode;
+    if (load) {
+      return displayNode;
+    } else {
+      return new Label("Bad Input File(s)");
+    }
   }
 
   @Override
   public Node getSettingsPane() {
-    return globalSettings;
+    if (load) {
+      return globalSettings;
+    } else {
+      return new Label("");
+    }
   }
 
   public Node getMenuBar() {

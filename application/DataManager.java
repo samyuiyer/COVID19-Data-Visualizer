@@ -54,11 +54,11 @@ public class DataManager {
           } catch (Exception e) {
             System.out.println("bad");
           }
-
         }
         s.close();
       }
     } catch (Exception e) {
+      labels = new String[101];
       return false;
     }
     return true;
@@ -68,14 +68,4 @@ public class DataManager {
     return Arrays.copyOfRange(labels, 6, labels.length);
   }
 
-  // TODO rememebr to remove
-  public static void main(String[] args) throws FileNotFoundException, IllegalNullKeyException {
-    DataManager dm = new DataManager();
-    dm.loadTries();
-    dm.gt.print();
-    dm.at.print();
-    System.out.println(dm.at.numKeys());
-    System.out.println(dm.gt.numKeys());
-    System.out.println(dm.at.suggest("Nig"));
-  }
 }

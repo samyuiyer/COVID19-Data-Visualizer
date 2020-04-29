@@ -51,7 +51,7 @@ public class DataPoint {
     System.out.println(dataArray[4]);
     return new BigDecimal(Double.valueOf(dataArray[4])).setScale(8, RoundingMode.HALF_UP)
         .doubleValue();
-    
+
   }
 
   public Double getLon() {
@@ -126,13 +126,13 @@ public class DataPoint {
 
   public void increment(DataPoint data) {
 
-    for (int i = 0; confirmedList != null&& i < confirmedList.size(); i++) {
+    for (int i = 0; confirmedList != null && i < confirmedList.size(); i++) {
       confirmedList.set(i, confirmedList.get(i) + data.confirmedList.get(i));
     }
-    for (int i = 0; deathsList != null &&i < deathsList.size(); i++) {
+    for (int i = 0; deathsList != null && i < deathsList.size(); i++) {
       deathsList.set(i, deathsList.get(i) + data.deathsList.get(i));
     }
-    for (int i = 0;recoveredList != null&& i < recoveredList.size(); i++) {
+    for (int i = 0; recoveredList != null && i < recoveredList.size(); i++) {
       recoveredList.set(i, recoveredList.get(i) + data.recoveredList.get(i));
     }
   }
@@ -141,9 +141,7 @@ public class DataPoint {
   public String toString() {
     String rtn = key + ": ";
     for (int i = 0; i < 6; i++) {
-
       rtn += labels[i] + ":" + dataArray[i] + " ";
-
     }
     return rtn;
   }
