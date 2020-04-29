@@ -24,12 +24,12 @@ import javafx.scene.layout.VBox;
 
 public class Table extends DisplayMode {
 
-  Slider timeSlider;
-  TableView<DataPoint> tableView;
-  VBox settingsPane;
-  DataManager dataManager;
-  FilteredList<DataPoint> filteredList;
-  String[] timeLabels;
+  private Slider timeSlider;
+  private TableView<DataPoint> tableView;
+  private VBox settingsPane;
+  private DataManager dataManager;
+  private FilteredList<DataPoint> filteredList;
+  private String[] timeLabels;
 
   public Table(DataManager dataManager) {
     super();

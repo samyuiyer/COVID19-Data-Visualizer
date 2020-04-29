@@ -26,22 +26,22 @@ public class Map extends DisplayMode {
     Dead, Confirmed, Recovered
   }
 
-  Canvas canvas;
-  GraphicsContext gContext;
-  VBox settingsPane;
-  DataManager dm;
+  private VBox settingsPane;
+  private DataManager dm;
   private final int width = 900;
   private final int height = 450;
-  Slider timeSlider;
-  String[] timeLabels;
-  CheckBox[] filters;
-  dataTypes rType = dataTypes.Dead;
-  final ToggleGroup dataRadioBtns = new ToggleGroup();
+  private dataTypes rType = dataTypes.Dead;
+  private final ToggleGroup dataRadioBtns = new ToggleGroup();
+  private Slider timeSlider;
+  private String[] timeLabels;
+  private CheckBox[] filters;
+  private Canvas canvas;
+  private GraphicsContext graphicsContext;
 
   public Map(DataManager dm) {
     super();
     canvas = new Canvas(width, height);
-    gContext = canvas.getGraphicsContext2D();
+    graphicsContext = canvas.getGraphicsContext2D();
     settingsPane = new VBox();
     title = "map";
     this.dm = dm;
@@ -49,7 +49,7 @@ public class Map extends DisplayMode {
     EventHandler<ActionEvent> redraw = new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent event) {
-        drawShapes(gContext);
+        drawShapes(graphicsContext);
       }
     };
 
@@ -62,7 +62,7 @@ public class Map extends DisplayMode {
       public void changed(ObservableValue<? extends Number> observable, Number oldValue,
           Number newValue) {
         timeLabel.setText("" + timeLabels[(int) timeSlider.getValue()]);
-        drawShapes(gContext);
+        drawShapes(graphicsContext);
       }
     });
 
@@ -98,7 +98,7 @@ public class Map extends DisplayMode {
             rType = dataTypes.Dead;
           if (((Labeled) dataRadioBtns.getSelectedToggle()).getText().equals("Recovered"))
             rType = dataTypes.Recovered;
-          drawShapes(gContext);
+          drawShapes(graphicsContext);
         }
       }
     });
@@ -110,7 +110,7 @@ public class Map extends DisplayMode {
 
   @Override
   public Node getDisplayPane() {
-    drawShapes(gContext);
+    drawShapes(graphicsContext);
     return canvas;
   }
 
@@ -143,13 +143,13 @@ public class Map extends DisplayMode {
    */
   private double getFactor(DataPoint d) {
     if (rType == dataTypes.Confirmed) {
-      gContext.setFill(Color.ORANGE);
+      graphicsContext.setFill(Color.ORANGE);
       return Math.log(d.confirmedList.get((int) timeSlider.getValue()));
     } else if (rType == dataTypes.Recovered) {
-      gContext.setFill(Color.AQUA);
+      graphicsContext.setFill(Color.AQUA);
       return Math.log(d.recoveredList.get((int) timeSlider.getValue()));
     }
-    gContext.setFill(Color.RED);
+    graphicsContext.setFill(Color.RED);
 
     return Math.log(d.deathsList.get((int) timeSlider.getValue()));
   }

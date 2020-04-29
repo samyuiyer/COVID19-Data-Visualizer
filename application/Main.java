@@ -23,8 +23,7 @@ public class Main extends Application {
   private static final int WINDOW_WIDTH = 1170;
   private static final int WINDOW_HEIGHT = 800;
   private static final String APP_TITLE = "COVID-19 Data Visualizer";
-  DisplayManager dm;
-  Boolean visible = true;
+  private DisplayManager dm;
 
   @Override
   public void start(Stage primaryStage) throws Exception {
