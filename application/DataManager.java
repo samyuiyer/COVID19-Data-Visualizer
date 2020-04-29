@@ -39,7 +39,7 @@ public class DataManager {
           Integer[] confrimed = zeros.clone();
           Integer[] deaths = zeros.clone();
           Integer[] recovered = zeros.clone();
-           System.out.println(labels[0]);
+          // System.out.println(labels[0]);
           for (int i = 0; i < confrimed.length; i++) {
             if (labels[0].equals("confirmed"))
               confrimed[i] = Integer.parseInt(split[i + 6]);
@@ -49,7 +49,7 @@ public class DataManager {
               recovered[i] = Integer.parseInt(split[i + 6]);
           }
           dp = new DataPoint(split[0], data, confrimed, deaths, recovered);
-           at.insert(split[0], dp);
+          at.insert(split[0], dp);
           gt.insert(split[0], dp);
         } catch (Exception e) {
           System.out.println("bad");
@@ -68,8 +68,8 @@ public class DataManager {
     DataManager dm = new DataManager();
     dm.loadTries();
     dm.gt.print();
-     dm.at.print();
-     System.out.println(dm.at.numKeys());
+    dm.at.print();
+    System.out.println(dm.at.numKeys());
     System.out.println(dm.gt.numKeys());
   }
 }
