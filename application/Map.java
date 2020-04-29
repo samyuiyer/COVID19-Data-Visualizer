@@ -106,11 +106,6 @@ public class Map extends DisplayMode {
   }
 
   @Override
-  void reset() {
-
-  }
-
-  @Override
   public Node getDisplayPane() {
 
 

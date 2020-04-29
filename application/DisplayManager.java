@@ -234,18 +234,12 @@ public class DisplayManager extends DisplayMode {
           }
         });
 
-
     // Add all Nodes to VBox
 
     settingsPanel.getChildren().addAll(fileTextField, loadSave, dspModeComboBox, colorPicker,
         settingsNode);
 
     globalSettings = settingsPanel;
-  }
-
-  @Override
-  void reset() {
-
   }
 
 }

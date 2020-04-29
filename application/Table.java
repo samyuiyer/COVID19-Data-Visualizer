@@ -24,28 +24,37 @@ import javafx.scene.layout.VBox;
 
 public class Table extends DisplayMode {
 
-
-  Slider time;
-  TableView<DataPoint> tv;
-  VBox sp;
-  DataManager dm;
+  Slider timeSlider;
+  TableView<DataPoint> tableView;
+  VBox settingsPane;
+  DataManager dataManager;
   FilteredList<DataPoint> filteredList;
   String[] timeLabels;
 
-  public Table(DataManager dm) {
+  public Table(DataManager dataManager) {
     super();
     title = "table";
-    tv = new TableView<>();
-    this.dm = dm;
-    sp = new VBox();
+    tableView = new TableView<>();
+    this.dataManager = dataManager;
+    settingsPane = new VBox();
     initSp();
     initTv();
+  }
 
+  @Override
+  public Node getDisplayPane() {
+    return tableView;
+  }
+
+  @Override
+  public Node getSettingsPane() {
+    return settingsPane;
   }
 
   @SuppressWarnings("unchecked")
   private void initTv() {
-    tv.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+    tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+  
     TableColumn<DataPoint, String> location = new TableColumn<>("Location");
     TableColumn<DataPoint, String> city = new TableColumn<>("City");
     TableColumn<DataPoint, String> state = new TableColumn<>("Province/State");
@@ -56,7 +65,7 @@ public class Table extends DisplayMode {
     TableColumn<DataPoint, String> confirmed = new TableColumn<>("Confirmed");
     TableColumn<DataPoint, String> deaths = new TableColumn<>("Deaths");
     TableColumn<DataPoint, String> recovered = new TableColumn<>("Recovered");
-
+  
     location.setId("column_header_location");
     city.setId("column_city");
     state.setId("column_state");
@@ -67,7 +76,7 @@ public class Table extends DisplayMode {
     confirmed.setId("column_confirmed");
     deaths.setId("column_deaths");
     recovered.setId("column_recovered");
-
+  
     city.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("city"));
     city.setComparator(getComp(city));
     state.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("state"));
@@ -79,55 +88,31 @@ public class Table extends DisplayMode {
     confirmed.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("confirmed"));
     deaths.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("deaths"));
     recovered.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("recovered"));
-
+  
     location.getColumns().addAll(city, state, country, lat, lon);
     stats.getColumns().addAll(confirmed, deaths, recovered);
-    tv.getColumns().setAll(location, stats);
-    tv.setItems(getInitialTableData());
-
-    tv.setPlaceholder(new Label("No rows to display"));
-  }
-
-  private SortedList<DataPoint> getInitialTableData() {
-    List<DataPoint> list = dm.gt.getAll();
-    ObservableList<DataPoint> data = FXCollections.observableList(list);
-    filteredList = new FilteredList<>(data);
-
-    // to filter
-    filteredList.setPredicate(new Predicate<DataPoint>() {
-      public boolean test(DataPoint t) {
-        return true; // or true
-      }
-    });
-    SortedList<DataPoint> sortableData = new SortedList<>(this.filteredList);
-    sortableData.comparatorProperty().bind(tv.comparatorProperty());
-    return sortableData;
-  }
-
-  @Override
-  void reset() {
-
-  }
-
-  @Override
-  public Node getDisplayPane() {
-    return tv;
+    tableView.getColumns().setAll(location, stats);
+    tableView.setItems(getInitialTableData());
+  
+    tableView.setPlaceholder(new Label("No rows to display"));
   }
 
   private void initSp() {
+    // time slider
     Label sliderLabel = new Label("Choose Time:");
-    time = new Slider(0, 94, 94);
-    timeLabels = dm.getTimeLabels();
-    Label timeLabel = new Label("" + timeLabels[(int) time.getValue()]);
-    time.valueProperty().addListener(new ChangeListener<Number>() {
+    timeSlider = new Slider(0, 94, 94);
+    timeLabels = dataManager.getTimeLabels();
+    Label timeLabel = new Label("" + timeLabels[(int) timeSlider.getValue()]);
 
+    timeSlider.valueProperty().addListener(new ChangeListener<Number>() {
       public void changed(ObservableValue<? extends Number> observable, Number oldValue,
           Number newValue) {
-        timeLabel.setText("" + timeLabels[(int) time.getValue()]);
-        DataPoint.time = (int) time.getValue();
-        tv.refresh();
+        timeLabel.setText("" + timeLabels[(int) timeSlider.getValue()]);
+        DataPoint.time = (int) timeSlider.getValue();
+        tableView.refresh();
       }
     });
+
     TextField cityFilter = new TextField("Filter City");
     TextField stateFilter = new TextField("Filter State");
     TextField countryFilter = new TextField("Filter Country");
@@ -224,13 +209,25 @@ public class Table extends DisplayMode {
         });
       }
     });
-    sp.getChildren().addAll(sliderLabel, time, timeLabel, cityFilter, stateFilter, countryFilter,
-        setFilter, resetFilter);
+    settingsPane.getChildren().addAll(sliderLabel, timeSlider, timeLabel, cityFilter, stateFilter,
+        countryFilter, setFilter, resetFilter);
   }
 
-  @Override
-  public Node getSettingsPane() {
-    return sp;
+  private SortedList<DataPoint> getInitialTableData() {
+    List<DataPoint> list = dataManager.gt.getAll();
+    ObservableList<DataPoint> data = FXCollections.observableList(list);
+    filteredList = new FilteredList<>(data);
+  
+    // to filter
+    filteredList.setPredicate(new Predicate<DataPoint>() {
+      public boolean test(DataPoint t) {
+        return true;
+      }
+    });
+    
+    SortedList<DataPoint> sortableData = new SortedList<>(this.filteredList);
+    sortableData.comparatorProperty().bind(tableView.comparatorProperty());
+    return sortableData;
   }
 
   private Comparator<String> getComp(TableColumn<DataPoint, String> tc) {
