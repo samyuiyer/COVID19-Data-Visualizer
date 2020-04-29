@@ -14,7 +14,7 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import javafx.beans.property.SimpleDoubleProperty;
+
 
 /**
  * @author ankurgarg
@@ -123,13 +123,13 @@ public class DataPoint {
 
   public void increment(DataPoint data) {
 
-    for (int i = 0; i < confirmedList.size(); i++) {
+    for (int i = 0; confirmedList != null&& i < confirmedList.size(); i++) {
       confirmedList.set(i, confirmedList.get(i) + data.confirmedList.get(i));
     }
-    for (int i = 0; i < deathsList.size(); i++) {
+    for (int i = 0; deathsList != null &&i < deathsList.size(); i++) {
       deathsList.set(i, deathsList.get(i) + data.deathsList.get(i));
     }
-    for (int i = 0; i < recoveredList.size(); i++) {
+    for (int i = 0;recoveredList != null&& i < recoveredList.size(); i++) {
       recoveredList.set(i, recoveredList.get(i) + data.recoveredList.get(i));
     }
   }

@@ -9,12 +9,12 @@ import java.util.Scanner;
 
 public class DataManager {
   public GeoTrie gt;
-  // public AlphaTrie at;
+  public AlphaTrie at;
   public String[] labels;
   private final List<String> DATA_TYPES;
 
   public DataManager() {
-    // at = new AlphaTrie();
+    at = new AlphaTrie();
     gt = new GeoTrie();
     DATA_TYPES = Arrays.asList(new String[] {"confirmed", "deaths", "recovered"});
   }
@@ -49,7 +49,7 @@ public class DataManager {
               recovered[i] = Integer.parseInt(split[i + 6]);
           }
           dp = new DataPoint(split[0], data, confrimed, deaths, recovered);
-          // at.insert(split[0], dp);
+           at.insert(split[0], dp);
           gt.insert(split[0], dp);
         } catch (Exception e) {
           System.out.println("bad");
@@ -67,9 +67,9 @@ public class DataManager {
   public static void main(String[] args) throws FileNotFoundException, IllegalNullKeyException {
     DataManager dm = new DataManager();
     dm.loadTries();
-    // dm.gt.print();
-    // dm.at.print();
-    // System.out.println(dm.at.numKeys());
+    dm.gt.print();
+     dm.at.print();
+     System.out.println(dm.at.numKeys());
     System.out.println(dm.gt.numKeys());
   }
 }
