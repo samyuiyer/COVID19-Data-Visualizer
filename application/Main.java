@@ -22,53 +22,53 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 /**
- * The main driver class 
+ * The main driver class
  */
 public class Main extends Application {
 
-  private static final int WINDOW_WIDTH = 1170;
-  private static final int WINDOW_HEIGHT = 879;
-  private static final String APP_TITLE = "COVID-19 Data Visualizer";
-  private DisplayManager dm;
+	private static final int WINDOW_WIDTH = 1170;
+	private static final int WINDOW_HEIGHT = 879;
+	private static final String APP_TITLE = "COVID-19 Data Visualizer";
+	private DisplayManager dm;
 
-  /**
-   * Starts the program
-   * 
-   * @param primaryStage - the main stage
-   */
-  @Override
-  public void start(Stage primaryStage) throws Exception {
-    
-    // Main layout is Border Pane (top, left, center, right, bottom)
-    
-    BorderPane root = new BorderPane();
-    dm = new DisplayManager();
-    
-    // add to pane
-    
-    root.setLeft(dm.getSettingsPane());
-    root.setCenter(dm.getDisplayPane());
-    root.setTop(dm.getMenuBar());
+	/**
+	 * Starts the program
+	 * 
+	 * @param primaryStage - the main stage
+	 */
+	@Override
+	public void start(Stage primaryStage) throws Exception {
 
-    // Set Scene
-    
-    Scene mainScene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
+		// Main layout is Border Pane (top, left, center, right, bottom)
 
-    // add stylesheet
-    
-    mainScene.getStylesheets().add(getClass().getResource("application.css").toString());
+		BorderPane root = new BorderPane();
+		dm = new DisplayManager();
 
-    primaryStage.setTitle(APP_TITLE);
-    primaryStage.setScene(mainScene);
-    primaryStage.show();
-  }
+		// add to pane
 
-  /**
-   * Main method
-   * 
-   * @param args - program arguments
-   */
-  public static void main(String[] args) {
-    launch(args);
-  }
+		root.setLeft(dm.getSettingsPane());
+		root.setCenter(dm.getDisplayPane());
+		root.setTop(dm.getMenuBar());
+
+		// Set Scene
+
+		Scene mainScene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
+
+		// add stylesheet
+
+		mainScene.getStylesheets().add(getClass().getResource("application.css").toString());
+
+		primaryStage.setTitle(APP_TITLE);
+		primaryStage.setScene(mainScene);
+		primaryStage.show();
+	}
+
+	/**
+	 * Main method
+	 * 
+	 * @param args - program arguments
+	 */
+	public static void main(String[] args) {
+		launch(args);
+	}
 }

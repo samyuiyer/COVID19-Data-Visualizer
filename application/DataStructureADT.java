@@ -13,27 +13,27 @@ package application;
  */
 public interface DataStructureADT<K, V> {
 
-  // Add the key,value pair to the data structure and increase the number of keys.
-  // If key is null, throw IllegalNullKeyException;
-  // If key is already in data structure, replace value with new value
-  void insert(K key, V value) throws IllegalNullKeyException;
+	// Add the key,value pair to the data structure and increase the number of keys.
+	// If key is null, throw IllegalNullKeyException;
+	// If key is already in data structure, replace value with new value
+	void insert(K key, V value) throws IllegalNullKeyException;
 
-  // If key is found,
-  // remove the key,value pair from the data structure
-  // decrease number of keys.
-  // return true
-  // If key is null, throw IllegalNullKeyException
-  // If key is not found, return false
-  boolean remove(K key) throws IllegalNullKeyException;
+	// If key is found,
+	// remove the key,value pair from the data structure
+	// decrease number of keys.
+	// return true
+	// If key is null, throw IllegalNullKeyException
+	// If key is not found, return false
+	boolean remove(K key) throws IllegalNullKeyException;
 
-  // Returns the value associated with the specified key
-  // Does not remove key or decrease number of keys
-  //
-  // If key is null, throw IllegalNullKeyException
-  // If key is not found, throw KeyNotFoundException().
-  V get(K key) throws IllegalNullKeyException, KeyNotFoundException;
+	// Returns the value associated with the specified key
+	// Does not remove key or decrease number of keys
+	//
+	// If key is null, throw IllegalNullKeyException
+	// If key is not found, throw KeyNotFoundException().
+	V get(K key) throws IllegalNullKeyException, KeyNotFoundException;
 
-  // Returns the number of key,value pairs in the data structure
-  int numKeys();
+	// Returns the number of key,value pairs in the data structure
+	int numKeys();
 
 }

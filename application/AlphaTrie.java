@@ -38,7 +38,7 @@ public class AlphaTrie extends Trie<String, Character> {
 	/**
 	 * Insert method to insert a (key, value) into the tree
 	 * 
-	 * @param key - String key
+	 * @param key   - String key
 	 * @param value - DataPoint value
 	 */
 	public void insert(String key, DataPoint value) throws IllegalNullKeyException {
@@ -58,7 +58,8 @@ public class AlphaTrie extends Trie<String, Character> {
 	 * @param value
 	 * @throws IllegalNullKeyException - if the key is null
 	 */
-	protected void insert(int level, Node curr, String key, DataPoint value) throws IllegalNullKeyException { //TODO: is null key exception ever thrown?
+	protected void insert(int level, Node curr, String key, DataPoint value) throws IllegalNullKeyException {
+		// TODO: is null key exception ever thrown?
 
 		if (curr.children.containsKey(key.charAt(level))) {
 			if (curr.children.get(key.charAt(level)).data != null) {
@@ -121,5 +122,5 @@ public class AlphaTrie extends Trie<String, Character> {
 		}
 		return suggest(curr.children.get(key.charAt(0)), key.substring(1));
 	}
-	
+
 }

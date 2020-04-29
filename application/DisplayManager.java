@@ -107,7 +107,7 @@ public class DisplayManager extends DisplayMode {
 	}
 
 	/**
-	 * Getter method for the (menu) bar 
+	 * Getter method for the (menu) bar
 	 * 
 	 * @return Node
 	 */
@@ -116,7 +116,8 @@ public class DisplayManager extends DisplayMode {
 	}
 
 	/**
-	 * Creates the three different displayModes and sets the current displayMode to Table
+	 * Creates the three different displayModes and sets the current displayMode to
+	 * Table
 	 */
 	private void createDisplayModes() {
 		displayModes = new DisplayMode[3];

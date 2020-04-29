@@ -16,6 +16,6 @@
 
 package application;
 
-public class SettingsPane { //TODO: Delete?
+public class SettingsPane { // TODO: Delete?
 
 }

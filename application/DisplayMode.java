@@ -22,17 +22,17 @@ import javafx.scene.Node;
  * An abstract class for the various DisplayModes (Map, Table, Graph)
  */
 public abstract class DisplayMode {
-  
-  public String title;
-  
-  /**
-   * @return the displayPane
-   */
-  public abstract Node getDisplayPane();
-  
-  /**
-   * @return the settingsPane
-   */
-  public abstract Node getSettingsPane();
+
+	public String title;
+
+	/**
+	 * @return the displayPane
+	 */
+	public abstract Node getDisplayPane();
+
+	/**
+	 * @return the settingsPane
+	 */
+	public abstract Node getSettingsPane();
 
 }
