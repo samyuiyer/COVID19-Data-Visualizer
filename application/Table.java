@@ -14,6 +14,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.SortType;
 import javafx.scene.control.TableView;
@@ -24,11 +25,12 @@ import javafx.scene.layout.VBox;
 public class Table extends DisplayMode {
 
 
-
+  Slider time;
   TableView<DataPoint> tv;
   VBox sp;
   DataManager dm;
   FilteredList<DataPoint> filteredList;
+  String[] timeLabels;
 
   public Table() {
     super();
@@ -37,11 +39,12 @@ public class Table extends DisplayMode {
     dm = new DataManager();
     sp = new VBox();
     try {
-      dm.loadTries("data_test.txt");
+      dm.loadTries();
     } catch (Exception e) {
     }
-    initTv();
     initSp();
+    initTv();
+
   }
 
   @SuppressWarnings("unchecked")
@@ -57,7 +60,6 @@ public class Table extends DisplayMode {
     TableColumn<DataPoint, String> confirmed = new TableColumn<>("Confirmed");
     TableColumn<DataPoint, String> deaths = new TableColumn<>("Deaths");
     TableColumn<DataPoint, String> recovered = new TableColumn<>("Recovered");
-    TableColumn<DataPoint, String> active = new TableColumn<>("Active");
 
     location.setId("column_header_location");
     city.setId("column_city");
@@ -69,7 +71,6 @@ public class Table extends DisplayMode {
     confirmed.setId("column_confirmed");
     deaths.setId("column_deaths");
     recovered.setId("column_recovered");
-    active.setId("column_active");
 
     city.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("city"));
     city.setComparator(getComp(city));
@@ -82,10 +83,9 @@ public class Table extends DisplayMode {
     confirmed.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("confirmed"));
     deaths.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("deaths"));
     recovered.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("recovered"));
-    active.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("active"));
 
     location.getColumns().addAll(city, state, country, lat, lon);
-    stats.getColumns().addAll(confirmed, deaths, recovered, active);
+    stats.getColumns().addAll(confirmed, deaths, recovered);
     tv.getColumns().setAll(location, stats);
     tv.setItems(getInitialTableData());
 
@@ -119,6 +119,19 @@ public class Table extends DisplayMode {
   }
 
   private void initSp() {
+    Label sliderLabel = new Label("Choose Time:");
+    time = new Slider(0, 94, 94);
+    timeLabels = dm.getTimeLabels();
+    Label timeLabel = new Label("" + timeLabels[(int) time.getValue()]);
+    time.valueProperty().addListener(new ChangeListener<Number>() {
+
+      public void changed(ObservableValue<? extends Number> observable, Number oldValue,
+          Number newValue) {
+        timeLabel.setText("" + timeLabels[(int) time.getValue()]);
+        DataPoint.time = (int) time.getValue();
+        tv.refresh();
+      }
+    });
     TextField cityFilter = new TextField("Filter City");
     TextField stateFilter = new TextField("Filter State");
     TextField countryFilter = new TextField("Filter Country");
@@ -149,6 +162,7 @@ public class Table extends DisplayMode {
         if (oldValue) {
           if (stateFilter.getText().isBlank()) {
             stateFilter.setText("Filter State");
+
           }
         }
       }
@@ -214,7 +228,8 @@ public class Table extends DisplayMode {
         });
       }
     });
-    sp.getChildren().addAll(cityFilter, stateFilter, countryFilter, setFilter, resetFilter);
+    sp.getChildren().addAll(sliderLabel, time, timeLabel, cityFilter, stateFilter, countryFilter,
+        setFilter, resetFilter);
   }
 
   @Override

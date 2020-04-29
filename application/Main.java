@@ -34,14 +34,14 @@ public class Main extends Application {
     // add to pane
     root.setLeft(dm.getSettingsPane());
     root.setCenter(dm.getDisplayPane());
-    root.setTop(dm.getMenuBar()); 
+    root.setTop(dm.getMenuBar());
 
     // Set Scene
     Scene mainScene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
-    
-    //adds styles
-    mainScene.getStylesheets().add(getClass().getResource("stylesheet.css").toString());
-    
+
+    // adds styles
+    mainScene.getStylesheets().add(getClass().getResource("application.css").toString());
+
     primaryStage.setTitle(APP_TITLE);
     primaryStage.setScene(mainScene);
     primaryStage.show();
