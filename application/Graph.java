@@ -16,6 +16,7 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Labeled;
 import javafx.scene.control.RadioButton;
@@ -40,10 +41,10 @@ public class Graph extends DisplayMode {
   private final String[] SCOPE_NAMES = {"Global", "Country", "State", "City"};
   private final String[] DATA_NAMES = {"Confirmed", "Dead", "Recovered"};
 
-  Graph(DataManager dm){
+  Graph(DataManager dm) {
     super();
     this.dm = dm;
-   
+
     timeLabels = dm.getTimeLabels();
     slidersVisible = true;
     setupSettings();
@@ -152,6 +153,7 @@ public class Graph extends DisplayMode {
         }
       }
     });
+
     final ChangeListener<Number> startListener = new ChangeListener<Number>() {
       @Override
       public void changed(ObservableValue<? extends Number> arg0, Number arg1, Number arg2) {
@@ -239,9 +241,21 @@ public class Graph extends DisplayMode {
         updateChart();
       }
     });
+    ComboBox<String> countryBox = new ComboBox<>();
+    ComboBox<String> stateBox = new ComboBox<>();
+    ComboBox<String> cityBox = new ComboBox<>();
+    countryBox.setEditable(true);
+    stateBox.setEditable(true);
+    cityBox.setEditable(true);
+    countryBox.managedProperty().bind(countryBox.visibleProperty());
+    countryBox.visibleProperty().bind(cn.selectedProperty());
+    stateBox.managedProperty().bind(stateBox.visibleProperty());
+    stateBox.visibleProperty().bind(st.selectedProperty());
+    cityBox.managedProperty().bind(cityBox.visibleProperty());
+    cityBox.visibleProperty().bind(ct.selectedProperty());
 
     settings.getChildren().addAll(time, sliderLabel, sliderStart, sliderEnd, range, scopeLabel, gl,
-        cn, st, ct, dataLabel, c, d, r);
+        cn, countryBox, st, stateBox, ct, cityBox, dataLabel, c, d, r);
   }
 
 }
