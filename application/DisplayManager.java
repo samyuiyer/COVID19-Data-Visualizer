@@ -2,6 +2,7 @@ package application;
 
 import java.io.FileWriter;
 import java.util.List;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -96,14 +97,17 @@ public class DisplayManager extends DisplayMode {
     final MenuItem view1 = new MenuItem("Table");
     final MenuItem view2 = new MenuItem("Map");
     final MenuItem view3 = new MenuItem("Graph");
+    final MenuItem exit = new MenuItem("Exit");
     final Menu help = new Menu("Help");
 
     // Add to MenuBar
 
-    menu.getItems().addAll(toggle, view1, view2, view3);
+    menu.getItems().addAll(toggle, view1, view2, view3, exit);
     bar.getMenus().addAll(menu, help);
 
     // Event Handlers
+    
+    exit.setOnAction(e -> Platform.exit());
 
     toggle.setOnAction(new EventHandler<ActionEvent>() {
       @Override
