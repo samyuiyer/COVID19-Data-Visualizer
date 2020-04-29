@@ -27,17 +27,17 @@ import javafx.scene.layout.VBox;
 
 public class Graph extends DisplayMode {
 
-  DataManager dm;
-  String[] timeLabels;
+  private DataManager dm;
+  private String[] timeLabels;
   private boolean slidersVisible;
-  VBox settings;
-  Slider sliderStart;
-  Slider sliderEnd;
-  LineChart<String, Number> chart;
-  CategoryAxis xAxis;
-  NumberAxis yAxis;
-  XYChart.Series<String, Number> series;
-  String scopeName, dataName;
+  private VBox settings;
+  private Slider sliderStart;
+  private Slider sliderEnd;
+  private LineChart<String, Number> chart;
+  private CategoryAxis xAxis;
+  private NumberAxis yAxis;
+  private XYChart.Series<String, Number> series;
+  private String scopeName, dataName;
   private final String[] SCOPE_NAMES = {"Global", "Country", "State", "City"};
   private final String[] DATA_NAMES = {"Confirmed", "Dead", "Recovered"};
 

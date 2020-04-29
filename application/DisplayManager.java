@@ -14,7 +14,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -31,8 +30,8 @@ public class DisplayManager extends DisplayMode {
   private boolean settingsVisible;
   private DataManager dm;
   private ComboBox<String> dspModeComboBox;
-  VBox settingsPanel;
-  boolean load;
+  private VBox settingsPanel;
+  private boolean load;
 
   public DisplayManager() {
     load = false;
