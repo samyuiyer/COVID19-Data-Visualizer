@@ -81,10 +81,25 @@ public class Graph extends DisplayMode {
 
     Collection<XYChart.Data<String, Number>> col = new ArrayList<>();
 
-    for (int time = (int) sliderStart.getValue(); time < (int) sliderEnd.getValue(); time++) {
-      col.add(new XYChart.Data<String, Number>(timeLabels[time], d.confirmedList.get(time)));
-      time++;
+    if (dataName.equals(DATA_NAMES[0])) {
+      for (int time = (int) sliderStart.getValue(); time < (int) sliderEnd.getValue(); time++) {
+        col.add(new XYChart.Data<String, Number>(timeLabels[time], d.confirmedList.get(time)));
+        time++;
+      }
     }
+    if (dataName.equals(DATA_NAMES[1])) {
+      for (int time = (int) sliderStart.getValue(); time < (int) sliderEnd.getValue(); time++) {
+        col.add(new XYChart.Data<String, Number>(timeLabels[time], d.deathsList.get(time)));
+        time++;
+      }
+    }
+    if (dataName.equals(DATA_NAMES[2])) {
+      for (int time = (int) sliderStart.getValue(); time < (int) sliderEnd.getValue(); time++) {
+        col.add(new XYChart.Data<String, Number>(timeLabels[time], d.recoveredList.get(time)));
+        time++;
+      }
+    }
+
     series.getData().setAll(col);
   }
 
