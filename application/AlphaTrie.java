@@ -9,6 +9,9 @@
  */
 package application;
 
+import java.util.LinkedList;
+import java.util.List;
+import application.Trie.Node;
 
 /**
  * @author ankurgarg
@@ -42,17 +45,14 @@ public class AlphaTrie extends Trie<String, Character> {
           Node newCurr = new Node(null);
           curr.children.put(key.charAt(level), newCurr);
           newCurr.children.put(oldChild.data.key.charAt(level + 1), oldChild);
-        }
-        else if (oldChild.data.key.length() == level + 1 && key.length() > level + 1) {
+        } else if (oldChild.data.key.length() == level + 1 && key.length() > level + 1) {
           curr.children.put(key.charAt(level), oldChild);
-        }
-        else if (oldChild.data.key.length() > level + 1 && key.length() == level + 1) {
+        } else if (oldChild.data.key.length() > level + 1 && key.length() == level + 1) {
           curr.children.put(key.charAt(level), new Node(new DataPoint(key, value)));
-          key = oldChild.data.key; 
-          value= oldChild.data;
-     
-        }
-        else {
+          key = oldChild.data.key;
+          value = oldChild.data;
+
+        } else {
           curr.children.put(key.charAt(level), oldChild);
           oldChild.data.increment(value);
           return;
@@ -66,5 +66,22 @@ public class AlphaTrie extends Trie<String, Character> {
       size++;
     }
 
+  }
+
+  public List<DataPoint> suggest(String key) throws IllegalNullKeyException {
+    if (key == null)
+      throw new IllegalNullKeyException();
+
+    return suggest(root, key);
+  }
+
+
+  private List<DataPoint> suggest(Node curr, String key) {
+    if(key.length() ==0) {
+      List<DataPoint> l = new LinkedList<>();
+      getAll(curr, l);
+      return l;
+    }
+    return suggest(curr.children.get(0),key.substring(1));
   }
 }
