@@ -47,11 +47,16 @@ public class DataPoint {
 
 
   public Double getLat() {
+    System.out.println(key);
+    System.out.println(dataArray[4]);
     return new BigDecimal(Double.valueOf(dataArray[4])).setScale(8, RoundingMode.HALF_UP)
         .doubleValue();
+    
   }
 
   public Double getLon() {
+    System.out.println(key);
+    System.out.println(dataArray[5]);
     return new BigDecimal(Double.valueOf(dataArray[5])).setScale(8, RoundingMode.HALF_UP)
         .doubleValue();
   }
