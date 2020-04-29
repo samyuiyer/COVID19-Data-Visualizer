@@ -106,8 +106,8 @@ public class DisplayManager extends DisplayMode {
     bar.getMenus().addAll(menu, help);
 
     // Event Handlers
-    
-    exit.setOnAction(e -> Platform.exit());
+
+    exit.setOnAction(e -> exitProgram());
 
     toggle.setOnAction(new EventHandler<ActionEvent>() {
       @Override
@@ -268,6 +268,12 @@ public class DisplayManager extends DisplayMode {
 
       }
     });
+  }
+
+  private void exitProgram() {
+    Platform.exit();
+    System.exit(0);
+
   }
 
 }
