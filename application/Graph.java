@@ -186,13 +186,18 @@ public class Graph extends DisplayMode {
       public void changed(ObservableValue<? extends Toggle> ov, Toggle old_toggle,
           Toggle new_toggle) {
         if (scope.getSelectedToggle() != null) {
-          if (((Labeled) scope.getSelectedToggle()).getText().equals("Confirmed"))
-            scopeName = "Confirmed";
-          if (((Labeled) scope.getSelectedToggle()).getText().equals("Dead"))
-            scopeName = "Dead";
-          if (((Labeled) scope.getSelectedToggle()).getText().equals("Recovered"))
-            scopeName = "Recovered";
-          System.out.println("updated scope to " + scopeName);
+          if (((Labeled) scope.getSelectedToggle()).getText().equals(SCOPE_NAMES[0])) {
+            scopeName = SCOPE_NAMES[0];
+          }
+          if (((Labeled) scope.getSelectedToggle()).getText().equals(SCOPE_NAMES[1])) {
+            scopeName = SCOPE_NAMES[1];
+          }
+          if (((Labeled) scope.getSelectedToggle()).getText().equals(SCOPE_NAMES[2])) {
+            scopeName = SCOPE_NAMES[2];
+          }
+          if (((Labeled) scope.getSelectedToggle()).getText().equals(SCOPE_NAMES[3])) {
+            scopeName = SCOPE_NAMES[3];
+          }
         }
         updateChart();
       }
@@ -213,13 +218,12 @@ public class Graph extends DisplayMode {
       public void changed(ObservableValue<? extends Toggle> ov, Toggle old_toggle,
           Toggle new_toggle) {
         if (data.getSelectedToggle() != null) {
-          if (((Labeled) data.getSelectedToggle()).getText().equals("Confirmed"))
-            dataName = "Confirmed";
-          if (((Labeled) data.getSelectedToggle()).getText().equals("Dead"))
-            dataName = "Dead";
-          if (((Labeled) data.getSelectedToggle()).getText().equals("Recovered"))
-            dataName = "Recovered";
-          System.out.println("updated scope to " + scopeName);
+          if (((Labeled) data.getSelectedToggle()).getText().equals(DATA_NAMES[0]))
+            dataName = DATA_NAMES[0];
+          if (((Labeled) data.getSelectedToggle()).getText().equals(DATA_NAMES[1]))
+            dataName = DATA_NAMES[1];
+          if (((Labeled) data.getSelectedToggle()).getText().equals(DATA_NAMES[2]))
+            dataName = DATA_NAMES[2];
         }
         updateChart();
       }
