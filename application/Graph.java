@@ -7,10 +7,6 @@ import java.util.List;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.collections.ObservableListBase;
-import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
@@ -43,6 +39,10 @@ public class Graph extends DisplayMode {
   private String scopeName, dataName;
   private final String[] SCOPE_NAMES = {"Global", "Country", "State", "City"};
   private final String[] DATA_NAMES = {"Confirmed", "Dead", "Recovered"};
+  private ComboBox<DataPoint> countryBox;
+  private ComboBox<DataPoint> stateBox;
+  private ComboBox<DataPoint> cityBox;
+  private ToggleGroup scope;
 
   Graph(DataManager dm) {
     super();
@@ -76,9 +76,29 @@ public class Graph extends DisplayMode {
     chart.setTitle(dataName + " cases, " + scopeName);
 
     List<DataPoint> list = dm.gt.getAll();
-    DataPoint d = list.get(0);
 
     Collection<XYChart.Data<String, Number>> col = new ArrayList<>();
+
+    DataPoint d = list.get(0);
+    
+    if (scopeName != null) {
+      if (scopeName.equals(SCOPE_NAMES[0])) {
+        d = list.get(0);
+      } else if (scopeName.equals(SCOPE_NAMES[1])) {
+        System.out.println(countryBox.getValue());
+        d = countryBox.getValue();
+      } else if (scopeName.equals(SCOPE_NAMES[2])) {
+        System.out.println(stateBox.getValue());
+        d = stateBox.getValue();
+      } else if (scopeName.equals(SCOPE_NAMES[3])) {
+        System.out.println(cityBox.getValue());
+        d = cityBox.getValue();
+      } else {
+        // use default value if Global
+      }
+    } else {
+   // use default value if Global
+    }
 
     if (dataName.equals(DATA_NAMES[0])) {
       for (int time = (int) sliderStart.getValue(); time < (int) sliderEnd.getValue(); time++) {
@@ -86,12 +106,14 @@ public class Graph extends DisplayMode {
         time++;
       }
     }
+
     if (dataName.equals(DATA_NAMES[1])) {
       for (int time = (int) sliderStart.getValue(); time < (int) sliderEnd.getValue(); time++) {
         col.add(new XYChart.Data<String, Number>(timeLabels[time], d.deathsList.get(time)));
         time++;
       }
     }
+
     if (dataName.equals(DATA_NAMES[2])) {
       for (int time = (int) sliderStart.getValue(); time < (int) sliderEnd.getValue(); time++) {
         col.add(new XYChart.Data<String, Number>(timeLabels[time], d.recoveredList.get(time)));
@@ -182,7 +204,7 @@ public class Graph extends DisplayMode {
     sliderEnd.valueProperty().addListener(endListener);
 
     Label scopeLabel = new Label("Scope:");
-    final ToggleGroup scope = new ToggleGroup();
+    scope = new ToggleGroup();
     RadioButton gl = new RadioButton("Global");
     RadioButton cn = new RadioButton("Country");
     RadioButton st = new RadioButton("State");
@@ -239,9 +261,9 @@ public class Graph extends DisplayMode {
         updateChart();
       }
     });
-    ComboBox<DataPoint> countryBox = new ComboBox<>();
-    ComboBox<DataPoint> stateBox = new ComboBox<>();
-    ComboBox<DataPoint> cityBox = new ComboBox<>();
+    countryBox = new ComboBox<>();
+    stateBox = new ComboBox<>();
+    cityBox = new ComboBox<>();
     try {
       cityBox.setItems(FXCollections.observableList(
           filter(dm.at.suggest(cityBox.getEditor().getText()), true, false, false)));
@@ -252,7 +274,7 @@ public class Graph extends DisplayMode {
         } catch (IllegalNullKeyException e) {
         }
       });
-      
+
       stateBox.setItems(FXCollections.observableList(
           filter(dm.at.suggest(stateBox.getEditor().getText()), false, true, false)));
       stateBox.getEditor().textProperty().addListener((observable, oldValue, newValue) -> {
@@ -262,7 +284,7 @@ public class Graph extends DisplayMode {
         } catch (IllegalNullKeyException e) {
         }
       });
-      
+
       countryBox.setItems(FXCollections.observableList(
           filter(dm.at.suggest(countryBox.getEditor().getText()), false, false, true)));
       countryBox.getEditor().textProperty().addListener((observable, oldValue, newValue) -> {
