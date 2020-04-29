@@ -19,6 +19,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
+import static application.Constants.*;
 
 public class Map extends DisplayMode {
   private enum dataTypes {
@@ -29,8 +30,9 @@ public class Map extends DisplayMode {
   GraphicsContext gc;
   VBox sp;
   DataManager dm;
-  private final int width = 900;
-  private final int height = 450;
+  private double width = WINDOW_WIDTH - SETTINGS_WIDTH; //700
+  private double height = WINDOW_HEIGHT; //450 (1.6 scale)
+  Image image;
   Slider time;
   String[] timeLabels;
   CheckBox[] filters;
@@ -40,6 +42,7 @@ public class Map extends DisplayMode {
   public Map() {
     super();
     canvas = new Canvas(width, height);
+    image = new Image("map.jpg");
     gc = canvas.getGraphicsContext2D();
     sp = new VBox();
     title = "map";
@@ -102,8 +105,7 @@ public class Map extends DisplayMode {
         }
       }
     });
-
-
+    
     sp.getChildren().addAll(sliderLabel, time, timeLabel);
     sp.getChildren().addAll(filters);
     sp.getChildren().addAll(d, c, r);
@@ -117,7 +119,6 @@ public class Map extends DisplayMode {
   @Override
   public Node getDisplayPane() {
 
-
     drawShapes(gc);
 
     return canvas;
@@ -129,9 +130,7 @@ public class Map extends DisplayMode {
   }
 
   private void drawShapes(GraphicsContext gc) {
-
     List<DataPoint> list = dm.gt.getAll();
-    Image image = new Image("map.jpg");
     gc.drawImage(image, 0, 0, width, height);
     gc.setLineWidth(5);
 
@@ -146,6 +145,12 @@ public class Map extends DisplayMode {
 
       }
     }
+  }
+  
+  public void updateShapes(int newHeight, int newWidth) {
+	  width = newWidth;
+	  height = newHeight;
+	  drawShapes(gc);
   }
 
 
@@ -172,7 +177,6 @@ public class Map extends DisplayMode {
    * @return
    */
   private boolean filter(DataPoint d) {
-
     if (!d.getCity().equals(""))
       return filters[0].isSelected();
     if (!d.getState().equals(""))

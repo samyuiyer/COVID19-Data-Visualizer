@@ -23,8 +23,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 
 public class Table extends DisplayMode {
-
-
   Slider time;
   TableView<DataPoint> tv;
   VBox sp;

@@ -42,6 +42,10 @@ public class DisplayManager extends DisplayMode {
     createGlobalSettingsPane();
     createMenuBar();
   }
+  
+  public void eventThrower(int newHeight, int newWidth) {
+	 ((Map)displayModes[1]).updateShapes(newHeight,newWidth);
+  }
 
   @Override
   public Node getDisplayPane() {
