@@ -37,8 +37,8 @@ public class Table extends DisplayMode {
     tableView = new TableView<>();
     this.dataManager = dataManager;
     settingsPane = new VBox();
-    initSp();
-    initTv();
+    initializeSettingsPane();
+    initializeTableView();
   }
 
   @Override
@@ -52,9 +52,9 @@ public class Table extends DisplayMode {
   }
 
   @SuppressWarnings("unchecked")
-  private void initTv() {
+  private void initializeTableView() {
     tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-  
+
     TableColumn<DataPoint, String> location = new TableColumn<>("Location");
     TableColumn<DataPoint, String> city = new TableColumn<>("City");
     TableColumn<DataPoint, String> state = new TableColumn<>("Province/State");
@@ -65,7 +65,7 @@ public class Table extends DisplayMode {
     TableColumn<DataPoint, String> confirmed = new TableColumn<>("Confirmed");
     TableColumn<DataPoint, String> deaths = new TableColumn<>("Deaths");
     TableColumn<DataPoint, String> recovered = new TableColumn<>("Recovered");
-  
+
     location.setId("column_header_location");
     city.setId("column_city");
     state.setId("column_state");
@@ -76,28 +76,28 @@ public class Table extends DisplayMode {
     confirmed.setId("column_confirmed");
     deaths.setId("column_deaths");
     recovered.setId("column_recovered");
-  
+
     city.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("city"));
-    city.setComparator(getComp(city));
+    city.setComparator(getComparator(city));
     state.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("state"));
-    state.setComparator(getComp(state));
+    state.setComparator(getComparator(state));
     country.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("country"));
-    country.setComparator(getComp(country));
+    country.setComparator(getComparator(country));
     lat.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lat"));
     lon.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("lon"));
     confirmed.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("confirmed"));
     deaths.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("deaths"));
     recovered.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("recovered"));
-  
+
     location.getColumns().addAll(city, state, country, lat, lon);
     stats.getColumns().addAll(confirmed, deaths, recovered);
     tableView.getColumns().setAll(location, stats);
     tableView.setItems(getInitialTableData());
-  
+
     tableView.setPlaceholder(new Label("No rows to display"));
   }
 
-  private void initSp() {
+  private void initializeSettingsPane() {
     // time slider
     Label sliderLabel = new Label("Choose Time:");
     timeSlider = new Slider(0, 94, 94);
@@ -209,6 +209,7 @@ public class Table extends DisplayMode {
         });
       }
     });
+
     settingsPane.getChildren().addAll(sliderLabel, timeSlider, timeLabel, cityFilter, stateFilter,
         countryFilter, setFilter, resetFilter);
   }
@@ -217,20 +218,21 @@ public class Table extends DisplayMode {
     List<DataPoint> list = dataManager.gt.getAll();
     ObservableList<DataPoint> data = FXCollections.observableList(list);
     filteredList = new FilteredList<>(data);
-  
+
     // to filter
     filteredList.setPredicate(new Predicate<DataPoint>() {
       public boolean test(DataPoint t) {
         return true;
       }
     });
-    
+
     SortedList<DataPoint> sortableData = new SortedList<>(this.filteredList);
     sortableData.comparatorProperty().bind(tableView.comparatorProperty());
+
     return sortableData;
   }
 
-  private Comparator<String> getComp(TableColumn<DataPoint, String> tc) {
+  private Comparator<String> getComparator(TableColumn<DataPoint, String> tc) {
     Comparator<String> comparator = (o1, o2) -> {
       final boolean isDesc = tc.getSortType() == SortType.DESCENDING;
       if (o1.equals("") && o2.equals(""))
