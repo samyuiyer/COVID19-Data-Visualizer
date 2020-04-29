@@ -168,15 +168,9 @@ public class Map extends DisplayMode {
    * @return
    */
   private boolean filter(DataPoint d) {
-    if(d.getLon()==0&&d.getLat()==0)
-      return false;
-    if (!d.getCity().equals(""))
-      return filters[0].isSelected();
-    if (!d.getState().equals(""))
-      return filters[1].isSelected();
-    if (!d.getCountry().equals(""))
-      return filters[2].isSelected();
-    return true;
+    if (d.getLon() != 0 || d.getLat() != 0)
+      return d.filter(filters[0].isSelected(), filters[1].isSelected(), filters[2].isSelected());
+    return false;
   }
 
 }

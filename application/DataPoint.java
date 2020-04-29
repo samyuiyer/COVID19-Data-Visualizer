@@ -47,16 +47,12 @@ public class DataPoint {
 
 
   public Double getLat() {
-    System.out.println(key);
-    System.out.println(dataArray[4]);
     return new BigDecimal(Double.valueOf(dataArray[4])).setScale(8, RoundingMode.HALF_UP)
         .doubleValue();
     
   }
 
   public Double getLon() {
-    System.out.println(key);
-    System.out.println(dataArray[5]);
     return new BigDecimal(Double.valueOf(dataArray[5])).setScale(8, RoundingMode.HALF_UP)
         .doubleValue();
   }
@@ -136,16 +132,19 @@ public class DataPoint {
       recoveredList.set(i, recoveredList.get(i) + data.recoveredList.get(i));
     }
   }
-
+public boolean filter(boolean city,boolean state,boolean country) {
+  if (!getCity().equals(""))
+    return city;
+  if (!getState().equals(""))
+    return state;
+  if (!getCountry().equals(""))
+    return country;
+  return true;
+}
   @Override
   public String toString() {
-    String rtn = key + ": ";
-    for (int i = 0; i < 6; i++) {
-
-      rtn += labels[i] + ":" + dataArray[i] + " ";
-
-    }
-    return rtn;
+    
+    return key;
   }
 
 }

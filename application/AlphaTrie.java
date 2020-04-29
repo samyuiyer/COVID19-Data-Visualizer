@@ -82,6 +82,6 @@ public class AlphaTrie extends Trie<String, Character> {
       getAll(curr, l);
       return l;
     }
-    return suggest(curr.children.get(0),key.substring(1));
+    return suggest(curr.children.get(key.charAt(0)),key.substring(1));
   }
 }

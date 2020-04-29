@@ -67,15 +67,4 @@ public class DataManager {
   public String[] getTimeLabels() {
     return Arrays.copyOfRange(labels, 6, labels.length);
   }
-
-  // TODO rememebr to remove
-  public static void main(String[] args) throws FileNotFoundException, IllegalNullKeyException {
-    DataManager dm = new DataManager();
-    dm.loadTries();
-    dm.gt.print();
-    dm.at.print();
-    System.out.println(dm.at.numKeys());
-    System.out.println(dm.gt.numKeys());
-    System.out.println(dm.at.suggest("Nig"));
-  }
 }

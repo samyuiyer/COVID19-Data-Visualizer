@@ -2,11 +2,14 @@ package application;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableListBase;
+import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -241,9 +244,44 @@ public class Graph extends DisplayMode {
         updateChart();
       }
     });
-    ComboBox<String> countryBox = new ComboBox<>();
-    ComboBox<String> stateBox = new ComboBox<>();
-    ComboBox<String> cityBox = new ComboBox<>();
+    ComboBox<DataPoint> countryBox = new ComboBox<>();
+    ComboBox<DataPoint> stateBox = new ComboBox<>();
+    ComboBox<DataPoint> cityBox = new ComboBox<>();
+    try {
+      cityBox.setItems(FXCollections.observableList(
+          filter(dm.at.suggest(cityBox.getEditor().getText()), true, false, false)));
+      cityBox.getEditor().textProperty().addListener((observable, oldValue, newValue) -> {
+        try {
+          cityBox.setItems(FXCollections.observableList(
+              filter(dm.at.suggest(cityBox.getEditor().getText()), true, false, false)));
+        } catch (IllegalNullKeyException e) {
+        }
+      });
+      
+      stateBox.setItems(FXCollections.observableList(
+          filter(dm.at.suggest(stateBox.getEditor().getText()), false, true, false)));
+      stateBox.getEditor().textProperty().addListener((observable, oldValue, newValue) -> {
+        try {
+          stateBox.setItems(FXCollections.observableList(
+              filter(dm.at.suggest(stateBox.getEditor().getText()), false, true, false)));
+        } catch (IllegalNullKeyException e) {
+        }
+      });
+      
+      countryBox.setItems(FXCollections.observableList(
+          filter(dm.at.suggest(countryBox.getEditor().getText()), false, false, true)));
+      countryBox.getEditor().textProperty().addListener((observable, oldValue, newValue) -> {
+        try {
+          countryBox.setItems(FXCollections.observableList(
+              filter(dm.at.suggest(countryBox.getEditor().getText()), false, false, true)));
+        } catch (IllegalNullKeyException e) {
+        }
+      });
+
+    } catch (IllegalNullKeyException e) {
+
+      e.printStackTrace();
+    }
     countryBox.setEditable(true);
     stateBox.setEditable(true);
     cityBox.setEditable(true);
@@ -256,6 +294,18 @@ public class Graph extends DisplayMode {
 
     settings.getChildren().addAll(time, sliderLabel, sliderStart, sliderEnd, range, scopeLabel, gl,
         cn, countryBox, st, stateBox, ct, cityBox, dataLabel, c, d, r);
+  }
+
+  private List<DataPoint> filter(List<DataPoint> dataList, boolean city, boolean state,
+      boolean country) {
+    Iterator<DataPoint> itr = dataList.iterator();
+    while (itr.hasNext()) {
+      DataPoint d = itr.next();
+      if (!d.filter(city, state, country)) {
+        itr.remove();
+      }
+    }
+    return dataList;
   }
 
 }
