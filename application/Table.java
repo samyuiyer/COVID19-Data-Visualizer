@@ -37,8 +37,8 @@ public class Table extends DisplayMode {
     tableView = new TableView<>();
     this.dataManager = dataManager;
     settingsPane = new VBox();
-    initializeSettingsPane();
-    initializeTableView();
+    setupSettings();
+    setupTableView();
   }
 
   @Override
@@ -52,7 +52,7 @@ public class Table extends DisplayMode {
   }
 
   @SuppressWarnings("unchecked")
-  private void initializeTableView() {
+  private void setupTableView() {
     tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
     TableColumn<DataPoint, String> location = new TableColumn<>("Location");
@@ -97,12 +97,26 @@ public class Table extends DisplayMode {
     tableView.setPlaceholder(new Label("No rows to display"));
   }
 
-  private void initializeSettingsPane() {
-    // time slider
+  private void setupSettings() {
+
+    // Setup Nodes
+
     Label sliderLabel = new Label("Choose Time:");
     timeSlider = new Slider(0, 94, 94);
     timeLabels = dataManager.getTimeLabels();
     Label timeLabel = new Label("" + timeLabels[(int) timeSlider.getValue()]);
+
+    TextField cityFilter = new TextField("Filter City");
+    TextField stateFilter = new TextField("Filter State");
+    TextField countryFilter = new TextField("Filter Country");
+
+    Button setFilter = new Button("Set Filter");
+    setFilter.setId("set-filter-btn");
+
+    Button resetFilter = new Button("Reset Filter");
+    resetFilter.setId("reset-filter-btn");
+
+    // Add Listeners and Event Handlers
 
     timeSlider.valueProperty().addListener(new ChangeListener<Number>() {
       public void changed(ObservableValue<? extends Number> observable, Number oldValue,
@@ -112,10 +126,6 @@ public class Table extends DisplayMode {
         tableView.refresh();
       }
     });
-
-    TextField cityFilter = new TextField("Filter City");
-    TextField stateFilter = new TextField("Filter State");
-    TextField countryFilter = new TextField("Filter Country");
 
     cityFilter.focusedProperty().addListener(new ChangeListener<Boolean>() {
       @Override
@@ -166,8 +176,6 @@ public class Table extends DisplayMode {
 
     });
 
-    Button setFilter = new Button("Set Filter");
-    setFilter.setId("set-filter-btn");
     setFilter.setOnAction(new EventHandler<ActionEvent>() { // button should hide time sliders and
                                                             // labels
       @Override
@@ -185,9 +193,6 @@ public class Table extends DisplayMode {
         });
       }
     });
-
-    Button resetFilter = new Button("Reset Filter");
-    resetFilter.setId("reset-filter-btn");
 
     resetFilter.setOnAction(new EventHandler<ActionEvent>() { // button should hide time sliders and
                                                               // // labels
@@ -207,6 +212,7 @@ public class Table extends DisplayMode {
             return checkCountry && checkCity && checkState;
           }
         });
+        
       }
     });
 
@@ -215,6 +221,7 @@ public class Table extends DisplayMode {
   }
 
   private SortedList<DataPoint> getInitialTableData() {
+
     List<DataPoint> list = dataManager.gt.getAll();
     ObservableList<DataPoint> data = FXCollections.observableList(list);
     filteredList = new FilteredList<>(data);
@@ -230,6 +237,10 @@ public class Table extends DisplayMode {
     sortableData.comparatorProperty().bind(tableView.comparatorProperty());
 
     return sortableData;
+  }
+  
+  public List<DataPoint> getFilteredList() {
+    return filteredList;
   }
 
   private Comparator<String> getComparator(TableColumn<DataPoint, String> tc) {

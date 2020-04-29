@@ -1,5 +1,8 @@
 package application;
 
+import java.io.FileWriter;
+import java.util.List;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -94,14 +97,17 @@ public class DisplayManager extends DisplayMode {
     final MenuItem view1 = new MenuItem("Table");
     final MenuItem view2 = new MenuItem("Map");
     final MenuItem view3 = new MenuItem("Graph");
+    final MenuItem exit = new MenuItem("Exit");
     final Menu help = new Menu("Help");
 
     // Add to MenuBar
 
-    menu.getItems().addAll(toggle, view1, view2, view3);
+    menu.getItems().addAll(toggle, view1, view2, view3, exit);
     bar.getMenus().addAll(menu, help);
 
     // Event Handlers
+
+    exit.setOnAction(e -> exitProgram());
 
     toggle.setOnAction(new EventHandler<ActionEvent>() {
       @Override
@@ -148,9 +154,8 @@ public class DisplayManager extends DisplayMode {
 
     // setup objects
 
-    Button loadFileBtn = new Button("Load File");
+    Label saveLabel = new Label(); // TODO rename this stuff
     Button saveFileBtn = new Button("Save File");
-    HBox loadSave = new HBox();
     TextField fileTextField = new TextField("File name");
     ColorPicker colorPicker = new ColorPicker(Color.web("#70C1B3"));
     String[] dispModes = {"Table Mode", "Map Mode", "Graph Mode"};
@@ -159,9 +164,8 @@ public class DisplayManager extends DisplayMode {
     // Setup IDs for css styling
 
     settingsPanel.setId("settings_panel");
-    loadFileBtn.setId("load_btn");
+    saveLabel.setId("load_btn");
     saveFileBtn.setId("save_btn");
-    loadSave.setId("load_save_box"); // TODO likely this will be unused
     fileTextField.setId("file_text_field");
     colorPicker.setId("color_picker");
     dspModeComboBox.setId("dsp_combo_box");
@@ -172,7 +176,6 @@ public class DisplayManager extends DisplayMode {
 
     // Setup values and properties
 
-    loadSave.getChildren().addAll(loadFileBtn, saveFileBtn);
     dspModeComboBox.setPromptText("Select Display Mode");
 
     // Setup Listeners and EventHandlers
@@ -216,6 +219,7 @@ public class DisplayManager extends DisplayMode {
         }
       }
     });
+
     dspModeComboBox.getSelectionModel().selectedItemProperty()
         .addListener(new ChangeListener<String>() {
           public void changed(ObservableValue<? extends String> observable, String oldValue,
@@ -235,10 +239,41 @@ public class DisplayManager extends DisplayMode {
 
     // Add all Nodes to VBox
 
-    settingsPanel.getChildren().addAll(fileTextField, loadSave, dspModeComboBox, colorPicker,
-        settingsNode);
+    settingsPanel.getChildren().addAll(fileTextField, saveFileBtn, saveLabel, dspModeComboBox,
+        colorPicker, settingsNode);
 
     globalSettings = settingsPanel;
+
+    saveFileBtn.setOnAction(new EventHandler<ActionEvent>() {
+      @Override
+      public void handle(ActionEvent e) {
+        String fileName = fileTextField.getText();
+        if (fileName.equals("File Name"))
+          fileName = "default.csv";
+        if (!(fileName.endsWith(".csv")))
+          fileName += ".csv";
+        List<DataPoint> filtered = ((Table) displayModes[0]).getFilteredList();
+        try {
+          FileWriter txtFile = new FileWriter(fileName);
+          txtFile.write("City,State,Country,Confirmed,Dead,Recovered\n");
+          for (DataPoint dp : filtered) {
+            txtFile.write(dp.getCity() + "," + dp.getState() + "," + dp.getCountry() + ","
+                + dp.getConfirmed() + "," + dp.getDeaths() + "," + dp.getRecovered() + "\n");
+          }
+          txtFile.close();
+          saveLabel.setText("File " + fileName + " successfully saved");
+        } catch (Exception ex) {
+
+        }
+
+      }
+    });
+  }
+
+  private void exitProgram() {
+    Platform.exit();
+    System.exit(0);
+
   }
 
 }

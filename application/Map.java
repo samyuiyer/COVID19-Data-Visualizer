@@ -28,43 +28,50 @@ public class Map extends DisplayMode {
 
   private VBox settingsPane;
   private DataManager dm;
+  private Canvas canvas;
   private final int width = 900;
   private final int height = 450;
-  private dataTypes rType = dataTypes.Dead;
-  private final ToggleGroup dataRadioBtns = new ToggleGroup();
-  private Slider timeSlider;
-  private String[] timeLabels;
-  private CheckBox[] filters;
-  private Canvas canvas;
   private GraphicsContext graphicsContext;
+  private dataTypes rType = dataTypes.Dead;
+  private Slider timeSlider;
+  private CheckBox[] filters;
 
   public Map(DataManager dm) {
     super();
-    canvas = new Canvas(width, height);
-    graphicsContext = canvas.getGraphicsContext2D();
-    settingsPane = new VBox();
-    title = "map";
+    this.canvas = new Canvas(width, height);
+    this.graphicsContext = canvas.getGraphicsContext2D();
+    this.settingsPane = new VBox();
+    this.title = "map";
     this.dm = dm;
+    this.timeSlider = new Slider(0, 94, 94);
+    setupSettings();
+  }
+
+  @Override
+  public Node getDisplayPane() {
+    redraw(graphicsContext);
+    return canvas;
+  }
+
+  @Override
+  public Node getSettingsPane() {
+    return settingsPane;
+  }
+
+  private void setupSettings() {
+    Label timeLabel = new Label("" + dm.getTimeLabels()[(int) timeSlider.getValue()]);
+    Label sliderLabel = new Label("Choose Time:");
+    ToggleGroup dataRadioBtns = new ToggleGroup();
+    RadioButton cRadio = new RadioButton("Confirmed");
+    RadioButton dRadio = new RadioButton("Dead");
+    RadioButton rRadio = new RadioButton("Recovered");
 
     EventHandler<ActionEvent> redraw = new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent event) {
-        drawShapes(graphicsContext);
+        redraw(graphicsContext);
       }
     };
-
-    // setup time slider
-    Label sliderLabel = new Label("Choose Time:");
-    timeSlider = new Slider(0, 94, 94);
-    timeLabels = dm.getTimeLabels();
-    Label timeLabel = new Label("" + timeLabels[(int) timeSlider.getValue()]);
-    timeSlider.valueProperty().addListener(new ChangeListener<Number>() {
-      public void changed(ObservableValue<? extends Number> observable, Number oldValue,
-          Number newValue) {
-        timeLabel.setText("" + timeLabels[(int) timeSlider.getValue()]);
-        drawShapes(graphicsContext);
-      }
-    });
 
     filters = new CheckBox[3];
     filters[0] = new CheckBox("Cities");
@@ -78,16 +85,19 @@ public class Map extends DisplayMode {
     filters[2].setOnAction(redraw);
     filters[1].fire();
     filters[2].fire();
-
-    RadioButton cRadio = new RadioButton("Confirmed");
-    RadioButton dRadio = new RadioButton("Dead");
-    RadioButton rRadio = new RadioButton("Recovered");
-
     cRadio.setToggleGroup(dataRadioBtns);
     rRadio.setToggleGroup(dataRadioBtns);
-
     dRadio.setSelected(true);
     dRadio.setToggleGroup(dataRadioBtns);
+
+    timeSlider.valueProperty().addListener(new ChangeListener<Number>() {
+      public void changed(ObservableValue<? extends Number> observable, Number oldValue,
+          Number newValue) {
+        timeLabel.setText("" + dm.getTimeLabels()[(int) timeSlider.getValue()]);
+        redraw(graphicsContext);
+      }
+    });
+
     dataRadioBtns.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
       public void changed(ObservableValue<? extends Toggle> ov, Toggle old_toggle,
           Toggle new_toggle) {
@@ -98,7 +108,7 @@ public class Map extends DisplayMode {
             rType = dataTypes.Dead;
           if (((Labeled) dataRadioBtns.getSelectedToggle()).getText().equals("Recovered"))
             rType = dataTypes.Recovered;
-          drawShapes(graphicsContext);
+          redraw(graphicsContext);
         }
       }
     });
@@ -108,19 +118,7 @@ public class Map extends DisplayMode {
     settingsPane.getChildren().addAll(dRadio, cRadio, rRadio);
   }
 
-  @Override
-  public Node getDisplayPane() {
-    drawShapes(graphicsContext);
-    return canvas;
-  }
-
-  @Override
-  public Node getSettingsPane() {
-    return settingsPane;
-  }
-
-  private void drawShapes(GraphicsContext gc) {
-
+  private void redraw(GraphicsContext gc) {
     List<DataPoint> list = dm.gt.getAll();
     Image image = new Image("map.jpg");
     gc.drawImage(image, 0, 0, width, height);
@@ -141,6 +139,19 @@ public class Map extends DisplayMode {
    * @param d
    * @return
    */
+  private boolean filter(DataPoint d) {
+    if (d.getLon() != 0 || d.getLat() != 0) {
+      return d.filter(filters[0].isSelected(), filters[1].isSelected(), filters[2].isSelected());
+    } else {
+      return false;
+    }
+
+  }
+
+  /**
+   * @param d
+   * @return
+   */
   private double getFactor(DataPoint d) {
     if (rType == dataTypes.Confirmed) {
       graphicsContext.setFill(Color.ORANGE);
@@ -150,20 +161,8 @@ public class Map extends DisplayMode {
       return Math.log(d.recoveredList.get((int) timeSlider.getValue()));
     }
     graphicsContext.setFill(Color.RED);
-
+  
     return Math.log(d.deathsList.get((int) timeSlider.getValue()));
-  }
-
-
-  /**
-   * @param d
-   * @return
-   */
-  private boolean filter(DataPoint d) {
-    if (d.getLon() != 0 || d.getLat() != 0)
-      return d.filter(filters[0].isSelected(), filters[1].isSelected(), filters[2].isSelected());
-    return false;
-
   }
 
 }
