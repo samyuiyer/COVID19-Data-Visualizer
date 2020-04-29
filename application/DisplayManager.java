@@ -150,7 +150,7 @@ public class DisplayManager extends DisplayMode {
 
     // setup objects
 
-    Button loadFileBtn = new Button("Load File");
+    Label loadFileBtn = new Label(); // TODO rename this stuff
     Button saveFileBtn = new Button("Save File");
     HBox loadSave = new HBox();
     TextField fileTextField = new TextField("File name");
@@ -174,7 +174,7 @@ public class DisplayManager extends DisplayMode {
 
     // Setup values and properties
 
-    loadSave.getChildren().addAll(loadFileBtn, saveFileBtn);
+    loadSave.getChildren().addAll(saveFileBtn, loadFileBtn);
     dspModeComboBox.setPromptText("Select Display Mode");
 
     // Setup Listeners and EventHandlers
