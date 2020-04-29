@@ -150,9 +150,8 @@ public class DisplayManager extends DisplayMode {
 
     // setup objects
 
-    Label loadFileBtn = new Label(); // TODO rename this stuff
+    Label saveLabel = new Label(); // TODO rename this stuff
     Button saveFileBtn = new Button("Save File");
-    HBox loadSave = new HBox();
     TextField fileTextField = new TextField("File name");
     ColorPicker colorPicker = new ColorPicker(Color.web("#70C1B3"));
     String[] dispModes = {"Table Mode", "Map Mode", "Graph Mode"};
@@ -161,9 +160,8 @@ public class DisplayManager extends DisplayMode {
     // Setup IDs for css styling
 
     settingsPanel.setId("settings_panel");
-    loadFileBtn.setId("load_btn");
+    saveLabel.setId("load_btn");
     saveFileBtn.setId("save_btn");
-    loadSave.setId("load_save_box");
     fileTextField.setId("file_text_field");
     colorPicker.setId("color_picker");
     dspModeComboBox.setId("dsp_combo_box");
@@ -174,7 +172,6 @@ public class DisplayManager extends DisplayMode {
 
     // Setup values and properties
 
-    loadSave.getChildren().addAll(saveFileBtn, loadFileBtn);
     dspModeComboBox.setPromptText("Select Display Mode");
 
     // Setup Listeners and EventHandlers
@@ -238,29 +235,29 @@ public class DisplayManager extends DisplayMode {
 
     // Add all Nodes to VBox
 
-    settingsPanel.getChildren().addAll(fileTextField, loadSave, dspModeComboBox, colorPicker,
-        settingsNode);
+    settingsPanel.getChildren().addAll(fileTextField, saveFileBtn, saveLabel, dspModeComboBox,
+        colorPicker, settingsNode);
 
     globalSettings = settingsPanel;
 
     saveFileBtn.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent e) {
-        String name = "";
-        name = fileTextField.getText();
-        if (name.equals("File Name"))
-          name = "default.csv";
-        if (!(name.endsWith(".csv")))
-          name += ".csv";
+        String fileName = fileTextField.getText();
+        if (fileName.equals("File Name"))
+          fileName = "default.csv";
+        if (!(fileName.endsWith(".csv")))
+          fileName += ".csv";
         List<DataPoint> filtered = ((Table) displayModes[0]).getFilteredList();
         try {
-          FileWriter txtFile = new FileWriter(name);
+          FileWriter txtFile = new FileWriter(fileName);
           txtFile.write("City,State,Country,Confirmed,Dead,Recovered\n");
           for (DataPoint dp : filtered) {
             txtFile.write(dp.getCity() + "," + dp.getState() + "," + dp.getCountry() + ","
                 + dp.getConfirmed() + "," + dp.getDeaths() + "," + dp.getRecovered() + "\n");
           }
           txtFile.close();
+          saveLabel.setText("File " + fileName + " successfully saved");
         } catch (Exception ex) {
 
         }
