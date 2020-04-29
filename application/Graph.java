@@ -42,7 +42,7 @@ public class Graph extends DisplayMode {
   private ComboBox<DataPoint> countryBox;
   private ComboBox<DataPoint> stateBox;
   private ComboBox<DataPoint> cityBox;
-  private ToggleGroup scope;
+  private ToggleGroup scopeToggleGroup;
 
   Graph(DataManager dm) {
     super();
@@ -68,6 +68,11 @@ public class Graph extends DisplayMode {
   @Override
   public Node getDisplayPane() {
     return chart;
+  }
+
+  @Override
+  public Node getSettingsPane() {
+    return settings;
   }
 
   private void updateChart() {
@@ -124,20 +129,15 @@ public class Graph extends DisplayMode {
     series.getData().setAll(col);
   }
 
-  @Override
-  public Node getSettingsPane() {
-    return settings;
-  }
-
   private void setupSettings() {
     settings = new VBox();
-    Button time = new Button("Time Range");
+    Button timeSlider = new Button("Time Range");
 
     // setup time range slider and label
     Label sliderLabel = new Label("Choose Time Range:");
     sliderStart = new Slider(0, 94, 0);
     sliderEnd = new Slider(0, 94, 94);
-    Label range = new Label("Time Range: " + timeLabels[(int) sliderStart.getValue()] + " to "
+    Label rangeLabel = new Label("Time Range: " + timeLabels[(int) sliderStart.getValue()] + " to "
         + timeLabels[(int) sliderEnd.getValue()]);
 
     sliderStart.setShowTickLabels(true);
@@ -151,24 +151,24 @@ public class Graph extends DisplayMode {
     sliderLabel.managedProperty().bind(sliderLabel.visibleProperty());
     sliderStart.managedProperty().bind(sliderStart.visibleProperty());
     sliderEnd.managedProperty().bind(sliderEnd.visibleProperty());
-    range.managedProperty().bind(range.visibleProperty());
+    rangeLabel.managedProperty().bind(rangeLabel.visibleProperty());
     sliderStart.setVisible(slidersVisible);
     sliderEnd.setVisible(slidersVisible);
 
-    time.setOnAction(new EventHandler<ActionEvent>() {
+    timeSlider.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent event) {
         if (slidersVisible) {
           sliderLabel.setVisible(false);
           sliderStart.setVisible(false);
           sliderEnd.setVisible(false);
-          range.setVisible(false);
+          rangeLabel.setVisible(false);
           slidersVisible = false;
         } else {
           sliderLabel.setVisible(true);
           sliderStart.setVisible(true);
           sliderEnd.setVisible(true);
-          range.setVisible(true);
+          rangeLabel.setVisible(true);
           slidersVisible = true;
         }
       }
@@ -182,7 +182,7 @@ public class Graph extends DisplayMode {
         } else if (sliderEnd.getValue() <= sliderStart.getValue()) {
           sliderEnd.setValue(sliderStart.getValue() + 1);
         }
-        range.setText("Time Range: " + timeLabels[(int) sliderStart.getValue()] + " to "
+        rangeLabel.setText("Time Range: " + timeLabels[(int) sliderStart.getValue()] + " to "
             + timeLabels[(int) sliderEnd.getValue()]);
         updateChart();
       }
@@ -195,7 +195,7 @@ public class Graph extends DisplayMode {
         } else if (sliderEnd.getValue() <= sliderStart.getValue()) {
           sliderStart.setValue(sliderEnd.getValue() - 1);
         }
-        range.setText("Time Range: " + timeLabels[(int) sliderStart.getValue()] + " to "
+        rangeLabel.setText("Time Range: " + timeLabels[(int) sliderStart.getValue()] + " to "
             + timeLabels[(int) sliderEnd.getValue()]);
         updateChart();
       }
@@ -204,31 +204,31 @@ public class Graph extends DisplayMode {
     sliderEnd.valueProperty().addListener(endListener);
 
     Label scopeLabel = new Label("Scope:");
-    scope = new ToggleGroup();
-    RadioButton gl = new RadioButton("Global");
-    RadioButton cn = new RadioButton("Country");
-    RadioButton st = new RadioButton("State");
-    RadioButton ct = new RadioButton("City");
-    gl.setToggleGroup(scope);
-    cn.setToggleGroup(scope);
-    st.setToggleGroup(scope);
-    ct.setToggleGroup(scope);
-    gl.setSelected(true);
+    scopeToggleGroup = new ToggleGroup();
+    RadioButton globalRadio = new RadioButton("Global");
+    RadioButton countryRadio = new RadioButton("Country");
+    RadioButton stateRadio = new RadioButton("State");
+    RadioButton cityRadio = new RadioButton("City");
+    globalRadio.setToggleGroup(scopeToggleGroup);
+    countryRadio.setToggleGroup(scopeToggleGroup);
+    stateRadio.setToggleGroup(scopeToggleGroup);
+    cityRadio.setToggleGroup(scopeToggleGroup);
+    globalRadio.setSelected(true);
 
-    scope.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+    scopeToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
       public void changed(ObservableValue<? extends Toggle> ov, Toggle old_toggle,
           Toggle new_toggle) {
-        if (scope.getSelectedToggle() != null) {
-          if (((Labeled) scope.getSelectedToggle()).getText().equals(SCOPE_NAMES[0])) {
+        if (scopeToggleGroup.getSelectedToggle() != null) {
+          if (((Labeled) scopeToggleGroup.getSelectedToggle()).getText().equals(SCOPE_NAMES[0])) {
             scopeName = SCOPE_NAMES[0];
           }
-          if (((Labeled) scope.getSelectedToggle()).getText().equals(SCOPE_NAMES[1])) {
+          if (((Labeled) scopeToggleGroup.getSelectedToggle()).getText().equals(SCOPE_NAMES[1])) {
             scopeName = SCOPE_NAMES[1];
           }
-          if (((Labeled) scope.getSelectedToggle()).getText().equals(SCOPE_NAMES[2])) {
+          if (((Labeled) scopeToggleGroup.getSelectedToggle()).getText().equals(SCOPE_NAMES[2])) {
             scopeName = SCOPE_NAMES[2];
           }
-          if (((Labeled) scope.getSelectedToggle()).getText().equals(SCOPE_NAMES[3])) {
+          if (((Labeled) scopeToggleGroup.getSelectedToggle()).getText().equals(SCOPE_NAMES[3])) {
             scopeName = SCOPE_NAMES[3];
           }
         }
@@ -236,35 +236,35 @@ public class Graph extends DisplayMode {
       }
     });
 
-    final ToggleGroup data = new ToggleGroup();
+    final ToggleGroup dataToggleGroup = new ToggleGroup();
     Label dataLabel = new Label("Data:");
-    RadioButton c = new RadioButton("Confirmed");
-    RadioButton d = new RadioButton("Dead");
-    RadioButton r = new RadioButton("Recovered");
-    c.setToggleGroup(data);
-    d.setToggleGroup(data);
-    r.setToggleGroup(data);
-    c.setSelected(true);
+    RadioButton confRadio = new RadioButton("Confirmed");
+    RadioButton deadRadio = new RadioButton("Dead");
+    RadioButton recovRadio = new RadioButton("Recovered");
+    confRadio.setToggleGroup(dataToggleGroup);
+    deadRadio.setToggleGroup(dataToggleGroup);
+    recovRadio.setToggleGroup(dataToggleGroup);
+    confRadio.setSelected(true);
 
-    data.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+    dataToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
 
       public void changed(ObservableValue<? extends Toggle> ov, Toggle old_toggle,
           Toggle new_toggle) {
-        if (data.getSelectedToggle() != null) {
-          if (((Labeled) data.getSelectedToggle()).getText().equals(DATA_NAMES[0]))
+        if (dataToggleGroup.getSelectedToggle() != null) {
+          if (((Labeled) dataToggleGroup.getSelectedToggle()).getText().equals(DATA_NAMES[0]))
             dataName = DATA_NAMES[0];
-          if (((Labeled) data.getSelectedToggle()).getText().equals(DATA_NAMES[1]))
+          if (((Labeled) dataToggleGroup.getSelectedToggle()).getText().equals(DATA_NAMES[1]))
             dataName = DATA_NAMES[1];
-          if (((Labeled) data.getSelectedToggle()).getText().equals(DATA_NAMES[2]))
+          if (((Labeled) dataToggleGroup.getSelectedToggle()).getText().equals(DATA_NAMES[2]))
             dataName = DATA_NAMES[2];
         }
         updateChart();
       }
     });
+    
     countryBox = new ComboBox<>();
     stateBox = new ComboBox<>();
     cityBox = new ComboBox<>();
-  
 
     ChangeListener<DataPoint> boxListener = new ChangeListener<DataPoint>() {
       @Override
@@ -314,16 +314,16 @@ public class Graph extends DisplayMode {
     stateBox.setEditable(true);
     cityBox.setEditable(true);
     countryBox.managedProperty().bind(countryBox.visibleProperty());
-    countryBox.visibleProperty().bind(cn.selectedProperty());
+    countryBox.visibleProperty().bind(countryRadio.selectedProperty());
     stateBox.managedProperty().bind(stateBox.visibleProperty());
-    stateBox.visibleProperty().bind(st.selectedProperty());
+    stateBox.visibleProperty().bind(stateRadio.selectedProperty());
     cityBox.managedProperty().bind(cityBox.visibleProperty());
-    cityBox.visibleProperty().bind(ct.selectedProperty());
+    cityBox.visibleProperty().bind(cityRadio.selectedProperty());
 
-    settings.getChildren().addAll(time, sliderLabel, sliderStart, sliderEnd, range, scopeLabel, gl,
-        cn, countryBox, st, stateBox, ct, cityBox, dataLabel, c, d, r);
+    settings.getChildren().addAll(timeSlider, sliderLabel, sliderStart, sliderEnd, rangeLabel, scopeLabel, globalRadio,
+        countryRadio, countryBox, stateRadio, stateBox, cityRadio, cityBox, dataLabel, confRadio, deadRadio, recovRadio);
   }
-
+  
   private List<DataPoint> filter(List<DataPoint> dataList, boolean city, boolean state,
       boolean country) {
     Iterator<DataPoint> itr = dataList.iterator();

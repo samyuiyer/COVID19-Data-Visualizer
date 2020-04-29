@@ -120,7 +120,6 @@ public class Map extends DisplayMode {
   }
 
   private void drawShapes(GraphicsContext gc) {
-
     List<DataPoint> list = dm.gt.getAll();
     Image image = new Image("map.jpg");
     gc.drawImage(image, 0, 0, width, height);

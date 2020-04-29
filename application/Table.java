@@ -37,8 +37,8 @@ public class Table extends DisplayMode {
     tableView = new TableView<>();
     this.dataManager = dataManager;
     settingsPane = new VBox();
-    initializeSettingsPane();
-    initializeTableView();
+    setupSettings();
+    setupTableView();
   }
 
   @Override
@@ -52,7 +52,7 @@ public class Table extends DisplayMode {
   }
 
   @SuppressWarnings("unchecked")
-  private void initializeTableView() {
+  private void setupTableView() {
     tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
     TableColumn<DataPoint, String> location = new TableColumn<>("Location");
@@ -97,7 +97,7 @@ public class Table extends DisplayMode {
     tableView.setPlaceholder(new Label("No rows to display"));
   }
 
-  private void initializeSettingsPane() {
+  private void setupSettings() {
     // time slider
     Label sliderLabel = new Label("Choose Time:");
     timeSlider = new Slider(0, 94, 94);
