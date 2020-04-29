@@ -1,12 +1,19 @@
-/**
- *
- * Author: Ankur Garg Email: Agarg34@wisc.edu
- * 
- * Course: CS400 Semester: Spring2020 Lecture: 001 Date: Apr 19, 2020
- *
- * Files: Main.java
- *
- */
+///////////////////////////////////////////////////////////////////////////////
+//
+// 	Title: ateam_final_project
+// 	Author: Ankur Garg, Eric Ertl, Justin Chan, Samyu Lyer, Sudeep Reddy, 
+//
+// 	Course: CS400
+//	Semester: Spring 2020
+//	Lecture Number: 001
+//
+//	Date: 4/29/2020
+//
+// 	Description: 	A project that displays statistics relating to COVID-19 in a
+//					variety of ways. 
+//
+///////////////////////////////////////////////////////////////////////////////
+
 package application;
 
 import javafx.application.Application;
@@ -14,6 +21,9 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+/**
+ * The main driver class 
+ */
 public class Main extends Application {
 
   private static final int WINDOW_WIDTH = 1170;
@@ -21,6 +31,11 @@ public class Main extends Application {
   private static final String APP_TITLE = "COVID-19 Data Visualizer";
   private DisplayManager dm;
 
+  /**
+   * Starts the program
+   * 
+   * @param primaryStage - the main stage
+   */
   @Override
   public void start(Stage primaryStage) throws Exception {
     
@@ -48,6 +63,11 @@ public class Main extends Application {
     primaryStage.show();
   }
 
+  /**
+   * Main method
+   * 
+   * @param args - program arguments
+   */
   public static void main(String[] args) {
     launch(args);
   }

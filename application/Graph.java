@@ -1,3 +1,19 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// 	Title: ateam_final_project
+// 	Author: Ankur Garg, Eric Ertl, Justin Chan, Samyu Lyer, Sudeep Reddy, 
+//
+// 	Course: CS400
+//	Semester: Spring 2020
+//	Lecture Number: 001
+//
+//	Date: 4/29/2020
+//
+// 	Description: 	A project that displays statistics relating to COVID-19 in a
+//					variety of ways. 
+//
+///////////////////////////////////////////////////////////////////////////////
+
 package application;
 
 import java.util.ArrayList;
@@ -26,6 +42,9 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
 import javafx.util.StringConverter;
 
+/**
+ * The Graph class is a graphical representation of the COVID-19 data
+ */
 public class Graph extends DisplayMode {
 
   private DataManager dm;
@@ -46,13 +65,17 @@ public class Graph extends DisplayMode {
   private ComboBox<DataPoint> cityBox;
   private ToggleGroup scopeToggleGroup;
 
+  /**
+   * Constructor for Graph
+   * 
+   * @param dm
+   */
   Graph(DataManager dm) {
     super();
     this.dm = dm;
 
     timeLabels = dm.getTimeLabels();
     slidersVisible = true;
-
 
     scopeName = SCOPE_NAMES[0];
     dataName = DATA_NAMES[0];
@@ -68,16 +91,25 @@ public class Graph extends DisplayMode {
     chart.getData().add(series);
   }
 
+  /**
+   * @see DisplayMode 
+   */
   @Override
   public Node getDisplayPane() {
     return chart;
   }
 
+  /**
+   * @see DisplayMode 
+   */
   @Override
   public Node getSettingsPane() {
     return settings;
   }
 
+  /**
+   * Updates the chart
+   */
   private void updateChart() {
     xAxis.setLabel("Date");
     yAxis.setLabel("Number of " + dataName);
@@ -134,6 +166,9 @@ public class Graph extends DisplayMode {
     series.getData().setAll(col);
   }
 
+  /**
+   * Initializes the settings
+   */
   private void setupSettings() {
     settings = new VBox();
     Button timeSlider = new Button("Time Range");
@@ -370,6 +405,15 @@ public class Graph extends DisplayMode {
         dataLabel, confRadio, deadRadio, recovRadio);
   }
 
+  /**
+   * Filters the various data
+   * 
+   * @param dataList
+   * @param city
+   * @param state
+   * @param country
+   * @return
+   */
   private List<DataPoint> filter(List<DataPoint> dataList, boolean city, boolean state,
       boolean country) {
     Iterator<DataPoint> itr = dataList.iterator();

@@ -1,3 +1,19 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// 	Title: ateam_final_project
+// 	Author: Ankur Garg, Eric Ertl, Justin Chan, Samyu Lyer, Sudeep Reddy, 
+//
+// 	Course: CS400
+//	Semester: Spring 2020
+//	Lecture Number: 001
+//
+//	Date: 4/29/2020
+//
+// 	Description: 	A project that displays statistics relating to COVID-19 in a
+//					variety of ways. 
+//
+///////////////////////////////////////////////////////////////////////////////
+
 package application;
 
 import java.io.FileWriter;
@@ -23,257 +39,284 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
+/**
+ * DisplayManager manages the various DisplayModes
+ */
 public class DisplayManager extends DisplayMode {
 
-  private DisplayMode[] displayModes;
-  private BorderPane displayNode;
-  private BorderPane settingsNode;
-  private Node globalSettings;
-  private MenuBar bar;
-  private boolean settingsVisible;
-  private DataManager dm;
-  private ComboBox<String> dspModeComboBox;
-  private VBox settingsPanel;
-  private boolean load;
+	private DisplayMode[] displayModes;
+	private BorderPane displayNode;
+	private BorderPane settingsNode;
+	private Node globalSettings;
+	private MenuBar bar;
+	private boolean settingsVisible;
+	private DataManager dm;
+	private ComboBox<String> dspModeComboBox;
+	private VBox settingsPanel;
+	private boolean load;
 
-  public DisplayManager() {
-    load = false;
-    dm = new DataManager();
-    try {
-      if (dm.loadTries()) {
-        load = true;
-      }
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-    settingsPanel = new VBox();
-    settingsPanel.managedProperty().bind(settingsPanel.visibleProperty());
-    settingsVisible = true;
-    displayNode = new BorderPane();
-    settingsNode = new BorderPane();
-    createDisplayModes();
-    createMenuBar();
-    createGlobalSettingsPane();
-  }
+	/**
+	 * Constructor method for DisplayManager
+	 */
+	public DisplayManager() {
+		load = false;
+		dm = new DataManager();
+		try {
+			if (dm.loadTries()) {
+				load = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		settingsPanel = new VBox();
+		settingsPanel.managedProperty().bind(settingsPanel.visibleProperty());
+		settingsVisible = true;
+		displayNode = new BorderPane();
+		settingsNode = new BorderPane();
+		createDisplayModes();
+		createMenuBar();
+		createGlobalSettingsPane();
+	}
 
-  @Override
-  public Node getDisplayPane() {
-    if (load) {
-      return displayNode;
-    } else {
-      return new Label("Bad Input File(s)");
-    }
-  }
+	/**
+	 * Getter method for displayNode
+	 *
+	 * @return Node
+	 */
+	@Override
+	public Node getDisplayPane() {
+		if (load) {
+			return displayNode;
+		} else {
+			return new Label("Bad Input File(s)");
+		}
+	}
 
-  @Override
-  public Node getSettingsPane() {
-    if (load) {
-      return globalSettings;
-    } else {
-      return new Label("");
-    }
-  }
+	/**
+	 * Getter method for the globalSettings (The global settings pane)
+	 *
+	 * @return Node
+	 */
+	@Override
+	public Node getSettingsPane() {
+		if (load) {
+			return globalSettings;
+		} else {
+			return new Label("");
+		}
+	}
 
-  public Node getMenuBar() {
-    return bar;
-  }
+	/**
+	 * Getter method for the (menu) bar 
+	 * 
+	 * @return Node
+	 */
+	public Node getMenuBar() {
+		return bar;
+	}
 
-  private void createDisplayModes() {
-    displayModes = new DisplayMode[3];
-    displayModes[0] = new Table(dm);
-    displayModes[1] = new Map(dm);
-    displayModes[2] = new Graph(dm);
-    displayNode.setCenter(displayModes[0].getDisplayPane());
-    settingsNode.setCenter(displayModes[0].getSettingsPane());
-  }
+	/**
+	 * Creates the three different displayModes and sets the current displayMode to Table
+	 */
+	private void createDisplayModes() {
+		displayModes = new DisplayMode[3];
+		displayModes[0] = new Table(dm);
+		displayModes[1] = new Map(dm);
+		displayModes[2] = new Graph(dm);
+		displayNode.setCenter(displayModes[0].getDisplayPane());
+		settingsNode.setCenter(displayModes[0].getSettingsPane());
+	}
 
-  private void createMenuBar() {
+	/**
+	 * Creates the Menu Bar
+	 */
+	private void createMenuBar() {
 
-    // Setup
+		// Setup
 
-    bar = new MenuBar();
-    final Menu menu = new Menu("Menu");
-    final MenuItem toggle = new MenuItem("Toggle Settings");
-    final MenuItem view1 = new MenuItem("Table");
-    final MenuItem view2 = new MenuItem("Map");
-    final MenuItem view3 = new MenuItem("Graph");
-    final MenuItem exit = new MenuItem("Exit");
-    final Menu help = new Menu("Help");
+		bar = new MenuBar();
+		final Menu menu = new Menu("Menu");
+		final MenuItem toggle = new MenuItem("Toggle Settings");
+		final MenuItem view1 = new MenuItem("Table");
+		final MenuItem view2 = new MenuItem("Map");
+		final MenuItem view3 = new MenuItem("Graph");
+		final MenuItem exit = new MenuItem("Exit");
+		final Menu help = new Menu("Help");
 
-    // Add to MenuBar
+		// Add to MenuBar
 
-    menu.getItems().addAll(toggle, view1, view2, view3, exit);
-    bar.getMenus().addAll(menu, help);
+		menu.getItems().addAll(toggle, view1, view2, view3, exit);
+		bar.getMenus().addAll(menu, help);
 
-    // Event Handlers
+		// Event Handlers
 
-    exit.setOnAction(e -> exitProgram());
+		exit.setOnAction(e -> exitProgram());
 
-    toggle.setOnAction(new EventHandler<ActionEvent>() {
-      @Override
-      public void handle(ActionEvent arg0) {
-        if (settingsVisible) {
-          settingsPanel.setVisible(false);
-          settingsVisible = false;
-        } else {
-          settingsPanel.setVisible(true);
-          settingsVisible = true;
-        }
-      }
-    });
+		toggle.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {
+				if (settingsVisible) {
+					settingsPanel.setVisible(false);
+					settingsVisible = false;
+				} else {
+					settingsPanel.setVisible(true);
+					settingsVisible = true;
+				}
+			}
+		});
 
-    view1.setOnAction(new EventHandler<ActionEvent>() {
-      @Override
-      public void handle(ActionEvent arg0) {
-        displayNode.setCenter(displayModes[0].getDisplayPane());
-        settingsNode.setCenter(displayModes[0].getSettingsPane());
-        dspModeComboBox.setPromptText("Table Mode");
-      }
-    });
+		view1.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {
+				displayNode.setCenter(displayModes[0].getDisplayPane());
+				settingsNode.setCenter(displayModes[0].getSettingsPane());
+				dspModeComboBox.setPromptText("Table Mode");
+			}
+		});
 
-    view2.setOnAction(new EventHandler<ActionEvent>() {
-      @Override
-      public void handle(ActionEvent arg0) {
-        displayNode.setCenter(displayModes[1].getDisplayPane());
-        settingsNode.setCenter(displayModes[1].getSettingsPane());
-        dspModeComboBox.setPromptText("Map Mode");
-      }
-    });
+		view2.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {
+				displayNode.setCenter(displayModes[1].getDisplayPane());
+				settingsNode.setCenter(displayModes[1].getSettingsPane());
+				dspModeComboBox.setPromptText("Map Mode");
+			}
+		});
 
-    view3.setOnAction(new EventHandler<ActionEvent>() {
-      @Override
-      public void handle(ActionEvent arg0) {
-        displayNode.setCenter(displayModes[2].getDisplayPane());
-        settingsNode.setCenter(displayModes[2].getSettingsPane());
-        dspModeComboBox.setPromptText("Graph Mode");
-      }
-    });
-  }
+		view3.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {
+				displayNode.setCenter(displayModes[2].getDisplayPane());
+				settingsNode.setCenter(displayModes[2].getSettingsPane());
+				dspModeComboBox.setPromptText("Graph Mode");
+			}
+		});
+	}
 
-  private void createGlobalSettingsPane() {
+	/**
+	 * Creates the GlobalSettingsPane
+	 */
+	private void createGlobalSettingsPane() {
 
-    // setup objects
+		// setup objects
 
-    Label saveLabel = new Label(); // TODO rename this stuff
-    Button saveFileBtn = new Button("Save File");
-    TextField fileTextField = new TextField("File name");
-    ColorPicker colorPicker = new ColorPicker(Color.web("#70C1B3"));
-    String[] dispModes = {"Table Mode", "Map Mode", "Graph Mode"};
-    dspModeComboBox = new ComboBox<String>(FXCollections.observableArrayList(dispModes));
+		Label saveLabel = new Label(); // TODO rename this stuff
+		Button saveFileBtn = new Button("Save File");
+		TextField fileTextField = new TextField("File name");
+		ColorPicker colorPicker = new ColorPicker(Color.web("#70C1B3"));
+		String[] dispModes = { "Table Mode", "Map Mode", "Graph Mode" };
+		dspModeComboBox = new ComboBox<String>(FXCollections.observableArrayList(dispModes));
 
-    // Setup IDs for css styling
+		// Setup IDs for css styling
 
-    settingsPanel.setId("settings_panel");
-    saveLabel.setId("load_btn");
-    saveFileBtn.setId("save_btn");
-    fileTextField.setId("file_text_field");
-    colorPicker.setId("color_picker");
-    dspModeComboBox.setId("dsp_combo_box");
+		settingsPanel.setId("settings_panel");
+		saveLabel.setId("load_btn");
+		saveFileBtn.setId("save_btn");
+		fileTextField.setId("file_text_field");
+		colorPicker.setId("color_picker");
+		dspModeComboBox.setId("dsp_combo_box");
 
-    // non-css styling
+		// non-css styling
 
-    settingsPanel.setPadding(new Insets(0, 10, 0, 10));
+		settingsPanel.setPadding(new Insets(0, 10, 0, 10));
 
-    // Setup values and properties
+		// Setup values and properties
 
-    dspModeComboBox.setPromptText("Select Display Mode");
+		dspModeComboBox.setPromptText("Select Display Mode");
 
-    // Setup Listeners and EventHandlers
+		// Setup Listeners and EventHandlers
 
-    colorPicker.setOnAction(new EventHandler<ActionEvent>() {
-      @Override
-      public void handle(ActionEvent arg0) {
-        settingsPanel
-            .setStyle("-fx-background-color: #" + colorPicker.getValue().toString().substring(2));
-      }
-    });
+		colorPicker.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {
+				settingsPanel.setStyle("-fx-background-color: #" + colorPicker.getValue().toString().substring(2));
+			}
+		});
 
-    dspModeComboBox.getSelectionModel().selectedItemProperty()
-        .addListener(new ChangeListener<String>() {
-          public void changed(ObservableValue<? extends String> observable, String oldValue,
-              String newValue) {
-            if (newValue.equals("Table Mode")) {
-              displayNode.setCenter(displayModes[0].getDisplayPane());
-              settingsNode.setCenter(displayModes[0].getSettingsPane());
-            } else if (newValue.equals("Map Mode")) {
-              displayNode.setCenter(displayModes[1].getDisplayPane());
-              settingsNode.setCenter(displayModes[1].getSettingsPane());
-            } else if (newValue.equals("Graph Mode")) {
-              displayNode.setCenter(displayModes[2].getDisplayPane());
-              settingsNode.setCenter(displayModes[2].getSettingsPane());
-            }
-          }
-        });
+		dspModeComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				if (newValue.equals("Table Mode")) {
+					displayNode.setCenter(displayModes[0].getDisplayPane());
+					settingsNode.setCenter(displayModes[0].getSettingsPane());
+				} else if (newValue.equals("Map Mode")) {
+					displayNode.setCenter(displayModes[1].getDisplayPane());
+					settingsNode.setCenter(displayModes[1].getSettingsPane());
+				} else if (newValue.equals("Graph Mode")) {
+					displayNode.setCenter(displayModes[2].getDisplayPane());
+					settingsNode.setCenter(displayModes[2].getSettingsPane());
+				}
+			}
+		});
 
-    fileTextField.focusedProperty().addListener(new ChangeListener<Boolean>() {
-      @Override
-      public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue,
-          Boolean newValue) {
-        if (newValue) {
-          fileTextField.clear();
-        }
-        if (oldValue) {
-          if (fileTextField.getText().isBlank()) {
-            fileTextField.setText("File Name");
-          }
-        }
-      }
-    });
+		fileTextField.focusedProperty().addListener(new ChangeListener<Boolean>() {
+			@Override
+			public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+				if (newValue) {
+					fileTextField.clear();
+				}
+				if (oldValue) {
+					if (fileTextField.getText().isBlank()) {
+						fileTextField.setText("File Name");
+					}
+				}
+			}
+		});
 
-    dspModeComboBox.getSelectionModel().selectedItemProperty()
-        .addListener(new ChangeListener<String>() {
-          public void changed(ObservableValue<? extends String> observable, String oldValue,
-              String newValue) {
-            if (newValue.equals("Table Mode")) {
-              displayNode.setCenter(displayModes[0].getDisplayPane());
-              settingsNode.setCenter(displayModes[0].getSettingsPane());
-            } else if (newValue.equals("Map Mode")) {
-              displayNode.setCenter(displayModes[1].getDisplayPane());
-              settingsNode.setCenter(displayModes[1].getSettingsPane());
-            } else if (newValue.equals("Graph Mode")) {
-              displayNode.setCenter(displayModes[2].getDisplayPane());
-              settingsNode.setCenter(displayModes[2].getSettingsPane());
-            }
-          }
-        });
+		dspModeComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				if (newValue.equals("Table Mode")) {
+					displayNode.setCenter(displayModes[0].getDisplayPane());
+					settingsNode.setCenter(displayModes[0].getSettingsPane());
+				} else if (newValue.equals("Map Mode")) {
+					displayNode.setCenter(displayModes[1].getDisplayPane());
+					settingsNode.setCenter(displayModes[1].getSettingsPane());
+				} else if (newValue.equals("Graph Mode")) {
+					displayNode.setCenter(displayModes[2].getDisplayPane());
+					settingsNode.setCenter(displayModes[2].getSettingsPane());
+				}
+			}
+		});
 
-    // Add all Nodes to VBox
+		// Add all Nodes to VBox
 
-    settingsPanel.getChildren().addAll(fileTextField, saveFileBtn, saveLabel, dspModeComboBox,
-        colorPicker, settingsNode);
+		settingsPanel.getChildren().addAll(fileTextField, saveFileBtn, saveLabel, dspModeComboBox, colorPicker,
+				settingsNode);
 
-    globalSettings = settingsPanel;
+		globalSettings = settingsPanel;
 
-    saveFileBtn.setOnAction(new EventHandler<ActionEvent>() {
-      @Override
-      public void handle(ActionEvent e) {
-        String fileName = fileTextField.getText();
-        if (fileName.equals("File Name"))
-          fileName = "default.csv";
-        if (!(fileName.endsWith(".csv")))
-          fileName += ".csv";
-        List<DataPoint> filtered = ((Table) displayModes[0]).getFilteredList();
-        try {
-          FileWriter txtFile = new FileWriter(fileName);
-          txtFile.write("City,State,Country,Confirmed,Dead,Recovered\n");
-          for (DataPoint dp : filtered) {
-            txtFile.write(dp.getCity() + "," + dp.getState() + "," + dp.getCountry() + ","
-                + dp.getConfirmed() + "," + dp.getDeaths() + "," + dp.getRecovered() + "\n");
-          }
-          txtFile.close();
-          saveLabel.setText("File " + fileName + " successfully saved");
-        } catch (Exception ex) {
+		saveFileBtn.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent e) {
+				String fileName = fileTextField.getText();
+				if (fileName.equals("File Name"))
+					fileName = "default.csv";
+				if (!(fileName.endsWith(".csv")))
+					fileName += ".csv";
+				List<DataPoint> filtered = ((Table) displayModes[0]).getFilteredList();
+				try {
+					FileWriter txtFile = new FileWriter(fileName);
+					txtFile.write("City,State,Country,Confirmed,Dead,Recovered\n");
+					for (DataPoint dp : filtered) {
+						txtFile.write(dp.getCity() + "," + dp.getState() + "," + dp.getCountry() + ","
+								+ dp.getConfirmed() + "," + dp.getDeaths() + "," + dp.getRecovered() + "\n");
+					}
+					txtFile.close();
+					saveLabel.setText("File " + fileName + " successfully saved");
+				} catch (Exception ex) {
 
-        }
+				}
 
-      }
-    });
-  }
+			}
+		});
+	}
 
-  private void exitProgram() {
-    Platform.exit();
-    System.exit(0);
+	/**
+	 * Exits the program
+	 */
+	private void exitProgram() {
+		Platform.exit();
+		System.exit(0);
 
-  }
+	}
 
 }

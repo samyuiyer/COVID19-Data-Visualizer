@@ -1,3 +1,19 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// 	Title: ateam_final_project
+// 	Author: Ankur Garg, Eric Ertl, Justin Chan, Samyu Lyer, Sudeep Reddy, 
+//
+// 	Course: CS400
+//	Semester: Spring 2020
+//	Lecture Number: 001
+//
+//	Date: 4/29/2020
+//
+// 	Description: 	A project that displays statistics relating to COVID-19 in a
+//					variety of ways. 
+//
+///////////////////////////////////////////////////////////////////////////////
+
 package application;
 
 import java.io.File;
@@ -7,18 +23,34 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * A class that manages the data in two separate Tries
+ * 
+ * @author ankurgarg
+ *
+ */
 public class DataManager {
   public GeoTrie gt;
   public AlphaTrie at;
   public String[] labels;
   private final List<String> DATA_TYPES;
 
+  /**
+   * Constructor for DataManager
+   */
   public DataManager() {
     at = new AlphaTrie();
     gt = new GeoTrie();
     DATA_TYPES = Arrays.asList(new String[] {"confirmed", "deaths", "recovered"});
   }
 
+  /**
+   * Parses the data from a csv file and populates the Tries
+   * 
+   * @return
+   * @throws FileNotFoundException
+   * @throws IllegalNullKeyException
+   */
   public boolean loadTries() throws FileNotFoundException, IllegalNullKeyException {
     try {
       ArrayList<Scanner> fileIn = new ArrayList<>();
@@ -64,6 +96,9 @@ public class DataManager {
     return true;
   }
 
+  /**
+   * @return a string array of the TimeLabels
+   */
   public String[] getTimeLabels() {
     return Arrays.copyOfRange(labels, 6, labels.length);
   }
