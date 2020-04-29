@@ -29,10 +29,17 @@ public class DisplayManager extends DisplayMode {
   private Node globalSettings;
   private MenuBar bar;
   private boolean settingsVisible;
+  private DataManager dm;
   private ComboBox<String> dspModeComboBox;
   VBox settingsPanel;
 
   public DisplayManager() {
+    dm = new DataManager();
+    try {
+      dm.loadTries();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
     settingsPanel = new VBox();
     settingsPanel.managedProperty().bind(settingsPanel.visibleProperty());
     settingsVisible = true;
@@ -59,9 +66,9 @@ public class DisplayManager extends DisplayMode {
 
   private void createDisplayModes() {
     displayModes = new DisplayMode[3];
-    displayModes[0] = new Table();
-    displayModes[1] = new Map();
-    displayModes[2] = new Graph();
+    displayModes[0] = new Table(dm);
+    displayModes[1] = new Map(dm);
+    displayModes[2] = new Graph(dm);
     displayNode.setCenter(displayModes[0].getDisplayPane());
     settingsNode.setCenter(displayModes[0].getSettingsPane());
   }

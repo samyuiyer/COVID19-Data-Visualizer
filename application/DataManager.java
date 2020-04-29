@@ -39,7 +39,7 @@ public class DataManager {
           Integer[] confrimed = zeros.clone();
           Integer[] deaths = zeros.clone();
           Integer[] recovered = zeros.clone();
-          // System.out.println(labels[0]);
+           System.out.println(labels[0]);
           for (int i = 0; i < confrimed.length; i++) {
             if (labels[0].equals("confirmed"))
               confrimed[i] = Integer.parseInt(split[i + 6]);

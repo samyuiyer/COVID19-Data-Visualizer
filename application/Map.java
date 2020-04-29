@@ -37,17 +37,13 @@ public class Map extends DisplayMode {
   dataTypes rType = dataTypes.Dead;
   final ToggleGroup data = new ToggleGroup();
 
-  public Map() {
+  public Map(DataManager dm) {
     super();
     canvas = new Canvas(width, height);
     gc = canvas.getGraphicsContext2D();
     sp = new VBox();
     title = "map";
-    dm = new DataManager();
-    try {
-      dm.loadTries();
-    } catch (Exception e) {
-    }
+    this.dm = dm;
     EventHandler<ActionEvent> eh = new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent event) {

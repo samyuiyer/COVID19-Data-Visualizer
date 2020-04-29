@@ -40,14 +40,10 @@ public class Graph extends DisplayMode {
   private final String[] SCOPE_NAMES = {"Global", "Country", "State", "City"};
   private final String[] DATA_NAMES = {"Confirmed", "Dead", "Recovered"};
 
-  Graph() {
+  Graph(DataManager dm){
     super();
-    dm = new DataManager();
-    try {
-      dm.loadTries();
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
+    this.dm = dm;
+   
     timeLabels = dm.getTimeLabels();
     slidersVisible = true;
     setupSettings();
