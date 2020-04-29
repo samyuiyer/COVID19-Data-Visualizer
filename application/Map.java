@@ -168,7 +168,8 @@ public class Map extends DisplayMode {
    * @return
    */
   private boolean filter(DataPoint d) {
-
+    if(d.getLon()==0&&d.getLat()==0)
+      return false;
     if (!d.getCity().equals(""))
       return filters[0].isSelected();
     if (!d.getState().equals(""))
