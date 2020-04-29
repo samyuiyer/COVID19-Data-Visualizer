@@ -261,7 +261,7 @@ public class Graph extends DisplayMode {
         updateChart();
       }
     });
-    
+
     countryBox = new ComboBox<>();
     stateBox = new ComboBox<>();
     cityBox = new ComboBox<>();
@@ -307,7 +307,6 @@ public class Graph extends DisplayMode {
       });
 
     } catch (IllegalNullKeyException e) {
-
       e.printStackTrace();
     }
     countryBox.setEditable(true);
@@ -320,16 +319,17 @@ public class Graph extends DisplayMode {
     cityBox.managedProperty().bind(cityBox.visibleProperty());
     cityBox.visibleProperty().bind(cityRadio.selectedProperty());
 
-    settings.getChildren().addAll(timeSlider, sliderLabel, sliderStart, sliderEnd, rangeLabel, scopeLabel, globalRadio,
-        countryRadio, countryBox, stateRadio, stateBox, cityRadio, cityBox, dataLabel, confRadio, deadRadio, recovRadio);
+    settings.getChildren().addAll(timeSlider, sliderLabel, sliderStart, sliderEnd, rangeLabel,
+        scopeLabel, globalRadio, countryRadio, countryBox, stateRadio, stateBox, cityRadio, cityBox,
+        dataLabel, confRadio, deadRadio, recovRadio);
   }
-  
+
   private List<DataPoint> filter(List<DataPoint> dataList, boolean city, boolean state,
       boolean country) {
     Iterator<DataPoint> itr = dataList.iterator();
     while (itr.hasNext()) {
       DataPoint d = itr.next();
-      if (d==null||!d.filter(city, state, country)) {
+      if (d == null || !d.filter(city, state, country)) {
         itr.remove();
       }
     }
