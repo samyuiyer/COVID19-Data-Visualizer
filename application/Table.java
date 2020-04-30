@@ -115,88 +115,65 @@ public class Table extends DisplayMode {
 
     Button resetFilter = new Button("Reset Filter");
     resetFilter.setId("reset-filter-btn");
-
-    // Add Listeners and Event Handlers
-
-    timeSlider.valueProperty().addListener(new ChangeListener<Number>() {
-      public void changed(ObservableValue<? extends Number> observable, Number oldValue,
-          Number newValue) {
-        timeLabel.setText("" + timeLabels[(int) timeSlider.getValue()]);
-        DataPoint.time = (int) timeSlider.getValue();
-        tableView.refresh();
+    timeSlider.valueProperty().addListener((o, ov, nv) -> {
+      timeLabel.setText("" + timeLabels[(int) timeSlider.getValue()]);
+      DataPoint.time = (int) timeSlider.getValue();
+      tableView.refresh();
+    });
+    cityFilter.focusedProperty().addListener((o, oldValue, newValue) -> {
+      if (newValue) {
+        cityFilter.clear();
+      }
+      if (oldValue) {
+        if (cityFilter.getText().isBlank()) {
+          cityFilter.setText("Filter City");
+        }
+      }
+    });
+    stateFilter.focusedProperty().addListener((o, oldValue, newValue) -> {
+      if (newValue) {
+        stateFilter.clear();
+      }
+      if (oldValue) {
+        if (stateFilter.getText().isBlank()) {
+          stateFilter.setText("Filter State");
+        }
       }
     });
 
-    cityFilter.focusedProperty().addListener(new ChangeListener<Boolean>() {
-      @Override
-      public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue,
-          Boolean newValue) {
-        if (newValue) {
-          cityFilter.clear();
-        }
-        if (oldValue) {
-          if (cityFilter.getText().isBlank()) {
-            cityFilter.setText("Filter City");
-          }
+    countryFilter.focusedProperty().addListener((o, oldValue, newValue) -> {
+      if (newValue) {
+        countryFilter.clear();
+      }
+      if (oldValue) {
+        if (countryFilter.getText().isBlank()) {
+          countryFilter.setText("Filter Country");
         }
       }
-
     });
 
-    stateFilter.focusedProperty().addListener(new ChangeListener<Boolean>() {
-      @Override
-      public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue,
-          Boolean newValue) {
-        if (newValue) {
-          stateFilter.clear();
-        }
-        if (oldValue) {
-          if (stateFilter.getText().isBlank()) {
-            stateFilter.setText("Filter State");
-
-          }
-        }
-      }
-
-    });
-
-    countryFilter.focusedProperty().addListener(new ChangeListener<Boolean>() {
-      @Override
-      public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue,
-          Boolean newValue) {
-        if (newValue) {
-          countryFilter.clear();
-        }
-        if (oldValue) {
-          if (countryFilter.getText().isBlank()) {
-            countryFilter.setText("Filter Country");
-          }
-        }
-      }
-
-    });
-
-    setFilter.setOnAction(e ->{
-        filteredList.setPredicate(t ->{
-            boolean checkCountry = t.getCountry().equals(countryFilter.getText())
-                || countryFilter.getText().equals("Filter Country");
-            boolean checkState = t.getState().equals(stateFilter.getText())
-                || stateFilter.getText().equals("Filter State");
-            boolean checkCity = t.getCity().equals(cityFilter.getText())
-                || cityFilter.getText().equals("Filter City");
-            return checkCountry && checkCity && checkState;
-        });
+    setFilter.setOnAction(e -> {
+      filteredList.setPredicate(t -> {
+        boolean checkCountry = t.getCountry().equals(countryFilter.getText())
+            || countryFilter.getText().equals("Filter Country");
+        boolean checkState = t.getState().equals(stateFilter.getText())
+            || stateFilter.getText().equals("Filter State");
+        boolean checkCity =
+            t.getCity().equals(cityFilter.getText()) || cityFilter.getText().equals("Filter City");
+        return checkCountry && checkCity && checkState;
+      });
     });
 
     resetFilter.setOnAction(e -> { // button should hide time sliders and
-        cityFilter.setText("Filter City");
-        stateFilter.setText("Filter State");
-        countryFilter.setText("Filter Country");
-        filteredList.setPredicate(t -> {
-          return true;
+      cityFilter.setText("Filter City");
+      stateFilter.setText("Filter State");
+      countryFilter.setText("Filter Country");
+      filteredList.setPredicate(t -> {
+        return true;
       });
     });
-  settingsPane.getChildren().addAll(sliderLabel,timeSlider,timeLabel,cityFilter,stateFilter,countryFilter,setFilter,resetFilter);
+    settingsPane.getChildren().addAll(sliderLabel, timeSlider, timeLabel, cityFilter, stateFilter,
+        countryFilter, setFilter, resetFilter);
   }
 
   private SortedList<DataPoint> getInitialTableData() {
@@ -206,7 +183,9 @@ public class Table extends DisplayMode {
     filteredList = new FilteredList<>(data);
 
     // to filter
-    filteredList.setPredicate(t -> { return true;});
+    filteredList.setPredicate(t -> {
+      return true;
+    });
 
     SortedList<DataPoint> sortableData = new SortedList<>(this.filteredList);
     sortableData.comparatorProperty().bind(tableView.comparatorProperty());

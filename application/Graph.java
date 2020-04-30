@@ -2,8 +2,10 @@ package application;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -271,6 +273,9 @@ public class Graph extends DisplayMode {
         itr.remove();
       }
     }
-    return dataList;
+
+    return dataList.stream().sorted((o1, o2) -> {
+      return o1.toString().compareTo(o2.toString());
+    }).collect(Collectors.toList());
   }
 }
