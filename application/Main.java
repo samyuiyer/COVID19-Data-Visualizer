@@ -54,7 +54,7 @@ public class Main extends Application {
 
 		Scene mainScene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
 
-		// add stylesheet
+		// adds stylesheet
 
 		mainScene.getStylesheets().add(getClass().getResource("application.css").toString());
 

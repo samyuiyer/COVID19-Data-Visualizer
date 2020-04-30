@@ -36,9 +36,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 /**
- * The Map class is a visual map representation of the COVID-19 data. The amount
- * of COVID-19 cases are illustrated by dots of various sizes (based on amount
- * of COVID-19 cases) at a specific location
+ * The Map class is a visual map representation of the COVID-19 data. 
+ * The COVID-19 cases are illustrated by dots of various sizes 
+ * that depend on the number of cases at that specific location
  */
 public class Map extends DisplayMode {
 

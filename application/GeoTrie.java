@@ -19,10 +19,7 @@ package application;
 import java.util.Arrays;
 
 /**
- * A GeoTrie is a variant of Trie
- * 
- * @author ankurgarg
- *
+ * A GeoTrie is a variant of Trie.
  */
 public class GeoTrie extends Trie<String, String> {
 
