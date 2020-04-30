@@ -26,11 +26,9 @@ Data will be downloaded in CSV format from the 2019 Novel Coronavirus COVID-19 (
 #### For grader:
 
 Which team members were on same xteam together?
-
 None
 
 Other notes or comments to the grader:
-
 We hope you like it!
 
 #### Future Work Section:
