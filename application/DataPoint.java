@@ -23,9 +23,9 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * DataPoint is a way to format data
- * 
- * @author ankurgarg
+ * DataPoint is how locations' COVID-19 data is stored. 
+ * It has a dataArray with location information, 
+ * and Lists for the various numerical statistics. 
  *
  */
 public class DataPoint {
@@ -38,6 +38,56 @@ public class DataPoint {
 	public static String[] labels;
 	public static int time = 94;
 
+	/**
+	 * Constructor method for a new DataPoint object
+	 * 
+	 * @param key
+	 * @param testNum
+	 * @param confirmedList
+	 * @param deathsList
+	 * @param recoveredList
+	 */
+	public DataPoint(String key, String[] testNum, Integer[] confirmedList, Integer[] deathsList,
+			Integer[] recoveredList) {
+
+		this.key = key;
+		this.dataArray = testNum.clone();
+		this.confirmedList = new ArrayList<>(Arrays.asList(confirmedList));
+		this.deathsList = new ArrayList<>(Arrays.asList(deathsList));
+		this.recoveredList = new ArrayList<>(Arrays.asList(recoveredList));
+		this.parseData();
+	}
+
+	/**
+	 * Alternate Constructor method for a new DataPoint object
+	 * 
+	 * @param data
+	 */
+	public DataPoint(DataPoint data) {
+
+		this.key = data.key;
+		this.dataArray = data.dataArray.clone();
+		this.confirmedList = new ArrayList<>(data.confirmedList);
+		this.deathsList = new ArrayList<>(data.deathsList);
+		this.recoveredList = new ArrayList<>(data.recoveredList);
+		this.parseData();
+	}
+
+	/**
+	 * Alternate Constructor method for a new DataPoint object
+	 * 
+	 * @param key
+	 * @param data
+	 */
+	public DataPoint(String key, DataPoint data) {
+
+		this.key = key;
+		this.dataArray = data.dataArray.clone();
+		this.confirmedList = new ArrayList<>(data.confirmedList);
+		this.deathsList = new ArrayList<>(data.deathsList);
+		this.recoveredList = new ArrayList<>(data.recoveredList);
+		this.parseData();
+	}
 	/**
 	 * @return city
 	 */
@@ -92,57 +142,6 @@ public class DataPoint {
 	 */
 	public int getRecovered() {
 		return recoveredList.get(time);
-	}
-
-	/**
-	 * Constructor method for a new DataPoint object
-	 * 
-	 * @param key
-	 * @param testNum
-	 * @param confirmedList
-	 * @param deathsList
-	 * @param recoveredList
-	 */
-	public DataPoint(String key, String[] testNum, Integer[] confirmedList, Integer[] deathsList,
-			Integer[] recoveredList) {
-
-		this.key = key;
-		this.dataArray = testNum.clone();
-		this.confirmedList = new ArrayList<>(Arrays.asList(confirmedList));
-		this.deathsList = new ArrayList<>(Arrays.asList(deathsList));
-		this.recoveredList = new ArrayList<>(Arrays.asList(recoveredList));
-		this.parseData();
-	}
-
-	/**
-	 * Alternate Constructor method for a new DataPoint object
-	 * 
-	 * @param data
-	 */
-	public DataPoint(DataPoint data) {
-
-		this.key = data.key;
-		this.dataArray = data.dataArray.clone();
-		this.confirmedList = new ArrayList<>(data.confirmedList);
-		this.deathsList = new ArrayList<>(data.deathsList);
-		this.recoveredList = new ArrayList<>(data.recoveredList);
-		this.parseData();
-	}
-
-	/**
-	 * Alternate Constructor method for a new DataPoint object
-	 * 
-	 * @param key
-	 * @param data
-	 */
-	public DataPoint(String key, DataPoint data) {
-
-		this.key = key;
-		this.dataArray = data.dataArray.clone();
-		this.confirmedList = new ArrayList<>(data.confirmedList);
-		this.deathsList = new ArrayList<>(data.deathsList);
-		this.recoveredList = new ArrayList<>(data.recoveredList);
-		this.parseData();
 	}
 
 	/**
