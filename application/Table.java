@@ -2,15 +2,12 @@ package application;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.function.Predicate;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -176,27 +173,28 @@ public class Table extends DisplayMode {
 
     });
 
-    setFilter.setOnAction(e ->{
-        filteredList.setPredicate(t ->{
-            boolean checkCountry = t.getCountry().equals(countryFilter.getText())
-                || countryFilter.getText().equals("Filter Country");
-            boolean checkState = t.getState().equals(stateFilter.getText())
-                || stateFilter.getText().equals("Filter State");
-            boolean checkCity = t.getCity().equals(cityFilter.getText())
-                || cityFilter.getText().equals("Filter City");
-            return checkCountry && checkCity && checkState;
-        });
+    setFilter.setOnAction(e -> {
+      filteredList.setPredicate(t -> {
+        boolean checkCountry = t.getCountry().equals(countryFilter.getText())
+            || countryFilter.getText().equals("Filter Country");
+        boolean checkState = t.getState().equals(stateFilter.getText())
+            || stateFilter.getText().equals("Filter State");
+        boolean checkCity =
+            t.getCity().equals(cityFilter.getText()) || cityFilter.getText().equals("Filter City");
+        return checkCountry && checkCity && checkState;
+      });
     });
 
     resetFilter.setOnAction(e -> { // button should hide time sliders and
-        cityFilter.setText("Filter City");
-        stateFilter.setText("Filter State");
-        countryFilter.setText("Filter Country");
-        filteredList.setPredicate(t -> {
-          return true;
+      cityFilter.setText("Filter City");
+      stateFilter.setText("Filter State");
+      countryFilter.setText("Filter Country");
+      filteredList.setPredicate(t -> {
+        return true;
       });
     });
-  settingsPane.getChildren().addAll(sliderLabel,timeSlider,timeLabel,cityFilter,stateFilter,countryFilter,setFilter,resetFilter);
+    settingsPane.getChildren().addAll(sliderLabel, timeSlider, timeLabel, cityFilter, stateFilter,
+        countryFilter, setFilter, resetFilter);
   }
 
   private SortedList<DataPoint> getInitialTableData() {
@@ -206,7 +204,9 @@ public class Table extends DisplayMode {
     filteredList = new FilteredList<>(data);
 
     // to filter
-    filteredList.setPredicate(t -> { return true;});
+    filteredList.setPredicate(t -> {
+      return true;
+    });
 
     SortedList<DataPoint> sortableData = new SortedList<>(this.filteredList);
     sortableData.comparatorProperty().bind(tableView.comparatorProperty());
