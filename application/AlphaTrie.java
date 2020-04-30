@@ -14,7 +14,7 @@ import java.util.List;
 import application.Trie.Node;
 
 /**
- * @author ankurgarg
+ * 
  *
  */
 public class AlphaTrie extends Trie<String, Character> {

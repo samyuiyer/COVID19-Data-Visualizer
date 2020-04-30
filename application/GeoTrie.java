@@ -12,7 +12,7 @@ package application;
 import java.util.Arrays;
 
 /**
- * @author ankurgarg
+ * 
  *
  */
 public class GeoTrie extends Trie<String, String> {
