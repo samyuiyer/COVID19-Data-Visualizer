@@ -176,12 +176,8 @@ public class Table extends DisplayMode {
 
     });
 
-    setFilter.setOnAction(new EventHandler<ActionEvent>() { // button should hide time sliders and
-                                                            // labels
-      @Override
-      public void handle(ActionEvent event) {
-        filteredList.setPredicate(new Predicate<DataPoint>() {
-          public boolean test(DataPoint t) {
+    setFilter.setOnAction(e ->{
+        filteredList.setPredicate(t ->{
             boolean checkCountry = t.getCountry().equals(countryFilter.getText())
                 || countryFilter.getText().equals("Filter Country");
             boolean checkState = t.getState().equals(stateFilter.getText())
@@ -189,35 +185,18 @@ public class Table extends DisplayMode {
             boolean checkCity = t.getCity().equals(cityFilter.getText())
                 || cityFilter.getText().equals("Filter City");
             return checkCountry && checkCity && checkState;
-          }
         });
-      }
     });
 
-    resetFilter.setOnAction(new EventHandler<ActionEvent>() { // button should hide time sliders and
-                                                              // // labels
-      @Override
-      public void handle(ActionEvent event) {
+    resetFilter.setOnAction(e -> { // button should hide time sliders and
         cityFilter.setText("Filter City");
         stateFilter.setText("Filter State");
         countryFilter.setText("Filter Country");
-        filteredList.setPredicate(new Predicate<DataPoint>() {
-          public boolean test(DataPoint t) {
-            boolean checkCountry = t.getCountry().equals(countryFilter.getText())
-                || countryFilter.getText().equals("Filter Country");
-            boolean checkState = t.getState().equals(stateFilter.getText())
-                || stateFilter.getText().equals("Filter State");
-            boolean checkCity = t.getCity().equals(cityFilter.getText())
-                || cityFilter.getText().equals("Filter City");
-            return checkCountry && checkCity && checkState;
-          }
-        });
-        
-      }
+        filteredList.setPredicate(t -> {
+          return true;
+      });
     });
-
-    settingsPane.getChildren().addAll(sliderLabel, timeSlider, timeLabel, cityFilter, stateFilter,
-        countryFilter, setFilter, resetFilter);
+  settingsPane.getChildren().addAll(sliderLabel,timeSlider,timeLabel,cityFilter,stateFilter,countryFilter,setFilter,resetFilter);
   }
 
   private SortedList<DataPoint> getInitialTableData() {
@@ -227,24 +206,20 @@ public class Table extends DisplayMode {
     filteredList = new FilteredList<>(data);
 
     // to filter
-    filteredList.setPredicate(new Predicate<DataPoint>() {
-      public boolean test(DataPoint t) {
-        return true;
-      }
-    });
+    filteredList.setPredicate(t -> { return true;});
 
     SortedList<DataPoint> sortableData = new SortedList<>(this.filteredList);
     sortableData.comparatorProperty().bind(tableView.comparatorProperty());
 
     return sortableData;
   }
-  
+
   public List<DataPoint> getFilteredList() {
     return filteredList;
   }
 
   private Comparator<String> getComparator(TableColumn<DataPoint, String> tc) {
-    Comparator<String> comparator = (o1, o2) -> {
+    return (o1, o2) -> {
       final boolean isDesc = tc.getSortType() == SortType.DESCENDING;
       if (o1.equals("") && o2.equals(""))
         return 0;
@@ -255,7 +230,6 @@ public class Table extends DisplayMode {
       else
         return o1.compareTo(o2);
     };
-    return comparator;
   }
 
 }

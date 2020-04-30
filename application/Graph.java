@@ -1,7 +1,6 @@
 package application;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -21,10 +20,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Labeled;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Slider;
-import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
-import javafx.util.StringConverter;
+
 
 public class Graph extends DisplayMode {
 
@@ -49,23 +47,15 @@ public class Graph extends DisplayMode {
   Graph(DataManager dm) {
     super();
     this.dm = dm;
-
     timeLabels = dm.getTimeLabels();
     slidersVisible = true;
-
-
     scopeName = SCOPE_NAMES[0];
     dataName = DATA_NAMES[0];
-    xAxis = new CategoryAxis();
-    yAxis = new NumberAxis();
-    xAxis.setAnimated(false);
-    yAxis.setAnimated(false);
-    chart = new LineChart<String, Number>(xAxis, yAxis);
-    chart.setAnimated(false);
-    series = new XYChart.Series<String, Number>();
+    setupChart();
+
     setupSettings();
     updateChart();
-    chart.getData().add(series);
+
   }
 
   @Override
@@ -78,37 +68,36 @@ public class Graph extends DisplayMode {
     return settings;
   }
 
+  private void setupChart() {
+    xAxis = new CategoryAxis();
+    yAxis = new NumberAxis();
+    xAxis.setAnimated(false);
+    yAxis.setAnimated(false);
+    chart = new LineChart<String, Number>(xAxis, yAxis);
+    chart.setAnimated(false);
+    series = new XYChart.Series<String, Number>();
+    chart.getData().add(series);
+  }
+
   private void updateChart() {
     xAxis.setLabel("Date");
     yAxis.setLabel("Number of " + dataName);
-    chart.setTitle(dataName + " cases, " + scopeName);
 
     List<DataPoint> list = dm.gt.getAll();
 
     Collection<XYChart.Data<String, Number>> col = new ArrayList<>();
 
     DataPoint d = list.get(0);
-
-    if (scopeName != null) {
-      if (scopeName.equals(SCOPE_NAMES[0])) {
-        d = list.get(0);
-      } else if (scopeName.equals(SCOPE_NAMES[1])) {
-        d = countryBox.getValue() == null || countryBox.getValue().dataArray[5].equals("INVALID")
-            ? d
-            : countryBox.getValue();
-      } else if (scopeName.equals(SCOPE_NAMES[2])) {
-        d = stateBox.getValue() == null || stateBox.getValue().dataArray[5].equals("INVALID") ? d
-            : stateBox.getValue();
-      } else if (scopeName.equals(SCOPE_NAMES[3])) {
-        d = cityBox.getValue() == null || cityBox.getValue().dataArray[5].equals("INVALID") ? d
-            : cityBox.getValue();
-      } else {
-        // use default value if Global
-      }
-    } else {
-      // use default value if Global
+    if (scopeName.equals(SCOPE_NAMES[0])) {
+      d = list.get(0);
+    } else if (scopeName.equals(SCOPE_NAMES[1])) {
+      d = countryBox.getValue() == null ? d : countryBox.getValue();
+    } else if (scopeName.equals(SCOPE_NAMES[2])) {
+      d = stateBox.getValue() == null ? d : stateBox.getValue();
+    } else if (scopeName.equals(SCOPE_NAMES[3])) {
+      d = cityBox.getValue() == null ? d : cityBox.getValue();
     }
-    System.out.println(d);
+    chart.setTitle(dataName + " cases, " + d.key);
 
     if (dataName.equals(DATA_NAMES[0])) {
       for (int time = (int) sliderStart.getValue(); time < (int) sliderEnd.getValue(); time++) {
@@ -220,25 +209,11 @@ public class Graph extends DisplayMode {
     cityRadio.setToggleGroup(scopeToggleGroup);
     globalRadio.setSelected(true);
 
-    scopeToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
-      public void changed(ObservableValue<? extends Toggle> ov, Toggle old_toggle,
-          Toggle new_toggle) {
-        if (scopeToggleGroup.getSelectedToggle() != null) {
-          if (((Labeled) scopeToggleGroup.getSelectedToggle()).getText().equals(SCOPE_NAMES[0])) {
-            scopeName = SCOPE_NAMES[0];
-          }
-          if (((Labeled) scopeToggleGroup.getSelectedToggle()).getText().equals(SCOPE_NAMES[1])) {
-            scopeName = SCOPE_NAMES[1];
-          }
-          if (((Labeled) scopeToggleGroup.getSelectedToggle()).getText().equals(SCOPE_NAMES[2])) {
-            scopeName = SCOPE_NAMES[2];
-          }
-          if (((Labeled) scopeToggleGroup.getSelectedToggle()).getText().equals(SCOPE_NAMES[3])) {
-            scopeName = SCOPE_NAMES[3];
-          }
-        }
-        updateChart();
-      }
+    scopeToggleGroup.selectedToggleProperty().addListener((ov, ot, nt) -> {
+      for (int i = 0; i < 4; i++)
+        if (((Labeled) scopeToggleGroup.getSelectedToggle()).getText().equals(SCOPE_NAMES[i]))
+          scopeName = SCOPE_NAMES[i];
+      updateChart();
     });
 
     final ToggleGroup dataToggleGroup = new ToggleGroup();
@@ -251,113 +226,30 @@ public class Graph extends DisplayMode {
     recovRadio.setToggleGroup(dataToggleGroup);
     confRadio.setSelected(true);
 
-    dataToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
-
-      public void changed(ObservableValue<? extends Toggle> ov, Toggle old_toggle,
-          Toggle new_toggle) {
-        if (dataToggleGroup.getSelectedToggle() != null) {
-          if (((Labeled) dataToggleGroup.getSelectedToggle()).getText().equals(DATA_NAMES[0]))
-            dataName = DATA_NAMES[0];
-          if (((Labeled) dataToggleGroup.getSelectedToggle()).getText().equals(DATA_NAMES[1]))
-            dataName = DATA_NAMES[1];
-          if (((Labeled) dataToggleGroup.getSelectedToggle()).getText().equals(DATA_NAMES[2]))
-            dataName = DATA_NAMES[2];
-        }
-        updateChart();
-      }
+    dataToggleGroup.selectedToggleProperty().addListener((ov, ot, nt) -> {
+      for (int i = 0; i < 3; i++)
+        if (((Labeled) dataToggleGroup.getSelectedToggle()).getText().equals(DATA_NAMES[i]))
+          dataName = DATA_NAMES[i];
+      updateChart();
     });
-
     countryBox = new ComboBox<>();
     stateBox = new ComboBox<>();
     cityBox = new ComboBox<>();
 
 
-    ChangeListener<DataPoint> boxListener = new ChangeListener<DataPoint>() {
-      @Override
-      public void changed(@SuppressWarnings("rawtypes") ObservableValue ov, DataPoint t,
-          DataPoint t1) {
-        updateChart();
-      }
-    };
+    countryBox.valueProperty().addListener((ov, t, t1) -> {
+      updateChart();
+    });
+    stateBox.valueProperty().addListener((ov, t, t1) -> {
+      updateChart();
+    });
+    cityBox.valueProperty().addListener((ov, t, t1) -> {
+      updateChart();
+    });
 
-
-    StringConverter<DataPoint> dataToString = new StringConverter<DataPoint>() {
-      @Override
-      public String toString(DataPoint object) {
-        if (object == null)
-          return null;
-        return object.toString();
-      }
-
-      @Override
-      public DataPoint fromString(String string) {
-        // replace this with approquiate implementation of parsing function
-        // or lookup function
-
-
-        DataPoint invalid =
-            new DataPoint(string, new String[] {"INVALID", "", "", "", "0", "INVALID"},
-                new Integer[95], new Integer[95], new Integer[95]);
-
-        try {
-          int index = dm.at.suggest(string).indexOf(invalid);
-          return index != -1 ? dm.at.suggest(string).get(index) : invalid;
-        } catch (IllegalNullKeyException e) {
-          return invalid;
-        }
-
-      }
-    };
-
-
-    countryBox.setConverter(dataToString);
-    stateBox.setConverter(dataToString);
-    cityBox.setConverter(dataToString);
-
-    countryBox.getSelectionModel().selectFirst();
-    stateBox.getSelectionModel().selectFirst();
-    cityBox.getSelectionModel().selectFirst();
-    countryBox.valueProperty().addListener(boxListener);
-    stateBox.valueProperty().addListener(boxListener);
-    cityBox.valueProperty().addListener(boxListener);
-
-    try {
-      cityBox.setItems(FXCollections.observableList(
-          filter(dm.at.suggest(cityBox.getEditor().getText()), true, false, false)));
-      cityBox.getEditor().textProperty().addListener((observable, oldValue, newValue) -> {
-        try {
-          cityBox.setItems(FXCollections.observableList(
-              filter(dm.at.suggest(cityBox.getEditor().getText()), true, false, false)));
-        } catch (IllegalNullKeyException e) {
-        }
-      });
-
-      stateBox.setItems(FXCollections.observableList(
-          filter(dm.at.suggest(stateBox.getEditor().getText()), false, true, false)));
-      stateBox.getEditor().textProperty().addListener((observable, oldValue, newValue) -> {
-        try {
-          stateBox.setItems(FXCollections.observableList(
-              filter(dm.at.suggest(stateBox.getEditor().getText()), false, true, false)));
-        } catch (IllegalNullKeyException e) {
-        }
-      });
-
-      countryBox.setItems(FXCollections.observableList(
-          filter(dm.at.suggest(countryBox.getEditor().getText()), false, false, true)));
-      countryBox.getEditor().textProperty().addListener((observable, oldValue, newValue) -> {
-        try {
-          countryBox.setItems(FXCollections.observableList(
-              filter(dm.at.suggest(countryBox.getEditor().getText()), false, false, true)));
-        } catch (IllegalNullKeyException e) {
-        }
-      });
-
-    } catch (IllegalNullKeyException e) {
-      e.printStackTrace();
-    }
-    countryBox.setEditable(true);
-    stateBox.setEditable(true);
-    cityBox.setEditable(true);
+    countryBox.setItems(FXCollections.observableList(filter(dm.gt.getAll(), false, false, true)));
+    stateBox.setItems(FXCollections.observableList(filter(dm.gt.getAll(), false, true, false)));
+    cityBox.setItems(FXCollections.observableList(filter(dm.gt.getAll(), true, false, false)));
     countryBox.managedProperty().bind(countryBox.visibleProperty());
     countryBox.visibleProperty().bind(countryRadio.selectedProperty());
     stateBox.managedProperty().bind(stateBox.visibleProperty());
@@ -381,5 +273,4 @@ public class Graph extends DisplayMode {
     }
     return dataList;
   }
-
 }
