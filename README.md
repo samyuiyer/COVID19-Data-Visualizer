@@ -31,7 +31,7 @@ None
 Other notes or comments to the grader:
 We hope you like it!
 
-#### Future Work Section:
+#### Future Work:
 One feature we'd like to implement in the future is a suggestion and auto-complete capability when users enter the name of a city/state/country. We'd like to have it such that as the user enters the first few letters, several potential names come up -- similar to auto-complete in a search engine, for example. 
 
 Additionally, we'd like it to be able to extrapolate future predictions for COVID-19 cases. This would require a great deal of analytics and statistics, but the ability to see how the cases could trend would enrich the program. 
