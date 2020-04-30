@@ -57,7 +57,7 @@ public class Map extends DisplayMode {
 	private CheckBox[] filters;
 
 	/**
-	 * Constructor for map
+	 * Constructor for Map
 	 * 
 	 * @param dm
 	 */
@@ -90,7 +90,7 @@ public class Map extends DisplayMode {
 	}
 
 	/**
-	 * Initializes the settings
+	 * Initializes the settings pane for this data view
 	 */
 	private void setupSettings() {
 		Label timeLabel = new Label("" + dm.getTimeLabels()[(int) timeSlider.getValue()]);
@@ -150,6 +150,10 @@ public class Map extends DisplayMode {
 		settingsPane.getChildren().addAll(dRadio, cRadio, rRadio);
 	}
 
+	/**
+	 * Redraws the data point at the appropriate location with the appropriate size.
+	 * @param gc
+	 */
 	private void redraw(GraphicsContext gc) {
 		List<DataPoint> list = dm.gt.getAll();
 		Image image = new Image("map.jpg");
