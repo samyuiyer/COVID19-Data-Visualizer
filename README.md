@@ -33,3 +33,6 @@ None
 Other notes or comments to the grader:
 
 We hope you like it!
+
+#### Future Work Section:
+One feature we'd like to implement in the future is a suggestion and auto-complete capability when users enter the name of a city/state/country. We'd like to have it such that as the user enters the first few letters, several potential names come up -- similar to auto-complete in a search engine, for example. 
