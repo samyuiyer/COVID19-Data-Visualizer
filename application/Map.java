@@ -36,6 +36,11 @@ public class Map extends DisplayMode {
   private Slider timeSlider;
   private CheckBox[] filters;
 
+  /**
+   * Constructor for Map
+   * 
+   * @param dm Datamanager
+   */
   public Map(DataManager dm) {
     super();
     this.canvas = new Canvas(width, height);

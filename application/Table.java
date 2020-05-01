@@ -1,18 +1,19 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
-//  Title: ateam_final_project
-//  Author: Ankur Garg, Eric Ertl, Justin Chan, Samyu Iyer, Sudeep Reddy, 
+// Title: ateam_final_project
+// Author: Ankur Garg, Eric Ertl, Justin Chan, Samyu Iyer, Sudeep Reddy
 //
-//  Course: CS400
-//  Semester: Spring 2020
-//  Lecture Number: 001
+// Course: CS400
+// Semester: Spring 2020
+// Lecture Number: 001
 //
-//  Date: 4/29/2020
+// Date: 4/29/2020
 //
-//  Description:    A project that displays statistics relating to COVID-19 in a
-//                  variety of ways. 
+// Description: A project that displays statistics relating to COVID-19 in a
+// variety of ways.
 //
 ///////////////////////////////////////////////////////////////////////////////
+
 package application;
 
 import java.util.Comparator;
@@ -44,8 +45,10 @@ public class Table extends DisplayMode {
   private DataManager dataManager;
   private FilteredList<DataPoint> filteredList;
   private String[] timeLabels;
+
   /**
    * Constructs a Table with the given data and sets up settings and view
+   * 
    * @param dataManager - Object of data to construct table
    */
   public Table(DataManager dataManager) {
@@ -91,7 +94,7 @@ public class Table extends DisplayMode {
     TableColumn<DataPoint, String> confirmed = new TableColumn<>("Confirmed");
     TableColumn<DataPoint, String> deaths = new TableColumn<>("Deaths");
     TableColumn<DataPoint, String> recovered = new TableColumn<>("Recovered");
-    
+
     location.setId("column_header_location");
     city.setId("column_city");
     state.setId("column_state");
@@ -114,7 +117,7 @@ public class Table extends DisplayMode {
     confirmed.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("confirmed"));
     deaths.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("deaths"));
     recovered.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("recovered"));
-    
+
     location.getColumns().addAll(city, state, country, lat, lon);
     stats.getColumns().addAll(confirmed, deaths, recovered);
     tableView.getColumns().setAll(location, stats);
@@ -122,6 +125,7 @@ public class Table extends DisplayMode {
 
     tableView.setPlaceholder(new Label("No rows to display"));
   }
+
   /**
    * Creates the settings pane for the table view
    */
@@ -129,7 +133,7 @@ public class Table extends DisplayMode {
 
     // Setup UI Nodes
 
-    Label sliderLabel = new Label("Choose Time:"); 
+    Label sliderLabel = new Label("Choose Time:");
     timeSlider = new Slider(0, 94, 94);
     timeLabels = dataManager.getTimeLabels();
     Label timeLabel = new Label("" + timeLabels[(int) timeSlider.getValue()]);
@@ -143,9 +147,9 @@ public class Table extends DisplayMode {
 
     Button resetFilter = new Button("Reset Filter");
     resetFilter.setId("reset-filter-btn");
-    
+
     // Event listeners
-    
+
     timeSlider.valueProperty().addListener((o, ov, nv) -> {
       timeLabel.setText("" + timeLabels[(int) timeSlider.getValue()]);
       DataPoint.time = (int) timeSlider.getValue();
@@ -206,8 +210,10 @@ public class Table extends DisplayMode {
     settingsPane.getChildren().addAll(sliderLabel, timeSlider, timeLabel, cityFilter, stateFilter,
         countryFilter, setFilter, resetFilter);
   }
+
   /**
    * Creates a sorted list based on all of the data points
+   * 
    * @return the sorted list
    */
   private SortedList<DataPoint> getInitialTableData() {
@@ -226,15 +232,19 @@ public class Table extends DisplayMode {
 
     return sortableData;
   }
+
   /**
    * Returns a filtered list based upon the criteria the user selected
+   * 
    * @return the filtered list
    */
   public List<DataPoint> getFilteredList() {
     return filteredList;
   }
+
   /**
-   * TODO
+   * For filtering
+   * 
    * @param tc
    * @return
    */
