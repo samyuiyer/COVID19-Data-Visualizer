@@ -56,10 +56,8 @@ public class Graph extends DisplayMode {
     scopeName = SCOPE_NAMES[0];
     dataName = DATA_NAMES[0];
     setupChart();
-
     setupSettings();
     updateChart();
-
   }
 
   /**
@@ -100,9 +98,9 @@ public class Graph extends DisplayMode {
     yAxis.setLabel("Number of " + dataName);
 
     List<DataPoint> list = dm.gt.getAll();
-
     Collection<XYChart.Data<String, Number>> col = new ArrayList<>();
 
+    // select datapoint to display
     DataPoint d = list.get(0);
     if (scopeName.equals(SCOPE_NAMES[0])) {
       d = list.get(0);
@@ -114,6 +112,8 @@ public class Graph extends DisplayMode {
       d = cityBox.getValue() == null ? d : cityBox.getValue();
     }
     chart.setTitle(dataName + " cases, " + d.key);
+    
+    // add x,y pairs based on selected datapoint
 
     if (dataName.equals(DATA_NAMES[0])) {
       for (int time = (int) sliderStart.getValue(); time < (int) sliderEnd.getValue(); time++) {
