@@ -243,7 +243,7 @@ public class Table extends DisplayMode {
   }
 
   /**
-   * For filtering
+   * creates a custom comparator that sorts the Strings in order, but ignores blank strings
    * 
    * @param tc
    * @return
