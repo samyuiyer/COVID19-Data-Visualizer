@@ -43,6 +43,11 @@ public class Graph extends DisplayMode {
   private ComboBox<DataPoint> cityBox;
   private ToggleGroup scopeToggleGroup;
 
+  /**
+   * Constructor for Graph
+   * 
+   * @param dm DataManager object to get information
+   */
   Graph(DataManager dm) {
     super();
     this.dm = dm;
@@ -57,16 +62,25 @@ public class Graph extends DisplayMode {
 
   }
 
+  /**
+   * @return the pane to display this Graph
+   */
   @Override
   public Node getDisplayPane() {
     return chart;
   }
 
+  /**
+   * @return the settings for this Graph
+   */
   @Override
   public Node getSettingsPane() {
     return settings;
   }
 
+  /**
+   * Setup for creating the DisplayPane
+   */
   private void setupChart() {
     xAxis = new CategoryAxis();
     yAxis = new NumberAxis();
@@ -78,6 +92,9 @@ public class Graph extends DisplayMode {
     chart.getData().add(series);
   }
 
+  /**
+   * Helper method to update the chart to display updated data or parameters
+   */
   private void updateChart() {
     xAxis.setLabel("Date");
     yAxis.setLabel("Number of " + dataName);
@@ -122,6 +139,9 @@ public class Graph extends DisplayMode {
     series.getData().setAll(col);
   }
 
+  /**
+   * Setup for creating the settings pane
+   */
   private void setupSettings() {
     settings = new VBox();
     Button timeSlider = new Button("Time Range");
@@ -149,19 +169,19 @@ public class Graph extends DisplayMode {
     sliderEnd.setVisible(slidersVisible);
 
     timeSlider.setOnAction(e -> {
-        if (slidersVisible) {
-          sliderLabel.setVisible(false);
-          sliderStart.setVisible(false);
-          sliderEnd.setVisible(false);
-          rangeLabel.setVisible(false);
-          slidersVisible = false;
-        } else {
-          sliderLabel.setVisible(true);
-          sliderStart.setVisible(true);
-          sliderEnd.setVisible(true);
-          rangeLabel.setVisible(true);
-          slidersVisible = true;
-        }
+      if (slidersVisible) {
+        sliderLabel.setVisible(false);
+        sliderStart.setVisible(false);
+        sliderEnd.setVisible(false);
+        rangeLabel.setVisible(false);
+        slidersVisible = false;
+      } else {
+        sliderLabel.setVisible(true);
+        sliderStart.setVisible(true);
+        sliderEnd.setVisible(true);
+        rangeLabel.setVisible(true);
+        slidersVisible = true;
+      }
     });
 
     final ChangeListener<Number> startListener = new ChangeListener<Number>() {
@@ -258,6 +278,15 @@ public class Graph extends DisplayMode {
         dataLabel, confRadio, deadRadio, recovRadio);
   }
 
+  /**
+   * Filters datapoints based on criteria
+   * 
+   * @param dataList List of Datapints
+   * @param city     if city is set to be filtered
+   * @param state    if state is set to be filtered
+   * @param country  if country is set to be filtered
+   * @return datapoint that passed given filters
+   */
   private List<DataPoint> filter(List<DataPoint> dataList, boolean city, boolean state,
       boolean country) {
     Iterator<DataPoint> itr = dataList.iterator();
@@ -273,6 +302,9 @@ public class Graph extends DisplayMode {
     }).collect(Collectors.toList());
   }
 
+  /**
+   * Updates chart
+   */
   @Override
   public void refresh() {
     updateChart();
