@@ -6,8 +6,6 @@ import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -73,10 +71,7 @@ public class DisplayManager extends DisplayMode {
     displayModes[0] = new Table(dm);
     displayModes[1] = new Map(dm);
     displayModes[2] = new Graph(dm);
-    displayNode.setCenter(displayModes[0].getDisplayPane());
-    settingsNode.setCenter(displayModes[0].getSettingsPane());
-    if (!load)
-      displayNode.setCenter(new Label("Bad Input File(s)"));
+    setMode(0);
   }
 
   private void createMenuBar() {
@@ -101,50 +96,29 @@ public class DisplayManager extends DisplayMode {
 
     exit.setOnAction(e -> exitProgram());
 
-    toggle.setOnAction(new EventHandler<ActionEvent>() {
-      @Override
-      public void handle(ActionEvent arg0) {
-        if (settingsVisible) {
-          settingsPanel.setVisible(false);
-          settingsVisible = false;
-        } else {
-          settingsPanel.setVisible(true);
-          settingsVisible = true;
-        }
+    toggle.setOnAction(e -> {
+      if (settingsVisible) {
+        settingsPanel.setVisible(false);
+        settingsVisible = false;
+      } else {
+        settingsPanel.setVisible(true);
+        settingsVisible = true;
       }
     });
 
-    view1.setOnAction(new EventHandler<ActionEvent>() {
-      @Override
-      public void handle(ActionEvent arg0) {
-        displayNode.setCenter(displayModes[0].getDisplayPane());
-        settingsNode.setCenter(displayModes[0].getSettingsPane());
-        if (!load)
-          displayNode.setCenter(new Label("Bad Input File(s)"));
-        dspModeComboBox.setPromptText("Table Mode");
-      }
+    view1.setOnAction(e -> {
+      setMode(0);
+      dspModeComboBox.setPromptText("Table Mode");
     });
 
-    view2.setOnAction(new EventHandler<ActionEvent>() {
-      @Override
-      public void handle(ActionEvent arg0) {
-        displayNode.setCenter(displayModes[1].getDisplayPane());
-        settingsNode.setCenter(displayModes[1].getSettingsPane());
-        if (!load)
-          displayNode.setCenter(new Label("Bad Input File(s)"));
-        dspModeComboBox.setPromptText("Map Mode");
-      }
+    view2.setOnAction(e -> {
+      setMode(1);
+      dspModeComboBox.setPromptText("Map Mode");
     });
 
-    view3.setOnAction(new EventHandler<ActionEvent>() {
-      @Override
-      public void handle(ActionEvent arg0) {
-        displayNode.setCenter(displayModes[2].getDisplayPane());
-        settingsNode.setCenter(displayModes[2].getSettingsPane());
-        if (!load)
-          displayNode.setCenter(new Label("Bad Input File(s)"));
-        dspModeComboBox.setPromptText("Graph Mode");
-      }
+    view3.setOnAction(e -> {
+      setMode(2);
+      dspModeComboBox.setPromptText("Graph Mode");
     });
   }
 
@@ -180,8 +154,8 @@ public class DisplayManager extends DisplayMode {
     // Setup Listeners and EventHandlers
 
     colorPicker.setOnAction(e -> {
-        settingsPanel
-            .setStyle("-fx-background-color: #" + colorPicker.getValue().toString().substring(2));
+      settingsPanel
+          .setStyle("-fx-background-color: #" + colorPicker.getValue().toString().substring(2));
     });
 
     dspModeComboBox.getSelectionModel().selectedItemProperty()
@@ -195,11 +169,7 @@ public class DisplayManager extends DisplayMode {
           }
         });
 
-    fileTextField.focusedProperty().addListener(new ChangeListener<Boolean>() {
-
-      @Override
-      public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue,
-          Boolean newValue) {
+    fileTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
         if (newValue) {
           fileTextField.clear();
         }
@@ -208,7 +178,6 @@ public class DisplayManager extends DisplayMode {
             fileTextField.setText("File Name");
           }
         }
-      }
     });
 
     dspModeComboBox.getSelectionModel().selectedItemProperty()
