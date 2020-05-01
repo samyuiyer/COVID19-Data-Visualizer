@@ -59,13 +59,13 @@ public class GeoTrie extends Trie<String, String> {
   }
 
   /**
-   * helper method to recursively insert and increments values in the alpha tree
+   * helper method to recursively insert and increments values in the geo tree
    * 
    * @param level   - the current level of the tree we are at recursively
    * @param curr    - the current node in the tree we are at
    * @param key     - the key to insert
    * @param fullKey - the porting of the key the represents curr
-   * @param value   - the valhe to be inserted
+   * @param value   - the value to be inserted
    */
   protected void insert(int level, Node curr, String[] key, String fullKey, DataPoint value) {
     fullKey = key[level] + fullKey; // add the the full key represent curr

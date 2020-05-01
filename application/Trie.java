@@ -1,16 +1,16 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
-//  Title: ateam_final_project
-//  Author: Ankur Garg, Eric Ertl, Justin Chan, Samyu Iyer, Sudeep Reddy
+// Title: ateam_final_project
+// Author: Ankur Garg, Eric Ertl, Justin Chan, Samyu Iyer, Sudeep Reddy
 //
-//  Course: CS400
-//  Semester: Spring 2020
-//  Lecture Number: 001
+// Course: CS400
+// Semester: Spring 2020
+// Lecture Number: 001
 //
-//  Date: 4/29/2020
+// Date: 4/29/2020
 //
-//  Description:    A project that displays statistics relating to COVID-19 in a
-//                  variety of ways.
+// Description: A project that displays statistics relating to COVID-19 in a
+// variety of ways.
 //
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -24,7 +24,7 @@ import java.util.List;
  * Abstract class that represent a generic Trie, an implementation of a data structure that sorts by
  * prefix
  */
-public abstract class Trie<K, S>{
+public abstract class Trie<K, S> {
   protected Node root; // the root of the tree
   protected int size; // the number of elements in the key
 
@@ -65,8 +65,8 @@ public abstract class Trie<K, S>{
   /**
    * insert the given dataPoint in the trie at the given key
    * 
-   * @param key,   the key to inset at
-   * @param value, the data point assosiated with the key
+   * @param key,   the key to insert at
+   * @param value, the data point associated with the key
    * 
    * @throws IllegalNullKeyException if key is null
    */
