@@ -149,6 +149,7 @@ public class DisplayManager extends DisplayMode {
       alert.setTitle("Help");
       alert.setHeaderText("How to Save and Load");
       alert.setContentText("How to load a file:\n" + "\n" + "How to save a file:\n" + "\n");
+      alert.showAndWait();
     });
 
     exit.setOnAction(e -> exitProgram());

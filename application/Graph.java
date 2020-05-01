@@ -107,6 +107,8 @@ public class Graph extends DisplayMode {
     chart.setAnimated(false);
     series = new XYChart.Series<String, Number>();
     chart.getData().add(series);
+    chart.setLegendVisible(false);
+
   }
 
   /**
