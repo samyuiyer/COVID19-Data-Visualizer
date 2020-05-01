@@ -94,6 +94,7 @@ public class DisplayManager extends DisplayMode {
     // Add to MenuBar
 
     menu.getItems().addAll(toggle, view1, view2, view3, exit);
+    help.getItems().addAll(help1, help2);
     bar.getMenus().addAll(menu, help);
 
     // Event Handlers
