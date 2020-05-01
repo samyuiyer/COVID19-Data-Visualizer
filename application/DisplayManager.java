@@ -201,7 +201,7 @@ public class DisplayManager extends DisplayMode {
         fileName += ".csv";
       final String finalName = fileName;
       Alert confirmSave = new Alert(AlertType.CONFIRMATION,
-          "Are you sure you want to save in the contents to " + fileTextField.getText() + "?");
+          "Are you sure you want to save in the contents to " + finalName + "?");
       confirmSave.showAndWait().ifPresent(response -> {
         if (response == ButtonType.OK) {
           saveToFile(finalName, saveLabel);
