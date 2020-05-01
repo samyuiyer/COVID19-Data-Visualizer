@@ -34,6 +34,12 @@ In this mode, the various aspects of numerical COVID-19 data are displayed as do
 
 In this mode, the various aspects of numerical COVID-19 data are displayed in a line graph. The sliders in the left settings bar allow users to set the start date and end date for which to display data. The radio buttons enable users to filter by particular locations, as well as by which aspect of the numerical data they desire to plot.
 
+### Settings Pane
+The left settings pane adjusts according to what mode the user is on. To close/open this settings pane, click "Menu", and then "Toggle Settins Pane". 
+
+### Exiting
+To exit out of the program, select "Menu", and then "Exit". 
+
 ## File Loading and Saving
 
 How to load a file:
