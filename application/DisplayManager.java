@@ -6,7 +6,10 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -184,9 +187,13 @@ public class DisplayManager extends DisplayMode {
 
     globalSettings = settingsPanel;
     loadFileBtn.setOnAction(e -> {
-      displayNode.setCenter(new Label("Loading File(s)..."));
-      load = dm.loadTries(fileTextField.getText());
-      setMode(0);
+      Alert confirmLoad = new Alert(AlertType.CONFIRMATION,
+          "Are you sure you want to load in the contents of " + fileTextField.getText() + "?");
+      confirmLoad.showAndWait().filter(response -> response == ButtonType.OK)
+          .ifPresent(response -> {
+            load = dm.loadTries(fileTextField.getText());
+            setMode(0);
+          });
     });
     saveFileBtn.setOnAction(e -> {
       String fileName = fileTextField.getText();
@@ -194,20 +201,32 @@ public class DisplayManager extends DisplayMode {
         fileName = "default.csv";
       if (!(fileName.endsWith(".csv")))
         fileName += ".csv";
-      List<DataPoint> filtered = ((Table) displayModes[0]).getFilteredList();
-      try {
-        FileWriter txtFile = new FileWriter(fileName);
-        txtFile.write("City,State,Country,Confirmed,Dead,Recovered\n");
-        for (DataPoint dp : filtered) {
-          txtFile.write(dp.getCity() + "," + dp.getState() + "," + dp.getCountry() + ","
-              + dp.getConfirmed() + "," + dp.getDeaths() + "," + dp.getRecovered() + "\n");
+      final String finalName = fileName;
+      Alert confirmSave = new Alert(AlertType.CONFIRMATION,
+          "Are you sure you want to save in the contents to " + fileTextField.getText() + "?");
+      confirmSave.showAndWait().ifPresent(response -> {
+        if (response == ButtonType.OK) {
+          saveToFile(finalName, saveLabel);
         }
-        txtFile.close();
-        saveLabel.setText("File " + fileName + " successfully saved");
-      } catch (Exception ex) {
-
-      }
+      });
     });
+  }
+
+  private void saveToFile(String fileName, Label saveLabel) {
+    List<DataPoint> filtered = ((Table) displayModes[0]).getFilteredList();
+    try {
+      FileWriter txtFile = new FileWriter(fileName);
+      txtFile.write("City,State,Country,Confirmed,Dead,Recovered\n");
+      for (DataPoint dp : filtered) {
+        txtFile.write(dp.getCity() + "," + dp.getState() + "," + dp.getCountry() + ","
+            + dp.getConfirmed() + "," + dp.getDeaths() + "," + dp.getRecovered() + "\n");
+      }
+      txtFile.close();
+      saveLabel.setText("File " + fileName + " successfully saved");
+    } catch (Exception ex) {
+
+    }
+
   }
 
   private void setMode(int modeNum) {
