@@ -1,20 +1,21 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
-//  Title: ateam_final_project
-//  Author: Ankur Garg, Eric Ertl, Justin Chan, Samyu Iyer, Sudeep Reddy
+// Title: ateam_final_project
+// Author: Ankur Garg, Eric Ertl, Justin Chan, Samyu Iyer, Sudeep Reddy
 //
-//  Course: CS400
-//  Semester: Spring 2020
-//  Lecture Number: 001
+// Course: CS400
+// Semester: Spring 2020
+// Lecture Number: 001
 //
-//  Date: 4/29/2020
+// Date: 4/29/2020
 //
-//  Description:    A project that displays statistics relating to COVID-19 in a
-//                  variety of ways.
+// Description: A project that displays statistics relating to COVID-19 in a
+// variety of ways.
 //
 ///////////////////////////////////////////////////////////////////////////////
 
 package application;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
@@ -23,8 +24,8 @@ import java.util.List;
 
 
 /**
- * DataPoint represents various aspects of COVID-19 data at a particular location. 
- * Among these are death counts, confirmed cases counts, and recovered counts.  
+ * DataPoint represents various aspects of COVID-19 data at a particular location. Among these are
+ * death counts, confirmed cases counts, and recovered counts.
  */
 public class DataPoint {
   /**
@@ -38,17 +39,18 @@ public class DataPoint {
   public List<Integer> recoveredList;
   public static String[] labels;
   public static int time = 94;
-  
+
   /**
    * Constructor for DataPoint with all possible args
+   * 
    * @param key
    * @param testNum
    * @param confirmedList
    * @param deathsList
    * @param recoveredList
    */
-  public DataPoint(String key, String[] testNum, Integer[] confirmedList, 
-		  Integer[] deathsList, Integer[] recoveredList) {
+  public DataPoint(String key, String[] testNum, Integer[] confirmedList, Integer[] deathsList,
+      Integer[] recoveredList) {
     this.key = key;
     this.dataArray = testNum.clone();
     this.confirmedList = new ArrayList<>(Arrays.asList(confirmedList));
@@ -59,11 +61,12 @@ public class DataPoint {
 
   /**
    * Alternate constructor for DataPoint with data
+   * 
    * @param data
    */
   public DataPoint(DataPoint data) {
 
-	this.key = data.key;
+    this.key = data.key;
     this.dataArray = data.dataArray.clone();
     this.confirmedList = new ArrayList<>(data.confirmedList);
     this.deathsList = new ArrayList<>(data.deathsList);
@@ -73,6 +76,7 @@ public class DataPoint {
 
   /**
    * Alternate constructor for DataPoint with key and data
+   * 
    * @param key
    * @param data
    */
@@ -88,6 +92,7 @@ public class DataPoint {
 
   /**
    * gets city
+   * 
    * @return city name
    */
   public String getCity() {
@@ -96,6 +101,7 @@ public class DataPoint {
 
   /**
    * gets state
+   * 
    * @return state name
    */
   public String getState() {
@@ -104,6 +110,7 @@ public class DataPoint {
 
   /**
    * gets country
+   * 
    * @return country name
    */
   public String getCountry() {
@@ -112,6 +119,7 @@ public class DataPoint {
 
   /**
    * gets latitude
+   * 
    * @return latitude
    */
   public Double getLat() {
@@ -126,6 +134,7 @@ public class DataPoint {
 
   /**
    * gets longitude
+   * 
    * @return longitude
    */
   public Double getLon() {
@@ -139,6 +148,7 @@ public class DataPoint {
 
   /**
    * gets confirmed
+   * 
    * @return confirmed cases
    */
   public int getConfirmed() {
@@ -147,6 +157,7 @@ public class DataPoint {
 
   /**
    * gets deaths
+   * 
    * @return number of deaths
    */
   public int getDeaths() {
@@ -155,6 +166,7 @@ public class DataPoint {
 
   /**
    * gets recovered
+   * 
    * @return number of recovered cases
    */
   public int getRecovered() {
@@ -184,6 +196,7 @@ public class DataPoint {
 
   /**
    * Increments all aspects of location's data appropriately based on new data
+   * 
    * @param data
    */
   public void increment(DataPoint data) {
@@ -200,7 +213,8 @@ public class DataPoint {
   }
 
   /**
-   * Removes empty city, state, or country values 
+   * Removes empty city, state, or country values
+   * 
    * @param city
    * @param state
    * @param country
@@ -217,14 +231,10 @@ public class DataPoint {
   }
 
   /**
-   * toString method
-   * returns key
+   * toString method returns key
    */
   @Override
   public String toString() {
     return key;
   }
-
-
-
 }

@@ -23,7 +23,6 @@ import java.util.List;
 /**
  * Abstract class that represent a generic Trie, an implementation of a data structure that sorts by
  * prefix
- *
  */
 public abstract class Trie<K, S>{
   protected Node root; // the root of the tree
