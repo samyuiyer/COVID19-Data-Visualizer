@@ -48,7 +48,6 @@ public class DataManager {
                 dp = new DataPoint(split[0], data, confrimed, deaths, recovered);
                 gt.insert(split[0], dp);
               } catch (Exception e) {
-                System.out.println("bad");
               }
             }
             s.close();
@@ -57,6 +56,7 @@ public class DataManager {
       }
     } catch (Exception e) {
       labels = new String[101];
+      System.out.println("bad");
       return false;
     }
     return true;

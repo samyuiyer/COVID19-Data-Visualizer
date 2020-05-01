@@ -52,11 +52,7 @@ public class DisplayManager extends DisplayMode {
 
   @Override
   public Node getDisplayPane() {
-    if (load) {
-      return displayNode;
-    } else {
-      return new Label("Bad Input File(s)");
-    }
+    return displayNode;
   }
 
   @Override
@@ -79,6 +75,8 @@ public class DisplayManager extends DisplayMode {
     displayModes[2] = new Graph(dm);
     displayNode.setCenter(displayModes[0].getDisplayPane());
     settingsNode.setCenter(displayModes[0].getSettingsPane());
+    if (!load)
+      displayNode.setCenter(new Label("Bad Input File(s)"));
   }
 
   private void createMenuBar() {
@@ -235,8 +233,8 @@ public class DisplayManager extends DisplayMode {
     // Add all Nodes to VBox
     HBox fileBtns = new HBox();
     fileBtns.getChildren().addAll(loadFileBtn, saveFileBtn);
-    settingsPanel.getChildren().addAll(fileTextField, fileBtns, dspModeComboBox,
-        colorPicker, settingsNode);
+    settingsPanel.getChildren().addAll(fileTextField, fileBtns, dspModeComboBox, colorPicker,
+        settingsNode);
 
     globalSettings = settingsPanel;
     loadFileBtn.setOnAction(e -> {
