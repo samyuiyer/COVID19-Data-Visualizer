@@ -49,9 +49,11 @@ To save a file: The user will input a file name, to which the currently selected
 ## For grader:
 
 Which team members were on same xteam together?
+
 None
 
 Other notes or comments to the grader:
+
 For a description on how to use this program, click "Help" in the upper menu bar, and then "Tutorial". 
 
 ## Future Work:
