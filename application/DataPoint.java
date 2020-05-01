@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
 /**
  * DataPoint represents various aspects of COVID-19 data at a particular location. 
  * Among these are death counts, confirmed cases counts, and recovered counts.  
