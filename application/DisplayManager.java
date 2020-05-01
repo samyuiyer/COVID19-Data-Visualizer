@@ -119,6 +119,8 @@ public class DisplayManager extends DisplayMode {
       public void handle(ActionEvent arg0) {
         displayNode.setCenter(displayModes[0].getDisplayPane());
         settingsNode.setCenter(displayModes[0].getSettingsPane());
+        if (!load)
+          displayNode.setCenter(new Label("Bad Input File(s)"));
         dspModeComboBox.setPromptText("Table Mode");
       }
     });
@@ -128,6 +130,8 @@ public class DisplayManager extends DisplayMode {
       public void handle(ActionEvent arg0) {
         displayNode.setCenter(displayModes[1].getDisplayPane());
         settingsNode.setCenter(displayModes[1].getSettingsPane());
+        if (!load)
+          displayNode.setCenter(new Label("Bad Input File(s)"));
         dspModeComboBox.setPromptText("Map Mode");
       }
     });
@@ -137,6 +141,8 @@ public class DisplayManager extends DisplayMode {
       public void handle(ActionEvent arg0) {
         displayNode.setCenter(displayModes[2].getDisplayPane());
         settingsNode.setCenter(displayModes[2].getSettingsPane());
+        if (!load)
+          displayNode.setCenter(new Label("Bad Input File(s)"));
         dspModeComboBox.setPromptText("Graph Mode");
       }
     });
@@ -173,32 +179,24 @@ public class DisplayManager extends DisplayMode {
 
     // Setup Listeners and EventHandlers
 
-    colorPicker.setOnAction(new EventHandler<ActionEvent>() {
-      @Override
-      public void handle(ActionEvent arg0) {
+    colorPicker.setOnAction(e -> {
         settingsPanel
             .setStyle("-fx-background-color: #" + colorPicker.getValue().toString().substring(2));
-      }
     });
 
     dspModeComboBox.getSelectionModel().selectedItemProperty()
-        .addListener(new ChangeListener<String>() {
-          public void changed(ObservableValue<? extends String> observable, String oldValue,
-              String newValue) {
-            if (newValue.equals("Table Mode")) {
-              displayNode.setCenter(displayModes[0].getDisplayPane());
-              settingsNode.setCenter(displayModes[0].getSettingsPane());
-            } else if (newValue.equals("Map Mode")) {
-              displayNode.setCenter(displayModes[1].getDisplayPane());
-              settingsNode.setCenter(displayModes[1].getSettingsPane());
-            } else if (newValue.equals("Graph Mode")) {
-              displayNode.setCenter(displayModes[2].getDisplayPane());
-              settingsNode.setCenter(displayModes[2].getSettingsPane());
-            }
+        .addListener((observable, oldValue, newValue) -> {
+          if (newValue.equals("Table Mode")) {
+            setMode(0);
+          } else if (newValue.equals("Map Mode")) {
+            setMode(1);
+          } else if (newValue.equals("Graph Mode")) {
+            setMode(2);
           }
         });
 
     fileTextField.focusedProperty().addListener(new ChangeListener<Boolean>() {
+
       @Override
       public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue,
           Boolean newValue) {
@@ -214,19 +212,13 @@ public class DisplayManager extends DisplayMode {
     });
 
     dspModeComboBox.getSelectionModel().selectedItemProperty()
-        .addListener(new ChangeListener<String>() {
-          public void changed(ObservableValue<? extends String> observable, String oldValue,
-              String newValue) {
-            if (newValue.equals("Table Mode")) {
-              displayNode.setCenter(displayModes[0].getDisplayPane());
-              settingsNode.setCenter(displayModes[0].getSettingsPane());
-            } else if (newValue.equals("Map Mode")) {
-              displayNode.setCenter(displayModes[1].getDisplayPane());
-              settingsNode.setCenter(displayModes[1].getSettingsPane());
-            } else if (newValue.equals("Graph Mode")) {
-              displayNode.setCenter(displayModes[2].getDisplayPane());
-              settingsNode.setCenter(displayModes[2].getSettingsPane());
-            }
+        .addListener((o, oldValue, newValue) -> {
+          if (newValue.equals("Table Mode")) {
+            setMode(0);
+          } else if (newValue.equals("Map Mode")) {
+            setMode(1);
+          } else if (newValue.equals("Graph Mode")) {
+            setMode(2);
           }
         });
 
@@ -238,6 +230,7 @@ public class DisplayManager extends DisplayMode {
 
     globalSettings = settingsPanel;
     loadFileBtn.setOnAction(e -> {
+      displayNode.setCenter(new Label("Loading File(s)... \r\n Please wait."));
       load = dm.loadTries(fileTextField.getText());
       createDisplayModes();
     });
@@ -261,6 +254,13 @@ public class DisplayManager extends DisplayMode {
 
       }
     });
+  }
+
+  private void setMode(int modeNum) {
+    displayNode.setCenter(displayModes[modeNum].getDisplayPane());
+    settingsNode.setCenter(displayModes[modeNum].getSettingsPane());
+    if (!load)
+      displayNode.setCenter(new Label("Bad Input File(s)"));
   }
 
   private void exitProgram() {
