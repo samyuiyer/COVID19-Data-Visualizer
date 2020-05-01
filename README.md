@@ -19,11 +19,17 @@ This project displays statistics related to coronavirus to provide a better unde
 
 The user can choose between various modes to display the data (map, table, graph), as well as select which portions of data are shown with the ability to filter by timeframe and location.
 
-#### Graph Mode:
-
-The user can also extrapolate the data into the future and save the result to a CSV file.
-
 Data will be downloaded in CSV format from the 2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE [(link to data)](https://github.com/CSSEGISandData/COVID-19).
+
+#### Table Mode
+In this mode, the number of COVID-19 deaths and recovered COVID-19 patients are displayed for all locations. Clicking on a column name ("City", "Province/State", "Region", etc.) rearranges the table such that the values in that column are sorted. Clicking once sorts from A-Z order, clicking once more sorts from Z-A order, and clicking a third time clears that column altogether. Additionally, users can filter by names of specific cities, states, or countries in the Filter fields in the left pane. Selecting "Set Filter" after typing in the desired filter will apply selected filters to visible data. 
+
+### Map Mode
+In this mode, the various aspects of numerical COVID-19 data are displayed as dots, with the size of the dots pertaining to the size of the number they represent. The dots are placed in the location which they reference. The various checkboxes and radio buttons in the left panel allow for further customization, and the "Choose Time" slider enables users to select the end point in time for which to display data. 
+
+### Graph Mode
+In this mode, the various aspects of numerical COVID-19 data are 
+
 
 ## For grader:
 
