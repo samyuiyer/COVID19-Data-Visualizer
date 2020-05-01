@@ -1,0 +1,3584 @@
+City,State,Country,Confirmed,Dead,Recovered
+,,Global,3834898,256599,816685
+,,Benin,54,1,27
+,,Papua New Guinea,8,0,0
+,,Angola,25,2,6
+,,Cambodia,122,0,117
+,,Sudan,213,17,19
+,,Kazakhstan,2601,25,646
+,,Paraguay,228,9,85
+,,Portugal,23392,880,1277
+,,Syria,42,3,11
+,,Bahamas,78,11,15
+,,Grenada,18,0,7
+,,Greece,2506,130,577
+,,Latvia,804,12,267
+,,Mongolia,37,0,9
+,,Iran,89328,5650,68193
+,,Morocco,3897,159,537
+,,Mali,370,21,91
+,,Panama,5538,159,338
+,,Guatemala,473,13,45
+,,Guyana,73,7,12
+,,Iraq,1763,86,1224
+,,Chile,12858,181,6746
+,,Laos,19,0,7
+,,Nepal,49,0,12
+,,Argentina,3780,185,1030
+,,Seychelles,11,0,6
+,,Tanzania,299,10,48
+,,Ukraine,8125,201,782
+,,Ghana,1279,10,134
+,,Zambia,84,3,37
+,,Belize,18,2,5
+,,Congo (Brazzaville),200,6,19
+,,Holy See,9,0,2
+,,Bahrain,2588,8,1160
+,,India,26283,825,5939
+,,Canada,45491,2547,16013
+,New Brunswick,Canada,118,0,0
+,Recovered,Canada,0,0,0
+,Northwest Territories,Canada,5,0,0
+,Grand Princess,Canada,-1,-1,0
+,Manitoba,Canada,267,6,0
+,Prince Edward Island,Canada,26,0,0
+,Alberta,Canada,4233,73,0
+,Quebec,Canada,23267,1446,0
+,British Columbia,Canada,1948,100,0
+,Saskatchewan,Canada,349,4,0
+,Yukon,Canada,11,0,0
+,Nova Scotia,Canada,-1,-1,0
+,Ontario,Canada,15012,916,0
+,Diamond Princess,Canada,0,1,0
+,Newfoundland and Labrador,Canada,257,3,0
+,,Maldives,177,0,17
+,,Guinea-Bissau,52,0,3
+,,Turkey,107773,2706,25582
+,,Belgium,45325,6917,10417
+,,Namibia,16,0,7
+,,Finland,4475,186,2500
+,,North Macedonia,1367,59,374
+,,South Africa,4361,86,1473
+,,Trinidad and Tobago,115,8,53
+,,Central African Republic,16,0,10
+,,Georgia,456,5,139
+,,Jamaica,305,7,28
+,,Peru,25331,700,7797
+,,Saint Kitts and Nevis,15,0,2
+,,Germany,156513,5877,109800
+,,Yemen,1,0,1
+,,Eritrea,39,0,13
+,,Fiji,18,0,10
+,,Guinea,996,7,208
+,,Chad,46,0,15
+,,Somalia,390,18,8
+,,Sao Tome and Principe,4,0,0
+,,Madagascar,123,0,62
+,,Thailand,2907,51,2547
+,,Equatorial Guinea,258,1,7
+,,Libya,61,2,18
+,,Costa Rica,693,6,242
+,,Sweden,18177,2192,1005
+,,Taiwan*,429,6,275
+,,Vietnam,270,0,225
+,,West Bank and Gaza,342,2,92
+,,Malawi,33,3,4
+,,Andorra,738,40,344
+,,Liechtenstein,81,1,55
+,,Poland,11273,524,2126
+,,Bulgaria,1247,55,197
+,,Jordan,444,7,332
+,,Kuwait,2892,19,656
+,,Nigeria,1182,35,222
+,,Tunisia,939,38,207
+,,Croatia,2016,54,1034
+,,Sri Lanka,460,7,118
+,,Uruguay,596,14,370
+,,Timor-Leste,24,0,2
+,,South,10728,242,8717
+,Korea,South,10728,242,8717
+,,United Kingdom,149569,20381,774
+,Cayman Islands,United Kingdom,70,1,8
+,Gibraltar,United Kingdom,136,0,131
+,Montserrat,United Kingdom,11,1,2
+,Falkland Islands (Malvinas),United Kingdom,13,0,11
+,Channel Islands,United Kingdom,525,35,332
+,Isle of Man,United Kingdom,308,18,243
+,British Virgin Islands,United Kingdom,6,1,3
+,Turks and Caicos Islands,United Kingdom,11,1,4
+,Bermuda,United Kingdom,109,5,39
+,Anguilla,United Kingdom,3,0,1
+,,United Arab Emirates,9813,71,1887
+,,Kenya,343,14,98
+,,Switzerland,28894,1599,21300
+,,Spain,223759,22902,95708
+,,Brunei,138,1,121
+,,Djibouti,1008,2,373
+,,Lebanon,704,24,143
+,,Azerbaijan,1617,21,1080
+,,Cuba,1337,51,437
+,,Liberia,120,11,25
+,,Venezuela,323,10,132
+,,Burkina Faso,629,41,442
+,,Mauritania,7,1,6
+,,Saint Lucia,15,0,15
+,,Israel,15298,199,6435
+,,San Marino,513,40,64
+,,Australia,6694,80,4223
+,Western Australia,Australia,549,8,478
+,New South Wales,Australia,2994,33,2193
+,Tasmania,Australia,207,10,117
+,Victoria,Australia,1346,16,133
+,Australian Capital Territory,Australia,106,3,98
+,Northern Territory,Australia,28,0,0
+,Queensland,Australia,1026,6,803
+,South Australia,Australia,438,4,401
+,,Estonia,1635,46,228
+,,Cameroon,1518,53,697
+,,Cyprus,810,14,148
+,,Malaysia,5742,98,3762
+,,Iceland,1790,10,1570
+,,Oman,1905,10,329
+,,MS Zaandam,9,2,0
+,,Armenia,1677,28,803
+,,Gabon,176,3,30
+,,Austria,15148,536,12103
+,,Mozambique,70,0,12
+,,El Salvador,274,8,75
+,,Monaco,94,4,42
+,,Luxembourg,3711,85,3088
+,,Brazil,59324,4057,29160
+,,Algeria,3256,419,1479
+,,Cabo Verde,90,1,1
+,,Slovenia,1388,81,219
+,,Diamond Princess,712,13,645
+,,US,1876308,107510,100372
+,North Carolina,US,8768,305,0
+Franklin,North Carolina,US,92,14,0
+Haywood,North Carolina,US,5,0,0
+Johnston,North Carolina,US,130,11,0
+Orange,North Carolina,US,209,10,0
+McDowell,North Carolina,US,21,1,0
+New Hanover,North Carolina,US,76,3,0
+Iredell,North Carolina,US,98,4,0
+Guilford,North Carolina,US,304,19,0
+Carteret,North Carolina,US,27,3,0
+Lincoln,North Carolina,US,25,0,0
+Hertford,North Carolina,US,32,1,0
+Camden,North Carolina,US,0,0,0
+Brunswick,North Carolina,US,39,2,0
+Burke,North Carolina,US,86,8,0
+Cherokee,North Carolina,US,16,1,0
+Macon,North Carolina,US,2,1,0
+Montgomery,North Carolina,US,21,1,0
+Beaufort,North Carolina,US,31,0,0
+Cumberland,North Carolina,US,199,6,0
+Wilkes,North Carolina,US,18,1,0
+Wayne,North Carolina,US,618,8,0
+Mecklenburg,North Carolina,US,1450,41,0
+Granville,North Carolina,US,126,5,0
+Yancey,North Carolina,US,0,0,0
+Columbus,North Carolina,US,87,5,0
+Unassigned,North Carolina,US,1,0,0
+Avery,North Carolina,US,0,0,0
+Person,North Carolina,US,19,0,0
+Pender,North Carolina,US,11,0,0
+Sampson,North Carolina,US,36,0,0
+Stanly,North Carolina,US,28,4,0
+Nash,North Carolina,US,80,1,0
+Vance,North Carolina,US,41,2,0
+Union,North Carolina,US,195,7,0
+Washington,North Carolina,US,25,2,0
+Gaston,North Carolina,US,132,3,0
+Caswell,North Carolina,US,15,0,0
+Hyde,North Carolina,US,1,0,0
+Jones,North Carolina,US,12,2,0
+Alleghany,North Carolina,US,2,0,0
+Mitchell,North Carolina,US,5,0,0
+Chowan,North Carolina,US,9,0,0
+Forsyth,North Carolina,US,152,5,0
+Chatham,North Carolina,US,211,6,0
+Currituck,North Carolina,US,2,0,0
+Tyrrell,North Carolina,US,5,0,0
+Craven,North Carolina,US,39,4,0
+Cabarrus,North Carolina,US,249,8,0
+Martin,North Carolina,US,16,0,0
+Caldwell,North Carolina,US,30,0,0
+Out of NC,North Carolina,US,0,0,0
+Halifax,North Carolina,US,53,1,0
+Yadkin,North Carolina,US,12,1,0
+Perquimans,North Carolina,US,10,0,0
+Pitt,North Carolina,US,143,2,0
+Henderson,North Carolina,US,156,14,0
+Greene,North Carolina,US,16,0,0
+Northampton,North Carolina,US,83,3,0
+Graham,North Carolina,US,0,0,0
+Alamance,North Carolina,US,77,1,0
+Jackson,North Carolina,US,5,0,0
+Swain,North Carolina,US,0,0,0
+Watauga,North Carolina,US,8,0,0
+Pamlico,North Carolina,US,7,0,0
+Transylvania,North Carolina,US,7,0,0
+Robeson,North Carolina,US,92,3,0
+Moore,North Carolina,US,108,6,0
+Onslow,North Carolina,US,44,1,0
+Rutherford,North Carolina,US,108,5,0
+Randolph,North Carolina,US,118,2,0
+Clay,North Carolina,US,6,0,0
+Bertie,North Carolina,US,40,1,0
+Buncombe,North Carolina,US,52,3,0
+Dare,North Carolina,US,15,1,0
+Harnett,North Carolina,US,119,5,0
+Lenoir,North Carolina,US,47,2,0
+Stokes,North Carolina,US,11,0,0
+Davie,North Carolina,US,29,2,0
+Durham,North Carolina,US,546,11,0
+Richmond,North Carolina,US,36,2,0
+Surry,North Carolina,US,12,0,0
+Madison,North Carolina,US,1,0,0
+Alexander,North Carolina,US,4,0,0
+Bladen,North Carolina,US,7,0,0
+Scotland,North Carolina,US,21,0,0
+Cleveland,North Carolina,US,46,2,0
+Edgecombe,North Carolina,US,77,1,0
+Ashe,North Carolina,US,4,0,0
+Rowan,North Carolina,US,342,20,0
+Pasquotank,North Carolina,US,34,1,0
+Warren,North Carolina,US,4,0,0
+Rockingham,North Carolina,US,23,2,0
+Davidson,North Carolina,US,120,4,0
+Anson,North Carolina,US,20,0,0
+Hoke,North Carolina,US,46,0,0
+Wilson,North Carolina,US,148,6,0
+Lee,North Carolina,US,101,0,0
+Wake,North Carolina,US,651,13,0
+Catawba,North Carolina,US,50,1,0
+Polk,North Carolina,US,13,0,0
+Duplin,North Carolina,US,61,0,0
+Gates,North Carolina,US,7,0,0
+,Indiana,US,14399,786,0
+Franklin,Indiana,US,94,7,0
+Jay,Indiana,US,11,0,0
+Jackson,Indiana,US,108,0,0
+Lake,Indiana,US,1515,67,0
+Fayette,Indiana,US,25,4,0
+Orange,Indiana,US,57,6,0
+Parke,Indiana,US,12,0,0
+Boone,Indiana,US,182,19,0
+Knox,Indiana,US,20,0,0
+Elkhart,Indiana,US,238,4,0
+Perry,Indiana,US,6,0,0
+Howard,Indiana,US,83,5,0
+LaPorte,Indiana,US,156,5,0
+Owen,Indiana,US,22,1,0
+Tippecanoe,Indiana,US,71,2,0
+Pike,Indiana,US,1,0,0
+Floyd,Indiana,US,163,11,0
+LaGrange,Indiana,US,21,1,0
+Randolph,Indiana,US,14,2,0
+Kosciusko,Indiana,US,27,1,0
+Clay,Indiana,US,19,1,0
+Noble,Indiana,US,51,5,0
+Montgomery,Indiana,US,30,0,0
+Steuben,Indiana,US,21,1,0
+Daviess,Indiana,US,43,9,0
+Marshall,Indiana,US,26,1,0
+Tipton,Indiana,US,17,1,0
+Allen,Indiana,US,427,26,0
+Delaware,Indiana,US,144,11,0
+Spencer,Indiana,US,5,0,0
+Clinton,Indiana,US,30,1,0
+DeKalb,Indiana,US,15,1,0
+Wayne,Indiana,US,31,3,0
+Newton,Indiana,US,44,5,0
+Harrison,Indiana,US,115,4,0
+Sullivan,Indiana,US,12,0,0
+Bartholomew,Indiana,US,198,10,0
+Shelby,Indiana,US,176,6,0
+Unassigned,Indiana,US,0,0,0
+Wells,Indiana,US,6,0,0
+Dubois,Indiana,US,17,0,0
+Fulton,Indiana,US,10,0,0
+Brown,Indiana,US,15,1,0
+Cass,Indiana,US,315,1,0
+Madison,Indiana,US,395,43,0
+Vermillion,Indiana,US,7,0,0
+Wabash,Indiana,US,12,1,0
+Fountain,Indiana,US,9,2,0
+Hancock,Indiana,US,177,7,0
+Huntington,Indiana,US,6,2,0
+St. Joseph,Indiana,US,553,11,0
+Jennings,Indiana,US,71,1,0
+Vanderburgh,Indiana,US,113,1,0
+Pulaski,Indiana,US,9,0,0
+Union,Indiana,US,7,0,0
+Washington,Indiana,US,40,0,0
+Decatur,Indiana,US,194,26,0
+Warren,Indiana,US,11,1,0
+Morgan,Indiana,US,133,4,0
+Clark,Indiana,US,223,13,0
+Vigo,Indiana,US,62,5,0
+Hamilton,Indiana,US,699,50,0
+Porter,Indiana,US,210,5,0
+Out of IN,Indiana,US,0,0,0
+Hendricks,Indiana,US,611,26,0
+Henry,Indiana,US,32,1,0
+Rush,Indiana,US,28,1,0
+Grant,Indiana,US,113,6,0
+Putnam,Indiana,US,58,4,0
+Johnson,Indiana,US,530,50,0
+Adams,Indiana,US,7,1,0
+Jefferson,Indiana,US,22,0,0
+Lawrence,Indiana,US,92,9,0
+Warrick,Indiana,US,80,12,0
+Monroe,Indiana,US,120,6,0
+Benton,Indiana,US,6,0,0
+Martin,Indiana,US,7,0,0
+Gibson,Indiana,US,6,0,0
+Switzerland,Indiana,US,14,0,0
+Ripley,Indiana,US,89,5,0
+Miami,Indiana,US,42,0,0
+Whitley,Indiana,US,16,1,0
+Carroll,Indiana,US,9,1,0
+Jasper,Indiana,US,34,1,0
+Posey,Indiana,US,9,0,0
+White,Indiana,US,18,0,0
+Crawford,Indiana,US,16,0,0
+Blackford,Indiana,US,7,1,0
+Ohio,Indiana,US,3,0,0
+Dearborn,Indiana,US,84,5,0
+Marion,Indiana,US,4727,255,0
+Starke,Indiana,US,13,1,0
+Greene,Indiana,US,46,4,0
+Scott,Indiana,US,36,2,0
+,Wyoming,US,491,7,0
+Niobrara,Wyoming,US,2,0,0
+Big Horn,Wyoming,US,2,0,0
+Weston,Wyoming,US,0,0,0
+Laramie,Wyoming,US,124,0,0
+Out of WY,Wyoming,US,0,0,0
+Lincoln,Wyoming,US,9,0,0
+Fremont,Wyoming,US,83,0,0
+Albany,Wyoming,US,6,0,0
+Washakie,Wyoming,US,8,0,0
+Johnson,Wyoming,US,15,1,0
+Platte,Wyoming,US,0,0,0
+Campbell,Wyoming,US,23,0,0
+Carbon,Wyoming,US,4,0,0
+Teton,Wyoming,US,95,0,0
+Park,Wyoming,US,1,0,0
+Sheridan,Wyoming,US,16,0,0
+Natrona,Wyoming,US,49,0,0
+Converse,Wyoming,US,16,0,0
+Uinta,Wyoming,US,7,0,0
+Crook,Wyoming,US,5,0,0
+Unassigned,Wyoming,US,0,6,0
+Sublette,Wyoming,US,3,0,0
+Goshen,Wyoming,US,4,0,0
+Hot Springs,Wyoming,US,3,0,0
+Sweetwater,Wyoming,US,16,0,0
+,Northern Mariana Islands,US,14,2,0
+,Utah,US,3948,41,0
+Daggett,Utah,US,0,0,0
+Garfield,Utah,US,0,0,0
+Millard,Utah,US,0,0,0
+Iron,Utah,US,0,0,0
+Sanpete,Utah,US,0,0,0
+Summit,Utah,US,355,0,0
+Tooele,Utah,US,52,0,0
+Kane,Utah,US,0,0,0
+Utah,Utah,US,725,7,0
+Washington,Utah,US,0,0,0
+Davis,Utah,US,268,2,0
+Morgan,Utah,US,0,0,0
+Central Utah,Utah,US,21,0,0
+Out of UT,Utah,US,0,0,0
+Weber,Utah,US,0,0,0
+Beaver,Utah,US,0,0,0
+Duchesne,Utah,US,0,0,0
+Rich,Utah,US,0,0,0
+Emery,Utah,US,0,0,0
+San Juan,Utah,US,40,2,0
+Salt Lake,Utah,US,2051,24,0
+TriCounty,Utah,US,9,0,0
+Uintah,Utah,US,0,0,0
+Wasatch,Utah,US,132,1,0
+Southeast Utah,Utah,US,11,0,0
+Carbon,Utah,US,0,0,0
+Juab,Utah,US,0,0,0
+Grand,Utah,US,0,0,0
+Wayne,Utah,US,0,0,0
+Piute,Utah,US,0,0,0
+Bear River,Utah,US,58,1,0
+Box Elder,Utah,US,0,0,0
+Unassigned,Utah,US,0,0,0
+Sevier,Utah,US,0,0,0
+Southwest Utah,Utah,US,83,2,0
+Weber-Morgan,Utah,US,143,2,0
+Cache,Utah,US,0,0,0
+,Guam,US,141,5,0
+,Diamond Princess,US,49,0,0
+,Arizona,US,6286,273,0
+Graham,Arizona,US,6,0,0
+Cochise,Arizona,US,36,0,0
+La Paz,Arizona,US,7,1,0
+Pima,Arizona,US,1090,76,0
+Navajo,Arizona,US,612,18,0
+Apache,Arizona,US,314,5,0
+Out of AZ,Arizona,US,0,0,0
+Coconino,Arizona,US,402,38,0
+Gila,Arizona,US,11,0,0
+Mohave,Arizona,US,81,3,0
+Pinal,Arizona,US,332,9,0
+Yavapai,Arizona,US,76,1,0
+Unassigned,Arizona,US,0,0,0
+Yuma,Arizona,US,53,1,0
+Santa Cruz,Arizona,US,30,0,0
+Maricopa,Arizona,US,3234,121,0
+Greenlee,Arizona,US,2,0,0
+,Montana,US,445,14,0
+Treasure,Montana,US,0,0,0
+Judith Basin,Montana,US,0,0,0
+McCone,Montana,US,0,0,0
+Pondera,Montana,US,2,0,0
+Prairie,Montana,US,0,0,0
+Gallatin,Montana,US,146,0,0
+Lake,Montana,US,5,0,0
+Carter,Montana,US,0,0,0
+Golden Valley,Montana,US,3,0,0
+Richland,Montana,US,3,0,0
+Rosebud,Montana,US,0,0,0
+Chouteau,Montana,US,0,0,0
+Missoula,Montana,US,39,1,0
+Silver Bow,Montana,US,11,0,0
+Yellowstone,Montana,US,77,1,0
+Custer,Montana,US,0,0,0
+Lincoln,Montana,US,7,1,0
+Ravalli,Montana,US,5,0,0
+Roosevelt,Montana,US,7,0,0
+Wheatland,Montana,US,1,0,0
+Glacier,Montana,US,4,0,0
+Musselshell,Montana,US,1,0,0
+Sanders,Montana,US,0,0,0
+Petroleum,Montana,US,0,0,0
+Park,Montana,US,7,0,0
+Sheridan,Montana,US,0,0,0
+Flathead,Montana,US,37,2,0
+Valley,Montana,US,0,0,0
+Unassigned,Montana,US,0,0,0
+Powell,Montana,US,0,0,0
+Dawson,Montana,US,0,0,0
+Madison,Montana,US,8,1,0
+Hill,Montana,US,1,0,0
+Garfield,Montana,US,0,0,0
+Fergus,Montana,US,0,0,0
+Fallon,Montana,US,0,0,0
+Big Horn,Montana,US,3,0,0
+Liberty,Montana,US,1,0,0
+Phillips,Montana,US,0,0,0
+Granite,Montana,US,0,0,0
+Broadwater,Montana,US,4,0,0
+Beaverhead,Montana,US,1,0,0
+Meagher,Montana,US,1,0,0
+Stillwater,Montana,US,1,0,0
+Powder River,Montana,US,0,0,0
+Cascade,Montana,US,14,2,0
+Out of MT,Montana,US,0,0,0
+Lewis and Clark,Montana,US,16,0,0
+Mineral,Montana,US,0,0,0
+Jefferson,Montana,US,2,0,0
+Carbon,Montana,US,6,0,0
+Sweet Grass,Montana,US,0,0,0
+Teton,Montana,US,0,0,0
+Deer Lodge,Montana,US,3,0,0
+Blaine,Montana,US,0,0,0
+Daniels,Montana,US,0,0,0
+Toole,Montana,US,29,6,0
+Wibaux,Montana,US,0,0,0
+,Virgin Islands,US,55,3,0
+,Kentucky,US,3915,205,0
+Franklin,Kentucky,US,15,0,0
+Calloway,Kentucky,US,29,1,0
+Letcher,Kentucky,US,1,0,0
+Bath,Kentucky,US,4,0,0
+Carter,Kentucky,US,4,0,0
+Fayette,Kentucky,US,235,8,0
+Boone,Kentucky,US,103,2,0
+Fleming,Kentucky,US,2,0,0
+Pike,Kentucky,US,8,2,0
+Floyd,Kentucky,US,6,0,0
+Hardin,Kentucky,US,34,0,0
+Lincoln,Kentucky,US,4,1,0
+Kenton,Kentucky,US,226,16,0
+Nelson,Kentucky,US,17,0,0
+Muhlenberg,Kentucky,US,96,4,0
+Breckinridge,Kentucky,US,7,0,0
+Montgomery,Kentucky,US,10,0,0
+Boyd,Kentucky,US,33,3,0
+Laurel,Kentucky,US,14,2,0
+Daviess,Kentucky,US,147,3,0
+Cumberland,Kentucky,US,4,0,0
+Allen,Kentucky,US,7,0,0
+Spencer,Kentucky,US,10,0,0
+Webster,Kentucky,US,19,0,0
+Wayne,Kentucky,US,6,0,0
+Russell,Kentucky,US,16,2,0
+Logan,Kentucky,US,8,0,0
+Mason,Kentucky,US,6,0,0
+Robertson,Kentucky,US,0,0,0
+Hart,Kentucky,US,2,0,0
+Unassigned,Kentucky,US,58,0,0
+Leslie,Kentucky,US,2,0,0
+Bell,Kentucky,US,0,0,0
+Rockcastle,Kentucky,US,11,0,0
+Owsley,Kentucky,US,3,0,0
+Hancock,Kentucky,US,6,0,0
+Union,Kentucky,US,8,0,0
+Washington,Kentucky,US,5,0,0
+Morgan,Kentucky,US,1,0,0
+Elliott,Kentucky,US,0,0,0
+Butler,Kentucky,US,103,3,0
+Crittenden,Kentucky,US,3,1,0
+Simpson,Kentucky,US,23,2,0
+Pendleton,Kentucky,US,5,0,0
+Johnson,Kentucky,US,1,0,0
+Jefferson,Kentucky,US,1121,81,0
+Lawrence,Kentucky,US,1,0,0
+Lyon,Kentucky,US,14,3,0
+Martin,Kentucky,US,3,0,0
+Caldwell,Kentucky,US,13,0,0
+Whitley,Kentucky,US,10,0,0
+Carroll,Kentucky,US,2,0,0
+Edmonson,Kentucky,US,13,0,0
+Todd,Kentucky,US,10,0,0
+Woodford,Kentucky,US,19,0,0
+Henderson,Kentucky,US,45,1,0
+Trigg,Kentucky,US,5,0,0
+Mercer,Kentucky,US,11,0,0
+Scott,Kentucky,US,23,0,0
+Garrard,Kentucky,US,2,0,0
+Meade,Kentucky,US,6,1,0
+Magoffin,Kentucky,US,0,0,0
+Gallatin,Kentucky,US,1,0,0
+Jackson,Kentucky,US,58,5,0
+Carlisle,Kentucky,US,1,0,0
+Knox,Kentucky,US,5,0,0
+Larue,Kentucky,US,5,0,0
+Perry,Kentucky,US,6,0,0
+Owen,Kentucky,US,0,0,0
+Knott,Kentucky,US,3,0,0
+Greenup,Kentucky,US,11,0,0
+Clay,Kentucky,US,1,0,0
+McCreary,Kentucky,US,11,0,0
+Taylor,Kentucky,US,6,0,0
+Out of KY,Kentucky,US,0,0,0
+Campbell,Kentucky,US,73,7,0
+Nicholas,Kentucky,US,1,0,0
+Marshall,Kentucky,US,27,0,0
+Clinton,Kentucky,US,2,0,0
+Bullitt,Kentucky,US,43,2,0
+Graves,Kentucky,US,109,11,0
+Harrison,Kentucky,US,18,0,0
+McCracken,Kentucky,US,34,2,0
+Shelby,Kentucky,US,26,3,0
+Powell,Kentucky,US,1,0,0
+Fulton,Kentucky,US,1,0,0
+McLean,Kentucky,US,11,1,0
+Madison,Kentucky,US,27,1,0
+Oldham,Kentucky,US,24,0,0
+Estill,Kentucky,US,0,0,0
+Hopkins,Kentucky,US,174,19,0
+Jessamine,Kentucky,US,32,0,0
+Wolfe,Kentucky,US,0,0,0
+Pulaski,Kentucky,US,41,2,0
+Rowan,Kentucky,US,2,0,0
+Ballard,Kentucky,US,5,0,0
+Warren,Kentucky,US,184,0,0
+Clark,Kentucky,US,19,0,0
+Trimble,Kentucky,US,2,0,0
+Bourbon,Kentucky,US,7,1,0
+Grayson,Kentucky,US,42,1,0
+Henry,Kentucky,US,4,0,0
+Grant,Kentucky,US,18,3,0
+Hickman,Kentucky,US,2,0,0
+Barren,Kentucky,US,13,0,0
+Adair,Kentucky,US,83,7,0
+Livingston,Kentucky,US,1,0,0
+Harlan,Kentucky,US,0,0,0
+Monroe,Kentucky,US,3,0,0
+Bracken,Kentucky,US,7,0,0
+Menifee,Kentucky,US,3,0,0
+Anderson,Kentucky,US,7,1,0
+Lee,Kentucky,US,0,0,0
+Breathitt,Kentucky,US,2,0,0
+Boyle,Kentucky,US,17,0,0
+Metcalfe,Kentucky,US,0,0,0
+Casey,Kentucky,US,1,0,0
+Lewis,Kentucky,US,3,0,0
+Christian,Kentucky,US,85,3,0
+Ohio,Kentucky,US,38,0,0
+Marion,Kentucky,US,14,0,0
+Green,Kentucky,US,1,0,0
+,California,US,42368,1689,0
+Colusa,California,US,3,0,0
+Solano,California,US,199,4,0
+Mariposa,California,US,0,0,0
+Trinity,California,US,0,0,0
+Humboldt,California,US,53,0,0
+Marin,California,US,212,12,0
+Amador,California,US,8,0,0
+Lake,California,US,6,0,0
+Sierra,California,US,0,0,0
+El Dorado,California,US,42,0,0
+Orange,California,US,1969,38,0
+Contra Costa,California,US,805,25,0
+San Joaquin,California,US,505,24,0
+San Benito,California,US,47,2,0
+Calaveras,California,US,13,0,0
+San Diego,California,US,2943,111,0
+Yolo,California,US,157,13,0
+Kern,California,US,755,4,0
+Out of CA,California,US,0,0,0
+Ventura,California,US,476,16,0
+Shasta,California,US,30,4,0
+Mendocino,California,US,11,0,0
+Napa,California,US,60,2,0
+San Bernardino,California,US,1666,80,0
+Lassen,California,US,0,0,0
+Sacramento,California,US,1019,41,0
+Tuolumne,California,US,3,0,0
+Siskiyou,California,US,5,0,0
+Mono,California,US,24,1,0
+Alpine,California,US,2,0,0
+Stanislaus,California,US,264,5,0
+Fresno,California,US,443,7,0
+Inyo,California,US,19,1,0
+Unassigned,California,US,0,2,0
+Santa Cruz,California,US,115,2,0
+Alameda,California,US,1439,52,0
+Modoc,California,US,0,0,0
+Placer,California,US,139,8,0
+Tehama,California,US,1,1,0
+Plumas,California,US,4,0,0
+Butte,California,US,16,0,0
+Kings,California,US,47,1,0
+Madera,California,US,39,2,0
+Santa Clara,California,US,2040,99,0
+Yuba,California,US,16,1,0
+Del Norte,California,US,2,0,0
+Glenn,California,US,5,0,0
+Nevada,California,US,37,1,0
+San Luis Obispo,California,US,165,1,0
+Merced,California,US,102,3,0
+Sonoma,California,US,217,2,0
+Sutter,California,US,44,3,0
+Santa Barbara,California,US,469,7,0
+San Francisco,California,US,1354,22,0
+Tulare,California,US,491,32,0
+Los Angeles,California,US,19133,895,0
+Imperial,California,US,251,8,0
+Monterey,California,US,169,4,0
+Riverside,California,US,3315,112,0
+San Mateo,California,US,1019,41,0
+,Kansas,US,3135,120,0
+Franklin,Kansas,US,12,0,0
+Stanton,Kansas,US,4,0,0
+Rawlins,Kansas,US,0,0,0
+Hodgeman,Kansas,US,0,0,0
+Haskell,Kansas,US,7,0,0
+Ottawa,Kansas,US,3,0,0
+Lincoln,Kansas,US,0,0,0
+Cherokee,Kansas,US,7,0,0
+Montgomery,Kansas,US,16,2,0
+Smith,Kansas,US,2,0,0
+Lane,Kansas,US,0,0,0
+Allen,Kansas,US,0,0,0
+Rooks,Kansas,US,5,0,0
+Chase,Kansas,US,1,0,0
+Sheridan,Kansas,US,2,0,0
+Cheyenne,Kansas,US,0,0,0
+Russell,Kansas,US,0,0,0
+Douglas,Kansas,US,48,0,0
+Logan,Kansas,US,0,0,0
+Nemaha,Kansas,US,0,0,0
+Labette,Kansas,US,21,0,0
+Linn,Kansas,US,6,0,0
+Unassigned,Kansas,US,0,0,0
+Saline,Kansas,US,19,2,0
+Washington,Kansas,US,0,0,0
+Ellsworth,Kansas,US,0,0,0
+Wichita,Kansas,US,0,0,0
+Ness,Kansas,US,0,0,0
+Mitchell,Kansas,US,2,0,0
+Woodson,Kansas,US,5,0,0
+Osborne,Kansas,US,2,0,0
+Pawnee,Kansas,US,0,0,0
+Butler,Kansas,US,13,0,0
+Thomas,Kansas,US,0,0,0
+Johnson,Kansas,US,424,38,0
+Jefferson,Kansas,US,8,0,0
+Lyon,Kansas,US,176,1,0
+Kiowa,Kansas,US,1,0,0
+Norton,Kansas,US,0,0,0
+Harper,Kansas,US,0,0,0
+Reno,Kansas,US,24,0,0
+Greeley,Kansas,US,0,0,0
+Edwards,Kansas,US,1,0,0
+Trego,Kansas,US,0,0,0
+Cowley,Kansas,US,2,1,0
+Wyandotte,Kansas,US,555,50,0
+Scott,Kansas,US,1,0,0
+Graham,Kansas,US,0,0,0
+Dickinson,Kansas,US,1,0,0
+Elk,Kansas,US,0,0,0
+Meade,Kansas,US,1,0,0
+Stafford,Kansas,US,1,0,0
+Seward,Kansas,US,314,0,0
+Jackson,Kansas,US,1,0,0
+Kearny,Kansas,US,11,0,0
+Barber,Kansas,US,1,0,0
+Ellis,Kansas,US,8,0,0
+Gove,Kansas,US,1,0,0
+Morris,Kansas,US,3,0,0
+Kingman,Kansas,US,0,0,0
+Doniphan,Kansas,US,3,0,0
+Neosho,Kansas,US,2,0,0
+Out of KS,Kansas,US,0,0,0
+Coffey,Kansas,US,48,7,0
+Clay,Kansas,US,4,0,0
+Gray,Kansas,US,2,0,0
+Pratt,Kansas,US,1,0,0
+Jewell,Kansas,US,4,0,0
+Greenwood,Kansas,US,3,0,0
+Pottawatomie,Kansas,US,9,0,0
+Marshall,Kansas,US,0,0,0
+Barton,Kansas,US,9,0,0
+Wallace,Kansas,US,0,0,0
+Finney,Kansas,US,162,1,0
+Geary,Kansas,US,10,0,0
+Brown,Kansas,US,0,0,0
+Phillips,Kansas,US,1,0,0
+Republic,Kansas,US,4,0,0
+Decatur,Kansas,US,0,0,0
+Clark,Kansas,US,1,0,0
+Leavenworth,Kansas,US,169,3,0
+Morton,Kansas,US,2,0,0
+Sumner,Kansas,US,3,1,0
+Hamilton,Kansas,US,2,0,0
+Sherman,Kansas,US,3,0,0
+Atchison,Kansas,US,8,0,0
+Bourbon,Kansas,US,6,1,0
+Riley,Kansas,US,43,0,0
+Chautauqua,Kansas,US,3,0,0
+Comanche,Kansas,US,0,0,0
+Rice,Kansas,US,3,0,0
+Rush,Kansas,US,0,0,0
+Grant,Kansas,US,1,0,0
+Stevens,Kansas,US,6,0,0
+Shawnee,Kansas,US,101,5,0
+Wilson,Kansas,US,1,0,0
+Anderson,Kansas,US,0,0,0
+McPherson,Kansas,US,20,0,0
+Miami,Kansas,US,5,0,0
+Sedgwick,Kansas,US,334,6,0
+Wabaunsee,Kansas,US,10,0,0
+Osage,Kansas,US,5,0,0
+Cloud,Kansas,US,3,0,0
+Crawford,Kansas,US,6,1,0
+Harvey,Kansas,US,5,0,0
+Ford,Kansas,US,419,0,0
+Marion,Kansas,US,5,1,0
+,Delaware,US,3576,112,0
+Kent,Delaware,US,579,18,0
+Out of DE,Delaware,US,0,0,0
+Unassigned,Delaware,US,3,0,0
+New Castle,Delaware,US,1504,52,0
+Sussex,Delaware,US,1490,42,0
+,Florida,US,30839,1055,0
+Franklin,Florida,US,2,0,0
+Pinellas,Florida,US,677,24,0
+Charlotte,Florida,US,202,14,0
+Hardee,Florida,US,10,0,0
+Volusia,Florida,US,432,15,0
+Bradford,Florida,US,42,2,0
+Hendry,Florida,US,64,2,0
+Jackson,Florida,US,13,0,0
+Lake,Florida,US,221,10,0
+Orange,Florida,US,1304,30,0
+Escambia,Florida,US,442,11,0
+Osceola,Florida,US,463,7,0
+Collier,Florida,US,535,15,0
+Leon,Florida,US,208,2,0
+Dixie,Florida,US,6,0,0
+Clay,Florida,US,267,14,0
+Palm Beach,Florida,US,2614,155,0
+Duval,Florida,US,965,18,0
+Taylor,Florida,US,3,0,0
+Gulf,Florida,US,1,0,0
+Walton,Florida,US,35,0,0
+Gilchrist,Florida,US,4,0,0
+Highlands,Florida,US,76,7,0
+Columbia,Florida,US,47,0,0
+Sarasota,Florida,US,318,32,0
+Okaloosa,Florida,US,149,3,0
+Brevard,Florida,US,250,8,0
+Levy,Florida,US,13,0,0
+Unassigned,Florida,US,1,0,0
+Holmes,Florida,US,9,0,0
+Santa Rosa,Florida,US,147,6,0
+Madison,Florida,US,41,2,0
+Nassau,Florida,US,50,0,0
+Flagler,Florida,US,116,2,0
+Broward,Florida,US,4659,162,0
+Liberty,Florida,US,2,0,0
+Manatee,Florida,US,497,42,0
+Union,Florida,US,4,0,0
+Washington,Florida,US,12,0,0
+Sumter,Florida,US,169,12,0
+Glades,Florida,US,5,1,0
+Wakulla,Florida,US,20,1,0
+Baker,Florida,US,20,3,0
+Hillsborough,Florida,US,1041,21,0
+Hamilton,Florida,US,6,0,0
+DeSoto,Florida,US,24,4,0
+Seminole,Florida,US,351,8,0
+Putnam,Florida,US,83,1,0
+Alachua,Florida,US,245,1,0
+Miami-Dade,Florida,US,11005,295,0
+Calhoun,Florida,US,6,0,0
+Jefferson,Florida,US,27,2,0
+Monroe,Florida,US,77,3,0
+Martin,Florida,US,169,5,0
+Lee,Florida,US,944,36,0
+St. Johns,Florida,US,203,4,0
+Citrus,Florida,US,95,9,0
+Gadsden,Florida,US,80,0,0
+Lafayette,Florida,US,1,0,0
+St. Lucie,Florida,US,225,19,0
+Polk,Florida,US,400,18,0
+Okeechobee,Florida,US,9,0,0
+Suwannee,Florida,US,109,11,0
+Bay,Florida,US,63,2,0
+Marion,Florida,US,150,4,0
+Pasco,Florida,US,233,4,0
+Indian River,Florida,US,89,5,0
+Out of FL,Florida,US,0,0,0
+Hernando,Florida,US,89,3,0
+,Pennsylvania,US,41153,1793,0
+Franklin,Pennsylvania,US,181,10,0
+Indiana,Pennsylvania,US,63,4,0
+Bradford,Pennsylvania,US,28,2,0
+Elk,Pennsylvania,US,2,0,0
+Tioga,Pennsylvania,US,14,1,0
+Wyoming,Pennsylvania,US,17,2,0
+Erie,Pennsylvania,US,79,0,0
+Cameron,Pennsylvania,US,1,0,0
+Northumberland,Pennsylvania,US,87,0,0
+Fayette,Pennsylvania,US,79,4,0
+Perry,Pennsylvania,US,26,1,0
+Pike,Pennsylvania,US,347,12,0
+Lackawanna,Pennsylvania,US,772,63,0
+Westmoreland,Pennsylvania,US,360,19,0
+Potter,Pennsylvania,US,4,0,0
+Juniata,Pennsylvania,US,77,0,0
+Snyder,Pennsylvania,US,32,1,0
+McKean,Pennsylvania,US,5,0,0
+Montgomery,Pennsylvania,US,3627,214,0
+Out of PA,Pennsylvania,US,0,0,0
+Montour,Pennsylvania,US,47,0,0
+Cumberland,Pennsylvania,US,250,8,0
+Delaware,Pennsylvania,US,3161,140,0
+Clinton,Pennsylvania,US,18,0,0
+Mifflin,Pennsylvania,US,26,0,0
+Chester,Pennsylvania,US,1134,82,0
+Wayne,Pennsylvania,US,92,3,0
+Columbia,Pennsylvania,US,257,7,0
+Sullivan,Pennsylvania,US,1,0,0
+Schuylkill,Pennsylvania,US,311,5,0
+Venango,Pennsylvania,US,7,0,0
+Unassigned,Pennsylvania,US,0,0,0
+Fulton,Pennsylvania,US,3,0,0
+Lycoming,Pennsylvania,US,53,0,0
+York,Pennsylvania,US,578,8,0
+Berks,Pennsylvania,US,2406,88,0
+Dauphin,Pennsylvania,US,492,18,0
+Lehigh,Pennsylvania,US,2551,50,0
+Susquehanna,Pennsylvania,US,77,4,0
+Union,Pennsylvania,US,31,0,0
+Washington,Pennsylvania,US,99,2,0
+Armstrong,Pennsylvania,US,46,2,0
+Warren,Pennsylvania,US,1,0,0
+Clarion,Pennsylvania,US,22,1,0
+Beaver,Pennsylvania,US,359,46,0
+Allegheny,Pennsylvania,US,1198,73,0
+Butler,Pennsylvania,US,168,6,0
+Somerset,Pennsylvania,US,25,0,0
+Bucks,Pennsylvania,US,2541,141,0
+Cambria,Pennsylvania,US,21,1,0
+Adams,Pennsylvania,US,113,1,0
+Jefferson,Pennsylvania,US,4,0,0
+Lawrence,Pennsylvania,US,61,5,0
+Lancaster,Pennsylvania,US,1501,139,0
+Monroe,Pennsylvania,US,1054,44,0
+Centre,Pennsylvania,US,81,1,0
+Clearfield,Pennsylvania,US,11,0,0
+Carbon,Pennsylvania,US,162,12,0
+Lebanon,Pennsylvania,US,592,7,0
+Luzerne,Pennsylvania,US,1962,66,0
+Blair,Pennsylvania,US,21,0,0
+Crawford,Pennsylvania,US,19,0,0
+Bedford,Pennsylvania,US,21,1,0
+Forest,Pennsylvania,US,7,0,0
+Huntingdon,Pennsylvania,US,22,0,0
+Philadelphia,Pennsylvania,US,11877,449,0
+Greene,Pennsylvania,US,25,0,0
+Mercer,Pennsylvania,US,64,1,0
+Northampton,Pennsylvania,US,1780,49,0
+,Iowa,US,5092,112,0
+Franklin,Iowa,US,2,0,0
+Allamakee,Iowa,US,56,3,0
+Louisa,Iowa,US,261,2,0
+Chickasaw,Iowa,US,4,0,0
+Cedar,Iowa,US,28,0,0
+Fayette,Iowa,US,12,0,0
+Boone,Iowa,US,6,0,0
+Osceola,Iowa,US,7,0,0
+Howard,Iowa,US,4,0,0
+Dubuque,Iowa,US,70,1,0
+Floyd,Iowa,US,0,0,0
+Hardin,Iowa,US,5,0,0
+Cerro Gordo,Iowa,US,14,0,0
+Story,Iowa,US,22,0,0
+Buena Vista,Iowa,US,3,0,0
+Clarke,Iowa,US,2,0,0
+Kossuth,Iowa,US,1,0,0
+Cherokee,Iowa,US,2,0,0
+Montgomery,Iowa,US,1,0,0
+Plymouth,Iowa,US,11,0,0
+Delaware,Iowa,US,4,0,0
+Clayton,Iowa,US,11,1,0
+Wapello,Iowa,US,7,0,0
+Buchanan,Iowa,US,12,0,0
+Webster,Iowa,US,4,0,0
+Wayne,Iowa,US,0,0,0
+Linn,Iowa,US,548,33,0
+Unassigned,Iowa,US,5,0,0
+Cass,Iowa,US,1,0,0
+Monona,Iowa,US,7,0,0
+Pocahontas,Iowa,US,0,0,0
+Appanoose,Iowa,US,2,2,0
+Hancock,Iowa,US,3,0,0
+Pottawattamie,Iowa,US,20,1,0
+Union,Iowa,US,1,0,0
+Washington,Iowa,US,132,5,0
+Jones,Iowa,US,18,0,0
+Keokuk,Iowa,US,4,0,0
+Winneshiek,Iowa,US,12,0,0
+Woodbury,Iowa,US,316,1,0
+Mitchell,Iowa,US,2,0,0
+Van Buren,Iowa,US,8,0,0
+Dallas,Iowa,US,130,0,0
+Butler,Iowa,US,4,0,0
+Fremont,Iowa,US,0,0,0
+Des Moines,Iowa,US,16,0,0
+Johnson,Iowa,US,418,4,0
+Calhoun,Iowa,US,0,0,0
+Adams,Iowa,US,0,0,0
+Jefferson,Iowa,US,6,0,0
+Lyon,Iowa,US,6,0,0
+Benton,Iowa,US,26,1,0
+Audubon,Iowa,US,1,0,0
+Carroll,Iowa,US,1,0,0
+Jasper,Iowa,US,78,0,0
+Palo Alto,Iowa,US,0,0,0
+Greene,Iowa,US,1,0,0
+Scott,Iowa,US,206,5,0
+Dickinson,Iowa,US,5,0,0
+Ida,Iowa,US,0,0,0
+Humboldt,Iowa,US,4,0,0
+Page,Iowa,US,5,0,0
+Jackson,Iowa,US,5,0,0
+Davis,Iowa,US,0,0,0
+Worth,Iowa,US,1,0,0
+Mahaska,Iowa,US,8,1,0
+Clay,Iowa,US,3,0,0
+Poweshiek,Iowa,US,50,1,0
+Taylor,Iowa,US,1,0,0
+Winnebago,Iowa,US,2,0,0
+Marshall,Iowa,US,345,0,0
+Clinton,Iowa,US,47,0,0
+Ringgold,Iowa,US,0,0,0
+Iowa,Iowa,US,16,0,0
+Harrison,Iowa,US,15,0,0
+Sac,Iowa,US,0,0,0
+Shelby,Iowa,US,9,0,0
+Madison,Iowa,US,3,1,0
+Tama,Iowa,US,261,7,0
+Wright,Iowa,US,2,0,0
+Out of IA,Iowa,US,0,0,0
+Bremer,Iowa,US,38,2,0
+Decatur,Iowa,US,0,0,0
+Warren,Iowa,US,19,0,0
+Hamilton,Iowa,US,7,0,0
+Guthrie,Iowa,US,6,0,0
+Mills,Iowa,US,2,0,0
+O'Brien,Iowa,US,4,0,0
+Grundy,Iowa,US,8,0,0
+Muscatine,Iowa,US,295,7,0
+Henry,Iowa,US,31,1,0
+Sioux,Iowa,US,7,0,0
+Adair,Iowa,US,1,0,0
+Lucas,Iowa,US,0,0,0
+Monroe,Iowa,US,0,0,0
+Black Hawk,Iowa,US,691,8,0
+Emmet,Iowa,US,0,0,0
+Lee,Iowa,US,4,0,0
+Crawford,Iowa,US,10,1,0
+Polk,Iowa,US,660,24,0
+Marion,Iowa,US,6,0,0
+,Mississippi,US,5718,221,0
+Franklin,Mississippi,US,16,1,0
+Claiborne,Mississippi,US,18,0,0
+Tunica,Mississippi,US,34,1,0
+Coahoma,Mississippi,US,54,2,0
+Rankin,Mississippi,US,162,5,0
+Chickasaw,Mississippi,US,56,4,0
+Neshoba,Mississippi,US,119,2,0
+Amite,Mississippi,US,23,0,0
+Panola,Mississippi,US,36,2,0
+Walthall,Mississippi,US,27,0,0
+Jackson,Mississippi,US,237,6,0
+Covington,Mississippi,US,45,0,0
+Stone,Mississippi,US,22,0,0
+Grenada,Mississippi,US,27,0,0
+Issaquena,Mississippi,US,0,0,0
+Sharkey,Mississippi,US,4,0,0
+Perry,Mississippi,US,25,1,0
+Winston,Mississippi,US,38,0,0
+George,Mississippi,US,11,1,0
+Hinds,Mississippi,US,412,7,0
+Tallahatchie,Mississippi,US,11,1,0
+Pike,Mississippi,US,133,5,0
+Tate,Mississippi,US,38,0,0
+Lowndes,Mississippi,US,41,2,0
+Leake,Mississippi,US,149,1,0
+Lincoln,Mississippi,US,136,8,0
+Clarke,Mississippi,US,44,3,0
+Jefferson Davis,Mississippi,US,22,1,0
+Tishomingo,Mississippi,US,7,0,0
+Clay,Mississippi,US,32,2,0
+Forrest,Mississippi,US,181,7,0
+Lauderdale,Mississippi,US,284,19,0
+Montgomery,Mississippi,US,18,1,0
+Yazoo,Mississippi,US,120,1,0
+Smith,Mississippi,US,58,3,0
+Marshall,Mississippi,US,41,2,0
+Wilkinson,Mississippi,US,68,7,0
+Webster,Mississippi,US,16,1,0
+Wayne,Mississippi,US,19,0,0
+Newton,Mississippi,US,58,0,0
+Harrison,Mississippi,US,158,6,0
+Kemper,Mississippi,US,40,0,0
+Unassigned,Mississippi,US,0,0,0
+Sunflower,Mississippi,US,51,2,0
+Holmes,Mississippi,US,100,5,0
+Madison,Mississippi,US,186,5,0
+Oktibbeha,Mississippi,US,46,3,0
+Noxubee,Mississippi,US,45,0,0
+Copiah,Mississippi,US,68,1,0
+Hancock,Mississippi,US,59,5,0
+Union,Mississippi,US,14,1,0
+Washington,Mississippi,US,77,3,0
+Jones,Mississippi,US,116,0,0
+Warren,Mississippi,US,45,2,0
+Bolivar,Mississippi,US,94,7,0
+DeSoto,Mississippi,US,263,4,0
+Humphreys,Mississippi,US,14,3,0
+Out of MS,Mississippi,US,0,0,0
+Simpson,Mississippi,US,38,0,0
+Leflore,Mississippi,US,131,15,0
+Prentiss,Mississippi,US,29,1,0
+Pontotoc,Mississippi,US,18,2,0
+Calhoun,Mississippi,US,48,3,0
+Pearl River,Mississippi,US,148,14,0
+Itawamba,Mississippi,US,33,1,0
+Adams,Mississippi,US,109,7,0
+Jefferson,Mississippi,US,8,0,0
+Lawrence,Mississippi,US,30,0,0
+Monroe,Mississippi,US,123,9,0
+Benton,Mississippi,US,9,0,0
+Lee,Mississippi,US,72,5,0
+Yalobusha,Mississippi,US,17,0,0
+Tippah,Mississippi,US,51,7,0
+Carroll,Mississippi,US,15,1,0
+Jasper,Mississippi,US,32,1,0
+Lafayette,Mississippi,US,87,3,0
+Choctaw,Mississippi,US,13,1,0
+Lamar,Mississippi,US,85,2,0
+Attala,Mississippi,US,80,0,0
+Quitman,Mississippi,US,14,0,0
+Alcorn,Mississippi,US,9,0,0
+Marion,Mississippi,US,57,5,0
+Greene,Mississippi,US,4,1,0
+Scott,Mississippi,US,240,0,0
+,Illinois,US,41777,1875,0
+Franklin,Illinois,US,8,0,0
+Whiteside,Illinois,US,59,5,0
+McDonough,Illinois,US,5,0,0
+Fayette,Illinois,US,16,2,0
+Boone,Illinois,US,71,8,0
+Pike,Illinois,US,1,0,0
+Hardin,Illinois,US,1,0,0
+Macoupin,Illinois,US,28,0,0
+St. Clair,Illinois,US,363,24,0
+Macon,Illinois,US,100,11,0
+Montgomery,Illinois,US,23,1,0
+Effingham,Illinois,US,5,1,0
+Cumberland,Illinois,US,3,0,0
+Moultrie,Illinois,US,4,0,0
+DeKalb,Illinois,US,71,1,0
+Wayne,Illinois,US,2,0,0
+Douglas,Illinois,US,12,0,0
+Logan,Illinois,US,4,0,0
+Mason,Illinois,US,6,0,0
+Unassigned,Illinois,US,274,1,0
+Iroquois,Illinois,US,16,0,0
+DuPage,Illinois,US,2311,127,0
+Cass,Illinois,US,21,0,0
+Edgar,Illinois,US,0,0,0
+Wabash,Illinois,US,1,0,0
+Cook,Illinois,US,29058,1267,0
+Saline,Illinois,US,3,0,0
+Hancock,Illinois,US,4,0,0
+Union,Illinois,US,7,0,0
+Washington,Illinois,US,7,0,0
+Stephenson,Illinois,US,16,0,0
+Morgan,Illinois,US,15,1,0
+Williamson,Illinois,US,22,0,0
+Tazewell,Illinois,US,36,3,0
+Ogle,Illinois,US,85,1,0
+McHenry,Illinois,US,502,28,0
+Champaign,Illinois,US,102,5,0
+Johnson,Illinois,US,3,0,0
+Calhoun,Illinois,US,1,0,0
+Adams,Illinois,US,32,0,0
+Jefferson,Illinois,US,80,2,0
+Lawrence,Illinois,US,3,0,0
+Piatt,Illinois,US,7,0,0
+Carroll,Illinois,US,9,2,0
+Jasper,Illinois,US,42,2,0
+Pope,Illinois,US,0,0,0
+Edwards,Illinois,US,0,0,0
+De Witt,Illinois,US,1,0,0
+Woodford,Illinois,US,11,1,0
+Henderson,Illinois,US,4,0,0
+Greene,Illinois,US,2,0,0
+Mercer,Illinois,US,7,0,0
+Scott,Illinois,US,0,0,0
+Kankakee,Illinois,US,299,23,0
+Gallatin,Illinois,US,2,0,0
+Jackson,Illinois,US,56,7,0
+Lake,Illinois,US,2879,115,0
+Richland,Illinois,US,3,0,0
+Kane,Illinois,US,1049,38,0
+Knox,Illinois,US,31,0,0
+Perry,Illinois,US,7,0,0
+Peoria,Illinois,US,60,2,0
+Jersey,Illinois,US,12,1,0
+Randolph,Illinois,US,79,1,0
+Clay,Illinois,US,2,0,0
+Winnebago,Illinois,US,302,8,0
+Marshall,Illinois,US,4,0,0
+Clinton,Illinois,US,82,1,0
+Vermilion,Illinois,US,11,0,0
+Shelby,Illinois,US,9,0,0
+Rock Island,Illinois,US,293,6,0
+Fulton,Illinois,US,2,0,0
+McLean,Illinois,US,88,3,0
+Brown,Illinois,US,0,0,0
+Madison,Illinois,US,280,16,0
+Alexander,Illinois,US,2,0,0
+Massac,Illinois,US,3,0,0
+Pulaski,Illinois,US,15,0,0
+Jo Daviess,Illinois,US,11,0,0
+Warren,Illinois,US,44,0,0
+Clark,Illinois,US,4,0,0
+Schuyler,Illinois,US,1,0,0
+Hamilton,Illinois,US,2,0,0
+Out of IL,Illinois,US,0,0,0
+Will,Illinois,US,2060,131,0
+Grundy,Illinois,US,28,0,0
+LaSalle,Illinois,US,43,1,0
+Henry,Illinois,US,36,0,0
+Bureau,Illinois,US,9,0,0
+Putnam,Illinois,US,0,0,0
+Livingston,Illinois,US,20,1,0
+Monroe,Illinois,US,63,10,0
+Coles,Illinois,US,22,1,0
+Lee,Illinois,US,19,0,0
+White,Illinois,US,1,0,0
+Christian,Illinois,US,28,4,0
+Crawford,Illinois,US,10,0,0
+Kendall,Illinois,US,203,5,0
+Ford,Illinois,US,8,1,0
+Menard,Illinois,US,4,0,0
+Marion,Illinois,US,26,0,0
+Bond,Illinois,US,5,1,0
+Sangamon,Illinois,US,95,6,0
+Stark,Illinois,US,1,0,0
+,Texas,US,24153,638,0
+Franklin,Texas,US,1,0,0
+Palo Pinto,Texas,US,7,1,0
+Dickens,Texas,US,1,0,0
+Zavala,Texas,US,1,0,0
+Stonewall,Texas,US,0,0,0
+Lynn,Texas,US,5,1,0
+Austin,Texas,US,12,0,0
+Reagan,Texas,US,0,0,0
+Fayette,Texas,US,15,1,0
+Presidio,Texas,US,0,0,0
+Swisher,Texas,US,7,0,0
+Terrell,Texas,US,0,0,0
+Cooke,Texas,US,4,0,0
+La Salle,Texas,US,1,0,0
+Goliad,Texas,US,6,0,0
+Hudspeth,Texas,US,0,0,0
+Wilbarger,Texas,US,1,0,0
+Winkler,Texas,US,3,0,0
+Cottle,Texas,US,0,0,0
+Ector,Texas,US,67,4,0
+Llano,Texas,US,3,0,0
+Cherokee,Texas,US,12,1,0
+Irion,Texas,US,0,0,0
+Deaf Smith,Texas,US,21,0,0
+San Augustine,Texas,US,16,1,0
+Parker,Texas,US,24,0,0
+Falls,Texas,US,1,0,0
+Rockwall,Texas,US,51,0,0
+Hutchinson,Texas,US,11,0,0
+Milam,Texas,US,13,1,0
+Midland,Texas,US,70,5,0
+Unassigned,Texas,US,0,0,0
+Castro,Texas,US,13,1,0
+Gaines,Texas,US,2,0,0
+Hockley,Texas,US,20,1,0
+Dawson,Texas,US,18,1,0
+Guadalupe,Texas,US,67,0,0
+Hill,Texas,US,15,1,0
+Donley,Texas,US,24,0,0
+Eastland,Texas,US,3,0,0
+Washington,Texas,US,103,11,0
+Jones,Texas,US,13,0,0
+Yoakum,Texas,US,1,0,0
+Williamson,Texas,US,206,5,0
+Fisher,Texas,US,0,0,0
+Mitchell,Texas,US,1,0,0
+Motley,Texas,US,1,0,0
+Dallam,Texas,US,8,1,0
+Upton,Texas,US,0,0,0
+Dallas,Texas,US,2909,81,0
+Wheeler,Texas,US,3,0,0
+Reeves,Texas,US,2,0,0
+Lavaca,Texas,US,5,0,0
+Shackelford,Texas,US,0,0,0
+Bee,Texas,US,6,0,0
+Jefferson,Texas,US,243,18,0
+Nolan,Texas,US,1,0,0
+Harris,Texas,US,5482,84,0
+Martin,Texas,US,2,0,0
+Aransas,Texas,US,2,0,0
+Hale,Texas,US,19,4,0
+Jasper,Texas,US,14,1,0
+Wharton,Texas,US,36,0,0
+Delta,Texas,US,1,0,0
+Travis,Texas,US,1379,32,0
+Atascosa,Texas,US,14,1,0
+Hall,Texas,US,0,0,0
+Blanco,Texas,US,6,0,0
+Red River,Texas,US,1,0,0
+Briscoe,Texas,US,0,0,0
+Henderson,Texas,US,22,0,0
+Van Zandt,Texas,US,13,1,0
+Crosby,Texas,US,2,1,0
+Starr,Texas,US,7,0,0
+Panola,Texas,US,75,5,0
+Jackson,Texas,US,6,0,0
+Sabine,Texas,US,1,0,0
+Cameron,Texas,US,354,14,0
+Knox,Texas,US,1,0,0
+Hansford,Texas,US,4,0,0
+Val Verde,Texas,US,12,0,0
+Matagorda,Texas,US,59,3,0
+Clay,Texas,US,3,0,0
+Brooks,Texas,US,1,0,0
+Gray,Texas,US,35,0,0
+Taylor,Texas,US,203,3,0
+Comal,Texas,US,48,6,0
+Erath,Texas,US,13,1,0
+Hardeman,Texas,US,0,0,0
+Concho,Texas,US,1,0,0
+Harrison,Texas,US,69,4,0
+Ward,Texas,US,0,0,0
+Bexar,Texas,US,1334,43,0
+Tarrant,Texas,US,1836,52,0
+Kenedy,Texas,US,0,0,0
+Shelby,Texas,US,86,0,0
+Borden,Texas,US,0,0,0
+Fannin,Texas,US,15,0,0
+Camp,Texas,US,6,0,0
+Randall,Texas,US,149,3,0
+Carson,Texas,US,1,0,0
+Brown,Texas,US,17,1,0
+Archer,Texas,US,0,0,0
+Sterling,Texas,US,0,0,0
+Foard,Texas,US,0,0,0
+Angelina,Texas,US,36,0,0
+Coke,Texas,US,0,0,0
+Glasscock,Texas,US,0,0,0
+Terry,Texas,US,10,0,0
+Liberty,Texas,US,38,0,0
+Culberson,Texas,US,0,0,0
+DeWitt,Texas,US,15,1,0
+San Jacinto,Texas,US,10,0,0
+Colorado,Texas,US,10,0,0
+Gillespie,Texas,US,1,0,0
+Fort Bend,Texas,US,905,21,0
+Young,Texas,US,4,1,0
+Kent,Texas,US,0,0,0
+Wood,Texas,US,7,0,0
+Kaufman,Texas,US,71,0,0
+Collingsworth,Texas,US,0,0,0
+Willacy,Texas,US,13,1,0
+McMullen,Texas,US,0,0,0
+Montague,Texas,US,6,1,0
+Wise,Texas,US,15,2,0
+Dimmit,Texas,US,1,0,0
+Kendall,Texas,US,16,0,0
+Zapata,Texas,US,7,0,0
+Marion,Texas,US,6,0,0
+Somervell,Texas,US,0,0,0
+Kinney,Texas,US,0,0,0
+Gregg,Texas,US,59,0,0
+Limestone,Texas,US,11,1,0
+McLennan,Texas,US,81,4,0
+Crane,Texas,US,2,0,0
+Gonzales,Texas,US,8,0,0
+Orange,Texas,US,64,0,0
+Howard,Texas,US,4,1,0
+Floyd,Texas,US,3,0,0
+Hardin,Texas,US,92,3,0
+Haskell,Texas,US,0,0,0
+Kerr,Texas,US,5,0,0
+Potter,Texas,US,280,6,0
+Childress,Texas,US,1,0,0
+Leon,Texas,US,5,0,0
+Hood,Texas,US,17,3,0
+Duval,Texas,US,2,0,0
+Montgomery,Texas,US,506,9,0
+Victoria,Texas,US,114,2,0
+Smith,Texas,US,131,3,0
+Jim Wells,Texas,US,3,0,0
+Newton,Texas,US,2,0,0
+Frio,Texas,US,3,0,0
+Mason,Texas,US,1,0,0
+Robertson,Texas,US,2,0,0
+Baylor,Texas,US,0,0,0
+Ochiltree,Texas,US,5,0,0
+Bell,Texas,US,165,3,0
+Brewster,Texas,US,0,0,0
+Cass,Texas,US,13,0,0
+Hemphill,Texas,US,1,0,0
+Throckmorton,Texas,US,0,0,0
+San Saba,Texas,US,0,0,0
+Armstrong,Texas,US,2,0,0
+Wichita,Texas,US,62,2,0
+Jim Hogg,Texas,US,1,0,0
+Scurry,Texas,US,2,0,0
+Brazos,Texas,US,181,16,0
+Lubbock,Texas,US,494,40,0
+Brazoria,Texas,US,417,3,0
+Johnson,Texas,US,57,1,0
+Calhoun,Texas,US,26,2,0
+Andrews,Texas,US,19,0,0
+Stephens,Texas,US,1,0,0
+Caldwell,Texas,US,10,0,0
+Jeff Davis,Texas,US,0,0,0
+Edwards,Texas,US,0,0,0
+McCulloch,Texas,US,3,0,0
+Upshur,Texas,US,13,0,0
+Callahan,Texas,US,1,0,0
+Trinity,Texas,US,8,0,0
+Webb,Texas,US,338,12,0
+Lipscomb,Texas,US,0,0,0
+Nueces,Texas,US,92,1,0
+Burleson,Texas,US,11,0,0
+Denton,Texas,US,680,19,0
+Nacogdoches,Texas,US,115,7,0
+Titus,Texas,US,15,0,0
+Tyler,Texas,US,6,0,0
+Rains,Texas,US,2,0,0
+San Patricio,Texas,US,12,0,0
+Bowie,Texas,US,67,1,0
+Ellis,Texas,US,127,5,0
+Hunt,Texas,US,38,2,0
+Moore,Texas,US,192,3,0
+Collin,Texas,US,639,16,0
+Medina,Texas,US,19,2,0
+King,Texas,US,0,0,0
+Uvalde,Texas,US,6,0,0
+Burnet,Texas,US,14,0,0
+Real,Texas,US,0,0,0
+Morris,Texas,US,5,0,0
+Chambers,Texas,US,41,0,0
+Tom Green,Texas,US,42,1,0
+El Paso,Texas,US,706,10,0
+Sutton,Texas,US,0,0,0
+Bosque,Texas,US,3,0,0
+Parmer,Texas,US,4,0,0
+Walker,Texas,US,164,2,0
+Hidalgo,Texas,US,299,4,0
+Roberts,Texas,US,2,0,0
+Lampasas,Texas,US,2,0,0
+Kimble,Texas,US,0,0,0
+Out of TX,Texas,US,0,0,0
+Bastrop,Texas,US,57,2,0
+Kleberg,Texas,US,8,1,0
+Bandera,Texas,US,4,0,0
+Cochran,Texas,US,1,0,0
+Madison,Texas,US,2,0,0
+Grimes,Texas,US,13,1,0
+Oldham,Texas,US,3,1,0
+Pecos,Texas,US,8,0,0
+Refugio,Texas,US,0,0,0
+Garza,Texas,US,0,0,0
+Hopkins,Texas,US,4,0,0
+Loving,Texas,US,0,0,0
+Lamb,Texas,US,2,0,0
+Runnels,Texas,US,0,0,0
+Hays,Texas,US,148,1,0
+Maverick,Texas,US,16,0,0
+Hamilton,Texas,US,5,0,0
+Coryell,Texas,US,104,1,0
+Mills,Texas,US,0,0,0
+Sherman,Texas,US,11,0,0
+Schleicher,Texas,US,0,0,0
+Jack,Texas,US,4,0,0
+Rusk,Texas,US,30,1,0
+Grayson,Texas,US,22,0,0
+Bailey,Texas,US,0,0,0
+Comanche,Texas,US,4,0,0
+Hartley,Texas,US,4,0,0
+Karnes,Texas,US,3,0,0
+Live Oak,Texas,US,5,0,0
+Waller,Texas,US,28,0,0
+Wilson,Texas,US,26,2,0
+Navarro,Texas,US,28,2,0
+Anderson,Texas,US,18,0,0
+Lee,Texas,US,2,0,0
+Freestone,Texas,US,3,0,0
+Galveston,Texas,US,522,21,0
+Lamar,Texas,US,8,0,0
+Polk,Texas,US,18,0,0
+Coleman,Texas,US,1,0,0
+Crockett,Texas,US,0,0,0
+Menard,Texas,US,0,0,0
+Houston,Texas,US,6,0,0
+,Connecticut,US,24583,1865,0
+New Haven,Connecticut,US,6509,416,0
+Windham,Connecticut,US,151,3,0
+Tolland,Connecticut,US,384,35,0
+Middlesex,Connecticut,US,576,62,0
+Litchfield,Connecticut,US,834,73,0
+Out of CT,Connecticut,US,0,0,0
+Unassigned,Connecticut,US,522,6,0
+Hartford,Connecticut,US,4761,553,0
+Fairfield,Connecticut,US,10373,689,0
+New London,Connecticut,US,473,28,0
+,Georgia,US,23222,907,0
+Franklin,Georgia,US,17,0,0
+Paulding,Georgia,US,159,7,0
+Spalding,Georgia,US,189,8,0
+Tift,Georgia,US,100,3,0
+Talbot,Georgia,US,21,1,0
+Bacon,Georgia,US,21,1,0
+Fayette,Georgia,US,161,8,0
+Haralson,Georgia,US,26,1,0
+Out of GA,Georgia,US,991,10,0
+Pierce,Georgia,US,52,2,0
+Terrell,Georgia,US,165,17,0
+Upson,Georgia,US,196,14,0
+Pike,Georgia,US,39,2,0
+Brantley,Georgia,US,21,2,0
+Screven,Georgia,US,14,1,0
+Floyd,Georgia,US,133,10,0
+Lincoln,Georgia,US,10,0,0
+Camden,Georgia,US,28,1,0
+Clarke,Georgia,US,127,13,0
+Bryan,Georgia,US,47,2,0
+Burke,Georgia,US,71,3,0
+Cherokee,Georgia,US,371,10,0
+Macon,Georgia,US,68,3,0
+Montgomery,Georgia,US,2,0,0
+Bulloch,Georgia,US,34,2,0
+Effingham,Georgia,US,34,1,0
+Barrow,Georgia,US,111,3,0
+Clinch,Georgia,US,7,0,0
+Clayton,Georgia,US,642,21,0
+McDuffie,Georgia,US,43,4,0
+Heard,Georgia,US,9,1,0
+Webster,Georgia,US,7,0,0
+Wilkes,Georgia,US,22,0,0
+DeKalb,Georgia,US,1788,36,0
+Wayne,Georgia,US,11,0,0
+Newton,Georgia,US,166,6,0
+Douglas,Georgia,US,276,8,0
+Hart,Georgia,US,6,0,0
+Troup,Georgia,US,122,4,0
+Unassigned,Georgia,US,608,1,0
+Laurens,Georgia,US,52,1,0
+Berrien,Georgia,US,16,0,0
+Meriwether,Georgia,US,49,0,0
+Dawson,Georgia,US,51,1,0
+Dooly,Georgia,US,108,7,0
+Dodge,Georgia,US,23,0,0
+Muscogee,Georgia,US,270,4,0
+Cook,Georgia,US,16,1,0
+Dougherty,Georgia,US,1470,108,0
+Hancock,Georgia,US,17,0,0
+Murray,Georgia,US,24,0,0
+Coffee,Georgia,US,103,4,0
+Rockdale,Georgia,US,162,6,0
+Union,Georgia,US,28,2,0
+Washington,Georgia,US,34,1,0
+Sumter,Georgia,US,350,21,0
+Jones,Georgia,US,26,0,0
+Morgan,Georgia,US,25,0,0
+Baker,Georgia,US,19,2,0
+Mitchell,Georgia,US,288,25,0
+Banks,Georgia,US,18,0,0
+Forsyth,Georgia,US,249,8,0
+Chatham,Georgia,US,206,6,0
+Seminole,Georgia,US,27,2,0
+Wheeler,Georgia,US,3,0,0
+Taliaferro,Georgia,US,0,0,0
+Emanuel,Georgia,US,19,0,0
+Thomas,Georgia,US,157,16,0
+Johnson,Georgia,US,36,2,0
+Calhoun,Georgia,US,86,3,0
+Stephens,Georgia,US,56,1,0
+Baldwin,Georgia,US,180,6,0
+Jefferson,Georgia,US,13,1,0
+Tattnall,Georgia,US,6,0,0
+Harris,Georgia,US,55,2,0
+Jeff Davis,Georgia,US,11,1,0
+Toombs,Georgia,US,27,3,0
+Schley,Georgia,US,16,1,0
+Bleckley,Georgia,US,9,0,0
+Lumpkin,Georgia,US,29,0,0
+Carroll,Georgia,US,325,11,0
+Crisp,Georgia,US,151,2,0
+Jasper,Georgia,US,20,0,0
+Whitfield,Georgia,US,63,4,0
+Evans,Georgia,US,4,0,0
+Butts,Georgia,US,125,2,0
+Hall,Georgia,US,1032,9,0
+Chattahoochee,Georgia,US,8,0,0
+Rabun,Georgia,US,9,0,0
+Greene,Georgia,US,53,1,0
+Treutlen,Georgia,US,2,0,0
+Appling,Georgia,US,54,4,0
+Lanier,Georgia,US,8,1,0
+Ben Hill,Georgia,US,23,0,0
+Jackson,Georgia,US,75,1,0
+Worth,Georgia,US,140,9,0
+McIntosh,Georgia,US,4,0,0
+Telfair,Georgia,US,26,0,0
+Lowndes,Georgia,US,131,4,0
+Randolph,Georgia,US,153,19,0
+Chattooga,Georgia,US,13,1,0
+Habersham,Georgia,US,170,3,0
+Clay,Georgia,US,20,2,0
+Brooks,Georgia,US,39,6,0
+Bartow,Georgia,US,283,28,0
+Taylor,Georgia,US,16,2,0
+Walker,Georgia,US,59,0,0
+Charlton,Georgia,US,7,0,0
+Wilkinson,Georgia,US,30,2,0
+Walton,Georgia,US,97,3,0
+Jenkins,Georgia,US,16,1,0
+Columbia,Georgia,US,138,2,0
+Ware,Georgia,US,105,8,0
+Miller,Georgia,US,28,0,0
+Long,Georgia,US,3,0,0
+Twiggs,Georgia,US,8,0,0
+Early,Georgia,US,194,15,0
+Catoosa,Georgia,US,46,0,0
+Fannin,Georgia,US,21,0,0
+Richmond,Georgia,US,355,14,0
+Fulton,Georgia,US,2543,91,0
+Madison,Georgia,US,23,1,0
+Atkinson,Georgia,US,7,0,0
+Oconee,Georgia,US,55,0,0
+Peach,Georgia,US,37,2,0
+Irwin,Georgia,US,15,1,0
+Gwinnett,Georgia,US,1460,46,0
+Liberty,Georgia,US,35,0,0
+Pickens,Georgia,US,20,2,0
+Pulaski,Georgia,US,20,1,0
+Stewart,Georgia,US,17,0,0
+Glynn,Georgia,US,51,1,0
+Decatur,Georgia,US,60,1,0
+Warren,Georgia,US,12,0,0
+Elbert,Georgia,US,16,0,0
+Gilmer,Georgia,US,36,0,0
+Towns,Georgia,US,20,0,0
+Glascock,Georgia,US,0,0,0
+Grady,Georgia,US,48,3,0
+Colquitt,Georgia,US,166,6,0
+Oglethorpe,Georgia,US,48,3,0
+Henry,Georgia,US,436,10,0
+Gordon,Georgia,US,81,10,0
+Candler,Georgia,US,7,0,0
+Putnam,Georgia,US,31,3,0
+Monroe,Georgia,US,19,1,0
+Cobb,Georgia,US,1395,74,0
+Lee,Georgia,US,299,18,0
+Echols,Georgia,US,5,0,0
+Coweta,Georgia,US,187,4,0
+White,Georgia,US,38,0,0
+Lamar,Georgia,US,33,0,0
+Quitman,Georgia,US,3,1,0
+Turner,Georgia,US,62,6,0
+Bibb,Georgia,US,247,6,0
+Crawford,Georgia,US,14,0,0
+Polk,Georgia,US,45,0,0
+Marion,Georgia,US,38,1,0
+Wilcox,Georgia,US,68,6,0
+Dade,Georgia,US,16,1,0
+Houston,Georgia,US,206,13,0
+,Maryland,US,17766,875,0
+Talbot,Maryland,US,28,1,0
+Harford,Maryland,US,302,11,0
+Prince George's,Maryland,US,4795,173,0
+Washington,Maryland,US,154,3,0
+Out of MD,Maryland,US,0,0,0
+Howard,Maryland,US,686,16,0
+Wicomico,Maryland,US,242,4,0
+Baltimore City,Maryland,US,1791,78,0
+Cecil,Maryland,US,146,5,0
+St. Mary's,Maryland,US,124,6,0
+Dorchester,Maryland,US,38,2,0
+Somerset,Maryland,US,14,0,0
+Charles,Maryland,US,483,35,0
+Frederick,Maryland,US,814,45,0
+Kent,Maryland,US,67,3,0
+Montgomery,Maryland,US,3483,171,0
+Caroline,Maryland,US,61,0,0
+Calvert,Maryland,US,130,7,0
+Queen Anne's,Maryland,US,52,3,0
+Anne Arundel,Maryland,US,1430,70,0
+Allegany,Maryland,US,105,3,0
+Carroll,Maryland,US,384,36,0
+Baltimore,Maryland,US,2387,79,0
+Worcester,Maryland,US,46,0,0
+Garrett,Maryland,US,4,0,0
+Unassigned,Maryland,US,0,124,0
+,Virginia,US,12366,437,0
+Franklin,Virginia,US,19,0,0
+Richmond City,Virginia,US,287,14,0
+Louisa,Virginia,US,39,0,0
+New Kent,Virginia,US,20,1,0
+Henrico,Virginia,US,764,89,0
+Bath,Virginia,US,0,0,0
+Northumberland,Virginia,US,8,0,0
+Orange,Virginia,US,25,0,0
+Covington,Virginia,US,1,0,0
+Isle of Wight,Virginia,US,91,2,0
+Westmoreland,Virginia,US,17,0,0
+Fredericksburg,Virginia,US,23,0,0
+Floyd,Virginia,US,1,0,0
+Martinsville,Virginia,US,0,0,0
+Colonial Heights,Virginia,US,43,3,0
+Arlington,Virginia,US,764,29,0
+Buena Vista,Virginia,US,5,0,0
+King William,Virginia,US,5,0,0
+Clarke,Virginia,US,7,0,0
+Brunswick,Virginia,US,14,0,0
+Fluvanna,Virginia,US,72,5,0
+Nelson,Virginia,US,7,0,0
+Frederick,Virginia,US,93,0,0
+Montgomery,Virginia,US,51,1,0
+Hopewell,Virginia,US,21,0,0
+Cumberland,Virginia,US,10,0,0
+Hampton,Virginia,US,101,1,0
+Waynesboro,Virginia,US,10,0,0
+Wythe,Virginia,US,11,1,0
+Fairfax,Virginia,US,2745,90,0
+Buchanan,Virginia,US,13,0,0
+Russell,Virginia,US,3,0,0
+Mecklenburg,Virginia,US,85,9,0
+Amherst,Virginia,US,9,1,0
+Suffolk,Virginia,US,141,5,0
+Middlesex,Virginia,US,4,0,0
+Smyth,Virginia,US,13,0,0
+Nottoway,Virginia,US,11,0,0
+Unassigned,Virginia,US,0,0,0
+Winchester,Virginia,US,33,0,0
+Chesterfield,Virginia,US,440,18,0
+Norfolk,Virginia,US,169,3,0
+Albemarle,Virginia,US,73,3,0
+Hanover,Virginia,US,103,7,0
+Manassas,Virginia,US,154,1,0
+Virginia Beach,Virginia,US,335,10,0
+Pittsylvania,Virginia,US,11,1,0
+Manassas Park,Virginia,US,44,1,0
+Rappahannock,Virginia,US,2,0,0
+Washington,Virginia,US,30,3,0
+Amelia,Virginia,US,15,1,0
+Alleghany,Virginia,US,5,0,0
+Tazewell,Virginia,US,4,0,0
+Gloucester,Virginia,US,22,1,0
+Salem,Virginia,US,8,0,0
+Williamsburg,Virginia,US,15,1,0
+King George,Virginia,US,25,4,0
+Accomack,Virginia,US,146,3,0
+Augusta,Virginia,US,36,1,0
+Out of VA,Virginia,US,0,0,0
+Staunton,Virginia,US,10,0,0
+Norton,Virginia,US,2,0,0
+Dinwiddie,Virginia,US,12,0,0
+Poquoson,Virginia,US,6,0,0
+Halifax,Virginia,US,16,0,0
+Appomattox,Virginia,US,12,0,0
+Chesapeake,Virginia,US,200,6,0
+Carroll,Virginia,US,3,0,0
+Southampton,Virginia,US,75,1,0
+Dickenson,Virginia,US,0,0,0
+Rockbridge,Virginia,US,5,0,0
+King and Queen,Virginia,US,2,0,0
+Greene,Virginia,US,10,1,0
+Northampton,Virginia,US,20,0,0
+Scott,Virginia,US,5,1,0
+Galax,Virginia,US,1,0,0
+Mathews,Virginia,US,4,0,0
+Charlotte,Virginia,US,7,0,0
+Fairfax City,Virginia,US,26,2,0
+Stafford,Virginia,US,198,2,0
+Prince William,Virginia,US,1184,19,0
+Page,Virginia,US,82,0,0
+Lexington,Virginia,US,3,0,0
+Emporia,Virginia,US,18,1,0
+Petersburg,Virginia,US,27,2,0
+Bristol,Virginia,US,1,0,0
+Alexandria,Virginia,US,575,18,0
+Fauquier,Virginia,US,80,2,0
+Campbell,Virginia,US,10,0,0
+Prince Edward,Virginia,US,37,2,0
+Lunenburg,Virginia,US,4,0,0
+Caroline,Virginia,US,21,0,0
+Greensville,Virginia,US,30,4,0
+Botetourt,Virginia,US,27,3,0
+Craig,Virginia,US,2,0,0
+Goochland,Virginia,US,69,3,0
+Portsmouth,Virginia,US,103,5,0
+Buckingham,Virginia,US,34,0,0
+Richmond,Virginia,US,79,0,0
+Surry,Virginia,US,4,1,0
+Giles,Virginia,US,4,0,0
+Madison,Virginia,US,14,0,0
+Newport News,Virginia,US,109,6,0
+York,Virginia,US,44,1,0
+Radford,Virginia,US,3,0,0
+Lynchburg,Virginia,US,48,1,0
+Roanoke,Virginia,US,39,0,0
+Pulaski,Virginia,US,10,0,0
+Harrisonburg,Virginia,US,370,9,0
+Warren,Virginia,US,42,0,0
+Shenandoah,Virginia,US,72,1,0
+Essex,Virginia,US,4,0,0
+Rockingham,Virginia,US,184,1,0
+Grayson,Virginia,US,0,0,0
+Sussex,Virginia,US,28,1,0
+Henry,Virginia,US,13,1,0
+Highland,Virginia,US,1,0,0
+Culpeper,Virginia,US,95,1,0
+Charlottesville,Virginia,US,48,2,0
+Spotsylvania,Virginia,US,101,3,0
+Falls Church,Virginia,US,26,2,0
+Lancaster,Virginia,US,1,0,0
+Franklin City,Virginia,US,16,0,0
+Roanoke City,Virginia,US,33,0,0
+Lee,Virginia,US,8,0,0
+Wise,Virginia,US,20,1,0
+Charles City,Virginia,US,12,1,0
+Danville,Virginia,US,32,1,0
+Patrick,Virginia,US,2,0,0
+Loudoun,Virginia,US,564,11,0
+Bedford,Virginia,US,24,0,0
+Bland,Virginia,US,0,0,0
+James City,Virginia,US,151,12,0
+Powhatan,Virginia,US,11,0,0
+Prince George,Virginia,US,30,0,0
+,Idaho,US,1887,56,0
+Franklin,Idaho,US,0,0,0
+Madison,Idaho,US,8,0,0
+Butte,Idaho,US,0,0,0
+Caribou,Idaho,US,1,0,0
+Minidoka,Idaho,US,10,0,0
+Washington,Idaho,US,1,0,0
+Boundary,Idaho,US,0,0,0
+Out of ID,Idaho,US,0,0,0
+Clark,Idaho,US,0,0,0
+Cassia,Idaho,US,12,1,0
+Nez Perce,Idaho,US,58,13,0
+Custer,Idaho,US,2,0,0
+Bear Lake,Idaho,US,0,0,0
+Lincoln,Idaho,US,22,0,0
+Fremont,Idaho,US,2,0,0
+Owyhee,Idaho,US,8,0,0
+Adams,Idaho,US,3,0,0
+Clearwater,Idaho,US,0,0,0
+Jefferson,Idaho,US,5,0,0
+Bonneville,Idaho,US,28,0,0
+Gooding,Idaho,US,9,0,0
+Lemhi,Idaho,US,1,0,0
+Oneida,Idaho,US,0,0,0
+Teton,Idaho,US,8,0,0
+Gem,Idaho,US,12,0,0
+Shoshone,Idaho,US,0,0,0
+Bingham,Idaho,US,3,0,0
+Twin Falls,Idaho,US,152,11,0
+Bonner,Idaho,US,4,0,0
+Valley,Idaho,US,2,0,0
+Benewah,Idaho,US,0,0,0
+Blaine,Idaho,US,490,5,0
+Lewis,Idaho,US,0,0,0
+Canyon,Idaho,US,231,6,0
+Boise,Idaho,US,0,0,0
+Payette,Idaho,US,13,1,0
+Unassigned,Idaho,US,0,0,0
+Latah,Idaho,US,4,0,0
+Bannock,Idaho,US,8,0,0
+Jerome,Idaho,US,46,2,0
+Camas,Idaho,US,1,0,0
+Kootenai,Idaho,US,59,0,0
+Idaho,Idaho,US,3,0,0
+Power,Idaho,US,2,0,0
+Ada,Idaho,US,650,15,0
+Elmore,Idaho,US,29,2,0
+,Oregon,US,2253,87,0
+Curry,Oregon,US,4,0,0
+Klamath,Oregon,US,36,0,0
+Clatsop,Oregon,US,6,0,0
+Wasco,Oregon,US,12,0,0
+Yamhill,Oregon,US,35,6,0
+Jackson,Oregon,US,49,0,0
+Lake,Oregon,US,0,0,0
+Union,Oregon,US,4,0,0
+Washington,Oregon,US,459,10,0
+Coos,Oregon,US,8,0,0
+Baker,Oregon,US,0,0,0
+Sherman,Oregon,US,1,0,0
+Josephine,Oregon,US,19,1,0
+Out of OR,Oregon,US,0,0,0
+Clackamas,Oregon,US,201,6,0
+Lincoln,Oregon,US,5,0,0
+Morrow,Oregon,US,5,0,0
+Wheeler,Oregon,US,0,0,0
+Harney,Oregon,US,0,0,0
+Grant,Oregon,US,1,0,0
+Umatilla,Oregon,US,35,0,0
+Jefferson,Oregon,US,5,0,0
+Wallowa,Oregon,US,1,0,0
+Lane,Oregon,US,50,2,0
+Benton,Oregon,US,28,5,0
+Tillamook,Oregon,US,6,0,0
+Columbia,Oregon,US,14,0,0
+Douglas,Oregon,US,23,0,0
+Deschutes,Oregon,US,71,0,0
+Multnomah,Oregon,US,623,35,0
+Gilliam,Oregon,US,0,0,0
+Polk,Oregon,US,37,1,0
+Crook,Oregon,US,1,0,0
+Linn,Oregon,US,71,7,0
+Unassigned,Oregon,US,0,0,0
+Malheur,Oregon,US,6,0,0
+Marion,Oregon,US,432,14,0
+Hood River,Oregon,US,5,0,0
+,Vermont,US,843,46,0
+Franklin,Vermont,US,90,5,0
+Windham,Vermont,US,68,2,0
+Addison,Vermont,US,61,2,0
+Windsor,Vermont,US,39,2,0
+Rutland,Vermont,US,44,1,0
+Chittenden,Vermont,US,405,30,0
+Orange,Vermont,US,6,0,0
+Caledonia,Vermont,US,13,0,0
+Washington,Vermont,US,33,1,0
+Lamoille,Vermont,US,26,2,0
+Out of VT,Vermont,US,0,0,0
+Grand Isle,Vermont,US,3,0,0
+Unassigned,Vermont,US,5,0,0
+Essex,Vermont,US,2,0,0
+Orleans,Vermont,US,9,0,0
+Bennington,Vermont,US,39,1,0
+,Grand Princess,US,103,3,0
+,Puerto Rico,US,1307,83,0
+,Maine,US,965,47,0
+Franklin,Maine,US,26,0,0
+Androscoggin,Maine,US,38,1,0
+York,Maine,US,191,7,0
+Hancock,Maine,US,8,0,0
+Penobscot,Maine,US,50,0,0
+Cumberland,Maine,US,426,24,0
+Washington,Maine,US,2,0,0
+Knox,Maine,US,13,0,0
+Sagadahoc,Maine,US,17,0,0
+Out of ME,Maine,US,0,0,0
+Kennebec,Maine,US,100,5,0
+Aroostook,Maine,US,4,0,0
+Piscataquis,Maine,US,1,0,0
+Unassigned,Maine,US,0,0,0
+Waldo,Maine,US,47,10,0
+Lincoln,Maine,US,12,0,0
+Oxford,Maine,US,14,0,0
+Somerset,Maine,US,16,0,0
+,Oklahoma,US,3194,194,0
+Hughes,Oklahoma,US,0,0,0
+Pushmataha,Oklahoma,US,0,0,0
+Pittsburg,Oklahoma,US,21,2,0
+Jackson,Oklahoma,US,14,0,0
+Carter,Oklahoma,US,2,0,0
+Johnston,Oklahoma,US,4,0,0
+Ellis,Oklahoma,US,0,0,0
+McIntosh,Oklahoma,US,2,0,0
+Out of OK,Oklahoma,US,0,0,0
+Coal,Oklahoma,US,0,0,0
+Atoka,Oklahoma,US,1,0,0
+Haskell,Oklahoma,US,3,0,0
+Harmon,Oklahoma,US,0,0,0
+Custer,Oklahoma,US,10,0,0
+Ottawa,Oklahoma,US,29,1,0
+Lincoln,Oklahoma,US,10,0,0
+Bryan,Oklahoma,US,6,1,0
+Latimer,Oklahoma,US,4,1,0
+Le Flore,Oklahoma,US,9,0,0
+Cherokee,Oklahoma,US,26,1,0
+Okmulgee,Oklahoma,US,16,0,0
+Noble,Oklahoma,US,6,0,0
+Roger Mills,Oklahoma,US,0,0,0
+Pottawatomie,Oklahoma,US,40,4,0
+Alfalfa,Oklahoma,US,1,0,0
+Marshall,Oklahoma,US,2,0,0
+Payne,Oklahoma,US,43,1,0
+Wagoner,Oklahoma,US,114,13,0
+Delaware,Oklahoma,US,90,10,0
+Okfuskee,Oklahoma,US,1,0,0
+Tulsa,Oklahoma,US,479,27,0
+Logan,Oklahoma,US,12,0,0
+Craig,Oklahoma,US,9,0,0
+McClain,Oklahoma,US,30,0,0
+Woodward,Oklahoma,US,1,0,0
+Love,Oklahoma,US,2,0,0
+Texas,Oklahoma,US,68,1,0
+Woods,Oklahoma,US,3,0,0
+Creek,Oklahoma,US,73,6,0
+Tillman,Oklahoma,US,1,0,0
+Unassigned,Oklahoma,US,0,0,0
+Washita,Oklahoma,US,1,0,0
+Kay,Oklahoma,US,47,6,0
+Garfield,Oklahoma,US,11,1,0
+Canadian,Oklahoma,US,90,3,0
+Rogers,Oklahoma,US,46,3,0
+Oklahoma,Oklahoma,US,694,29,0
+Dewey,Oklahoma,US,2,0,0
+Murray,Oklahoma,US,1,0,0
+Cotton,Oklahoma,US,5,1,0
+Cleveland,Oklahoma,US,400,27,0
+Washington,Oklahoma,US,222,15,0
+Cimarron,Oklahoma,US,1,0,0
+Muskogee,Oklahoma,US,26,4,0
+Grady,Oklahoma,US,34,1,0
+Garvin,Oklahoma,US,13,0,0
+Beaver,Oklahoma,US,2,0,0
+Mayes,Oklahoma,US,21,3,0
+Pawnee,Oklahoma,US,28,2,0
+Seminole,Oklahoma,US,8,1,0
+Comanche,Oklahoma,US,76,1,0
+Grant,Oklahoma,US,2,0,0
+Pontotoc,Oklahoma,US,10,1,0
+Adair,Oklahoma,US,54,3,0
+Stephens,Oklahoma,US,20,1,0
+Jefferson,Oklahoma,US,2,0,0
+Sequoyah,Oklahoma,US,11,3,0
+Kiowa,Oklahoma,US,4,0,0
+Caddo,Oklahoma,US,53,6,0
+Harper,Oklahoma,US,1,0,0
+McCurtain,Oklahoma,US,8,0,0
+Beckham,Oklahoma,US,3,0,0
+Major,Oklahoma,US,2,1,0
+Osage,Oklahoma,US,71,8,0
+Choctaw,Oklahoma,US,3,0,0
+Nowata,Oklahoma,US,19,0,0
+Blaine,Oklahoma,US,0,0,0
+Kingfisher,Oklahoma,US,7,0,0
+Greer,Oklahoma,US,64,6,0
+,Tennessee,US,9189,177,0
+Franklin,Tennessee,US,29,1,0
+Pickett,Tennessee,US,0,0,0
+Dyer,Tennessee,US,31,0,0
+Bledsoe,Tennessee,US,586,0,0
+Haywood,Tennessee,US,17,1,0
+Carter,Tennessee,US,10,1,0
+Fayette,Tennessee,US,51,1,0
+Sequatchie,Tennessee,US,4,0,0
+Cocke,Tennessee,US,14,0,0
+Hardin,Tennessee,US,5,0,0
+Lincoln,Tennessee,US,12,0,0
+Maury,Tennessee,US,38,0,0
+Hawkins,Tennessee,US,29,2,0
+Macon,Tennessee,US,37,3,0
+Montgomery,Tennessee,US,134,2,0
+Smith,Tennessee,US,19,1,0
+Cumberland,Tennessee,US,66,0,0
+Chester,Tennessee,US,10,0,0
+DeKalb,Tennessee,US,11,0,0
+Meigs,Tennessee,US,5,0,0
+Wayne,Tennessee,US,2,0,0
+Sullivan,Tennessee,US,48,1,0
+Robertson,Tennessee,US,127,0,0
+Unassigned,Tennessee,US,48,0,0
+Hancock,Tennessee,US,0,0,0
+Coffee,Tennessee,US,31,0,0
+Union,Tennessee,US,3,0,0
+Washington,Tennessee,US,49,0,0
+Morgan,Tennessee,US,6,0,0
+Williamson,Tennessee,US,381,7,0
+Blount,Tennessee,US,53,3,0
+Rhea,Tennessee,US,3,0,0
+Humphreys,Tennessee,US,9,1,0
+Van Buren,Tennessee,US,2,0,0
+Cheatham,Tennessee,US,36,0,0
+Dickson,Tennessee,US,64,0,0
+Grainger,Tennessee,US,4,0,0
+Johnson,Tennessee,US,2,0,0
+Jefferson,Tennessee,US,17,0,0
+Lawrence,Tennessee,US,16,0,0
+Benton,Tennessee,US,6,1,0
+McNairy,Tennessee,US,11,0,0
+Carroll,Tennessee,US,16,1,0
+Sevier,Tennessee,US,42,1,0
+Henderson,Tennessee,US,5,0,0
+Greene,Tennessee,US,41,2,0
+Scott,Tennessee,US,11,0,0
+Claiborne,Tennessee,US,5,0,0
+Jackson,Tennessee,US,7,0,0
+Lake,Tennessee,US,48,0,0
+Fentress,Tennessee,US,4,0,0
+Knox,Tennessee,US,210,4,0
+Moore,Tennessee,US,3,0,0
+Perry,Tennessee,US,8,0,0
+Rutherford,Tennessee,US,387,8,0
+Hamblen,Tennessee,US,14,2,0
+Trousdale,Tennessee,US,47,1,0
+Clay,Tennessee,US,5,0,0
+Lauderdale,Tennessee,US,16,0,0
+Campbell,Tennessee,US,13,1,0
+Weakley,Tennessee,US,16,0,0
+Hardeman,Tennessee,US,11,0,0
+Marshall,Tennessee,US,22,1,0
+Tipton,Tennessee,US,91,0,0
+Out of TN,Tennessee,US,307,1,0
+Obion,Tennessee,US,12,1,0
+Shelby,Tennessee,US,2086,43,0
+Giles,Tennessee,US,5,0,0
+Madison,Tennessee,US,99,1,0
+Cannon,Tennessee,US,10,0,0
+Bradley,Tennessee,US,41,1,0
+McMinn,Tennessee,US,10,0,0
+Stewart,Tennessee,US,6,0,0
+Decatur,Tennessee,US,4,0,0
+Warren,Tennessee,US,5,0,0
+Loudon,Tennessee,US,25,0,0
+Sumner,Tennessee,US,584,34,0
+Hamilton,Tennessee,US,140,13,0
+Grundy,Tennessee,US,28,1,0
+Henry,Tennessee,US,11,0,0
+Davidson,Tennessee,US,2136,22,0
+Putnam,Tennessee,US,106,5,0
+Hickman,Tennessee,US,40,0,0
+Unicoi,Tennessee,US,1,0,0
+Wilson,Tennessee,US,199,3,0
+Monroe,Tennessee,US,12,1,0
+Gibson,Tennessee,US,35,1,0
+Roane,Tennessee,US,7,0,0
+Anderson,Tennessee,US,24,1,0
+Overton,Tennessee,US,7,0,0
+White,Tennessee,US,4,0,0
+Lewis,Tennessee,US,2,0,0
+Polk,Tennessee,US,6,0,0
+Bedford,Tennessee,US,150,2,0
+Crockett,Tennessee,US,7,0,0
+Marion,Tennessee,US,28,1,0
+Houston,Tennessee,US,4,0,0
+,American Samoa,US,0,0,0
+,Alabama,US,6026,209,0
+Franklin,Alabama,US,32,0,0
+Autauga,Alabama,US,36,2,0
+Cullman,Alabama,US,47,0,0
+Limestone,Alabama,US,41,0,0
+Etowah,Alabama,US,121,8,0
+Jackson,Alabama,US,45,2,0
+Covington,Alabama,US,31,0,0
+Fayette,Alabama,US,4,0,0
+Escambia,Alabama,US,22,1,0
+Perry,Alabama,US,9,0,0
+Winston,Alabama,US,10,0,0
+Coosa,Alabama,US,29,1,0
+Pike,Alabama,US,58,0,0
+St. Clair,Alabama,US,63,0,0
+Lowndes,Alabama,US,36,1,0
+Randolph,Alabama,US,60,4,0
+Chambers,Alabama,US,282,17,0
+Clarke,Alabama,US,24,1,0
+Clay,Alabama,US,19,0,0
+Bullock,Alabama,US,12,0,0
+Cherokee,Alabama,US,12,0,0
+Lauderdale,Alabama,US,25,2,0
+Macon,Alabama,US,29,2,0
+Montgomery,Alabama,US,274,4,0
+Walker,Alabama,US,89,0,0
+Marshall,Alabama,US,267,4,0
+DeKalb,Alabama,US,61,2,0
+Russell,Alabama,US,53,0,0
+Marengo,Alabama,US,39,3,0
+Shelby,Alabama,US,294,7,0
+Unassigned,Alabama,US,0,0,0
+Madison,Alabama,US,202,4,0
+Geneva,Alabama,US,6,0,0
+Barbour,Alabama,US,32,0,0
+Coffee,Alabama,US,87,1,0
+Pickens,Alabama,US,45,1,0
+Washington,Alabama,US,19,1,0
+Sumter,Alabama,US,51,1,0
+Crenshaw,Alabama,US,10,0,0
+Morgan,Alabama,US,55,0,0
+Blount,Alabama,US,31,0,0
+Chilton,Alabama,US,49,1,0
+Dallas,Alabama,US,32,2,0
+Butler,Alabama,US,21,0,0
+Henry,Alabama,US,22,1,0
+Tallapoosa,Alabama,US,261,17,0
+Out of AL,Alabama,US,0,0,0
+Calhoun,Alabama,US,89,3,0
+Baldwin,Alabama,US,147,3,0
+Jefferson,Alabama,US,797,33,0
+Lawrence,Alabama,US,12,0,0
+Monroe,Alabama,US,11,1,0
+Lee,Alabama,US,351,22,0
+Mobile,Alabama,US,845,40,0
+Colbert,Alabama,US,23,2,0
+Hale,Alabama,US,39,2,0
+Choctaw,Alabama,US,25,0,0
+Lamar,Alabama,US,10,0,0
+Dale,Alabama,US,23,0,0
+Tuscaloosa,Alabama,US,182,0,0
+Talladega,Alabama,US,54,2,0
+Bibb,Alabama,US,34,0,0
+Conecuh,Alabama,US,9,0,0
+Marion,Alabama,US,69,5,0
+Wilcox,Alabama,US,53,1,0
+Cleburne,Alabama,US,12,1,0
+Elmore,Alabama,US,74,1,0
+Greene,Alabama,US,44,0,0
+Houston,Alabama,US,76,3,0
+,Arkansas,US,2911,48,0
+Franklin,Arkansas,US,1,0,0
+Hempstead,Arkansas,US,5,1,0
+Yell,Arkansas,US,3,0,0
+Desha,Arkansas,US,16,0,0
+Searcy,Arkansas,US,6,0,0
+Prairie,Arkansas,US,2,0,0
+Sharp,Arkansas,US,2,0,0
+Ouachita,Arkansas,US,5,0,0
+Jackson,Arkansas,US,1,0,0
+Stone,Arkansas,US,7,0,0
+Boone,Arkansas,US,4,0,0
+Perry,Arkansas,US,6,0,0
+Howard,Arkansas,US,13,0,0
+Pike,Arkansas,US,3,0,0
+Little River,Arkansas,US,0,0,0
+Faulkner,Arkansas,US,70,2,0
+Lincoln,Arkansas,US,721,0,0
+Randolph,Arkansas,US,15,0,0
+Clay,Arkansas,US,2,0,0
+St. Francis,Arkansas,US,75,0,0
+Hot Spring,Arkansas,US,9,0,0
+Montgomery,Arkansas,US,0,0,0
+Baxter,Arkansas,US,5,0,0
+Mississippi,Arkansas,US,11,0,0
+Newton,Arkansas,US,3,0,0
+Columbia,Arkansas,US,6,0,0
+Logan,Arkansas,US,3,0,0
+Miller,Arkansas,US,32,1,0
+Unassigned,Arkansas,US,202,0,0
+Chicot,Arkansas,US,8,0,0
+Drew,Arkansas,US,13,1,0
+Fulton,Arkansas,US,1,0,0
+Madison,Arkansas,US,1,0,0
+Bradley,Arkansas,US,7,1,0
+Craighead,Arkansas,US,62,1,0
+Cross,Arkansas,US,11,0,0
+Saline,Arkansas,US,54,1,0
+Phillips,Arkansas,US,4,1,0
+Arkansas,Arkansas,US,2,0,0
+Cleveland,Arkansas,US,9,0,0
+Pulaski,Arkansas,US,471,14,0
+Union,Arkansas,US,32,0,0
+Washington,Arkansas,US,74,3,0
+Clark,Arkansas,US,29,0,0
+Van Buren,Arkansas,US,27,2,0
+Dallas,Arkansas,US,1,0,0
+Crittenden,Arkansas,US,169,5,0
+Izard,Arkansas,US,3,0,0
+Nevada,Arkansas,US,1,0,0
+Grant,Arkansas,US,11,0,0
+Johnson,Arkansas,US,26,0,0
+Calhoun,Arkansas,US,0,0,0
+Independence,Arkansas,US,9,0,0
+Jefferson,Arkansas,US,149,7,0
+Lawrence,Arkansas,US,41,1,0
+Out of AR,Arkansas,US,0,0,0
+Conway,Arkansas,US,10,1,0
+Monroe,Arkansas,US,4,0,0
+Benton,Arkansas,US,79,0,0
+Woodruff,Arkansas,US,1,0,0
+Lee,Arkansas,US,3,1,0
+Carroll,Arkansas,US,4,0,0
+Pope,Arkansas,US,37,0,0
+White,Arkansas,US,31,1,0
+Lafayette,Arkansas,US,6,0,0
+Poinsett,Arkansas,US,14,0,0
+Crawford,Arkansas,US,4,0,0
+Polk,Arkansas,US,7,0,0
+Ashley,Arkansas,US,13,0,0
+Garland,Arkansas,US,111,0,0
+Sevier,Arkansas,US,11,0,0
+Marion,Arkansas,US,1,0,0
+Lonoke,Arkansas,US,33,0,0
+Sebastian,Arkansas,US,12,0,0
+Cleburne,Arkansas,US,72,4,0
+Greene,Arkansas,US,14,0,0
+Scott,Arkansas,US,1,0,0
+,South Carolina,US,5253,166,0
+Newberry,South Carolina,US,22,1,0
+Charleston,South Carolina,US,424,6,0
+Oconee,South Carolina,US,20,0,0
+York,South Carolina,US,177,3,0
+Dillon,South Carolina,US,35,0,0
+Florence,South Carolina,US,242,9,0
+Out of SC,South Carolina,US,0,0,0
+Aiken,South Carolina,US,89,6,0
+Berkeley,South Carolina,US,181,8,0
+Darlington,South Carolina,US,103,0,0
+Kershaw,South Carolina,US,215,10,0
+Edgefield,South Carolina,US,23,1,0
+Pickens,South Carolina,US,44,0,0
+Richland,South Carolina,US,787,18,0
+Lexington,South Carolina,US,317,12,0
+Union,South Carolina,US,25,0,0
+Sumter,South Carolina,US,213,6,0
+Horry,South Carolina,US,201,12,0
+Williamsburg,South Carolina,US,45,0,0
+Dorchester,South Carolina,US,86,2,0
+Georgetown,South Carolina,US,39,2,0
+Saluda,South Carolina,US,28,0,0
+Calhoun,South Carolina,US,6,1,0
+Cherokee,South Carolina,US,14,0,0
+Greenwood,South Carolina,US,43,0,0
+Greenville,South Carolina,US,564,16,0
+Marlboro,South Carolina,US,38,0,0
+Lancaster,South Carolina,US,85,3,0
+Bamberg,South Carolina,US,7,0,0
+Beaufort,South Carolina,US,253,10,0
+Spartanburg,South Carolina,US,243,8,0
+Hampton,South Carolina,US,21,0,0
+Anderson,South Carolina,US,138,6,0
+Lee,South Carolina,US,51,6,0
+Clarendon,South Carolina,US,172,9,0
+Chester,South Carolina,US,27,0,0
+Abbeville,South Carolina,US,24,0,0
+Barnwell,South Carolina,US,14,0,0
+Jasper,South Carolina,US,17,1,0
+Colleton,South Carolina,US,26,3,0
+Orangeburg,South Carolina,US,56,1,0
+Allendale,South Carolina,US,8,1,0
+Unassigned,South Carolina,US,0,0,0
+McCormick,South Carolina,US,6,1,0
+Fairfield,South Carolina,US,29,2,0
+Marion,South Carolina,US,29,1,0
+Laurens,South Carolina,US,22,1,0
+Chesterfield,South Carolina,US,44,0,0
+,Washington,US,13319,737,0
+Franklin,Washington,US,250,5,0
+Snohomish,Washington,US,2297,102,0
+Out of WA,Washington,US,0,0,0
+Garfield,Washington,US,0,0,0
+Cowlitz,Washington,US,39,0,0
+Pend Oreille,Washington,US,2,0,0
+Whitman,Washington,US,14,0,0
+Spokane,Washington,US,345,19,0
+Okanogan,Washington,US,17,1,0
+Pierce,Washington,US,1235,46,0
+Clark,Washington,US,296,18,0
+King,Washington,US,5739,400,0
+Kitsap,Washington,US,144,2,0
+Skamania,Washington,US,3,0,0
+Grays Harbor,Washington,US,12,0,0
+Lincoln,Washington,US,2,0,0
+Whatcom,Washington,US,284,27,0
+Grant,Washington,US,150,2,0
+San Juan,Washington,US,14,0,0
+Chelan,Washington,US,90,5,0
+Stevens,Washington,US,10,1,0
+Adams,Washington,US,46,0,0
+Jefferson,Washington,US,28,0,0
+Benton,Washington,US,399,37,0
+Island,Washington,US,161,9,0
+Asotin,Washington,US,17,1,0
+Ferry,Washington,US,1,0,0
+Klickitat,Washington,US,16,3,0
+Clallam,Washington,US,15,0,0
+Yakima,Washington,US,976,44,0
+Columbia,Washington,US,1,0,0
+Douglas,Washington,US,70,1,0
+Mason,Washington,US,22,0,0
+Pacific,Washington,US,4,0,0
+Lewis,Washington,US,29,3,0
+Kittitas,Washington,US,14,0,0
+Walla Walla,Washington,US,50,0,0
+Wahkiakum,Washington,US,2,0,0
+Unassigned,Washington,US,137,0,0
+Skagit,Washington,US,287,10,0
+Thurston,Washington,US,101,1,0
+,Nebraska,US,2719,50,0
+Franklin,Nebraska,US,3,0,0
+Cherry,Nebraska,US,1,0,0
+Arthur,Nebraska,US,0,0,0
+Seward,Nebraska,US,6,1,0
+Stanton,Nebraska,US,2,0,0
+Fillmore,Nebraska,US,1,0,0
+Hayes,Nebraska,US,0,0,0
+Cedar,Nebraska,US,0,0,0
+Keya Paha,Nebraska,US,0,0,0
+Merrick,Nebraska,US,10,0,0
+Boone,Nebraska,US,0,0,0
+Knox,Nebraska,US,2,0,0
+Pierce,Nebraska,US,1,0,0
+Howard,Nebraska,US,11,0,0
+Custer,Nebraska,US,21,2,0
+Lincoln,Nebraska,US,20,1,0
+Hooker,Nebraska,US,0,0,0
+Buffalo,Nebraska,US,85,1,0
+Colfax,Nebraska,US,9,0,0
+Cuming,Nebraska,US,3,0,0
+Clay,Nebraska,US,5,0,0
+Platte,Nebraska,US,16,0,0
+Rock,Nebraska,US,0,0,0
+Boyd,Nebraska,US,0,0,0
+Gosper,Nebraska,US,8,0,0
+Hitchcock,Nebraska,US,0,0,0
+Saunders,Nebraska,US,9,0,0
+Chase,Nebraska,US,0,0,0
+Sheridan,Nebraska,US,0,0,0
+Webster,Nebraska,US,3,0,0
+Cheyenne,Nebraska,US,5,0,0
+Wayne,Nebraska,US,1,0,0
+Douglas,Nebraska,US,382,10,0
+Keith,Nebraska,US,0,0,0
+Logan,Nebraska,US,0,0,0
+Valley,Nebraska,US,0,0,0
+Nemaha,Nebraska,US,1,0,0
+Unassigned,Nebraska,US,0,12,0
+Otoe,Nebraska,US,1,0,0
+Thurston,Nebraska,US,1,0,0
+Dawson,Nebraska,US,352,0,0
+Brown,Nebraska,US,0,0,0
+Cass,Nebraska,US,4,0,0
+Madison,Nebraska,US,55,2,0
+Morrill,Nebraska,US,1,0,0
+Dawes,Nebraska,US,0,0,0
+Furnas,Nebraska,US,2,0,0
+Garfield,Nebraska,US,0,0,0
+Dodge,Nebraska,US,45,0,0
+York,Nebraska,US,9,0,0
+Dundy,Nebraska,US,0,0,0
+Thayer,Nebraska,US,0,0,0
+Saline,Nebraska,US,38,0,0
+Holt,Nebraska,US,0,0,0
+Kearney,Nebraska,US,4,0,0
+Washington,Nebraska,US,22,1,0
+Hamilton,Nebraska,US,46,2,0
+Sherman,Nebraska,US,1,0,0
+Loup,Nebraska,US,0,0,0
+Pawnee,Nebraska,US,0,0,0
+Red Willow,Nebraska,US,1,0,0
+Wheeler,Nebraska,US,0,0,0
+Butler,Nebraska,US,1,0,0
+Sioux,Nebraska,US,0,0,0
+Kimball,Nebraska,US,9,0,0
+Thomas,Nebraska,US,0,0,0
+Garden,Nebraska,US,0,0,0
+Grant,Nebraska,US,0,0,0
+Johnson,Nebraska,US,2,0,0
+Perkins,Nebraska,US,0,0,0
+Nance,Nebraska,US,1,0,0
+Adams,Nebraska,US,125,2,0
+Banner,Nebraska,US,0,0,0
+Jefferson,Nebraska,US,0,0,0
+Lancaster,Nebraska,US,120,1,0
+Harlan,Nebraska,US,0,0,0
+Burt,Nebraska,US,1,0,0
+Frontier,Nebraska,US,0,0,0
+McPherson,Nebraska,US,0,0,0
+Phelps,Nebraska,US,1,0,0
+Out of NE,Nebraska,US,0,0,0
+Nuckolls,Nebraska,US,0,0,0
+Sarpy,Nebraska,US,77,0,0
+Greeley,Nebraska,US,1,0,0
+Richardson,Nebraska,US,0,0,0
+Blaine,Nebraska,US,0,0,0
+Deuel,Nebraska,US,0,0,0
+Scotts Bluff,Nebraska,US,26,0,0
+Antelope,Nebraska,US,2,0,0
+Polk,Nebraska,US,5,0,0
+Gage,Nebraska,US,29,3,0
+Box Butte,Nebraska,US,1,0,0
+Hall,Nebraska,US,797,12,0
+Dakota,Nebraska,US,332,0,0
+Dixon,Nebraska,US,2,0,0
+,West Virginia,US,1010,32,0
+Upshur,West Virginia,US,4,0,0
+Wyoming,West Virginia,US,1,0,0
+Berkeley,West Virginia,US,129,1,0
+Jackson,West Virginia,US,116,8,0
+Tyler,West Virginia,US,3,0,0
+Fayette,West Virginia,US,9,0,0
+Boone,West Virginia,US,2,0,0
+McDowell,West Virginia,US,6,0,0
+Out of WV,West Virginia,US,0,0,0
+Pleasants,West Virginia,US,2,0,0
+Monongalia,West Virginia,US,97,4,0
+Lincoln,West Virginia,US,1,0,0
+Randolph,West Virginia,US,4,0,0
+Wirt,West Virginia,US,3,0,0
+Wetzel,West Virginia,US,3,0,0
+Clay,West Virginia,US,0,0,0
+Taylor,West Virginia,US,5,0,0
+Nicholas,West Virginia,US,6,0,0
+Marshall,West Virginia,US,9,0,0
+Brooke,West Virginia,US,3,0,0
+Webster,West Virginia,US,0,0,0
+Wayne,West Virginia,US,81,6,0
+Harrison,West Virginia,US,30,1,0
+Logan,West Virginia,US,11,1,0
+Mason,West Virginia,US,11,0,0
+Unassigned,West Virginia,US,0,0,0
+Braxton,West Virginia,US,1,0,0
+Tucker,West Virginia,US,4,0,0
+Preston,West Virginia,US,12,0,0
+Ritchie,West Virginia,US,0,0,0
+Pocahontas,West Virginia,US,0,0,0
+Hancock,West Virginia,US,7,0,0
+Barbour,West Virginia,US,4,1,0
+Greenbrier,West Virginia,US,3,0,0
+Gilmer,West Virginia,US,0,0,0
+Kanawha,West Virginia,US,147,3,0
+Morgan,West Virginia,US,9,0,0
+Hampshire,West Virginia,US,7,1,0
+Cabell,West Virginia,US,38,0,0
+Mineral,West Virginia,US,12,0,0
+Grant,West Virginia,US,1,0,0
+Putnam,West Virginia,US,16,0,0
+Pendleton,West Virginia,US,3,0,0
+Calhoun,West Virginia,US,0,0,0
+Raleigh,West Virginia,US,9,0,0
+Wood,West Virginia,US,36,2,0
+Jefferson,West Virginia,US,70,0,0
+Monroe,West Virginia,US,5,0,0
+Hardy,West Virginia,US,3,0,0
+Roane,West Virginia,US,3,0,0
+Mingo,West Virginia,US,2,1,0
+Lewis,West Virginia,US,3,0,0
+Ohio,West Virginia,US,25,1,0
+Doddridge,West Virginia,US,0,0,0
+Marion,West Virginia,US,44,2,0
+Summers,West Virginia,US,1,0,0
+Mercer,West Virginia,US,9,0,0
+,Colorado,US,12968,684,0
+Moffat,Colorado,US,6,0,0
+Clear Creek,Colorado,US,13,1,0
+Gilpin,Colorado,US,1,0,0
+Huerfano,Colorado,US,2,0,0
+Jackson,Colorado,US,0,0,0
+Lake,Colorado,US,16,0,0
+Summit,Colorado,US,97,1,0
+Montrose,Colorado,US,87,9,0
+Routt,Colorado,US,52,4,0
+San Miguel,Colorado,US,17,0,0
+Crowley,Colorado,US,2,1,0
+Larimer,Colorado,US,303,18,0
+Custer,Colorado,US,2,0,0
+Chaffee,Colorado,US,66,13,0
+Lincoln,Colorado,US,4,0,0
+Eagle,Colorado,US,512,7,0
+Mesa,Colorado,US,38,0,0
+Out of CO,Colorado,US,0,2,0
+El Paso,Colorado,US,862,72,0
+Boulder,Colorado,US,497,29,0
+Pueblo,Colorado,US,121,9,0
+Hinsdale,Colorado,US,3,0,0
+Teller,Colorado,US,27,2,0
+Rio Blanco,Colorado,US,1,0,0
+Alamosa,Colorado,US,10,2,0
+Archuleta,Colorado,US,8,0,0
+Park,Colorado,US,7,0,0
+Cheyenne,Colorado,US,0,0,0
+Otero,Colorado,US,8,1,0
+Douglas,Colorado,US,425,19,0
+Logan,Colorado,US,213,1,0
+Montezuma,Colorado,US,15,2,0
+Unassigned,Colorado,US,131,2,0
+Rio Grande,Colorado,US,7,0,0
+Conejos,Colorado,US,0,0,0
+Garfield,Colorado,US,83,2,0
+Dolores,Colorado,US,0,0,0
+Phillips,Colorado,US,5,0,0
+Kit Carson,Colorado,US,19,2,0
+Washington,Colorado,US,6,0,0
+Weld,Colorado,US,1430,82,0
+Broomfield,Colorado,US,135,5,0
+Las Animas,Colorado,US,3,0,0
+Elbert,Colorado,US,27,1,0
+Morgan,Colorado,US,249,11,0
+Prowers,Colorado,US,1,0,0
+Costilla,Colorado,US,3,0,0
+Denver,Colorado,US,2487,132,0
+Fremont,Colorado,US,20,0,0
+Mineral,Colorado,US,2,0,0
+San Juan,Colorado,US,0,0,0
+Baca,Colorado,US,10,0,0
+Saguache,Colorado,US,3,0,0
+Adams,Colorado,US,1302,57,0
+Jefferson,Colorado,US,1236,61,0
+Kiowa,Colorado,US,0,0,0
+Arapahoe,Colorado,US,2083,127,0
+La Plata,Colorado,US,59,0,0
+Grand,Colorado,US,5,0,0
+Sedgwick,Colorado,US,0,0,0
+Ouray,Colorado,US,5,1,0
+Pitkin,Colorado,US,59,3,0
+Delta,Colorado,US,26,1,0
+Bent,Colorado,US,0,0,0
+Gunnison,Colorado,US,151,4,0
+Yuma,Colorado,US,6,0,0
+,Massachusetts,US,53348,2730,0
+Franklin,Massachusetts,US,225,32,0
+Plymouth,Massachusetts,US,4380,212,0
+Barnstable,Massachusetts,US,756,37,0
+Hampden,Massachusetts,US,3229,315,0
+Out of MA,Massachusetts,US,0,0,0
+Suffolk,Massachusetts,US,11218,391,0
+Worcester,Massachusetts,US,4460,183,0
+Berkshire,Massachusetts,US,425,31,0
+Bristol,Massachusetts,US,2829,130,0
+Hampshire,Massachusetts,US,412,20,0
+Middlesex,Massachusetts,US,12253,629,0
+Nantucket,Massachusetts,US,0,0,0
+Unassigned,Massachusetts,US,753,13,0
+Essex,Massachusetts,US,7212,336,0
+Dukes,Massachusetts,US,0,0,0
+Norfolk,Massachusetts,US,5172,400,0
+Dukes and Nantucket,Massachusetts,US,24,1,0
+,Missouri,US,6935,281,0
+Franklin,Missouri,US,106,8,0
+Dent,Missouri,US,0,0,0
+Ray,Missouri,US,10,0,0
+Carter,Missouri,US,3,1,0
+Cedar,Missouri,US,5,0,0
+Boone,Missouri,US,98,1,0
+Howard,Missouri,US,2,0,0
+Pike,Missouri,US,7,0,0
+Pemiscot,Missouri,US,18,1,0
+St. Clair,Missouri,US,2,0,0
+Lincoln,Missouri,US,67,1,0
+Camden,Missouri,US,35,1,0
+Gasconade,Missouri,US,2,0,0
+Kansas City,Missouri,US,486,15,0
+Macon,Missouri,US,2,0,0
+Cole,Missouri,US,50,1,0
+Montgomery,Missouri,US,7,0,0
+Daviess,Missouri,US,2,0,0
+Maries,Missouri,US,2,0,0
+Bollinger,Missouri,US,4,0,0
+Nodaway,Missouri,US,3,0,0
+Buchanan,Missouri,US,48,1,0
+Webster,Missouri,US,13,0,0
+DeKalb,Missouri,US,3,0,0
+Wayne,Missouri,US,0,0,0
+Mississippi,Missouri,US,23,0,0
+Newton,Missouri,US,10,1,0
+Douglas,Missouri,US,0,0,0
+Sullivan,Missouri,US,0,0,0
+Taney,Missouri,US,10,1,0
+Linn,Missouri,US,5,1,0
+St. Louis City,Missouri,US,1019,50,0
+Unassigned,Missouri,US,1,0,0
+Cass,Missouri,US,58,6,0
+Cape Girardeau,Missouri,US,43,1,0
+Howell,Missouri,US,5,0,0
+Saline,Missouri,US,143,0,0
+Washington,Missouri,US,8,0,0
+Morgan,Missouri,US,3,0,0
+Out of MO,Missouri,US,0,0,0
+Ste. Genevieve,Missouri,US,7,1,0
+Dallas,Missouri,US,2,0,0
+St. Louis,Missouri,US,2720,127,0
+Butler,Missouri,US,25,0,0
+Gentry,Missouri,US,1,0,0
+Johnson,Missouri,US,53,0,0
+Reynolds,Missouri,US,2,0,0
+Jefferson,Missouri,US,253,3,0
+Lawrence,Missouri,US,0,0,0
+Benton,Missouri,US,4,0,0
+Caldwell,Missouri,US,2,0,0
+Phelps,Missouri,US,1,0,0
+Ripley,Missouri,US,5,0,0
+Carroll,Missouri,US,3,0,0
+Jasper,Missouri,US,24,0,0
+Pettis,Missouri,US,25,0,0
+Cooper,Missouri,US,7,0,0
+Greene,Missouri,US,93,8,0
+Mercer,Missouri,US,0,0,0
+Scott,Missouri,US,60,1,0
+Jackson,Missouri,US,303,12,0
+Shannon,Missouri,US,0,0,0
+Stone,Missouri,US,3,0,0
+Knox,Missouri,US,0,0,0
+Worth,Missouri,US,1,0,0
+Perry,Missouri,US,39,0,0
+Randolph,Missouri,US,8,0,0
+Hickory,Missouri,US,0,0,0
+Clay,Missouri,US,65,1,0
+Moniteau,Missouri,US,59,0,0
+Platte,Missouri,US,31,0,0
+Andrew,Missouri,US,1,0,0
+Barton,Missouri,US,0,0,0
+Bates,Missouri,US,6,1,0
+Dunklin,Missouri,US,19,2,0
+Clinton,Missouri,US,11,0,0
+Laclede,Missouri,US,0,0,0
+Harrison,Missouri,US,6,0,0
+Chariton,Missouri,US,5,0,0
+Barry,Missouri,US,6,0,0
+St. Charles,Missouri,US,524,29,0
+Miller,Missouri,US,1,0,0
+Texas,Missouri,US,0,0,0
+Shelby,Missouri,US,1,0,0
+Oregon,Missouri,US,1,0,0
+Madison,Missouri,US,1,0,0
+New Madrid,Missouri,US,9,0,0
+Wright,Missouri,US,9,0,0
+Scotland,Missouri,US,4,0,0
+Iron,Missouri,US,2,0,0
+Holt,Missouri,US,1,0,0
+Pulaski,Missouri,US,33,1,0
+McDonald,Missouri,US,4,0,0
+Warren,Missouri,US,22,0,0
+Clark,Missouri,US,1,0,0
+Schuyler,Missouri,US,0,0,0
+Atchison,Missouri,US,2,0,0
+Grundy,Missouri,US,0,0,0
+Henry,Missouri,US,6,1,0
+Putnam,Missouri,US,0,0,0
+Adair,Missouri,US,12,0,0
+Livingston,Missouri,US,2,0,0
+Monroe,Missouri,US,0,0,0
+Stoddard,Missouri,US,19,0,0
+Vernon,Missouri,US,4,0,0
+Lafayette,Missouri,US,33,1,0
+Osage,Missouri,US,5,0,0
+Ralls,Missouri,US,1,0,0
+Audrain,Missouri,US,1,0,0
+Lewis,Missouri,US,6,1,0
+St. Francois,Missouri,US,26,1,0
+Christian,Missouri,US,19,0,0
+Crawford,Missouri,US,7,0,0
+Polk,Missouri,US,1,0,0
+Callaway,Missouri,US,21,1,0
+Marion,Missouri,US,4,0,0
+Ozark,Missouri,US,0,0,0
+Dade,Missouri,US,0,0,0
+,Alaska,US,339,9,0
+Yukon-Koyukuk,Alaska,US,1,0,0
+Kodiak Island,Alaska,US,1,0,0
+Dillingham,Alaska,US,0,0,0
+Haines,Alaska,US,0,0,0
+Kenai Peninsula,Alaska,US,19,0,0
+Southeast Fairbanks,Alaska,US,1,0,0
+Aleutians West,Alaska,US,0,0,0
+Skagway,Alaska,US,0,0,0
+Petersburg,Alaska,US,3,0,0
+Hoonah-Angoon,Alaska,US,0,0,0
+Sitka,Alaska,US,0,0,0
+Wrangell,Alaska,US,0,0,0
+Fairbanks North Star,Alaska,US,79,1,0
+Bethel,Alaska,US,1,0,0
+Nome,Alaska,US,1,0,0
+Denali,Alaska,US,0,0,0
+Out of AK,Alaska,US,0,0,0
+Prince of Wales-Hyder,Alaska,US,2,0,0
+Aleutians East,Alaska,US,0,0,0
+Bristol Bay,Alaska,US,0,0,0
+Matanuska-Susitna,Alaska,US,20,0,0
+Ketchikan Gateway,Alaska,US,16,0,0
+Northwest Arctic,Alaska,US,0,0,0
+Anchorage,Alaska,US,168,4,0
+Unassigned,Alaska,US,0,4,0
+Juneau,Alaska,US,27,0,0
+Valdez-Cordova,Alaska,US,0,0,0
+Kusilvak,Alaska,US,0,0,0
+Yakutat,Alaska,US,0,0,0
+Lake and Peninsula,Alaska,US,0,0,0
+North Slope,Alaska,US,0,0,0
+,North Dakota,US,803,16,0
+Bottineau,North Dakota,US,0,0,0
+Burleigh,North Dakota,US,74,0,0
+Bowman,North Dakota,US,1,0,0
+Cavalier,North Dakota,US,0,0,0
+Hettinger,North Dakota,US,0,0,0
+Griggs,North Dakota,US,0,0,0
+Golden Valley,North Dakota,US,0,0,0
+Richland,North Dakota,US,7,0,0
+Traill,North Dakota,US,0,0,0
+Divide,North Dakota,US,1,0,0
+Dunn,North Dakota,US,10,0,0
+Billings,North Dakota,US,0,0,0
+McIntosh,North Dakota,US,1,0,0
+Pierce,North Dakota,US,2,0,0
+McKenzie,North Dakota,US,12,0,0
+Burke,North Dakota,US,3,0,0
+LaMoure,North Dakota,US,0,0,0
+Nelson,North Dakota,US,1,0,0
+Benson,North Dakota,US,0,0,0
+Steele,North Dakota,US,0,0,0
+Sheridan,North Dakota,US,0,0,0
+Logan,North Dakota,US,0,0,0
+Eddy,North Dakota,US,1,0,0
+Ward,North Dakota,US,21,1,0
+Mountrail,North Dakota,US,33,0,0
+Unassigned,North Dakota,US,0,0,0
+Wells,North Dakota,US,2,0,0
+Dickey,North Dakota,US,0,0,0
+McLean,North Dakota,US,3,0,0
+Cass,North Dakota,US,357,9,0
+Rolette,North Dakota,US,1,0,0
+Pembina,North Dakota,US,1,0,0
+Ransom,North Dakota,US,0,0,0
+Sargent,North Dakota,US,1,0,0
+Slope,North Dakota,US,3,0,0
+Williams,North Dakota,US,10,0,0
+Morton,North Dakota,US,24,2,0
+McHenry,North Dakota,US,1,1,0
+Kidder,North Dakota,US,0,0,0
+Emmons,North Dakota,US,1,1,0
+Ramsey,North Dakota,US,3,0,0
+Sioux,North Dakota,US,1,0,0
+Walsh,North Dakota,US,4,0,0
+Grant,North Dakota,US,1,0,0
+Barnes,North Dakota,US,4,0,0
+Oliver,North Dakota,US,1,0,0
+Adams,North Dakota,US,0,0,0
+Renville,North Dakota,US,0,0,0
+Out of ND,North Dakota,US,0,0,0
+Foster,North Dakota,US,1,0,0
+Stutsman,North Dakota,US,4,0,0
+Towner,North Dakota,US,0,0,0
+Grand Forks,North Dakota,US,173,0,0
+Stark,North Dakota,US,40,2,0
+Mercer,North Dakota,US,0,0,0
+,Wisconsin,US,5687,266,0
+Milwaukee,Wisconsin,US,2525,157,0
+Calumet,Wisconsin,US,7,0,0
+Vilas,Wisconsin,US,4,0,0
+Florence,Wisconsin,US,2,0,0
+La Crosse,Wisconsin,US,26,0,0
+Out of WI,Wisconsin,US,0,0,0
+Jackson,Wisconsin,US,12,1,0
+Richland,Wisconsin,US,10,1,0
+Dunn,Wisconsin,US,9,0,0
+Pierce,Wisconsin,US,8,0,0
+Sheboygan,Wisconsin,US,44,2,0
+Marinette,Wisconsin,US,7,1,0
+Lincoln,Wisconsin,US,0,0,0
+Buffalo,Wisconsin,US,4,1,0
+Kenosha,Wisconsin,US,329,7,0
+Racine,Wisconsin,US,255,10,0
+Waushara,Wisconsin,US,2,0,0
+Marquette,Wisconsin,US,3,1,0
+Rock,Wisconsin,US,151,4,0
+Sauk,Wisconsin,US,38,3,0
+Outagamie,Wisconsin,US,43,2,0
+Ozaukee,Wisconsin,US,82,9,0
+Taylor,Wisconsin,US,0,0,0
+Winnebago,Wisconsin,US,48,1,0
+Burnett,Wisconsin,US,0,0,0
+Oneida,Wisconsin,US,6,0,0
+Iowa,Wisconsin,US,7,0,0
+Columbia,Wisconsin,US,27,1,0
+Douglas,Wisconsin,US,9,0,0
+Waupaca,Wisconsin,US,7,1,0
+Dane,Wisconsin,US,401,21,0
+Price,Wisconsin,US,1,0,0
+Manitowoc,Wisconsin,US,9,0,0
+Unassigned,Wisconsin,US,0,0,0
+Marathon,Wisconsin,US,18,1,0
+Shawano,Wisconsin,US,8,0,0
+Brown,Wisconsin,US,720,2,0
+Walworth,Wisconsin,US,132,8,0
+Dodge,Wisconsin,US,23,1,0
+Trempealeau,Wisconsin,US,2,0,0
+Iron,Wisconsin,US,2,1,0
+St. Croix,Wisconsin,US,13,0,0
+Sawyer,Wisconsin,US,2,0,0
+Washington,Wisconsin,US,92,4,0
+Barron,Wisconsin,US,6,0,0
+Bayfield,Wisconsin,US,3,1,0
+Clark,Wisconsin,US,19,1,0
+Green Lake,Wisconsin,US,1,0,0
+Kewaunee,Wisconsin,US,10,1,0
+Waukesha,Wisconsin,US,299,14,0
+Rusk,Wisconsin,US,4,0,0
+Ashland,Wisconsin,US,2,0,0
+Grant,Wisconsin,US,28,3,0
+Wood,Wisconsin,US,2,0,0
+Adams,Wisconsin,US,4,1,0
+Jefferson,Wisconsin,US,39,0,0
+Portage,Wisconsin,US,4,0,0
+Chippewa,Wisconsin,US,20,0,0
+Monroe,Wisconsin,US,14,0,0
+Washburn,Wisconsin,US,1,0,0
+Fond du Lac,Wisconsin,US,67,3,0
+Langlade,Wisconsin,US,0,0,0
+Menominee,Wisconsin,US,1,0,0
+Door,Wisconsin,US,10,1,0
+Vernon,Wisconsin,US,1,0,0
+Lafayette,Wisconsin,US,4,0,0
+Eau Claire,Wisconsin,US,24,0,0
+Pepin,Wisconsin,US,0,0,0
+Crawford,Wisconsin,US,3,0,0
+Oconto,Wisconsin,US,6,0,0
+Polk,Wisconsin,US,4,0,0
+Forest,Wisconsin,US,0,0,0
+Juneau,Wisconsin,US,12,1,0
+Green,Wisconsin,US,11,0,0
+,Nevada,US,4539,205,0
+Mineral,Nevada,US,2,0,0
+Storey,Nevada,US,0,0,0
+Lander,Nevada,US,1,0,0
+Humboldt,Nevada,US,35,2,0
+Lyon,Nevada,US,23,0,0
+Churchill,Nevada,US,3,0,0
+Elko,Nevada,US,12,1,0
+Pershing,Nevada,US,0,0,0
+Clark,Nevada,US,3570,174,0
+Douglas,Nevada,US,18,0,0
+White Pine,Nevada,US,3,0,0
+Washoe,Nevada,US,791,27,0
+Carson City,Nevada,US,34,1,0
+Esmeralda,Nevada,US,0,0,0
+Unassigned,Nevada,US,16,0,0
+Nye,Nevada,US,31,0,0
+Lincoln,Nevada,US,0,0,0
+Eureka,Nevada,US,0,0,0
+Out of NV,Nevada,US,0,0,0
+,District of Columbia,US,3699,165,0
+District of Columbia,District of Columbia,US,3699,165,0
+Out of DC,District of Columbia,US,0,0,0
+Unassigned,District of Columbia,US,0,0,0
+,New York,US,282143,22009,0
+Franklin,New York,US,14,0,0
+Westchester,New York,US,27231,920,0
+Out of NY,New York,US,0,0,0
+Tioga,New York,US,71,5,0
+Wyoming,New York,US,57,5,0
+Erie,New York,US,2773,198,0
+Rockland,New York,US,11091,453,0
+Orange,New York,US,7973,274,0
+Genesee,New York,US,141,3,0
+Cayuga,New York,US,47,1,0
+Orleans,New York,US,75,7,0
+Chemung,New York,US,103,1,0
+Albany,New York,US,899,31,0
+Herkimer,New York,US,56,3,0
+Seneca,New York,US,36,0,0
+Onondaga,New York,US,664,25,0
+Montgomery,New York,US,46,1,0
+Steuben,New York,US,204,33,0
+Delaware,New York,US,58,4,0
+Oneida,New York,US,364,11,0
+Clinton,New York,US,54,4,0
+Wayne,New York,US,65,0,0
+Tompkins,New York,US,126,0,0
+Columbia,New York,US,140,13,0
+Niagara,New York,US,344,21,0
+Suffolk,New York,US,31368,1042,0
+Sullivan,New York,US,689,17,0
+Ulster,New York,US,1166,23,0
+Unassigned,New York,US,0,0,0
+Ontario,New York,US,82,9,0
+Rensselaer,New York,US,221,11,0
+Richmond,New York,US,0,0,0
+Fulton,New York,US,61,0,0
+Madison,New York,US,121,5,0
+Nassau,New York,US,33798,1558,0
+Schoharie,New York,US,33,0,0
+Cattaraugus,New York,US,45,0,0
+Kings,New York,US,0,0,0
+Washington,New York,US,113,2,0
+Chenango,New York,US,91,0,0
+Warren,New York,US,132,0,0
+Schuyler,New York,US,7,0,0
+Hamilton,New York,US,3,0,0
+Otsego,New York,US,60,4,0
+Cortland,New York,US,28,0,0
+Essex,New York,US,24,0,0
+Bronx,New York,US,0,0,0
+Chautauqua,New York,US,27,3,0
+New York,New York,US,155113,17126,0
+Oswego,New York,US,57,2,0
+Putnam,New York,US,885,7,0
+Saratoga,New York,US,320,11,0
+Schenectady,New York,US,431,15,0
+Dutchess,New York,US,2660,35,0
+Jefferson,New York,US,59,0,0
+Livingston,New York,US,58,5,0
+Monroe,New York,US,1285,96,0
+Yates,New York,US,16,1,0
+Allegany,New York,US,35,2,0
+Queens,New York,US,0,0,0
+Broome,New York,US,251,17,0
+Lewis,New York,US,9,0,0
+St. Lawrence,New York,US,156,0,0
+Greene,New York,US,107,5,0
+,Rhode Island,US,7129,215,0
+Newport,Rhode Island,US,130,0,0
+Kent,Rhode Island,US,496,0,0
+Providence,Rhode Island,US,4916,0,0
+Bristol,Rhode Island,US,107,0,0
+Unassigned,Rhode Island,US,1198,215,0
+Washington,Rhode Island,US,282,0,0
+Out of RI,Rhode Island,US,0,0,0
+,Hawaii,US,605,13,0
+Kalawao,Hawaii,US,0,0,0
+Honolulu,Hawaii,US,395,8,0
+Hawaii,Hawaii,US,69,0,0
+Out of HI,Hawaii,US,7,0,0
+Kauai,Hawaii,US,21,0,0
+Unassigned,Hawaii,US,0,0,0
+Maui,Hawaii,US,113,5,0
+,South Dakota,US,2147,10,0
+Ziebach,South Dakota,US,0,0,0
+Hughes,South Dakota,US,7,0,0
+Bon Homme,South Dakota,US,4,0,0
+Meade,South Dakota,US,1,0,0
+Out of SD,South Dakota,US,0,0,0
+Jackson,South Dakota,US,0,0,0
+Lake,South Dakota,US,4,0,0
+Pennington,South Dakota,US,11,1,0
+Spink,South Dakota,US,3,0,0
+Aurora,South Dakota,US,1,0,0
+Bennett,South Dakota,US,0,0,0
+Hanson,South Dakota,US,0,0,0
+Potter,South Dakota,US,0,0,0
+Custer,South Dakota,US,0,0,0
+Lincoln,South Dakota,US,125,0,0
+Buffalo,South Dakota,US,0,0,0
+Tripp,South Dakota,US,0,0,0
+Edmunds,South Dakota,US,0,0,0
+Yankton,South Dakota,US,26,0,0
+Clay,South Dakota,US,5,0,0
+Campbell,South Dakota,US,0,0,0
+Marshall,South Dakota,US,1,0,0
+Roberts,South Dakota,US,4,0,0
+Hand,South Dakota,US,0,0,0
+Miner,South Dakota,US,1,0,0
+Hutchinson,South Dakota,US,2,0,0
+Douglas,South Dakota,US,0,0,0
+Moody,South Dakota,US,2,0,0
+Unassigned,South Dakota,US,0,0,0
+Brown,South Dakota,US,30,0,0
+Charles Mix,South Dakota,US,4,0,0
+Haakon,South Dakota,US,0,0,0
+Walworth,South Dakota,US,5,0,0
+Dewey,South Dakota,US,0,0,0
+Minnehaha,South Dakota,US,1796,5,0
+Corson,South Dakota,US,1,0,0
+Butte,South Dakota,US,0,0,0
+Gregory,South Dakota,US,0,0,0
+Harding,South Dakota,US,0,0,0
+Oglala Lakota,South Dakota,US,1,0,0
+Union,South Dakota,US,12,0,0
+Hyde,South Dakota,US,1,0,0
+Brookings,South Dakota,US,11,0,0
+Jones,South Dakota,US,0,0,0
+Clark,South Dakota,US,1,0,0
+Stanley,South Dakota,US,1,0,0
+Fall River,South Dakota,US,1,0,0
+Davison,South Dakota,US,5,0,0
+Grant,South Dakota,US,0,0,0
+Beadle,South Dakota,US,21,2,0
+Mellette,South Dakota,US,0,0,0
+Perkins,South Dakota,US,0,0,0
+McCook,South Dakota,US,4,1,0
+Lawrence,South Dakota,US,9,0,0
+Brule,South Dakota,US,0,0,0
+Lyman,South Dakota,US,2,0,0
+Kingsbury,South Dakota,US,0,0,0
+McPherson,South Dakota,US,1,0,0
+Sanborn,South Dakota,US,3,0,0
+Codington,South Dakota,US,14,0,0
+Faulk,South Dakota,US,1,0,0
+Deuel,South Dakota,US,1,0,0
+Turner,South Dakota,US,15,0,0
+Jerauld,South Dakota,US,6,1,0
+Hamlin,South Dakota,US,2,0,0
+Todd,South Dakota,US,1,0,0
+Day,South Dakota,US,0,0,0
+Sully,South Dakota,US,1,0,0
+,Minnesota,US,3446,244,0
+Big Stone,Minnesota,US,2,0,0
+Kanabec,Minnesota,US,0,0,0
+Morrison,Minnesota,US,1,0,0
+Fillmore,Minnesota,US,12,1,0
+Crow Wing,Minnesota,US,20,0,0
+Jackson,Minnesota,US,7,0,0
+Lake,Minnesota,US,0,0,0
+Pennington,Minnesota,US,1,0,0
+Pipestone,Minnesota,US,2,0,0
+Chisago,Minnesota,US,7,1,0
+Carver,Minnesota,US,16,0,0
+Traverse,Minnesota,US,2,0,0
+Mower,Minnesota,US,28,0,0
+Lake of the Woods,Minnesota,US,0,0,0
+McLeod,Minnesota,US,3,0,0
+Waseca,Minnesota,US,3,0,0
+Lincoln,Minnesota,US,2,0,0
+Watonwan,Minnesota,US,5,0,0
+Clay,Minnesota,US,113,7,0
+Rock,Minnesota,US,5,0,0
+Kandiyohi,Minnesota,US,28,0,0
+Becker,Minnesota,US,2,0,0
+Wadena,Minnesota,US,0,0,0
+Blue Earth,Minnesota,US,27,0,0
+Meeker,Minnesota,US,4,0,0
+Marshall,Minnesota,US,1,0,0
+Le Sueur,Minnesota,US,22,0,0
+Steele,Minnesota,US,12,0,0
+Hennepin,Minnesota,US,1287,155,0
+Douglas,Minnesota,US,2,0,0
+Wabasha,Minnesota,US,8,0,0
+Pine,Minnesota,US,45,0,0
+Isanti,Minnesota,US,7,0,0
+Wilkin,Minnesota,US,11,3,0
+Unassigned,Minnesota,US,5,0,0
+Swift,Minnesota,US,1,0,0
+Nobles,Minnesota,US,325,1,0
+Brown,Minnesota,US,8,1,0
+Cass,Minnesota,US,5,0,0
+Faribault,Minnesota,US,4,0,0
+Dodge,Minnesota,US,19,0,0
+Cook,Minnesota,US,0,0,0
+Wright,Minnesota,US,33,1,0
+Murray,Minnesota,US,8,0,0
+Aitkin,Minnesota,US,1,0,0
+Washington,Minnesota,US,112,7,0
+Redwood,Minnesota,US,1,0,0
+Mille Lacs,Minnesota,US,1,1,0
+Koochiching,Minnesota,US,1,0,0
+Winona,Minnesota,US,66,13,0
+Out of MN,Minnesota,US,0,0,0
+Carlton,Minnesota,US,47,0,0
+Roseau,Minnesota,US,1,0,0
+St. Louis,Minnesota,US,61,10,0
+Olmsted,Minnesota,US,238,6,0
+Ramsey,Minnesota,US,261,20,0
+Anoka,Minnesota,US,150,3,0
+Rice,Minnesota,US,9,1,0
+Yellow Medicine,Minnesota,US,3,0,0
+Grant,Minnesota,US,0,0,0
+Norman,Minnesota,US,7,0,0
+Stevens,Minnesota,US,0,0,0
+Clearwater,Minnesota,US,2,0,0
+Lyon,Minnesota,US,6,0,0
+Otter Tail,Minnesota,US,8,0,0
+Chippewa,Minnesota,US,2,0,0
+Benton,Minnesota,US,4,0,0
+Martin,Minnesota,US,42,4,0
+Renville,Minnesota,US,3,0,0
+Sibley,Minnesota,US,1,0,0
+Kittson,Minnesota,US,1,0,0
+Stearns,Minnesota,US,38,0,0
+Beltrami,Minnesota,US,6,0,0
+Mahnomen,Minnesota,US,1,0,0
+Pope,Minnesota,US,0,0,0
+Goodhue,Minnesota,US,19,0,0
+Cottonwood,Minnesota,US,6,0,0
+Sherburne,Minnesota,US,15,0,0
+Polk,Minnesota,US,20,0,0
+Itasca,Minnesota,US,2,0,0
+Freeborn,Minnesota,US,33,0,0
+Dakota,Minnesota,US,138,6,0
+Hubbard,Minnesota,US,0,0,0
+Lac qui Parle,Minnesota,US,1,0,0
+Todd,Minnesota,US,3,0,0
+Nicollet,Minnesota,US,9,2,0
+Houston,Minnesota,US,1,0,0
+Red Lake,Minnesota,US,1,0,0
+Scott,Minnesota,US,32,1,0
+,New Jersey,US,105498,5914,0
+Camden,New Jersey,US,2870,118,0
+Bergen,New Jersey,US,14738,954,0
+Hudson,New Jersey,US,13367,706,0
+Passaic,New Jersey,US,10738,416,0
+Cumberland,New Jersey,US,504,6,0
+Monmouth,New Jersey,US,5521,287,0
+Union,New Jersey,US,11523,563,0
+Hunterdon,New Jersey,US,505,23,0
+Cape May,New Jersey,US,261,18,0
+Warren,New Jersey,US,750,63,0
+Out of NJ,New Jersey,US,0,0,0
+Burlington,New Jersey,US,2153,88,0
+Gloucester,New Jersey,US,949,30,0
+Middlesex,New Jersey,US,10075,431,0
+Ocean,New Jersey,US,5811,317,0
+Salem,New Jersey,US,177,6,0
+Unassigned,New Jersey,US,532,0,0
+Essex,New Jersey,US,12520,1019,0
+Morris,New Jersey,US,4821,347,0
+Atlantic,New Jersey,US,596,29,0
+Sussex,New Jersey,US,812,91,0
+Somerset,New Jersey,US,3030,219,0
+Mercer,New Jersey,US,3245,183,0
+,Michigan,US,37074,3155,0
+Dickinson,Michigan,US,3,2,0
+Baraga,Michigan,US,0,0,0
+Shiawassee,Michigan,US,130,7,0
+Leelanau,Michigan,US,9,0,0
+Kalamazoo,Michigan,US,280,11,0
+Grand Traverse,Michigan,US,19,5,0
+Jackson,Michigan,US,323,16,0
+Lake,Michigan,US,2,0,0
+Oakland,Michigan,US,6881,612,0
+Genesee,Michigan,US,1452,157,0
+Osceola,Michigan,US,8,0,0
+Roscommon,Michigan,US,13,0,0
+Manistee,Michigan,US,12,0,0
+Newaygo,Michigan,US,14,0,0
+St. Clair,Michigan,US,297,18,0
+Ottawa,Michigan,US,173,8,0
+Montmorency,Michigan,US,6,0,0
+Gratiot,Michigan,US,8,1,0
+Iosco,Michigan,US,29,4,0
+Ontonagon,Michigan,US,0,0,0
+Alpena,Michigan,US,60,2,0
+Marquette,Michigan,US,41,7,0
+Lenawee,Michigan,US,82,0,0
+Benzie,Michigan,US,4,0,0
+Huron,Michigan,US,11,0,0
+Federal Correctional Institution (FCI),Michigan,US,74,0,0
+Clinton,Michigan,US,106,9,0
+Sanilac,Michigan,US,34,4,0
+Allegan,Michigan,US,65,1,0
+Wayne,Michigan,US,15407,1443,0
+Oceana,Michigan,US,4,1,0
+Midland,Michigan,US,51,3,0
+Montcalm,Michigan,US,29,1,0
+Mason,Michigan,US,5,0,0
+Barry,Michigan,US,29,1,0
+Ionia,Michigan,US,41,2,0
+Unassigned,Michigan,US,9,1,0
+Mecosta,Michigan,US,14,1,0
+Arenac,Michigan,US,16,1,0
+Washtenaw,Michigan,US,1002,50,0
+Berrien,Michigan,US,213,12,0
+Oscoda,Michigan,US,4,0,0
+Antrim,Michigan,US,10,0,0
+Cheboygan,Michigan,US,17,1,0
+Cass,Michigan,US,26,2,0
+Ingham,Michigan,US,395,9,0
+Clare,Michigan,US,10,1,0
+Gogebic,Michigan,US,4,1,0
+Iron,Michigan,US,0,0,0
+St. Joseph,Michigan,US,27,1,0
+Lapeer,Michigan,US,163,23,0
+Houghton,Michigan,US,2,0,0
+Schoolcraft,Michigan,US,3,0,0
+Missaukee,Michigan,US,15,1,0
+Out of MI,Michigan,US,19,1,0
+Branch,Michigan,US,47,2,0
+Mackinac,Michigan,US,5,0,0
+Otsego,Michigan,US,84,7,0
+Van Buren,Michigan,US,34,2,0
+Saginaw,Michigan,US,545,43,0
+Gladwin,Michigan,US,10,1,0
+Macomb,Michigan,US,5139,517,0
+Alcona,Michigan,US,4,0,0
+Hillsdale,Michigan,US,109,14,0
+Kent,Michigan,US,929,32,0
+Calhoun,Michigan,US,191,10,0
+Muskegon,Michigan,US,213,13,0
+Tuscola,Michigan,US,81,13,0
+Charlevoix,Michigan,US,13,1,0
+Livingston,Michigan,US,315,14,0
+Wexford,Michigan,US,8,1,0
+Chippewa,Michigan,US,2,0,0
+Monroe,Michigan,US,267,11,0
+Emmet,Michigan,US,21,2,0
+Kalkaska,Michigan,US,17,2,0
+Eaton,Michigan,US,114,5,0
+Menominee,Michigan,US,3,0,0
+Alger,Michigan,US,0,0,0
+Luce,Michigan,US,1,0,0
+Michigan Department of Corrections (MDOC),Michigan,US,1026,31,0
+Delta,Michigan,US,12,2,0
+Crawford,Michigan,US,46,3,0
+Isabella,Michigan,US,55,7,0
+Keweenaw,Michigan,US,0,0,0
+Bay,Michigan,US,114,2,0
+Presque Isle,Michigan,US,10,0,0
+Ogemaw,Michigan,US,8,0,0
+,New Mexico,US,2660,93,0
+Curry,New Mexico,US,11,0,0
+Guadalupe,New Mexico,US,12,0,0
+Cibola,New Mexico,US,39,2,0
+Rio Arriba,New Mexico,US,12,0,0
+Harding,New Mexico,US,1,0,0
+Sierra,New Mexico,US,0,0,0
+Dona Ana,New Mexico,US,110,1,0
+Union,New Mexico,US,1,0,0
+San Miguel,New Mexico,US,2,0,0
+Chaves,New Mexico,US,22,1,0
+Mora,New Mexico,US,0,0,0
+Taos,New Mexico,US,17,0,0
+Torrance,New Mexico,US,13,0,0
+Quay,New Mexico,US,4,1,0
+Lincoln,New Mexico,US,2,0,0
+McKinley,New Mexico,US,708,9,0
+Colfax,New Mexico,US,5,0,0
+Roosevelt,New Mexico,US,6,0,0
+Sandoval,New Mexico,US,365,10,0
+Grant,New Mexico,US,14,0,0
+San Juan,New Mexico,US,435,33,0
+Lea,New Mexico,US,10,0,0
+Hidalgo,New Mexico,US,0,0,0
+Santa Fe,New Mexico,US,95,0,0
+Socorro,New Mexico,US,40,1,0
+Otero,New Mexico,US,4,0,0
+Eddy,New Mexico,US,11,1,0
+Out of NM,New Mexico,US,0,0,0
+Luna,New Mexico,US,3,0,0
+Catron,New Mexico,US,1,1,0
+Los Alamos,New Mexico,US,6,0,0
+Unassigned,New Mexico,US,0,0,0
+Bernalillo,New Mexico,US,670,33,0
+Valencia,New Mexico,US,41,0,0
+De Baca,New Mexico,US,0,0,0
+,New Hampshire,US,1797,53,0
+Coos,New Hampshire,US,2,0,0
+Out of NH,New Hampshire,US,0,0,0
+Carroll,New Hampshire,US,30,0,0
+Cheshire,New Hampshire,US,36,0,0
+Belknap,New Hampshire,US,31,0,0
+Strafford,New Hampshire,US,129,0,0
+Sullivan,New Hampshire,US,11,0,0
+Hillsborough,New Hampshire,US,780,2,0
+Merrimack,New Hampshire,US,129,0,0
+Unassigned,New Hampshire,US,9,50,0
+Grafton,New Hampshire,US,47,0,0
+Rockingham,New Hampshire,US,593,1,0
+,Louisiana,US,26512,1707,0
+Franklin,Louisiana,US,113,2,0
+Claiborne,Louisiana,US,52,5,0
+Ouachita,Louisiana,US,609,16,0
+Tangipahoa,Louisiana,US,526,21,0
+Evangeline,Louisiana,US,45,0,0
+Jackson,Louisiana,US,25,0,0
+Sabine,Louisiana,US,13,0,0
+Cameron,Louisiana,US,3,0,0
+Richland,Louisiana,US,48,0,0
+Pointe Coupee,Louisiana,US,89,11,0
+St. Landry,Louisiana,US,163,34,0
+St. Helena,Louisiana,US,27,1,0
+Terrebonne,Louisiana,US,366,26,0
+Beauregard,Louisiana,US,35,3,0
+Iberia,Louisiana,US,240,15,0
+Winn,Louisiana,US,20,2,0
+Lincoln,Louisiana,US,69,4,0
+Orleans,Louisiana,US,6297,399,0
+Jefferson Davis,Louisiana,US,59,5,0
+Concordia,Louisiana,US,30,3,0
+Iberville,Louisiana,US,433,26,0
+Rapides,Louisiana,US,239,8,0
+Allen,Louisiana,US,82,9,0
+Out of LA,Louisiana,US,0,0,0
+West Feliciana,Louisiana,US,97,3,0
+Plaquemines,Louisiana,US,168,16,0
+St. Tammany,Louisiana,US,1138,93,0
+Vermilion,Louisiana,US,34,1,0
+St. John the Baptist,Louisiana,US,747,64,0
+Webster,Louisiana,US,82,4,0
+St. Charles,Louisiana,US,540,35,0
+Acadia,Louisiana,US,130,7,0
+Bienville,Louisiana,US,70,13,0
+Catahoula,Louisiana,US,25,2,0
+Unassigned,Louisiana,US,63,63,0
+Natchitoches,Louisiana,US,73,2,0
+West Baton Rouge,Louisiana,US,92,15,0
+Madison,Louisiana,US,7,0,0
+Ascension,Louisiana,US,557,35,0
+East Feliciana,Louisiana,US,107,11,0
+Calcasieu,Louisiana,US,360,26,0
+St. Bernard,Louisiana,US,443,15,0
+Avoyelles,Louisiana,US,69,7,0
+Morehouse,Louisiana,US,46,4,0
+Union,Louisiana,US,102,6,0
+Washington,Louisiana,US,241,14,0
+Assumption,Louisiana,US,172,3,0
+St. Martin,Louisiana,US,219,14,0
+Tensas,Louisiana,US,1,0,0
+St. Mary,Louisiana,US,178,20,0
+East Carroll,Louisiana,US,6,0,0
+LaSalle,Louisiana,US,18,0,0
+East Baton Rouge,Louisiana,US,1720,114,0
+Grant,Louisiana,US,11,0,0
+St. James,Louisiana,US,237,18,0
+West Carroll,Louisiana,US,4,0,0
+Bossier,Louisiana,US,265,12,0
+Jefferson,Louisiana,US,6007,325,0
+Livingston,Louisiana,US,177,11,0
+Caldwell,Louisiana,US,17,0,0
+Lafourche,Louisiana,US,610,39,0
+Caddo,Louisiana,US,1432,92,0
+Vernon,Louisiana,US,16,2,0
+Lafayette,Louisiana,US,442,17,0
+Red River,Louisiana,US,22,4,0
+De Soto,Louisiana,US,184,10,0
+,Ohio,US,15587,711,0
+Franklin,Ohio,US,1839,50,0
+Tuscarawas,Ohio,US,48,0,0
+Preble,Ohio,US,25,1,0
+Paulding,Ohio,US,8,0,0
+Coshocton,Ohio,US,16,0,0
+Columbiana,Ohio,US,219,18,0
+Belmont,Ohio,US,101,6,0
+Erie,Ohio,US,47,3,0
+Jackson,Ohio,US,4,0,0
+Lake,Ohio,US,157,7,0
+Summit,Ohio,US,475,35,0
+Fayette,Ohio,US,13,0,0
+Richland,Ohio,US,77,1,0
+Knox,Ohio,US,15,1,0
+Out of OH,Ohio,US,0,0,0
+Cuyahoga,Ohio,US,1867,91,0
+Perry,Ohio,US,12,0,0
+Medina,Ohio,US,153,13,0
+Pike,Ohio,US,3,0,0
+Hardin,Ohio,US,23,0,0
+Ottawa,Ohio,US,37,0,0
+Sandusky,Ohio,US,20,2,0
+Seneca,Ohio,US,12,1,0
+Gallia,Ohio,US,6,1,0
+Noble,Ohio,US,4,0,0
+Montgomery,Ohio,US,256,8,0
+Muskingum,Ohio,US,11,0,0
+Huron,Ohio,US,27,1,0
+Athens,Ohio,US,3,1,0
+Allen,Ohio,US,108,17,0
+Delaware,Ohio,US,138,3,0
+Clinton,Ohio,US,27,0,0
+Van Wert,Ohio,US,3,0,0
+Meigs,Ohio,US,2,0,0
+Wayne,Ohio,US,100,20,0
+Harrison,Ohio,US,2,0,0
+Logan,Ohio,US,18,0,0
+Lorain,Ohio,US,374,19,0
+Shelby,Ohio,US,30,1,0
+Unassigned,Ohio,US,0,0,0
+Clermont,Ohio,US,77,2,0
+Holmes,Ohio,US,5,1,0
+Fulton,Ohio,US,19,0,0
+Brown,Ohio,US,11,1,0
+Madison,Ohio,US,51,3,0
+Auglaize,Ohio,US,30,3,0
+Vinton,Ohio,US,0,0,0
+Hancock,Ohio,US,34,1,0
+Ashtabula,Ohio,US,107,10,0
+Union,Ohio,US,18,0,0
+Washington,Ohio,US,93,8,0
+Mahoning,Ohio,US,721,66,0
+Warren,Ohio,US,131,10,0
+Morgan,Ohio,US,4,0,0
+Clark,Ohio,US,32,1,0
+Williams,Ohio,US,27,1,0
+Licking,Ohio,US,108,4,0
+Hamilton,Ohio,US,975,54,0
+Scioto,Ohio,US,6,0,0
+Champaign,Ohio,US,12,1,0
+Defiance,Ohio,US,19,1,0
+Ross,Ohio,US,35,1,0
+Morrow,Ohio,US,26,0,0
+Butler,Ohio,US,216,4,0
+Henry,Ohio,US,4,0,0
+Ashland,Ohio,US,5,0,0
+Highland,Ohio,US,8,0,0
+Putnam,Ohio,US,51,5,0
+Pickaway,Ohio,US,1662,5,0
+Darke,Ohio,US,75,12,0
+Wood,Ohio,US,132,16,0
+Adams,Ohio,US,4,0,0
+Jefferson,Ohio,US,35,1,0
+Lawrence,Ohio,US,22,0,0
+Portage,Ohio,US,214,31,0
+Geauga,Ohio,US,128,14,0
+Lucas,Ohio,US,1033,59,0
+Monroe,Ohio,US,2,0,0
+Miami,Ohio,US,135,25,0
+Carroll,Ohio,US,20,1,0
+Guernsey,Ohio,US,15,0,0
+Trumbull,Ohio,US,287,23,0
+Crawford,Ohio,US,39,0,0
+Wyandot,Ohio,US,24,2,0
+Fairfield,Ohio,US,110,2,0
+Marion,Ohio,US,2172,4,0
+Hocking,Ohio,US,11,1,0
+Stark,Ohio,US,303,34,0
+Greene,Ohio,US,41,3,0
+Mercer,Ohio,US,18,1,0
+,,Antigua and Barbuda,24,3,11
+,,Colombia,5142,233,1067
+,,Ecuador,22719,576,1366
+,,Western Sahara,6,0,5
+,,Hungary,2443,262,458
+,,South Sudan,5,0,0
+,,Japan,13231,360,1656
+,,Moldova,3304,94,825
+,,Belarus,9590,67,1573
+,,Mauritius,331,9,295
+,,Albania,712,27,403
+,,New Zealand,1470,18,1142
+,,Eswatini,56,1,10
+,,Senegal,614,7,276
+,,Honduras,627,59,65
+,,Italy,195351,26384,63120
+,,Ethiopia,122,3,29
+,,Haiti,72,6,6
+,,Afghanistan,1463,47,188
+,,Burundi,11,1,4
+,,Singapore,12693,12,1002
+,,Czechia,7352,218,2453
+,,Egypt,4319,307,1114
+,,American Samoa,0,0,0
+,,Sierra Leone,82,2,10
+,,Bolivia,866,46,54
+,,Malta,448,4,249
+,,Russia,74588,681,6250
+,,Saudi Arabia,16299,136,2215
+,,Netherlands,37384,4424,102
+,Sint Eustatius and Saba,Netherlands,5,0,0
+Bonaire,Sint Eustatius and Saba,Netherlands,5,0,0
+,Aruba,Netherlands,100,2,69
+,Sint Maarten,Netherlands,73,12,22
+,Curacao,Netherlands,16,1,11
+,,Pakistan,12723,269,2866
+,,Kosovo,510,12,93
+,,Gambia,10,1,8
+,,China,83909,4636,78175
+,Gansu,China,139,2,137
+,Hong Kong,China,1037,4,753
+,Anhui,China,991,6,985
+,Jiangxi,China,937,1,936
+,Macau,China,45,0,28
+,Shaanxi,China,286,3,253
+,Tibet,China,1,0,1
+,Fujian,China,355,1,349
+,Hainan,China,168,6,162
+,Tianjin,China,190,3,182
+,Xinjiang,China,76,3,73
+,Sichuan,China,561,3,558
+,Hubei,China,68128,4512,63604
+,Jilin,China,109,1,99
+,Zhejiang,China,1268,1,1257
+,Chongqing,China,579,6,573
+,Heilongjiang,China,935,13,511
+,Shanxi,China,197,0,154
+,Guangdong,China,1586,8,1542
+,Liaoning,China,146,2,143
+,Hunan,China,1019,4,1015
+,Inner Mongolia,China,198,1,121
+,Shanghai,China,642,7,558
+,Shandong,China,787,7,767
+,Yunnan,China,185,2,181
+,Guizhou,China,147,2,145
+,Ningxia,China,75,0,75
+,Hebei,China,328,6,318
+,Beijing,China,593,8,525
+,Guangxi,China,254,2,252
+,Henan,China,1276,22,1254
+,Jiangsu,China,653,0,646
+,Qinghai,China,18,0,18
+,,Ireland,18561,1063,9233
+,,Qatar,9358,10,929
+,,Slovakia,1373,17,386
+,,France,161644,22648,45372
+,Reunion,France,417,0,300
+,French Guiana,France,111,1,87
+,Saint Barthelemy,France,6,0,6
+,Guadeloupe,France,149,12,82
+,Mayotte,France,380,4,144
+,Martinique,France,175,14,77
+,St Martin,France,38,3,24
+,Saint Pierre and Miquelon,France,1,0,0
+,New Caledonia,France,18,0,17
+,French Polynesia,France,57,0,41
+,,Lithuania,1426,41,460
+,,Serbia,6630,125,870
+,,Bosnia and Herzegovina,1486,57,592
+,,Kyrgyzstan,665,8,345
+,,Bhutan,7,0,3
+,,Romania,10635,601,2890
+,,Togo,96,6,62
+,,Niger,684,27,325
+,,Philippines,7294,494,792
+,,Cote d'Ivoire,1077,14,419
+,,Rwanda,183,0,88
+,,Congo (Kinshasa),416,28,49
+,,Uzbekistan,1862,8,707
+,,Burma,146,5,10
+,,Bangladesh,4998,140,113
+,,Barbados,79,6,31
+,,Nicaragua,12,3,7
+,,Norway,7499,201,32
+,,Saint Vincent and the Grenadines,14,0,5
+,,Botswana,22,1,0
+,,Denmark,8643,418,5858
+,Faroe Islands,Denmark,187,0,178
+,Greenland,Denmark,11,0,11
+,,Dominican Republic,5926,273,822
+,,Mexico,13842,1305,7149
+,,Uganda,75,0,46
+,,Zimbabwe,31,4,2
+,,Suriname,10,1,7
+,,Montenegro,320,6,153
+,,Indonesia,8607,720,1042
+,,Dominica,16,0,13

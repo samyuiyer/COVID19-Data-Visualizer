@@ -6,6 +6,8 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ColorPicker;
@@ -236,9 +238,11 @@ public class DisplayManager extends DisplayMode {
   }
 
   private void exitProgram() {
-    Platform.exit();
-    System.exit(0);
-
+	 Alert confirmExit = new Alert(AlertType.CONFIRMATION,"Are you sure you want to exit?");
+	 confirmExit.showAndWait().filter(response -> response == ButtonType.OK).ifPresent(response -> {
+		Platform.exit();
+		System.exit(0);
+	 });
   }
 
   @Override
