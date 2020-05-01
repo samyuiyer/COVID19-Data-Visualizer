@@ -21,7 +21,6 @@ The user can choose between various modes to display the data (map, table, graph
 
 #### Graph Mode:
 
-
 The user can also extrapolate the data into the future and save the result to a CSV file.
 
 Data will be downloaded in CSV format from the 2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE [(link to data)](https://github.com/CSSEGISandData/COVID-19).
