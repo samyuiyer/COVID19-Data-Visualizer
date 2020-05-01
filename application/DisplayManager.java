@@ -88,15 +88,35 @@ public class DisplayManager extends DisplayMode {
     final MenuItem view3 = new MenuItem("Graph");
     final MenuItem exit = new MenuItem("Exit");
     final Menu help = new Menu("Help");
+    final MenuItem help1 = new MenuItem("Tutorial");
+    final MenuItem help2 = new MenuItem("Save and Load");
 
     // Add to MenuBar
 
     menu.getItems().addAll(toggle, view1, view2, view3, exit);
+    help.getItems().addAll(help1, help2);
     bar.getMenus().addAll(menu, help);
 
     // Event Handlers
-
+    
     exit.setOnAction(e -> exitProgram());
+    
+    help1.setOnAction(e -> {
+      Alert alert = new Alert(AlertType.INFORMATION);
+      alert.setTitle("Help");
+      alert.setHeaderText("Tutorial");
+      alert.setContentText("Message");
+
+      alert.showAndWait();
+    });
+    help2.setOnAction(e -> {
+      Alert alert = new Alert(AlertType.INFORMATION);
+      alert.setTitle("Help");
+      alert.setHeaderText("How to Save and Load");
+      alert.setContentText("Message");
+
+      alert.showAndWait();
+    });
 
     toggle.setOnAction(e -> {
       if (settingsVisible) {
