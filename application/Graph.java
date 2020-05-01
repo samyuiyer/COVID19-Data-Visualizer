@@ -1,3 +1,19 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Title: ateam_final_project
+// Author: Ankur Garg, Eric Ertl, Justin Chan, Samyu Iyer, Sudeep Reddy
+//
+// Course: CS400
+// Semester: Spring 2020
+// Lecture Number: 001
+//
+// Date: 4/29/2020
+//
+// Description: A project that displays statistics relating to COVID-19 in a
+// variety of ways.
+//
+///////////////////////////////////////////////////////////////////////////////
+
 package application;
 
 import java.util.ArrayList;
@@ -23,6 +39,9 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
 
 
+/**
+ * Displays a graph of a given Datapoint and Time
+ */
 public class Graph extends DisplayMode {
 
   private DataManager dm;
@@ -61,7 +80,7 @@ public class Graph extends DisplayMode {
   }
 
   /**
-   * @return the pane to display this Graph
+   * @return the Node to display this Graph
    */
   @Override
   public Node getDisplayPane() {
@@ -69,7 +88,7 @@ public class Graph extends DisplayMode {
   }
 
   /**
-   * @return the settings for this Graph
+   * @return the Node to display this Graph's settings
    */
   @Override
   public Node getSettingsPane() {
@@ -112,7 +131,7 @@ public class Graph extends DisplayMode {
       d = cityBox.getValue() == null ? d : cityBox.getValue();
     }
     chart.setTitle(dataName + " cases, " + d.key);
-    
+
     // add x,y pairs based on selected datapoint
 
     if (dataName.equals(DATA_NAMES[0])) {

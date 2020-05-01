@@ -1,3 +1,19 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Title: ateam_final_project
+// Author: Ankur Garg, Eric Ertl, Justin Chan, Samyu Iyer, Sudeep Reddy
+//
+// Course: CS400
+// Semester: Spring 2020
+// Lecture Number: 001
+//
+// Date: 4/29/2020
+//
+// Description: A project that displays statistics relating to COVID-19 in a
+// variety of ways.
+//
+///////////////////////////////////////////////////////////////////////////////
+
 package application;
 
 import java.util.List;
@@ -19,7 +35,9 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
-
+/**
+ * Displays a Map of COVID-19 at specific times with specific data selected from the settings.
+ */
 public class Map extends DisplayMode {
 
   private enum dataTypes {
@@ -39,7 +57,7 @@ public class Map extends DisplayMode {
   /**
    * Constructor for Map
    * 
-   * @param dm Datamanager
+   * @param dm Datamanager with data
    */
   public Map(DataManager dm) {
     super();
@@ -52,17 +70,26 @@ public class Map extends DisplayMode {
     setupSettings();
   }
 
+  /**
+   * @return the Node to display this Map
+   */
   @Override
   public Node getDisplayPane() {
     redraw(graphicsContext);
     return canvas;
   }
 
+  /**
+   * @return the Node to display this Map's settings
+   */
   @Override
   public Node getSettingsPane() {
     return settingsPane;
   }
 
+  /**
+   * Setup for creating the DisplayPane
+   */
   private void setupSettings() {
     Label timeLabel = new Label("" + dm.getTimeLabels()[(int) timeSlider.getValue()]);
     Label sliderLabel = new Label("Choose Time:");
@@ -123,6 +150,11 @@ public class Map extends DisplayMode {
     settingsPane.getChildren().addAll(dRadio, cRadio, rRadio);
   }
 
+  /**
+   * Helper method to update the map
+   * 
+   * @param gc the GraphicsContext
+   */
   private void redraw(GraphicsContext gc) {
     List<DataPoint> list = dm.gt.getAll();
     Image image = new Image("map.jpg");
@@ -141,8 +173,10 @@ public class Map extends DisplayMode {
 
 
   /**
-   * @param d
-   * @return
+   * Filters data based on filters
+   * 
+   * @param d datapoint to filter
+   * @return filtered datapoint
    */
   private boolean filter(DataPoint d) {
     if (d.getLon() != 0 || d.getLat() != 0) {
@@ -154,8 +188,10 @@ public class Map extends DisplayMode {
   }
 
   /**
-   * @param d
-   * @return
+   * Logs the data at the cuttent time, and updates the color
+   * 
+   * @param d the datapoint
+   * @return the log of the data
    */
   private double getFactor(DataPoint d) {
     if (rType == dataTypes.Confirmed) {
@@ -166,10 +202,13 @@ public class Map extends DisplayMode {
       return Math.log(d.recoveredList.get((int) timeSlider.getValue()));
     }
     graphicsContext.setFill(Color.RED);
-  
+
     return Math.log(d.deathsList.get((int) timeSlider.getValue()));
   }
 
+  /**
+   * Updates the map
+   */
   @Override
   public void refresh() {
     redraw(graphicsContext);
