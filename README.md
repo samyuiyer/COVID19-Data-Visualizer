@@ -28,7 +28,7 @@ In this mode, the number of COVID-19 deaths and recovered COVID-19 patients are 
 In this mode, the various aspects of numerical COVID-19 data are displayed as dots, with the size of the dots pertaining to the size of the number they represent. The dots are placed in the location which they reference. The various checkboxes and radio buttons in the left panel allow for further customization, and the "Choose Time" slider enables users to select the end point in time for which to display data. 
 
 ### Graph Mode
-In this mode, the various aspects of numerical COVID-19 data are 
+In this mode, the various aspects of numerical COVID-19 data are displayed in a line graph. The sliders in the left settings bar allow users to set the start date and end date for which to display data. The radio buttons enable users to filter by particular locations, as well as by which aspect of the numerical data they desire to plot.
 
 
 ## For grader:
