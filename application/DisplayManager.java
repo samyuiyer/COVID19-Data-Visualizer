@@ -158,7 +158,10 @@ public class DisplayManager extends DisplayMode {
       Alert alert = new Alert(AlertType.INFORMATION);
       alert.setTitle("Help");
       alert.setHeaderText("How to Save and Load");
-      alert.setContentText("How to load a file:\n" + "\n" + "How to save a file:\n" + "\n");
+      alert.setContentText("How to load a file:\n"
+          + "The user will input a folder name that contains all the CSV files. By default, files will be loaded from a folder labeled time_data.\n\n"
+          + "How to save a file:\n"
+          + "The user will write a file name and the current filters will be applied and stored into a CSV file.\n\n");
       alert.showAndWait();
     });
 
