@@ -3,13 +3,11 @@ package application;
 import java.io.FileWriter;
 import java.util.List;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ComboBox;
@@ -37,32 +35,23 @@ public class DisplayManager extends DisplayMode {
   private boolean load;
 
   public DisplayManager() {
-    load = false;
+
     dm = new DataManager();
-    try {
-      if (dm.loadTries()) {
-        load = true;
-      }
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
+    load = dm.loadTries("time_data");
     settingsPanel = new VBox();
     settingsPanel.managedProperty().bind(settingsPanel.visibleProperty());
     settingsVisible = true;
     displayNode = new BorderPane();
     settingsNode = new BorderPane();
+    createGlobalSettingsPane();
     createDisplayModes();
     createMenuBar();
-    createGlobalSettingsPane();
+
   }
 
   @Override
   public Node getDisplayPane() {
-    if (load) {
-      return displayNode;
-    } else {
-      return new Label("Bad Input File(s)");
-    }
+    return displayNode;
   }
 
   @Override
@@ -83,8 +72,7 @@ public class DisplayManager extends DisplayMode {
     displayModes[0] = new Table(dm);
     displayModes[1] = new Map(dm);
     displayModes[2] = new Graph(dm);
-    displayNode.setCenter(displayModes[0].getDisplayPane());
-    settingsNode.setCenter(displayModes[0].getSettingsPane());
+    setMode(0);
   }
 
   private void createMenuBar() {
@@ -99,54 +87,56 @@ public class DisplayManager extends DisplayMode {
     final MenuItem view3 = new MenuItem("Graph");
     final MenuItem exit = new MenuItem("Exit");
     final Menu help = new Menu("Help");
+    final MenuItem help1 = new MenuItem("Tutorial");
+    final MenuItem help2 = new MenuItem("Save and Load");
 
     // Add to MenuBar
 
     menu.getItems().addAll(toggle, view1, view2, view3, exit);
+    help.getItems().addAll(help1, help2);
     bar.getMenus().addAll(menu, help);
 
     // Event Handlers
-
+    
     exit.setOnAction(e -> exitProgram());
+    
+    help1.setOnAction(e -> {
+      Alert alert = new Alert(AlertType.INFORMATION);
+      alert.setTitle("Help");
+      alert.setHeaderText("Tutorial");
+      alert.setContentText("Message");
 
-    toggle.setOnAction(new EventHandler<ActionEvent>() {
-      @Override
-      public void handle(ActionEvent arg0) {
-        if (settingsVisible) {
-          settingsPanel.setVisible(false);
-          settingsVisible = false;
-        } else {
-          settingsPanel.setVisible(true);
-          settingsVisible = true;
-        }
+      alert.showAndWait();
+    });
+    help2.setOnAction(e -> {
+      Alert alert = new Alert(AlertType.INFORMATION);
+      alert.setTitle("Help");
+      alert.setHeaderText("How to Save and Load");
+      alert.setContentText("Message");
+
+      alert.showAndWait();
+    });
+
+    toggle.setOnAction(e -> {
+      if (settingsVisible) {
+        settingsPanel.setVisible(false);
+        settingsVisible = false;
+      } else {
+        settingsPanel.setVisible(true);
+        settingsVisible = true;
       }
     });
 
-    view1.setOnAction(new EventHandler<ActionEvent>() {
-      @Override
-      public void handle(ActionEvent arg0) {
-        displayNode.setCenter(displayModes[0].getDisplayPane());
-        settingsNode.setCenter(displayModes[0].getSettingsPane());
-        dspModeComboBox.setPromptText("Table Mode");
-      }
+    view1.setOnAction(e -> {
+      setMode(0);
     });
 
-    view2.setOnAction(new EventHandler<ActionEvent>() {
-      @Override
-      public void handle(ActionEvent arg0) {
-        displayNode.setCenter(displayModes[1].getDisplayPane());
-        settingsNode.setCenter(displayModes[1].getSettingsPane());
-        dspModeComboBox.setPromptText("Map Mode");
-      }
+    view2.setOnAction(e -> {
+      setMode(1);
     });
 
-    view3.setOnAction(new EventHandler<ActionEvent>() {
-      @Override
-      public void handle(ActionEvent arg0) {
-        displayNode.setCenter(displayModes[2].getDisplayPane());
-        settingsNode.setCenter(displayModes[2].getSettingsPane());
-        dspModeComboBox.setPromptText("Graph Mode");
-      }
+    view3.setOnAction(e -> {
+      setMode(2);
     });
   }
 
@@ -155,6 +145,7 @@ public class DisplayManager extends DisplayMode {
     // setup objects
 
     Label saveLabel = new Label(); // TODO rename this stuff
+    Button loadFileBtn = new Button("Load File");
     Button saveFileBtn = new Button("Save File");
     TextField fileTextField = new TextField("File name");
     ColorPicker colorPicker = new ColorPicker(Color.web("#70C1B3"));
@@ -180,100 +171,83 @@ public class DisplayManager extends DisplayMode {
 
     // Setup Listeners and EventHandlers
 
-    colorPicker.setOnAction(new EventHandler<ActionEvent>() {
-      @Override
-      public void handle(ActionEvent arg0) {
-        settingsPanel
-            .setStyle("-fx-background-color: #" + colorPicker.getValue().toString().substring(2));
-      }
+    colorPicker.setOnAction(e -> {
+      settingsPanel
+          .setStyle("-fx-background-color: #" + colorPicker.getValue().toString().substring(2));
     });
 
-    dspModeComboBox.getSelectionModel().selectedItemProperty()
-        .addListener(new ChangeListener<String>() {
-          public void changed(ObservableValue<? extends String> observable, String oldValue,
-              String newValue) {
-            if (newValue.equals("Table Mode")) {
-              displayNode.setCenter(displayModes[0].getDisplayPane());
-              settingsNode.setCenter(displayModes[0].getSettingsPane());
-            } else if (newValue.equals("Map Mode")) {
-              displayNode.setCenter(displayModes[1].getDisplayPane());
-              settingsNode.setCenter(displayModes[1].getSettingsPane());
-            } else if (newValue.equals("Graph Mode")) {
-              displayNode.setCenter(displayModes[2].getDisplayPane());
-              settingsNode.setCenter(displayModes[2].getSettingsPane());
-            }
-          }
-        });
-
-    fileTextField.focusedProperty().addListener(new ChangeListener<Boolean>() {
-      @Override
-      public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue,
-          Boolean newValue) {
-        if (newValue) {
-          fileTextField.clear();
-        }
-        if (oldValue) {
-          if (fileTextField.getText().isBlank()) {
-            fileTextField.setText("File Name");
-          }
+    fileTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+      if (newValue) {
+        fileTextField.clear();
+      }
+      if (oldValue) {
+        if (fileTextField.getText().isBlank()) {
+          fileTextField.setText("File Name");
         }
       }
     });
 
     dspModeComboBox.getSelectionModel().selectedItemProperty()
-        .addListener(new ChangeListener<String>() {
-          public void changed(ObservableValue<? extends String> observable, String oldValue,
-              String newValue) {
-            if (newValue.equals("Table Mode")) {
-              displayNode.setCenter(displayModes[0].getDisplayPane());
-              settingsNode.setCenter(displayModes[0].getSettingsPane());
-            } else if (newValue.equals("Map Mode")) {
-              displayNode.setCenter(displayModes[1].getDisplayPane());
-              settingsNode.setCenter(displayModes[1].getSettingsPane());
-            } else if (newValue.equals("Graph Mode")) {
-              displayNode.setCenter(displayModes[2].getDisplayPane());
-              settingsNode.setCenter(displayModes[2].getSettingsPane());
-            }
+        .addListener((o, oldValue, newValue) -> {
+          if (newValue.equals("Table Mode")) {
+            setMode(0);
+          } else if (newValue.equals("Map Mode")) {
+            setMode(1);
+          } else if (newValue.equals("Graph Mode")) {
+            setMode(2);
           }
         });
 
     // Add all Nodes to VBox
-
-    settingsPanel.getChildren().addAll(fileTextField, saveFileBtn, saveLabel, dspModeComboBox,
-        colorPicker, settingsNode);
+    HBox fileBtns = new HBox();
+    fileBtns.getChildren().addAll(loadFileBtn, saveFileBtn);
+    settingsPanel.getChildren().addAll(fileTextField, fileBtns, dspModeComboBox, colorPicker,
+        settingsNode);
 
     globalSettings = settingsPanel;
-
-    saveFileBtn.setOnAction(new EventHandler<ActionEvent>() {
-      @Override
-      public void handle(ActionEvent e) {
-        String fileName = fileTextField.getText();
-        if (fileName.equals("File Name"))
-          fileName = "default.csv";
-        if (!(fileName.endsWith(".csv")))
-          fileName += ".csv";
-        List<DataPoint> filtered = ((Table) displayModes[0]).getFilteredList();
-        try {
-          FileWriter txtFile = new FileWriter(fileName);
-          txtFile.write("City,State,Country,Confirmed,Dead,Recovered\n");
-          for (DataPoint dp : filtered) {
-            txtFile.write(dp.getCity() + "," + dp.getState() + "," + dp.getCountry() + ","
-                + dp.getConfirmed() + "," + dp.getDeaths() + "," + dp.getRecovered() + "\n");
-          }
-          txtFile.close();
-          saveLabel.setText("File " + fileName + " successfully saved");
-        } catch (Exception ex) {
-
+    loadFileBtn.setOnAction(e -> {
+      displayNode.setCenter(new Label("Loading File(s)..."));
+      load = dm.loadTries(fileTextField.getText());
+      setMode(0);
+    });
+    saveFileBtn.setOnAction(e -> {
+      String fileName = fileTextField.getText();
+      if (fileName.equals("File Name"))
+        fileName = "default.csv";
+      if (!(fileName.endsWith(".csv")))
+        fileName += ".csv";
+      List<DataPoint> filtered = ((Table) displayModes[0]).getFilteredList();
+      try {
+        FileWriter txtFile = new FileWriter(fileName);
+        txtFile.write("City,State,Country,Confirmed,Dead,Recovered\n");
+        for (DataPoint dp : filtered) {
+          txtFile.write(dp.getCity() + "," + dp.getState() + "," + dp.getCountry() + ","
+              + dp.getConfirmed() + "," + dp.getDeaths() + "," + dp.getRecovered() + "\n");
         }
+        txtFile.close();
+        saveLabel.setText("File " + fileName + " successfully saved");
+      } catch (Exception ex) {
 
       }
     });
+  }
+
+  private void setMode(int modeNum) {
+    displayModes[modeNum].refresh();
+    displayNode.setCenter(displayModes[modeNum].getDisplayPane());
+    settingsNode.setCenter(displayModes[modeNum].getSettingsPane());
+    if (!load)
+      displayNode.setCenter(new Label("Bad Input File(s)"));
   }
 
   private void exitProgram() {
     Platform.exit();
     System.exit(0);
 
+  }
+
+  @Override
+  public void refresh() {
   }
 
 }

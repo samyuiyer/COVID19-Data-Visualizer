@@ -165,4 +165,9 @@ public class Map extends DisplayMode {
     return Math.log(d.deathsList.get((int) timeSlider.getValue()));
   }
 
+  @Override
+  public void refresh() {
+    redraw(graphicsContext);
+  }
+
 }

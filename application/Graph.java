@@ -2,15 +2,12 @@ package application;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
@@ -151,9 +148,7 @@ public class Graph extends DisplayMode {
     sliderStart.setVisible(slidersVisible);
     sliderEnd.setVisible(slidersVisible);
 
-    timeSlider.setOnAction(new EventHandler<ActionEvent>() {
-      @Override
-      public void handle(ActionEvent event) {
+    timeSlider.setOnAction(e -> {
         if (slidersVisible) {
           sliderLabel.setVisible(false);
           sliderStart.setVisible(false);
@@ -167,7 +162,6 @@ public class Graph extends DisplayMode {
           rangeLabel.setVisible(true);
           slidersVisible = true;
         }
-      }
     });
 
     final ChangeListener<Number> startListener = new ChangeListener<Number>() {
@@ -277,5 +271,10 @@ public class Graph extends DisplayMode {
     return dataList.stream().sorted((o1, o2) -> {
       return o1.toString().compareTo(o2.toString());
     }).collect(Collectors.toList());
+  }
+
+  @Override
+  public void refresh() {
+    updateChart();
   }
 }

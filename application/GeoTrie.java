@@ -21,6 +21,10 @@ public class GeoTrie extends Trie<String, String> {
    * private helper method to insert
    */
   public GeoTrie() {
+    clear();
+  }
+  
+  public void clear() {
     Integer[] zeros = new Integer[95];
     Arrays.fill(zeros, 0);
     root = new Node(new DataPoint("Global", new String[] {"Global", "", "", "", "0", "0"}, zeros,

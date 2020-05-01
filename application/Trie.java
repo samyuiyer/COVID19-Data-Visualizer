@@ -36,6 +36,10 @@ public abstract class Trie<K, S> implements DataStructureADT<K, DataPoint> {
   public Trie() {
     root = new Node(null);
   }
+  
+  public void clear() {
+    root.children.clear();
+  }
 
   public abstract void insert(K key, DataPoint value) throws IllegalNullKeyException;
 

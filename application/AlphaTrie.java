@@ -1,17 +1,7 @@
-/**
- *
- * Author: Ankur Garg Email: Agarg34@wisc.edu
- * 
- * Course: CS400 Semester: Spring2020 Lecture: 001 Date: Apr 16, 2020
- *
- * Files: Trie.java
- *
- */
 package application;
 
 import java.util.LinkedList;
 import java.util.List;
-import application.Trie.Node;
 
 /**
  * 
