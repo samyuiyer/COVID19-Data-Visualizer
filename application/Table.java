@@ -35,7 +35,6 @@ import javafx.scene.layout.VBox;
 
 /**
  * This class manages Table display and the settings for this display mode
- *
  */
 public class Table extends DisplayMode {
 
