@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
 // 	Title: ateam_final_project
-// 	Author: Ankur Garg, Eric Ertl, Justin Chan, Samyu Lyer, Sudeep Reddy, 
+// 	Author: Ankur Garg, Eric Ertl, Justin Chan, Samyu Iyer, Sudeep Reddy, 
 //
 // 	Course: CS400
 //	Semester: Spring 2020
@@ -54,7 +54,7 @@ public class Main extends Application {
 
 		Scene mainScene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
 
-		// add stylesheet
+		// adds stylesheet
 
 		mainScene.getStylesheets().add(getClass().getResource("application.css").toString());
 

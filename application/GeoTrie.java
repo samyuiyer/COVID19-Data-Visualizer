@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
 // 	Title: ateam_final_project
-// 	Author: Ankur Garg, Eric Ertl, Justin Chan, Samyu Lyer, Sudeep Reddy, 
+// 	Author: Ankur Garg, Eric Ertl, Justin Chan, Samyu Iyer, Sudeep Reddy, 
 //
 // 	Course: CS400
 //	Semester: Spring 2020
@@ -19,10 +19,7 @@ package application;
 import java.util.Arrays;
 
 /**
- * A GeoTrie is a variant of Trie
- * 
- * @author ankurgarg
- *
+ * A GeoTrie is a variant of Trie.
  */
 public class GeoTrie extends Trie<String, String> {
 

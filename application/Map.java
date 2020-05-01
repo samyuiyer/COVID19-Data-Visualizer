@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
 // 	Title: ateam_final_project
-// 	Author: Ankur Garg, Eric Ertl, Justin Chan, Samyu Lyer, Sudeep Reddy, 
+// 	Author: Ankur Garg, Eric Ertl, Justin Chan, Samyu Iyer, Sudeep Reddy, 
 //
 // 	Course: CS400
 //	Semester: Spring 2020
@@ -36,9 +36,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 /**
- * The Map class is a visual map representation of the COVID-19 data. The amount
- * of COVID-19 cases are illustrated by dots of various sizes (based on amount
- * of COVID-19 cases) at a specific location
+ * The Map class is a visual map representation of the COVID-19 data. 
+ * The COVID-19 cases are illustrated by dots of various sizes 
+ * that depend on the number of cases at that specific location
  */
 public class Map extends DisplayMode {
 
@@ -57,7 +57,7 @@ public class Map extends DisplayMode {
 	private CheckBox[] filters;
 
 	/**
-	 * Constructor for map
+	 * Constructor for Map
 	 * 
 	 * @param dm
 	 */
@@ -90,7 +90,7 @@ public class Map extends DisplayMode {
 	}
 
 	/**
-	 * Initializes the settings
+	 * Initializes the settings pane for this data view
 	 */
 	private void setupSettings() {
 		Label timeLabel = new Label("" + dm.getTimeLabels()[(int) timeSlider.getValue()]);
@@ -150,6 +150,10 @@ public class Map extends DisplayMode {
 		settingsPane.getChildren().addAll(dRadio, cRadio, rRadio);
 	}
 
+	/**
+	 * Redraws the data point at the appropriate location with the appropriate size.
+	 * @param gc
+	 */
 	private void redraw(GraphicsContext gc) {
 		List<DataPoint> list = dm.gt.getAll();
 		Image image = new Image("map.jpg");
