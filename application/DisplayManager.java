@@ -38,6 +38,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
+/**
+ * This class manages the overall display by setting up the display modes and settings panes
+ */
 public class DisplayManager extends DisplayMode {
 
   private DisplayMode[] displayModes;
@@ -51,6 +54,9 @@ public class DisplayManager extends DisplayMode {
   private VBox settingsPanel;
   private boolean load;
 
+  /**
+   * Constructs a display manager with the settings node as a vertical box and a display node
+   */
   public DisplayManager() {
 
     dm = new DataManager();
@@ -67,11 +73,17 @@ public class DisplayManager extends DisplayMode {
   }
 
   @Override
+  /**
+   * gets the current display mode
+   */
   public Node getDisplayPane() {
     return displayNode;
   }
 
   @Override
+  /**
+   * gets the settings mode
+   */
   public Node getSettingsPane() {
     if (load) {
       return globalSettings;
@@ -79,11 +91,16 @@ public class DisplayManager extends DisplayMode {
       return new Label("");
     }
   }
-
+  /**
+   * Returns a menu bar node for the top of the display
+   * @return a menu bar node
+   */
   public Node getMenuBar() {
     return bar;
   }
-
+  /**
+   * Initializes each of the display modes as objects 
+   */
   private void createDisplayModes() {
     displayModes = new DisplayMode[3];
     displayModes[0] = new Table(dm);
@@ -91,7 +108,9 @@ public class DisplayManager extends DisplayMode {
     displayModes[2] = new Graph(dm);
     setMode(0);
   }
-
+  /**
+   * Helper method to create the menu bar UI Elements
+   */
   private void createMenuBar() {
 
     // Setup
@@ -157,6 +176,9 @@ public class DisplayManager extends DisplayMode {
     });
   }
 
+  /**
+   * Creates the global settings UI elements that will appear with each display mode
+   */
   private void createGlobalSettingsPane() {
 
     // setup objects
@@ -243,15 +265,23 @@ public class DisplayManager extends DisplayMode {
       });
     });
   }
-
+  /**
+   * Gets the file name entered by the user and adds csv if the ending isnt already there
+   * @param fileName the current file name the user has entered
+   * @return the final file name with the proper ending
+   */
   private String getSaveFileName(String fileName) {
-    if (fileName.equals("File Name"))
+    if (fileName.equals("File Name")) // changes to default file name
       fileName = "default.csv";
     if (!(fileName.endsWith(".csv")))
       fileName += ".csv";
     return fileName;
   }
-
+  /**
+   * Saves file to local storage with the given file name
+   * @param fileName the name of the file being saved
+   * @param saveLabel the label to be changed once save has finished
+   */
   private void saveToFile(String fileName, Label saveLabel) {
     List<DataPoint> filtered = ((Table) displayModes[0]).getFilteredList();
     try {
@@ -268,7 +298,10 @@ public class DisplayManager extends DisplayMode {
     }
 
   }
-
+  /**
+   * Changes the display mode with the given int
+   * @param modeNum - the int for which display mode to change to
+   */
   private void setMode(int modeNum) {
     displayModes[modeNum].refresh();
     displayNode.setCenter(displayModes[modeNum].getDisplayPane());
@@ -276,7 +309,9 @@ public class DisplayManager extends DisplayMode {
     if (!load)
       displayNode.setCenter(new Label("Bad Input File(s)"));
   }
-
+  /**
+   * Closes the program with an alert
+   */
   private void exitProgram() {
     Alert confirmExit = new Alert(AlertType.CONFIRMATION, "Are you sure you want to exit?");
     confirmExit.showAndWait().filter(response -> response == ButtonType.OK).ifPresent(response -> {
@@ -286,6 +321,9 @@ public class DisplayManager extends DisplayMode {
   }
 
   @Override
+  /**
+   * Not used by this class
+   */
   public void refresh() {}
 
 }
