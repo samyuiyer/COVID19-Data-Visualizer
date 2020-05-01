@@ -1,6 +1,6 @@
 # A-Team28
 
-Course: cs400
+Course: CS400
 
 Semester: Fall 2019
 
