@@ -22,34 +22,29 @@ The user can choose between various modes to display the data (map, table, graph
 
 Data will be downloaded in CSV format from the 2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE [(link to data)](https://github.com/CSSEGISandData/COVID-19).
 
-### Table Mode
+#### Table Mode
 
 In this mode, the number of COVID-19 deaths and recovered COVID-19 patients are displayed for all locations. Clicking on a column name ("City", "Province/State", "Region", etc.) rearranges the table such that the values in that column are sorted. Clicking once sorts from A-Z order, clicking once more sorts from Z-A order, and clicking a third time clears that column altogether. Additionally, users can filter by names of specific cities, states, or countries in the Filter fields in the left pane. Selecting "Set Filter" after typing in the desired filter will apply selected filters to visible data. 
 
-### Map Mode
+#### Map Mode
 
 In this mode, the various aspects of numerical COVID-19 data are displayed as dots, with the size of the dots pertaining to the size of the number they represent. The dots are placed in the location which they reference. The various checkboxes and radio buttons in the left panel allow for further customization, and the "Choose Time" slider enables users to select the end point in time for which to display data. 
 
-### Graph Mode
+#### Graph Mode
 
 In this mode, the various aspects of numerical COVID-19 data are displayed in a line graph. The sliders in the left settings bar allow users to set the start date and end date for which to display data. The radio buttons enable users to filter by particular locations, as well as by which aspect of the numerical data they desire to plot.
 
-### Settings Pane
+#### Settings Pane
 The left settings pane adjusts according to what mode the user is on. To close/open this settings pane, click "Menu", and then "Toggle Settins Pane". 
 
-### Exiting
+#### Exiting
 To exit out of the program, select "Menu", and then "Exit". 
 
-## File Loading and Saving
+### File Loading and Saving
 
-How to load a file:
+How to load a file: The user will input a folder name that contains all the CSV files. By default, files will be loaded from a folder labeled time_data.
 
-The user will input a folder name that contains all the CSV files. By default, files will be loaded from a folder labeled time_data.
-
-How to save a file:
-
-The user will write a file name and the current filters will be applied and stored into a CSV file.
-
+How to save a file: The user will write a file name and the current filters will be applied and stored into a CSV file.
 
 ## For grader:
 
