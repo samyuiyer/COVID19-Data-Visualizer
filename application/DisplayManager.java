@@ -88,8 +88,8 @@ public class DisplayManager extends DisplayMode {
     final MenuItem view3 = new MenuItem("Graph");
     final MenuItem exit = new MenuItem("Exit");
     final Menu help = new Menu("Help");
-    final MenuItem help1 = new MenuItem("Table");
-    final MenuItem help2 = new MenuItem("Map");
+    final MenuItem help1 = new MenuItem("Tutorial");
+    final MenuItem help2 = new MenuItem("Load and Save");
 
     // Add to MenuBar
 
@@ -105,8 +105,8 @@ public class DisplayManager extends DisplayMode {
       Alert alert = new Alert(AlertType.INFORMATION);
       alert.setTitle("Help");
       alert.setHeaderText("Tutorial");
-      alert.setContentText("Message");
-
+      alert.setContentText(
+          "To switch to different display modes, you can use either the menu bar or the switch box on the left hand side of the window. Use the settings and the radio buttons to alter the data represented on the particular display mode.");
       alert.showAndWait();
     });
     help2.setOnAction(e -> {
