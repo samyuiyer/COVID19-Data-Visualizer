@@ -15,7 +15,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 package application;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
@@ -24,8 +23,8 @@ import java.util.List;
 
 
 /**
- * 
- *
+ * DataPoint represents various aspects of COVID-19 data at a particular location. 
+ * Among these are death counts, confirmed cases counts, and recovered counts.  
  */
 public class DataPoint {
   /**
@@ -39,56 +38,17 @@ public class DataPoint {
   public List<Integer> recoveredList;
   public static String[] labels;
   public static int time = 94;
-
-  public String getCity() {
-    return dataArray[1];
-  }
-
-  public String getState() {
-    return dataArray[2];
-  }
-
-  public String getCountry() {
-    return dataArray[3];
-  }
-
-
-  public Double getLat() {
-    try {
-      return new BigDecimal(Double.valueOf(dataArray[4])).setScale(8, RoundingMode.HALF_UP)
-          .doubleValue();
-    } catch (Exception e) {
-      return 0.0;
-    }
-
-  }
-
-  public Double getLon() {
-    try {
-      return new BigDecimal(Double.valueOf(dataArray[5])).setScale(8, RoundingMode.HALF_UP)
-          .doubleValue();
-    } catch (Exception e) {
-      return 0.0;
-    }
-  }
-
-  public int getConfirmed() {
-    return confirmedList.get(time);
-  }
-
-  public int getDeaths() {
-    return deathsList.get(time);
-  }
-
-  public int getRecovered() {
-    return recoveredList.get(time);
-  }
-
-
-
-  public DataPoint(String key, String[] testNum, Integer[] confirmedList, Integer[] deathsList,
-      Integer[] recoveredList) {
-
+  
+  /**
+   * Constructor for DataPoint with all possible args
+   * @param key
+   * @param testNum
+   * @param confirmedList
+   * @param deathsList
+   * @param recoveredList
+   */
+  public DataPoint(String key, String[] testNum, Integer[] confirmedList, 
+		  Integer[] deathsList, Integer[] recoveredList) {
     this.key = key;
     this.dataArray = testNum.clone();
     this.confirmedList = new ArrayList<>(Arrays.asList(confirmedList));
@@ -97,9 +57,13 @@ public class DataPoint {
     this.parseData();
   }
 
+  /**
+   * Alternate constructor for DataPoint with data
+   * @param data
+   */
   public DataPoint(DataPoint data) {
 
-    this.key = data.key;
+	this.key = data.key;
     this.dataArray = data.dataArray.clone();
     this.confirmedList = new ArrayList<>(data.confirmedList);
     this.deathsList = new ArrayList<>(data.deathsList);
@@ -107,6 +71,11 @@ public class DataPoint {
     this.parseData();
   }
 
+  /**
+   * Alternate constructor for DataPoint with key and data
+   * @param key
+   * @param data
+   */
   public DataPoint(String key, DataPoint data) {
 
     this.key = key;
@@ -117,6 +86,84 @@ public class DataPoint {
     this.parseData();
   }
 
+  /**
+   * gets city
+   * @return city name
+   */
+  public String getCity() {
+    return dataArray[1];
+  }
+
+  /**
+   * gets state
+   * @return state name
+   */
+  public String getState() {
+    return dataArray[2];
+  }
+
+  /**
+   * gets country
+   * @return country name
+   */
+  public String getCountry() {
+    return dataArray[3];
+  }
+
+  /**
+   * gets latitude
+   * @return latitude
+   */
+  public Double getLat() {
+    try {
+      return new BigDecimal(Double.valueOf(dataArray[4])).setScale(8, RoundingMode.HALF_UP)
+          .doubleValue();
+    } catch (Exception e) {
+      return 0.0;
+    }
+
+  }
+
+  /**
+   * gets longitude
+   * @return longitude
+   */
+  public Double getLon() {
+    try {
+      return new BigDecimal(Double.valueOf(dataArray[5])).setScale(8, RoundingMode.HALF_UP)
+          .doubleValue();
+    } catch (Exception e) {
+      return 0.0;
+    }
+  }
+
+  /**
+   * gets confirmed
+   * @return confirmed cases
+   */
+  public int getConfirmed() {
+    return confirmedList.get(time);
+  }
+
+  /**
+   * gets deaths
+   * @return number of deaths
+   */
+  public int getDeaths() {
+    return deathsList.get(time);
+  }
+
+  /**
+   * gets recovered
+   * @return number of recovered cases
+   */
+  public int getRecovered() {
+    return recoveredList.get(time);
+  }
+
+  /**
+   * Parses the data in dataArray
+   */
   private void parseData() {
     dataArray[0] = key;
     String[] keySplit = key.replace(", ", ",").split(",");
@@ -135,6 +182,10 @@ public class DataPoint {
     }
   }
 
+  /**
+   * Increments all aspects of location's data appropriately based on new data
+   * @param data
+   */
   public void increment(DataPoint data) {
 
     for (int i = 0; confirmedList != null && i < confirmedList.size(); i++) {
@@ -148,6 +199,13 @@ public class DataPoint {
     }
   }
 
+  /**
+   * Removes empty city, state, or country values 
+   * @param city
+   * @param state
+   * @param country
+   * @return
+   */
   public boolean filter(boolean city, boolean state, boolean country) {
     if (!getCity().equals(""))
       return city;
@@ -158,6 +216,10 @@ public class DataPoint {
     return true;
   }
 
+  /**
+   * toString method
+   * returns key
+   */
   @Override
   public String toString() {
     return key;
