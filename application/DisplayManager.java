@@ -150,7 +150,8 @@ public class DisplayManager extends DisplayMode {
               + "In this mode, the number of COVID-19 deaths and recovered COVID-19 patients are displayed for all locations. Clicking on a column name (\"City\", \"Province/State\", \"Region\", etc.) rearranges the table such that the values in that column are sorted. Clicking once sorts from A-Z order, clicking once more sorts from Z-A order, and clicking a third time clears that column altogether. Additionally, users can filter by names of specific cities, states, or countries in the Filter fields in the left pane. Selecting \"Set Filter\" after typing in the desired filter will apply selected filters to visible data. \n\n"
               + "Map Mode:\n"
               + "In this mode, the various aspects of numerical COVID-19 data are displayed as dots, with the size of the dots pertaining to the size of the number they represent. The dots are placed in the location which they reference. The various checkboxes and radio buttons in the left panel allow for further customization, and the \"Choose Time\" slider enables users to select the end point in time for which to display data. \n\n"
-              + "Graph Mode:\n" + "");
+              + "Graph Mode:\n"
+              + "In this mode, the various aspects of numerical COVID-19 data are displayed in a line graph. The sliders in the left settings bar allow users to set the start date and end date for which to display data. The radio buttons enable users to filter by particular locations, as well as by which aspect of the numerical data they desire to plot.");
       alert.showAndWait();
     });
     help2.setOnAction(e -> {
