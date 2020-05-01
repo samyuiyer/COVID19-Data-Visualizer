@@ -46,3 +46,4 @@ Thumbs.db
 # files for class #
 manifest.txt
 executable.jar
+/bin
