@@ -1,3 +1,18 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+//  Title: ateam_final_project
+//  Author: Ankur Garg, Eric Ertl, Justin Chan, Samyu Iyer, Sudeep Reddy, 
+//
+//  Course: CS400
+//  Semester: Spring 2020
+//  Lecture Number: 001
+//
+//  Date: 4/29/2020
+//
+//  Description:    A project that displays statistics relating to COVID-19 in a
+//                  variety of ways. 
+//
+///////////////////////////////////////////////////////////////////////////////
 package application;
 
 import java.util.Comparator;
@@ -19,7 +34,6 @@ import javafx.scene.layout.VBox;
 
 /**
  * This class manages Table display and the settings for this display mode
- * @author sudeepreddy
  *
  */
 public class Table extends DisplayMode {
