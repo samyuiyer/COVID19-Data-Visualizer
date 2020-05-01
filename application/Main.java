@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  Title: ateam_final_project
-//  Author: Ankur Garg, Eric Ertl, Justin Chan, Samyu Lyer, Sudeep Reddy, 
+//  Author: Ankur Garg, Eric Ertl, Justin Chan, Samyu Iyer, Sudeep Reddy
 //
 //  Course: CS400
 //  Semester: Spring 2020
@@ -10,7 +10,7 @@
 //  Date: 4/29/2020
 //
 //  Description:    A project that displays statistics relating to COVID-19 in a
-//                  variety of ways. 
+//                  variety of ways.
 //
 ///////////////////////////////////////////////////////////////////////////////
 
