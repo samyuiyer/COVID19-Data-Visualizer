@@ -28,6 +28,9 @@ public class Main extends Application {
   private static final String APP_TITLE = "COVID-19 Data Visualizer";
   private DisplayManager dm;
 
+  /**
+   * Sets up stage and places various components in left, right, and center
+   */
   @Override
   public void start(Stage primaryStage) throws Exception {
     
@@ -55,6 +58,10 @@ public class Main extends Application {
     primaryStage.show();
   }
 
+  /**
+   * launches args
+   * @param args
+   */
   public static void main(String[] args) {
     launch(args);
   }
