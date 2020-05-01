@@ -17,6 +17,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 
+/**
+ * This class manages Table display and the settings for this display mode
+ * @author sudeepreddy
+ *
+ */
 public class Table extends DisplayMode {
 
   private Slider timeSlider;
@@ -25,7 +30,10 @@ public class Table extends DisplayMode {
   private DataManager dataManager;
   private FilteredList<DataPoint> filteredList;
   private String[] timeLabels;
-
+  /**
+   * Constructs a Table with the given data and sets up settings and view
+   * @param dataManager - Object of data to construct table
+   */
   public Table(DataManager dataManager) {
     super();
     title = "table";
@@ -37,19 +45,28 @@ public class Table extends DisplayMode {
   }
 
   @Override
+  /**
+   * Returns a node with the table view
+   */
   public Node getDisplayPane() {
     return tableView;
   }
 
   @Override
+  /**
+   * Retuns a node with the given settings
+   */
   public Node getSettingsPane() {
     return settingsPane;
   }
 
   @SuppressWarnings("unchecked")
+  /**
+   * Initializes the table
+   */
   private void setupTableView() {
     tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-
+    // Column Headers
     TableColumn<DataPoint, String> location = new TableColumn<>("Location");
     TableColumn<DataPoint, String> city = new TableColumn<>("City");
     TableColumn<DataPoint, String> state = new TableColumn<>("Province/State");
@@ -60,7 +77,7 @@ public class Table extends DisplayMode {
     TableColumn<DataPoint, String> confirmed = new TableColumn<>("Confirmed");
     TableColumn<DataPoint, String> deaths = new TableColumn<>("Deaths");
     TableColumn<DataPoint, String> recovered = new TableColumn<>("Recovered");
-
+    
     location.setId("column_header_location");
     city.setId("column_city");
     state.setId("column_state");
@@ -83,7 +100,7 @@ public class Table extends DisplayMode {
     confirmed.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("confirmed"));
     deaths.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("deaths"));
     recovered.setCellValueFactory(new PropertyValueFactory<DataPoint, String>("recovered"));
-
+    
     location.getColumns().addAll(city, state, country, lat, lon);
     stats.getColumns().addAll(confirmed, deaths, recovered);
     tableView.getColumns().setAll(location, stats);
@@ -91,12 +108,14 @@ public class Table extends DisplayMode {
 
     tableView.setPlaceholder(new Label("No rows to display"));
   }
-
+  /**
+   * Creates the settings pane for the table view
+   */
   private void setupSettings() {
 
-    // Setup Nodes
+    // Setup UI Nodes
 
-    Label sliderLabel = new Label("Choose Time:");
+    Label sliderLabel = new Label("Choose Time:"); 
     timeSlider = new Slider(0, 94, 94);
     timeLabels = dataManager.getTimeLabels();
     Label timeLabel = new Label("" + timeLabels[(int) timeSlider.getValue()]);
@@ -110,6 +129,9 @@ public class Table extends DisplayMode {
 
     Button resetFilter = new Button("Reset Filter");
     resetFilter.setId("reset-filter-btn");
+    
+    // Event listeners
+    
     timeSlider.valueProperty().addListener((o, ov, nv) -> {
       timeLabel.setText("" + timeLabels[(int) timeSlider.getValue()]);
       DataPoint.time = (int) timeSlider.getValue();
@@ -170,7 +192,10 @@ public class Table extends DisplayMode {
     settingsPane.getChildren().addAll(sliderLabel, timeSlider, timeLabel, cityFilter, stateFilter,
         countryFilter, setFilter, resetFilter);
   }
-
+  /**
+   * Creates a sorted list based on all of the data points
+   * @return the sorted list
+   */
   private SortedList<DataPoint> getInitialTableData() {
 
     List<DataPoint> list = dataManager.gt.getAll();
@@ -187,11 +212,18 @@ public class Table extends DisplayMode {
 
     return sortableData;
   }
-
+  /**
+   * Returns a filtered list based upon the criteria the user selected
+   * @return the filtered list
+   */
   public List<DataPoint> getFilteredList() {
     return filteredList;
   }
-
+  /**
+   * TODO
+   * @param tc
+   * @return
+   */
   private Comparator<String> getComparator(TableColumn<DataPoint, String> tc) {
     return (o1, o2) -> {
       final boolean isDesc = tc.getSortType() == SortType.DESCENDING;
@@ -207,6 +239,9 @@ public class Table extends DisplayMode {
   }
 
   @Override
+  /**
+   * Refreshes the table
+   */
   public void refresh() {
     tableView.refresh();
   }
