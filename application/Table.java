@@ -245,8 +245,8 @@ public class Table extends DisplayMode {
   /**
    * creates a custom comparator that sorts the Strings in order, but ignores blank strings
    * 
-   * @param tc
-   * @return
+   * @param tc - the column
+   * @return a valid comparator
    */
   private Comparator<String> getComparator(TableColumn<DataPoint, String> tc) {
     return (o1, o2) -> {
