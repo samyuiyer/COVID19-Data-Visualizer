@@ -400,9 +400,9 @@ public class Graph extends DisplayMode {
 	 * Filters the various data
 	 * 
 	 * @param dataList
-	 * @param city
-	 * @param state
-	 * @param country
+	 * @param city true if city has been selected
+	 * @param state true if state has been selected 
+	 * @param country true if a country has been selected
 	 * @return
 	 */
 	private List<DataPoint> filter(List<DataPoint> dataList, boolean city, boolean state, boolean country) {

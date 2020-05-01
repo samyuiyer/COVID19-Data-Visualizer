@@ -68,7 +68,7 @@ public class DisplayManager extends DisplayMode {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		settingsPanel = new VBox();
+		settingsPanel = new VBox(); // creates a vertical settings panel depending on display mode
 		settingsPanel.managedProperty().bind(settingsPanel.visibleProperty());
 		settingsVisible = true;
 		displayNode = new BorderPane();
