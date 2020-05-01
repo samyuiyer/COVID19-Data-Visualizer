@@ -88,6 +88,8 @@ public class DisplayManager extends DisplayMode {
     final MenuItem view3 = new MenuItem("Graph");
     final MenuItem exit = new MenuItem("Exit");
     final Menu help = new Menu("Help");
+    final MenuItem help1 = new MenuItem("Table");
+    final MenuItem help2 = new MenuItem("Map");
 
     // Add to MenuBar
 
@@ -95,8 +97,6 @@ public class DisplayManager extends DisplayMode {
     bar.getMenus().addAll(menu, help);
 
     // Event Handlers
-<<<<<<< HEAD
-=======
 
     exit.setOnAction(e -> exitProgram());
 
@@ -113,7 +113,7 @@ public class DisplayManager extends DisplayMode {
       alert.setTitle("Help");
       alert.setHeaderText("How to Save and Load");
       alert.setContentText("Message");
->>>>>>> 7f027f7d80006afb5fed0943c754b40276861d3d
+    });
 
     exit.setOnAction(e -> exitProgram());
 
@@ -261,15 +261,14 @@ public class DisplayManager extends DisplayMode {
   }
 
   private void exitProgram() {
-	 Alert confirmExit = new Alert(AlertType.CONFIRMATION,"Are you sure you want to exit?");
-	 confirmExit.showAndWait().filter(response -> response == ButtonType.OK).ifPresent(response -> {
-		Platform.exit();
-		System.exit(0);
-	 });
+    Alert confirmExit = new Alert(AlertType.CONFIRMATION, "Are you sure you want to exit?");
+    confirmExit.showAndWait().filter(response -> response == ButtonType.OK).ifPresent(response -> {
+      Platform.exit();
+      System.exit(0);
+    });
   }
 
   @Override
-  public void refresh() {
-  }
+  public void refresh() {}
 
 }
