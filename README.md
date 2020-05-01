@@ -19,7 +19,7 @@ This project displays statistics related to coronavirus to provide a better unde
 
 The user can choose between various modes to display the data (map, table, graph), as well as select which portions of data are shown with the ability to filter by timeframe and location.
 
-# Graph Mode:
+#### Graph Mode:
 
 
 The user can also extrapolate the data into the future and save the result to a CSV file.
