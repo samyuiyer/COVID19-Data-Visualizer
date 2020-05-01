@@ -95,6 +95,25 @@ public class DisplayManager extends DisplayMode {
     bar.getMenus().addAll(menu, help);
 
     // Event Handlers
+<<<<<<< HEAD
+=======
+
+    exit.setOnAction(e -> exitProgram());
+
+    help1.setOnAction(e -> {
+      Alert alert = new Alert(AlertType.INFORMATION);
+      alert.setTitle("Help");
+      alert.setHeaderText("Tutorial");
+      alert.setContentText("Message");
+
+      alert.showAndWait();
+    });
+    help2.setOnAction(e -> {
+      Alert alert = new Alert(AlertType.INFORMATION);
+      alert.setTitle("Help");
+      alert.setHeaderText("How to Save and Load");
+      alert.setContentText("Message");
+>>>>>>> 7f027f7d80006afb5fed0943c754b40276861d3d
 
     exit.setOnAction(e -> exitProgram());
 
@@ -189,19 +208,15 @@ public class DisplayManager extends DisplayMode {
     loadFileBtn.setOnAction(e -> {
       Alert confirmLoad = new Alert(AlertType.CONFIRMATION,
           "Are you sure you want to load in the contents of " + fileTextField.getText() + "?");
-      confirmLoad.showAndWait().filter(response -> response == ButtonType.OK)
-          .ifPresent(response -> {
-            load = dm.loadTries(fileTextField.getText());
-            setMode(0);
-          });
+      confirmLoad.showAndWait().ifPresent(response -> {
+        if (response == ButtonType.OK) {
+          load = dm.loadTries(fileTextField.getText());
+          setMode(0);
+        }
+      });
     });
     saveFileBtn.setOnAction(e -> {
-      String fileName = fileTextField.getText();
-      if (fileName.equals("File Name"))
-        fileName = "default.csv";
-      if (!(fileName.endsWith(".csv")))
-        fileName += ".csv";
-      final String finalName = fileName;
+      final String finalName = getSaveFileName(fileTextField.getText());
       Alert confirmSave = new Alert(AlertType.CONFIRMATION,
           "Are you sure you want to save in the contents to " + finalName + "?");
       confirmSave.showAndWait().ifPresent(response -> {
@@ -210,6 +225,14 @@ public class DisplayManager extends DisplayMode {
         }
       });
     });
+  }
+
+  private String getSaveFileName(String fileName) {
+    if (fileName.equals("File Name"))
+      fileName = "default.csv";
+    if (!(fileName.endsWith(".csv")))
+      fileName += ".csv";
+    return fileName;
   }
 
   private void saveToFile(String fileName, Label saveLabel) {
