@@ -42,9 +42,9 @@ To exit out of the program, select "Menu", and then "Exit".
 
 ### File Loading and Saving
 
-How to load a file: The user will input a folder name that contains all the CSV files. By default, files will be loaded from a folder labeled time_data.
+To load a file: The user's input indicates the folder name which contains all the CSV files. By default, files will be loaded from a folder labeled time_data, but the user's inputted name will change this. 
 
-How to save a file: The user will write a file name and the current filters will be applied and stored into a CSV file.
+To save a file: The user will input a file name, to which the currently selected filters/customizations will be applied and stored as a CSV file.
 
 ## For grader:
 
@@ -52,7 +52,7 @@ Which team members were on same xteam together?
 None
 
 Other notes or comments to the grader:
-We hope you like it!
+For a description on how to use this program, click "Help" in the upper menu bar, and then "Tutorial". 
 
 ## Future Work:
 
