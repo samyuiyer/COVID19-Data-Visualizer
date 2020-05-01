@@ -1,16 +1,16 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
-//  Title: ateam_final_project
-//  Author: Ankur Garg, Eric Ertl, Justin Chan, Samyu Iyer, Sudeep Reddy
+// Title: ateam_final_project
+// Author: Ankur Garg, Eric Ertl, Justin Chan, Samyu Iyer, Sudeep Reddy
 //
-//  Course: CS400
-//  Semester: Spring 2020
-//  Lecture Number: 001
+// Course: CS400
+// Semester: Spring 2020
+// Lecture Number: 001
 //
-//  Date: 4/29/2020
+// Date: 4/29/2020
 //
-//  Description:    A project that displays statistics relating to COVID-19 in a
-//                  variety of ways.
+// Description: A project that displays statistics relating to COVID-19 in a
+// variety of ways.
 //
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -91,15 +91,18 @@ public class DisplayManager extends DisplayMode {
       return new Label("");
     }
   }
+
   /**
    * Returns a menu bar node for the top of the display
+   * 
    * @return a menu bar node
    */
   public Node getMenuBar() {
     return bar;
   }
+
   /**
-   * Initializes each of the display modes as objects 
+   * Initializes each of the display modes as objects
    */
   private void createDisplayModes() {
     displayModes = new DisplayMode[3];
@@ -108,6 +111,7 @@ public class DisplayManager extends DisplayMode {
     displayModes[2] = new Graph(dm);
     setMode(0);
   }
+
   /**
    * Helper method to create the menu bar UI Elements
    */
@@ -141,7 +145,12 @@ public class DisplayManager extends DisplayMode {
       alert.setTitle("Help");
       alert.setHeaderText("Tutorial");
       alert.setContentText(
-          "To switch to different display modes, you can use either the menu bar or the switch box on the left hand side of the window. Use the settings and the radio buttons to alter the data represented on the particular display mode.");
+          "You can choose between various modes to display the data (map, table, graph), as well as select which portions of data are shown with the ability to filter by timeframe and location.\n\n"
+              + "Table Mode:\n"
+              + "In this mode, the number of COVID-19 deaths and recovered COVID-19 patients are displayed for all locations. Clicking on a column name (\"City\", \"Province/State\", \"Region\", etc.) rearranges the table such that the values in that column are sorted. Clicking once sorts from A-Z order, clicking once more sorts from Z-A order, and clicking a third time clears that column altogether. Additionally, users can filter by names of specific cities, states, or countries in the Filter fields in the left pane. Selecting \"Set Filter\" after typing in the desired filter will apply selected filters to visible data. \n\n"
+              + "Map Mode:\n"
+              + "In this mode, the various aspects of numerical COVID-19 data are displayed as dots, with the size of the dots pertaining to the size of the number they represent. The dots are placed in the location which they reference. The various checkboxes and radio buttons in the left panel allow for further customization, and the \"Choose Time\" slider enables users to select the end point in time for which to display data. \n\n"
+              + "Graph Mode:\n" + "");
       alert.showAndWait();
     });
     help2.setOnAction(e -> {
@@ -266,8 +275,10 @@ public class DisplayManager extends DisplayMode {
       });
     });
   }
+
   /**
    * Gets the file name entered by the user and adds csv if the ending isnt already there
+   * 
    * @param fileName the current file name the user has entered
    * @return the final file name with the proper ending
    */
@@ -278,9 +289,11 @@ public class DisplayManager extends DisplayMode {
       fileName += ".csv";
     return fileName;
   }
+
   /**
    * Saves file to local storage with the given file name
-   * @param fileName the name of the file being saved
+   * 
+   * @param fileName  the name of the file being saved
    * @param saveLabel the label to be changed once save has finished
    */
   private void saveToFile(String fileName, Label saveLabel) {
@@ -299,8 +312,10 @@ public class DisplayManager extends DisplayMode {
     }
 
   }
+
   /**
    * Changes the display mode with the given int
+   * 
    * @param modeNum - the int for which display mode to change to
    */
   private void setMode(int modeNum) {
@@ -310,6 +325,7 @@ public class DisplayManager extends DisplayMode {
     if (!load)
       displayNode.setCenter(new Label("Bad Input File(s)"));
   }
+
   /**
    * Closes the program with an alert
    */
