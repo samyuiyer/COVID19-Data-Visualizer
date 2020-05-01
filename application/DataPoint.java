@@ -47,14 +47,22 @@ public class DataPoint {
 
 
   public Double getLat() {
-    return new BigDecimal(Double.valueOf(dataArray[4])).setScale(8, RoundingMode.HALF_UP)
-        .doubleValue();
+    try {
+      return new BigDecimal(Double.valueOf(dataArray[4])).setScale(8, RoundingMode.HALF_UP)
+          .doubleValue();
+    } catch (Exception e) {
+      return 0.0;
+    }
 
   }
 
   public Double getLon() {
-    return new BigDecimal(Double.valueOf(dataArray[5])).setScale(8, RoundingMode.HALF_UP)
-        .doubleValue();
+    try {
+      return new BigDecimal(Double.valueOf(dataArray[5])).setScale(8, RoundingMode.HALF_UP)
+          .doubleValue();
+    } catch (Exception e) {
+      return 0.0;
+    }
   }
 
   public int getConfirmed() {
@@ -132,20 +140,22 @@ public class DataPoint {
       recoveredList.set(i, recoveredList.get(i) + data.recoveredList.get(i));
     }
   }
-public boolean filter(boolean city,boolean state,boolean country) {
-  if (!getCity().equals(""))
-    return city;
-  if (!getState().equals(""))
-    return state;
-  if (!getCountry().equals(""))
-    return country;
-  return true;
-}
+
+  public boolean filter(boolean city, boolean state, boolean country) {
+    if (!getCity().equals(""))
+      return city;
+    if (!getState().equals(""))
+      return state;
+    if (!getCountry().equals(""))
+      return country;
+    return true;
+  }
+
   @Override
   public String toString() {
     return key;
   }
-  
+
 
 
 }

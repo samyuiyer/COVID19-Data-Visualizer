@@ -37,15 +37,9 @@ public class DisplayManager extends DisplayMode {
   private boolean load;
 
   public DisplayManager() {
-    load = false;
+
     dm = new DataManager();
-    try {
-      if (dm.loadTries()) {
-        load = true;
-      }
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
+    load = dm.loadTries("time_data");
     settingsPanel = new VBox();
     settingsPanel.managedProperty().bind(settingsPanel.visibleProperty());
     settingsVisible = true;
@@ -155,6 +149,7 @@ public class DisplayManager extends DisplayMode {
     // setup objects
 
     Label saveLabel = new Label(); // TODO rename this stuff
+    Button loadFileBtn = new Button("Load File");
     Button saveFileBtn = new Button("Save File");
     TextField fileTextField = new TextField("File name");
     ColorPicker colorPicker = new ColorPicker(Color.web("#70C1B3"));
@@ -238,33 +233,33 @@ public class DisplayManager extends DisplayMode {
         });
 
     // Add all Nodes to VBox
-
-    settingsPanel.getChildren().addAll(fileTextField, saveFileBtn, saveLabel, dspModeComboBox,
+    HBox fileBtns = new HBox();
+    fileBtns.getChildren().addAll(loadFileBtn, saveFileBtn);
+    settingsPanel.getChildren().addAll(fileTextField, fileBtns, dspModeComboBox,
         colorPicker, settingsNode);
 
     globalSettings = settingsPanel;
-
-    saveFileBtn.setOnAction(new EventHandler<ActionEvent>() {
-      @Override
-      public void handle(ActionEvent e) {
-        String fileName = fileTextField.getText();
-        if (fileName.equals("File Name"))
-          fileName = "default.csv";
-        if (!(fileName.endsWith(".csv")))
-          fileName += ".csv";
-        List<DataPoint> filtered = ((Table) displayModes[0]).getFilteredList();
-        try {
-          FileWriter txtFile = new FileWriter(fileName);
-          txtFile.write("City,State,Country,Confirmed,Dead,Recovered\n");
-          for (DataPoint dp : filtered) {
-            txtFile.write(dp.getCity() + "," + dp.getState() + "," + dp.getCountry() + ","
-                + dp.getConfirmed() + "," + dp.getDeaths() + "," + dp.getRecovered() + "\n");
-          }
-          txtFile.close();
-          saveLabel.setText("File " + fileName + " successfully saved");
-        } catch (Exception ex) {
-
+    loadFileBtn.setOnAction(e -> {
+      load = dm.loadTries(fileTextField.getText());
+      createDisplayModes();
+    });
+    saveFileBtn.setOnAction(e -> {
+      String fileName = fileTextField.getText();
+      if (fileName.equals("File Name"))
+        fileName = "default.csv";
+      if (!(fileName.endsWith(".csv")))
+        fileName += ".csv";
+      List<DataPoint> filtered = ((Table) displayModes[0]).getFilteredList();
+      try {
+        FileWriter txtFile = new FileWriter(fileName);
+        txtFile.write("City,State,Country,Confirmed,Dead,Recovered\n");
+        for (DataPoint dp : filtered) {
+          txtFile.write(dp.getCity() + "," + dp.getState() + "," + dp.getCountry() + ","
+              + dp.getConfirmed() + "," + dp.getDeaths() + "," + dp.getRecovered() + "\n");
         }
+        txtFile.close();
+        saveLabel.setText("File " + fileName + " successfully saved");
+      } catch (Exception ex) {
 
       }
     });
