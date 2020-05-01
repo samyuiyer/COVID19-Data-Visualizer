@@ -3,8 +3,6 @@ package application;
 import java.io.FileWriter;
 import java.util.List;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
@@ -43,9 +41,10 @@ public class DisplayManager extends DisplayMode {
     settingsVisible = true;
     displayNode = new BorderPane();
     settingsNode = new BorderPane();
+    createGlobalSettingsPane();
     createDisplayModes();
     createMenuBar();
-    createGlobalSettingsPane();
+
   }
 
   @Override
@@ -108,17 +107,14 @@ public class DisplayManager extends DisplayMode {
 
     view1.setOnAction(e -> {
       setMode(0);
-      dspModeComboBox.setPromptText("Table Mode");
     });
 
     view2.setOnAction(e -> {
       setMode(1);
-      dspModeComboBox.setPromptText("Map Mode");
     });
 
     view3.setOnAction(e -> {
       setMode(2);
-      dspModeComboBox.setPromptText("Graph Mode");
     });
   }
 
@@ -158,26 +154,15 @@ public class DisplayManager extends DisplayMode {
           .setStyle("-fx-background-color: #" + colorPicker.getValue().toString().substring(2));
     });
 
-    dspModeComboBox.getSelectionModel().selectedItemProperty()
-        .addListener((observable, oldValue, newValue) -> {
-          if (newValue.equals("Table Mode")) {
-            setMode(0);
-          } else if (newValue.equals("Map Mode")) {
-            setMode(1);
-          } else if (newValue.equals("Graph Mode")) {
-            setMode(2);
-          }
-        });
-
     fileTextField.focusedProperty().addListener((observable, oldValue, newValue) -> {
-        if (newValue) {
-          fileTextField.clear();
+      if (newValue) {
+        fileTextField.clear();
+      }
+      if (oldValue) {
+        if (fileTextField.getText().isBlank()) {
+          fileTextField.setText("File Name");
         }
-        if (oldValue) {
-          if (fileTextField.getText().isBlank()) {
-            fileTextField.setText("File Name");
-          }
-        }
+      }
     });
 
     dspModeComboBox.getSelectionModel().selectedItemProperty()
@@ -199,9 +184,9 @@ public class DisplayManager extends DisplayMode {
 
     globalSettings = settingsPanel;
     loadFileBtn.setOnAction(e -> {
-      displayNode.setCenter(new Label("Loading File(s)... \r\n Please wait."));
+      displayNode.setCenter(new Label("Loading File(s)..."));
       load = dm.loadTries(fileTextField.getText());
-      createDisplayModes();
+      setMode(0);
     });
     saveFileBtn.setOnAction(e -> {
       String fileName = fileTextField.getText();
@@ -226,6 +211,7 @@ public class DisplayManager extends DisplayMode {
   }
 
   private void setMode(int modeNum) {
+    displayModes[modeNum].refresh();
     displayNode.setCenter(displayModes[modeNum].getDisplayPane());
     settingsNode.setCenter(displayModes[modeNum].getSettingsPane());
     if (!load)
@@ -236,6 +222,10 @@ public class DisplayManager extends DisplayMode {
     Platform.exit();
     System.exit(0);
 
+  }
+
+  @Override
+  public void refresh() {
   }
 
 }

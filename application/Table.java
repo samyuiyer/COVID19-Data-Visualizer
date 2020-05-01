@@ -208,4 +208,9 @@ public class Table extends DisplayMode {
     };
   }
 
+  @Override
+  public void refresh() {
+    tableView.refresh();
+  }
+
 }
