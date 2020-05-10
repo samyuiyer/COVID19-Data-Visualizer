@@ -2,7 +2,7 @@
 
 Course: CS400
 
-Semester: Fall 2019
+Semester: Spring 2020
 
 Project name: COVID-19 Data Visualizer
 
