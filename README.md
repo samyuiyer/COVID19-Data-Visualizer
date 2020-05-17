@@ -1,10 +1,4 @@
-# A-Team28
-
-Course: CS400
-
-Semester: Spring 2020
-
-Project name: COVID-19 Data Visualizer
+# COVID-19 Data Visualizer
 
 ## Team Members
 
@@ -45,16 +39,6 @@ To exit out of the program, select "Menu", and then "Exit".
 To load a file: The user's input indicates the folder name which contains all the CSV files. By default, files will be loaded from a folder labeled time_data, but the user's inputted name will change this. 
 
 To save a file: The user will input a file name, to which the currently selected filters/customizations will be applied and stored as a CSV file.
-
-## For grader:
-
-Which team members were on same xteam together?
-
-None
-
-Other notes or comments to the grader:
-
-For a description on how to use this program, click "Help" in the upper menu bar, and then "Tutorial". 
 
 ## Future Work:
 
